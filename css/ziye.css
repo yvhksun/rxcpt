@@ -1,0 +1,185 @@
+﻿@charset "utf-8";
+/* CSS Document */
+/* --------------安检记录 ----------------*/
+.ajspan1 {
+    height: 60px;
+    overflow: hidden;
+    width: 25%;
+    line-height: 60px;
+    font-size: 20px;
+    display: inline-block;
+}
+
+.ajspan2 {
+    height: 60px;
+    line-height: 60px;
+    width: 15%;
+    overflow: hidden;
+    display: inline-block;
+    margin-left: 10%;
+    color: #999999;
+}
+
+.ajspan3 {
+    height: 60px;
+    line-height: 60px;
+    margin-left: 10%;
+    overflow: hidden;
+    display: inline-block;
+    color: red;
+}
+
+.ajimg {
+    height: 60px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 10px;
+    float: right;
+    margin-right: 10%;
+    overflow: hidden;
+}
+/* --------------安检记录 ----------------*/
+
+/* --------------每日任务 ----------------*/
+.mrjf-img {
+    height: 28px;
+    width: 28px;
+    margin-top: 10px;
+}
+
+.mrjf-text {
+    height: 28px;
+    margin-left: 15%;
+    margin-top: -18px;
+    border-bottom: solid 1px #dbdbdb;
+}
+
+.mrjf-span {
+    font-size: 14px;
+    width: 80%;
+    display: inline-table;
+    margin-top: -2%;
+}
+
+.mrjf-img2 {
+    height: 15px;
+    width: 10px;
+    margin-left: 90%;
+    margin-top: -5%;
+}
+/* --------------每日任务 ----------------*/
+
+/* --------------每日积分 ----------------*/
+.marjfjla {
+    width: 100%;
+    display: inline-table;
+}
+
+.mrjfjl1 {
+    width: 20%;
+    margin: 8% 0 8% 5%;
+    display: inline-table;
+    font-size: 17px;
+}
+
+.mrjfjl2 {
+    font-size: 13px;
+    margin: 8% 0 8% 10%;
+    display: inline-table;
+    width: 20%;
+    color: #666666;
+}
+
+.mrjfjl3 {
+    float: right;
+    margin: 8% 8% 0 5%;
+    font-size: 16px;
+    color: #666666;
+}
+/* --------------每日积分 ----------------*/
+
+/* --------------提问记录 ----------------*/
+.twline {
+    border-top: solid 1px #c2c2c2;
+    margin-top: 20px;
+}
+
+.twkg {
+    margin-top: 15px;
+    padding: 0 15px 0 15px;
+}
+
+.twimg {
+    width: 28px;
+    margin-left: 15px;
+}
+
+.twspan1 {
+    display: inline-table;
+    margin-top: -7px;
+    margin-left: 8px;
+    font-size: 20px;
+}
+
+.twspan2 {
+    float: right;
+    font-size: 16px;
+    margin-top: 5px;
+    margin-right: 15px;
+    color: #c2c2c2;
+}
+
+.twspan3 {
+    font-size: 20px;
+    margin-left: 18px;
+    margin-right: 10px;
+}
+
+.twspan4 {
+    margin-left: 18px;
+    margin-right: 10px;
+    margin-top: 15px;
+    color: #00b2e0;
+}
+
+/* --------------提问记录 ----------------*/
+/* --------------礼品券详细 ----------------*/
+.lpqbg {
+    height: 70%;
+    width: 90%;
+    display: inline-table;
+    border-radius: 30px;
+    border: solid 1px #e0e0e0;
+    margin: 5% 5% 5% 5%;
+    -webkit-box-shadow:0px 5px 0px #d3d3d3;
+    background-color:white;
+
+}
+
+.lpqkg {
+    padding: 5% 5% 5% 5%;
+}
+/* --------------礼品券详细 ----------------*/
+
+/* --------------礼品券详细 ----------------*/
+.jltbl {
+    width: 32%;
+    height: 150px;
+    display: inline-table;
+    padding-left: 2px;
+}
+.jltbz {
+    width: 33%;
+    height: 150px;
+    display: inline-table;
+    border-left: solid 1px #4fbef3;
+    border-right: solid 1px #4fbef3;
+}
+.jltbr {
+    width: 32%;
+    height: 150px;
+    display: inline-table;
+}
+
+/* --------------礼品券详细 ----------------*/
+

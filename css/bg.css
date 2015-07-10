@@ -1,0 +1,15 @@
+@charset "utf-8";
+/* CSS Document */
+#afui > #header
+{
+	background-color:#0CF;
+    border-bottom: 0px solid #0088D1;
+}
+#afui > #navbar
+{
+	background-color:#fff;
+}
+#afui #navbar a.pressed
+{
+	background-color:#CCC;
+}

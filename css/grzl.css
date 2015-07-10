@@ -1,0 +1,11 @@
+@charset "utf-8";
+/* CSS Document */
+#afui .list li:first-child {
+	border-top:none;}
+#afui .list li:last-child {
+	border-bottom:none;}
+#afui .button{
+	border-radius:0px;
+	border:none;
+	}
+

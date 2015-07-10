@@ -1,0 +1,16 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+
+    .rm_btn {
+        padding:5px;
+        color:#999;
+        border-radius:5px;
+        border:1px solid #d6d6d6;
+        float:left;
+        margin-left:5px;
+        margin-top:10px;
+    }
+    .rm_btn:hover {
+        text-decoration:none;
+    }

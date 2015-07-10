@@ -1,0 +1,213 @@
+﻿@charset "utf-8";
+/* CSS Document */
+.body {
+    padding: 0px;
+    margin: 0px;
+    border: none;
+}
+
+.panel {
+    padding: 0px;
+    margin: 0px;
+}
+
+h4 {
+    margin-top: 10px;
+}
+
+#main {
+    width: 100%;
+    font-size: 14px;
+}
+
+#topImages > img {
+    width: 100%;
+    height: 140px;
+}
+
+#topImages {
+    width: 100%;
+    height: 15%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+#btn > * {
+    cursor: pointer;
+    padding: 10px;
+    float: left;
+    font-size: 18px;
+    line-height: 45px;
+    width: 50%;
+    height: 70px;
+}
+
+.olidSty {
+    background: #fff;
+    border: #d1d1d1 solid 1px;
+}
+
+#btn:after {
+    display: block;
+    content: "";
+    width: 1px;
+    clear: both;
+}
+
+#con {
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100%;
+}
+
+.cardTitleImag {
+    width: 35%;
+    height: auto;
+    padding-top: 5px;
+}
+
+    .cardTitleImag > img {
+        width: 80%;
+        margin-bottom: 5px;
+        height: auto;
+    }
+
+    #con > div{
+      
+    }
+
+#con > .spbtn > div:first-child {
+    width: 90%;
+}
+
+#con > .spbtn > div:last-child {
+    margin-top:110px;
+    width: 10%;
+}
+
+
+
+#con > .spbtn > div {
+    float: left;
+}
+
+#con > .spbtn {
+    width: 100%;
+}
+
+    #con > .spbtn > div:after {
+        display: block;
+        content: "";
+        width: 1px;
+        clear: both;
+    }
+
+
+#con > .spbtn > div>div{
+    float:left ;
+}
+
+#con > .spbtn > div>div:after{
+       display: block;
+        content: "";
+        width: 1px;
+        clear: both;
+}
+
+
+.cardContent {
+    margin-top: 3%;
+}
+
+    .cardContent > div {
+        line-height: 18px;
+        float: right;
+    }
+
+        .cardContent > div > img {
+            width: 16px;
+            height: auto;
+            margin-bottom: 3px;
+        }
+
+.cardContent {
+    width: 63%;
+    margin-left: 2%;
+}
+
+/*----------按钮样式----------- */
+#parBtn {
+    margin-top: -3px;
+    position: relative;
+}
+
+.clsShow {
+    color: #fff;
+    background-color: #2ec1e6;
+    border-bottom: none;
+}
+
+.clsBtnShow {
+    width: 100%;
+    background-color: #2ec1e6;
+    position: absolute;
+    z-index:999;
+    top: 70px;
+    left: 0px;
+    display: none;
+}
+
+    .clsBtnShow div > span {
+        height: 35px;
+        line-height: 35px;
+        text-align: center;
+        cursor: pointer;
+        display: block;
+        float: left;
+        width: 25%;
+        border-left: solid 1px #73e1fd;
+        border-right: solid 1px #1a93b2;
+        margin: 3px 0px;
+        color: white;
+    }
+
+    .clsBtnShow > div:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+
+    .clsBtnShow > div {
+        width: 90%;
+        margin: 0px auto;
+        border-bottom: solid 1px #73e1fd;
+        border-top: solid 1px #1a93b2;
+    }
+
+        .clsBtnShow > div > span:first-child {
+            border-left: none;
+        }
+
+        .clsBtnShow > div > span:last-child {
+            border-right: none;
+        }
+
+        .clsBtnShow > div:first-child {
+            border-top: none;
+        }
+
+        .clsBtnShow > div:last-child {
+            border-bottom: none;
+        }
+
+
+
+#afui #navbar a.pressed {
+    background: #5ED9FC;
+}
+
+
+
+.lowLight{
+    color:#ddd;
+}

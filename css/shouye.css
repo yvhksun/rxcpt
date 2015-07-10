@@ -1,0 +1,20 @@
+@charset "utf-8";
+/* CSS Document */
+        .bimg
+		{
+			width:32%; 
+			display:inline-table;
+			 padding-left:5%; 
+			 padding-right:5%;
+		}
+		.simg
+		{
+			width:32%;
+			 display:inline-table; 
+			 padding-left:8%; 
+			 padding-right:8%;
+		}
+		.img
+		{
+			width:100%;
+		}
