@@ -172,6 +172,9 @@
 
     <script type="text/javascript" src="js/jfs.js"></script>
     <style>
+        input:focus{
+            outline:none;
+        }
         #afui .panel {
             padding: 0px;
         }
@@ -974,12 +977,16 @@
 
             <!-------------------------------------交流专区------------------------------------------>
             <div title="交流专区" class="panel" id="jjzq" data-header="hjjzq" data-footer="custom_footer" data-tab="footer_jfshop" style=" width:100%;" selected="true">
-                <div style="height:70px;display:inline-table;width:100%; ">
-                    <img src="img/jlzq/jlss.jpg" style="height:32px;width:260px;margin:10px 0 0 6%;" />
+                <div style="height:auto;width:100%;">
+                    <!--<img src="img/jlzq/jlss.jpg" style="height:32px;width:260px;margin:10px 0 0 6%;" />
                     <img src="img/jlzq/twjlimg.jpg" style="height:65px;width:60px;margin-left:10px;margin-bottom :-13px;"/>
-                    <input type="text"  placeholder="搜索" style=" width:200px;height:29px;margin-left:8%;margin-top :-30px;border:none;" />
+                    <input type="text"  placeholder="搜索" style=" width:200px;height:29px;margin-left:8%;margin-top :-30px;border:none;" />-->
+                    <div style="float:left;width:75%;margin:10px 10px 10px 5%"><input type="text" id="mySearch" placeholder="搜索" style="border:red 1px solid;width:100%; height:40px; border-radius:25px;background-image:url(img/jlzq/search.png); background-position-x:right;background-size:contain;background-repeat:no-repeat;" /></div>
+                    <a href="#" style="height:35px;width:35px;display:inline-block;margin-left:-45px;">&nbsp;</a>
+                    <div style ="float:left;"><img src="img/jlzq/TiWen.png" style="height:60px;width:55px;" /></div>
+                    <div style="clear:both"></div>
                 </div>
-                <a href="#" style="height:32px;width:32px;display:inline-table;margin:-42px 0 0 250px;">&nbsp;</a>
+                
                 <a href="#" style="height:40px;width:40px;display:inline-table;margin:-43px 0 0 300px;">&nbsp;</a>
 
                 <a>
