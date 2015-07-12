@@ -1831,6 +1831,39 @@
 
 
     $("#btnQianDao").click(qianDao);//点击立刻签到按钮
+
+    function qianDao() { //用户中心主页面签到
+        var myId = window.localStorage["id"];
+        //alert(myId)
+        $.ajax({
+            url: "http://www.shrxc.com/api/apitest/qiandao",
+            data: { "id": myId },
+            dataType: "jsonp",
+            jsonp: "callback",
+            type: "GET",
+            success: function (data) {
+                if (data == "1") {
+                    toast("签到成功", 1000);
+                }
+                else if (data == "-1") {
+                    toast("你今天已经签过了", 1000);
+                }
+                else {
+                    toast("请重新登录", 1000);
+                    $.ui.loadContent("#login");
+                }
+            },
+            error: function () {
+            $.ui.loadContent("#login");
+            }
+        })
+    }//用户中心主页面签到
+
+
+    $("#sign").click(qianDao);//点击立刻签到按钮 
+
+
+
 </script>
 
 <style type="text/css">
