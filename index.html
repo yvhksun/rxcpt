@@ -1883,15 +1883,19 @@
 
 
     //---------------------------------------------------------------------------------------------------------------
-
-    $("input[name='search']").blur(function () { $.query("#navbar").show(); });//当快速安检输入框失去焦点的时候
-
-    $("input[name='search']").focus(function () { $.query("#navbar").hide(); });//当快速安检输入框失去焦点的时候
-
-
-
-
-
+    var keyboardval = 0;
+    function onKeyboardHide() {//当键盘隐藏时，对data-footer显示
+        if(keyboardval!=0){
+            $.query("#navbar").css("display","block");
+            keyboardval = 0;
+        }
+    }//当键盘隐藏时，对data-footer显示
+    function onKeyboardShow() {//当键盘显示时，对data-footer显示
+        if($.query("#navbar").css("display")!="none"){
+            keyboardval=1;
+            $.query("#navbar").css("display","none");
+        }
+    }//当键盘显示时，对data-footer显示
     function qianDao() { //每日签到
         var myId = window.localStorage["id"];
         //alert(myId)
