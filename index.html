@@ -944,28 +944,61 @@
             </div>
             <!-------------------------------------礼品劵------------------------------------------>
             <!-------------------------------------预约记录------------------------------------------>
-            <div title="预约记录" class="panel" id="yyjl" data-header="hyyjl" data-footer="none" data-tab="footer_jfshop" style=" width:100%; background-color:#f0f0f0;">
+            <div title="预约记录" class="panel" id="yyjl" data-header="hyyjl" data-footer="none" data-tab="footer_jfshop" data-load="yyjl" style=" width:100%; background-color:#f0f0f0;selected=" true"">
 
-                <div style=" background-color:#FFF; margin:10px 10px 0 10px;padding:5px 0 5px 15px;border-left:solid 4px #cea6e5">
-                    <div style="height:30px;line-height:30px;width:100%; display:inline-table;">
-                        <span>公司名称：</span><span>鼎洋资产</span>
-                    </div>
-                    <div style="height:30px;line-height:30px;width:100%; display:inline-table;">
-                        <span>产品名称：</span><span>票据贴现-承兑（三个月内）</span>
-                    </div>
-                    <div style="height:30px;line-height:30px;width:100%; display:inline-table;">
-                        <span>预约日期：</span><span>2015-01-01</span>
-                    </div>
-                    <div style="height:30px;line-height:30px;width:100%; display:inline-table;">
-                        <span>预约金额：</span><span>10万元</span>
-                    </div>
-                    <div style="height:30px;line-height:30px;width:100%; display:inline-table;">
-                        <span>备&nbsp;&nbsp;注：</span><span></span>
-                    </div>
-                    <div style="height:30px;line-height:30px;width:100%; display:inline-table;">
-                        <span>状&nbsp;&nbsp;态：</span><span></span>
-                    </div>
-                </div>
+                <div id="yyadd"></div>
+                <script>
+                    function yyjl() {
+
+                        var id = window.localStorage["id"];
+                        alert(id)
+                        $.ajax({
+                            url: "http://120.24.220.249/api/apitest/yy?id=" + id,
+                            type: "GET",
+                            dataType: "jsonp",
+                            jsonp: "callback",
+                            success: function (data) {
+                                $.each(data, function (k, vaule) {
+                                  var item = $(
+                                        "<div style=' background-color:#FFF; margin:10px 10px 0 10px;padding:5px 0 5px 15px;border-left:solid 4px #cea6e5'>" +
+                   "<div style='height:30px;line-height:30px;width:100%; display:inline-table;'>" +
+                       "<span>公司名称：</span><span id='yygsjc'>鼎洋资产</span>" +
+                    "</div>" +
+                    "<div style='height:30px;line-height:30px;width:100%;'>" +
+                    "<span>产品名称：</span><span id='yycpmc'>票据贴现-承兑（三个月内）</span>" +
+                                    " </div>" +
+                                    "<div style='height:30px;line-height:30px;width:100%;'>" +
+                                    "<span>预约日期：</span><span id='yytime'>2015-01-01</span>" +
+                                    " </div>" +
+                                    "<div style='height:30px;line-height:30px;width:100%;'>" +
+                                    " <span>预约金额：</span><span id='yymoney'>10</span>万元" +
+                                    " </div>" +
+                                    " <div style='height:30px;line-height:30px;width:100%; '>" +
+                                    "  <span>备&nbsp;&nbsp;注：</span><span id='yybz'></span>" +
+                                    " </div>" +
+                                    " <div style='height:30px;line-height:30px;width:100%; '>" +
+                                    "  <span>状&nbsp;&nbsp;态：</span><span id='yyzt'></span>" +
+                                    " </div>" +
+                                    " </div>");
+                                  $("#yyadd").append(item);
+
+
+                                    $("#yygsjc").text(vaule.seller.gsjc);
+
+                                    $("#yycpmc").text(vaule.name);
+                                    $("#yytime").text(vaule.createtime);
+                                    $("#yymoney").text(vaule.money);
+                                    //$("#yybz").text(vaule.celler.gsjc);
+                                    //$("#yyzt").text(vaule.celler.gsjc);
+
+                                })
+                            },
+                            error: function () {
+                                alert("2")
+                            }
+                        })
+                    }//////////////////积分商城商品详情
+                </script>
             </div>
             <!-------------------------------------预约记录------------------------------------------>
             <!-------------------------------------交流专区------------------------------------------>
