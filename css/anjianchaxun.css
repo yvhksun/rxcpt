@@ -1,0 +1,61 @@
+@charset "utf-8";
+/* CSS Document */
+        .divName {
+            text-align: center;
+            padding: 8px 0;
+            font-size: 18px;
+        }
+
+        .sp_Name {
+            display: inline-block;
+            margin-top: 8px;
+        }
+
+        .div_Left {
+            width: 20%;
+            height: 500px;
+            float: left;
+            border-top: 1px solid #bdbdbd;
+            background-color: #f0f0f0;
+        }
+
+        .div_Right {
+            width: 80%;
+
+            float: right;
+            border-top: 1px solid #bdbdbd;
+
+        }
+
+        .div_LSmall {
+            width: 100%;
+            height: 100px;
+            color: #fff;
+            text-align: center;
+            background-color: #27d6ca;
+            font-size: 18px;
+        }
+
+        .div_LeftSmall {
+            width: 100%;
+            height: 100px;
+            color: #666666;
+            border-top: 1px solid #fff;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .div_xinxi {
+            display: inline-block;
+            margin-top: 5px;
+        }
+
+        .div_position {
+            position: relative;
+            top: 25px;
+        }
+        .LiSize {
+
+        vertical-align:middle;        
+        }
+
