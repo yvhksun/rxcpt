@@ -304,7 +304,7 @@
                             <li style="height:25px;margin:5px 0; margin-top:10px;"><img style="position:relative; top:-19px; left:0px; width:14px; " src="img/shopdetail/222_06.png" /><p style="position:relative;top:-47px;padding-left:25px;">活动类型：<span id="sp_Type">礼品券</span></p></li>
                             <li style="height:25px;margin-bottom:5px;"><img style="position:relative; top:-19px; left:0px; width:14px;  " src="img/shopdetail/222_06.png" /><p style="position:relative;top:-47px;padding-left:25px;">活动公司：<span id="sp_Title">中间金融</span></p></li>
                             <li style="height:25px;margin-bottom:5px;"><img style="position:relative; top:-19px; left:0px; width:14px; " src="img/shopdetail/222_06.png" /><p style="position:relative;top:-47px;padding-left:25px;">兑换地区：<span id="sp_Area">虹口区</span></p></li>
-                            <li style="height:30px;margin-bottom:5px;"><img style="position:relative; top:-19px; left:0px; width:14px; " src="img/shopdetail/222_06.png" /><p style="position:relative;top:-47px;padding-left:25px;">活动时间：<span id="sp_Begin">2015/6/9</span>-<span id="sp_End">2015/7/9</span></p></li>
+                            <li style="height:30px;margin-bottom:5px;"><img style="position:relative; top:-19px; left:0px; width:14px; " src="img/shopdetail/222_06.png" /><p style="position:relative;top:-47px;padding-left:25px;">活动时间：<span id="sp_Begin">2015/6/9</span>日~<span id="sp_End">2015/7/9</span>日</p></li>
                             <li style="height:5px;padding-bottom:5px;"><img style="position:relative; top:-19px; left:0px; width:14px; " src="img/shopdetail/222_06.png" /><div style="position:relative;top:-40px;padding-left:25px;font-size:14px; ">活动地址：<p id="p_Address" style="padding:0px; margin:0px;position:relative;top:-18px;left:70px;">大连路839号合生财富广场北楼603<p></div></li>
                         </ul>
                     </div>
@@ -486,13 +486,13 @@
                 <div class="aup" style="margin-top:20px;">
 
                     <div class="a1"></div>
-                    <a class="a1" href="#lpjuan">
+                    <a class="a1" href="#lpjuan" id="btnLipinQuan">
                         <img class="aimg" src="img/jfzy/user_lpq.png" />
                         <div class="aspan">礼品券</div>
                         <img class="aright" src="img/jfzy/user_right.png" />
                     </a>
                     <div class="link"></div>
-                    <a class="a1">
+                    <a class="a1" href="#lpjuan" id="btnHuodongQuan">
                         <img class="aimg" src="img/jfzy/user_jifen.png" />
                         <div class="aspan">活动券</div>
                         <img class="aright" src="img/jfzy/user_right.png" />
@@ -516,25 +516,25 @@
             </div>
             <!-------------------------------------用户中心------------------------------------------>
             <!------------------------------------礼品券详细----------------------------------------->
-            <div id="lpqxx" title="礼品券详细" class="panel" data-header="hlpqxx" data-footer="none" data-tab="footer_zhuye" style=" background-color:#f0f0f0;">
+            <div id="lpqxx" class="panel" data-footer="none" data-tab="footer_zhuye" style=" background-color:#f0f0f0;" data-load="fnShowLpInfo">
                 <div class="lpqbg">
                     <div class="lpqkg">
-                        <span>超能陆战队-大白公仔</span><span style="float:right; color:green;">可使用</span>
+                        <span id="lpAndHdTitle">超能陆战队-大白公仔</span><span id="isAvailable" style="float:right; color:#58cc35;">可使用</span>
                     </div>
-                    <img src="img/shopdetail/111_03.png" style="height:30%; width:100%;" />
+                    <img id="showImges" src="img/shopdetail/111_03.png" style="height:30%; width:100%;" />
                     <div class="lpqkg">
                         <div style="margin-bottom:20px;">
                             <span style="margin-bottom:5%;">积分</span><span style="float:right;margin-bottom:5%;">活动公司</span>
                         </div>
                         <div>
-                            <span style="font-size: 20px; color: #fa9532">200</span><span>分</span><span style="float:right; font-size:20px;">金田金融</span>
+                            <span style="font-size: 20px; color: #fa9532" id="hasScore">200</span><span>分</span><span style="float:right; font-size:20px; font-weight:bold;color:#666666" id="myCompany">金田金融</span>
                         </div>
                         <div style="border:solid 1px #c7c7c7;margin:5% 0 5% 0"></div>
                         <div>券码</div>
                         <div style="margin: 15% 0 15% 20%; font-size: 20px; color: #36b4de;">
-                        <span style="border: solid 1px #c7c7c7;padding:10px 25% ">qq123</span>
+                            <span style="border: solid 1px #c7c7c7;padding:10px 25% " id="myCoid">qq123</span>
                         </div>
-                        <div style="width: 70%; margin-left: 15%; color: #8f8f8f">有效日期:2015.06.22-2015.06.30</div>
+                        <div style="width: 70%; margin-left: 15%; color: #8f8f8f" id="isEffective"></div>
                     </div>
                 </div>
             </div>
@@ -848,101 +848,11 @@
             </div>
             <!--------------------------------------积分记录详情------------------------------------->
             <!-------------------------------------礼品劵------------------------------------------>
-            <div title="礼品劵" class="panel" id="lpjuan" data-header="l_p_q" data-footer="custom_footer" data-tab="footer_jfshop" style=" width:100%; background-color:#f0f0f0;">
-
-                <div style=" background-color:#FFF; margin-top:10px;">
-                    <div id="con" style="padding: 0; border-bottom:#cccccc solid 1px; border-top:#cccccc solid 1px;">
-                        <a class="spbtn" syle="direction:none;" href="#lpqxx">
-                            <div class="cardTitleImag" style="display: inline; width: 105px;">
-                                <img src="img/lpjuan/CardImages_03.png" style="margin-left: 6px;width: 95px;" />
-                            </div>
-                            <span style="float:right;">
-                                <img src="img/lpjuan/lpj_unuse.jpg" style="width: 45px;" />
-                            </span>
-                            <span class="cardContent" style="display: block; margin-top: 4%;margin-right:10px;width: auto">
-                                <h3><strong>晋田金融</strong></h3>
-                                <span style="margin-top:10px;">所需积分：<span style='color:#ff7372'>200</span></span>
-                                <span><br />有效期：</span><span style='color:#4fbef3'>2015.06.20-2015.06.30</span><br />
-                            </span>
-                        </a>
-                    </div>
-                </div>
-
-                <div style=" background-color:#FFF; margin-top:10px;">
-                    <div id="con" style="padding: 0; border-bottom:#cccccc solid 1px; border-top:#cccccc solid 1px;">
-                        <a class="spbtn" syle="direction:none;" href="#lpqxx">
-                            <div class="cardTitleImag" style="display: inline; width: 105px;">
-                                <img src="img/lpjuan/CardImages_03.png" style="margin-left: 6px;width: 95px;" />
-                            </div>
-                            <span style="float:right;">
-                                <img src="img/lpjuan/lpj_unuse.jpg" style="width: 45px;" />
-                            </span>
-                            <span class="cardContent" style="display: block; margin-top: 4%;margin-right:10px;width: auto">
-                                <h3><strong>晋田金融</strong></h3>
-                                <span style="margin-top:10px;">所需积分：<span style='color:#ff7372'>200</span></span>
-                                <span><br />有效期：</span><span style='color:#4fbef3'>2015.06.20-2015.06.30</span><br />
-                            </span>
-                        </a>
-                    </div>
-                </div>
-
-                <div style=" background-color:#FFF; margin-top:10px;">
-                    <div id="con" style="padding: 0; border-bottom:#cccccc solid 1px; border-top:#cccccc solid 1px;">
-                        <a class="spbtn" syle="direction:none;" href="#lpqxx">
-                            <div class="cardTitleImag" style="display: inline; width: 105px;">
-                                <img src="img/lpjuan/CardImages_03.png" style="margin-left: 6px;width: 95px;" />
-                            </div>
-                            <span style="float:right;">
-                                <img src="img/lpjuan/lpj_unuse.jpg" style="width: 45px;" />
-                            </span>
-                            <span class="cardContent" style="display: block; margin-top: 4%;margin-right:10px;width: auto">
-                                <h3><strong>晋田金融</strong></h3>
-                                <span style="margin-top:10px;">所需积分：<span style='color:#ff7372'>200</span></span>
-                                <span><br />有效期：</span><span style='color:#4fbef3'>2015.06.20-2015.06.30</span><br />
-                            </span>
-                        </a>
-                    </div>
-                </div>
-
-                <div style=" background-color:#FFF; margin-top:10px;">
-                    <div id="con" style="padding: 0; border-bottom:#cccccc solid 1px; border-top:#cccccc solid 1px;">
-                        <a class="spbtn" syle="direction:none;" href="#lpqxx">
-                            <div class="cardTitleImag" style="display: inline; width: 105px;">
-                                <img src="img/lpjuan/CardImages_03.png" style="margin-left: 6px;width: 95px;" />
-                            </div>
-                            <span style="float:right;">
-                                <img src="img/lpjuan/lpj_unuse.jpg" style="width: 45px;" />
-                            </span>
-                            <span class="cardContent" style="display: block; margin-top: 4%;margin-right:10px;width: auto">
-                                <h3><strong>晋田金融</strong></h3>
-                                <span style="margin-top:10px;">所需积分：<span style='color:#ff7372'>200</span></span>
-                                <span><br />有效期：</span><span style='color:#4fbef3'>2015.06.20-2015.06.30</span><br />
-                            </span>
-                        </a>
-                    </div>
-                </div>
-
-                <div style=" background-color:#FFF; margin-top:10px;">
-                    <div id="con" style="padding: 0; border-bottom:#cccccc solid 1px; border-top:#cccccc solid 1px;">
-                        <a class="spbtn" syle="direction:none;" href="#lpqxx">
-                            <div class="cardTitleImag" style="display: inline; width: 105px;">
-                                <img src="img/lpjuan/CardImages_03.png" style="margin-left: 6px;width: 95px;" />
-                            </div>
-                            <span style="float:right;">
-                                <img src="img/lpjuan/lpj_unuse.jpg" style="width: 45px;" />
-                            </span>
-                            <span class="cardContent" style="display: block; margin-top: 4%;margin-right:10px;width: auto">
-                                <h3><strong>晋田金融</strong></h3>
-                                <span style="margin-top:10px;">所需积分：<span style='color:#ff7372'>200</span></span>
-                                <span><br />有效期：</span><span style='color:#4fbef3'>2015.06.20-2015.06.30</span><br />
-                            </span>
-                        </a>
-                    </div>
-                </div>
-
-
+            <div class="panel" id="lpjuan"  data-footer="custom_footer" data-load="fnShowTickedbyHuoDong" data-tab="footer_jfshop" style=" width:100%; background-color:#f0f0f0;">
+                <div id="showLiPingQuan"></div>
             </div>
             <!-------------------------------------礼品劵------------------------------------------>
+           
             <!-------------------------------------预约记录------------------------------------------>
             <div title="预约记录" class="panel" id="yyjl" data-header="hyyjl" data-footer="none" data-tab="footer_jfshop" style=" width:100%; background-color:#f0f0f0;">
                
@@ -1523,6 +1433,33 @@
         $("#jfTou_shuzi").text(window.localStorage["score"]);
     } ///////////////////////////////////////////////////////end展示商品
 
+
+    $("#btnShowLeft").children().find("span").click(function () {
+        alert($("#btnShowLeft").children().find("span[clicked =clicked]").text())
+    })
+
+    $("#btnShowRight").children().find("span").click(function () {
+        alert($.afui.innerHTML);
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     var Actid; ///当前选中的礼品ID ///当前选中的礼品ID ///当前选中的礼品ID ///当前选中的礼品ID ///当前选中的礼品ID ///当前选中的礼品ID
 
     function Gotojifengxiangqing(data) {///////设置当前选中的商品ID
@@ -1641,8 +1578,8 @@
                 $("#count").text("1")
                 $("#sp_Title").text(data.title);
                 $("#sp_Area").text(data.area);
-                $("#sp_Begin").text(data.begintime);
-                $("#sp_End").text(data.endtime);
+                $("#sp_Begin").text((data.begintime).substring(0, 10));
+                $("#sp_End").text((data.endtime).substring(0, 10));
                 $("#p_Address").text(data.address);
                 $(".xxjs").html(data.detail);
                 $("#jfsc_MainImg").attr("src", "http://120.24.220.249" + data.imgsrc);
@@ -1660,8 +1597,8 @@
         fnDianZhan(Actid);
     });  //++++++++++++++ 详情页的点赞
     //*************************************** 选择商品数量********************************//
-    $("#add").click(function () {
-
+    $("#add").click(function () {//数量++
+        var max=window.localStorage[""]
         var tempcount = $("#count").html();
         $("#count").html(parseInt(tempcount) + 1);
         var num = $("#count").text()
@@ -1669,7 +1606,7 @@
             $("#del").removeClass("lowLight");
         fnShowScore(parseInt(num));
     })//数量++
-    $("#del").click(function () {
+    $("#del").click(function () {//数量--
         var tempcount = $("#count").html();
         if (parseInt(tempcount) > 1) {
             $("#del").removeClass("lowLight");
@@ -1861,7 +1798,91 @@
 
     $("#sign").click(qianDao);//点击立刻签到按钮 
 
+    function fnGetTickedByType(types)//显示活动或礼品券列表
+    {
+        $("#showLiPingQuan").text("")
+        id = window.localStorage["id"];
+        $.ajax({
+            url: "http://www.shrxc.com/api/apitest/quan",
+            data: { "id": id, "type": types },
+            type: "GET",
+            dataType: "jsonp",
+            jsonp: "callback",
+            success: function (data) {
+              
+                $.each(data, function (key, value) {
+                    var imgsrc = types == "lp" ? (parseInt(value.state) == 0 ? "url(./img/lpjuan/notUse_lp.png)" : "url(./img/lpjuan/useed_lp.png)") : (parseInt(value.state) == 0 ? "url(./img/lpjuan/notUes_hd.png)" : "url(./img/lpjuan/notUes_hd.png)");
+                    var item = "<div onclick='fnClickShow(this)' imgsrc='" + value.activity.imgsrc + "' coid='" + value.coid + "' score='" + value.score + "' gsjc='" + value.seller.gsjc + "'  state='" + value.state + "' titles='" + value.activity.title + "'theDate='有效日期:" + (value.activity.begintime).substring(0, 10) + "日~" + (value.endtime).substring(0, 10) + "日' style='margin-top:5px;padding:5px 10px;border:1px solid #ccc;background-image:" + imgsrc + "; background-position:right top;background-repeat:no-repeat;background-color:#FFF'>"//code
+                        + " <div style='float:left;width:110px;height:90px;background:#4fbef3'><img style='width:100%;height:100%' src='http://www.shrxc.com"+ value.activity.imgsrc+"' /></div>"//code
+                        + "<div style='margin-left:10px;float:left'>"
+                        + "<div style='line-height:35px;font-weight:bolder; font-size:18px;'>" + value.activity.title + "</div>"
+                        + " <div style='line-height:27.5px; font-size:16px;'>所需积分: <span style='color:#ff8a8a'>" + value.score + "</span></div>"
+                        + "<div style='line-height:27.5px; font-size:16px;'>有效期: " + (value.activity.begintime).substring(0,10) + "日 ~" + (value.endtime).substring(0,10) + "日</div>"
+                        + " </div>"
+                        + " <div style='clear:both'></div>"
+                        + "</div>";
+                   
+                    $("#showLiPingQuan").append(item);
+                })
 
+            },
+            error:function(){}
+        })
+    }
+    var lpAndHdInfo //礼品和活动详情实体
+    function fnClickShow(thisEv) {//填充礼品和活动详情实体
+        lpAndHdInfo = {
+            coid: thisEv.getAttribute("coid"),
+            score: thisEv.getAttribute("score"),
+            gsjc: thisEv.getAttribute("gsjc"),
+            state: thisEv.getAttribute("state"),
+            titles: thisEv.getAttribute("titles"),
+            imgsrc: thisEv.getAttribute("imgsrc"),
+            theDate: thisEv.getAttribute("theDate")
+        }
+     
+     $.ui.loadContent("#lpqxx");
+    }//跳转页面并保存详情实体
+
+    function fnShowLpInfo() {//显示礼品或活动详情
+
+        var myTitle = LipinOrHuodong == "lp" ? "礼品券" : "活动券";
+
+        $("#lpAndHdTitle").text(lpAndHdInfo.titles);
+        $("#isAvailable").text(parseInt(lpAndHdInfo.state)==0?"可使用":"已使用");
+        $("#hasScore").text(lpAndHdInfo.score);
+        $("#myCompany").text(lpAndHdInfo.gsjc);
+        $("#myCoid").text(lpAndHdInfo.coid);
+        $("#isEffective").text(lpAndHdInfo.theDate);
+
+        $("#showImges").attr("src", "http://www.shrxc.com" + lpAndHdInfo.imgsrc);
+    }
+
+    function fnShowTickedbyLiPing() {////显示礼品券领取记录
+      
+        fnGetTickedByType("lp");
+    }
+    
+    var LipinOrHuodong /// 标识点击的是活动券还是礼品券   
+
+
+    $("#btnHuodongQuan").click(function () { LipinOrHuodong = "hd" });
+    $("#btnLipinQuan").click(function () { LipinOrHuodong = "lp" });
+
+
+
+    function fnShowTickedbyHuoDong() {////显示礼品券领取记录
+        var myTitle=LipinOrHuodong=="lp"?"礼品券":"活动券";
+
+        $("#lpjuan").attr("data-title", myTitle);
+        fnGetTickedByType(LipinOrHuodong);
+    }
+                       
+                      
+                       
+                  
+                  
+               
 
 </script>
 
