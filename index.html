@@ -102,7 +102,7 @@
         /* This function runs once the page is loaded, but intel.xdk is not yet active */
         //$.ui.animateHeaders=false;
 
-//钱琪的测试同步
+        //钱琪的测试同步
 
         $.ui.ready(function () {
             $("#afui").get(0).className = 'myandroid';
@@ -172,9 +172,10 @@
 
     <script type="text/javascript" src="js/jfs.js"></script>
     <style>
-        input:focus{
-            outline:none;
+        input:focus {
+            outline: none;
         }
+
         #afui .panel {
             padding: 0px;
         }
@@ -203,15 +204,14 @@
             padding: 3px;
             height: 55px;
         }
-      /*----------------------个人资料详情---------------------**/
-        #afui input[type=text]
-			 {
-				 margin-bottom:0px;
-				 }
-		#afui input[type=email]
-			 {
-				 margin-bottom:0px;
-				 }
+        /*----------------------个人资料详情---------------------**/
+        #afui input[type=text] {
+            margin-bottom: 0px;
+        }
+
+        #afui input[type=email] {
+            margin-bottom: 0px;
+        }
     </style>
 
 
@@ -371,7 +371,7 @@
             </div>
             <!----------------------------------积分商城详情页--------------------------------------->
             <!---------------------------------------主页-------------------------------------------->
-            <div id="zhuye" title="主页" class="panel" data-header="head" data-footer="custom_footer" data-tab="footer_zhuye" selected="true">
+            <div id="zhuye" title="主页" class="panel" data-header="hzhuye" data-footer="custom_footer" data-tab="footer_zhuye" selected="true">
                 <div style="height:45px;"></div>
                 <div>
                     <a href="/mobile/check">
@@ -418,7 +418,7 @@
             </div>
             <!---------------------------------------主页-------------------------------------------->
             <!---------------------------------------搜索-------------------------------------------->
-            <div id="sous" title="主页" class="panel" data-header="head" data-footer="custom_footer" data-tab="footer_zhuye">
+            <div id="sous" title="安检专区" class="panel" data-header="head" data-footer="custom_footer" data-tab="footer_zhuye">
                 <div class="row" style="margin-top:20px;padding:0 20px;">
                     <form method="get" action="/mobile/CheckList">
                         <input type="text" name="search" style="width:75%; border:2px solid #a9deec;font-size:20px;font-family:'Microsoft YaHei';border-radius:10px;height:45px;" placeholder="快速安检" />
@@ -438,7 +438,7 @@
             </div>
             <!---------------------------------------搜索-------------------------------------------->
             <!-------------------------------------用户中心------------------------------------------>
-            <div id="yhzx" title="用户中心" class="panel y-scroll" data-header="head" data-footer="custom_footer" data-load="showUserinfo" data-tab="footer_yhzx">
+            <div id="yhzx" title="用户中心" class="panel y-scroll" data-header="hyhzx" data-footer="custom_footer" data-load="showUserinfo" data-tab="footer_yhzx">
                 <div id="username">
                     <span><img src="img/jfzy/bg_user.jpg" style="height:200px; width:100%; position:absolute;"></span>
                     <div style=" width:250px; z-index:11; position:absolute; top:50px; left:15%;">
@@ -456,7 +456,7 @@
                     <img class="aright" src="img/jfzy/user_right.png" />
                 </a>
                 <div class="aup" style="margin-top:20px;">
-               
+
                     <a href="#hyzx_wdjf" class="a1">
                         <img class="aimg" src="img/jfzy/user_jifen.png" />
                         <div class="aspan">我的积分</div>
@@ -532,7 +532,11 @@
                         <div style="border:solid 1px #c7c7c7;margin:5% 0 5% 0"></div>
                         <div>券码</div>
                         <div style="margin: 15% 0 15% 20%; font-size: 20px; color: #36b4de;">
+<<<<<<< HEAD
                             <span style="border: solid 1px #c7c7c7;padding:10px 25% " id="myCoid">qq123</span>
+=======
+                            <span style="border: solid 1px #c7c7c7;padding:10px 25% ">qq123</span>
+>>>>>>> origin/master
                         </div>
                         <div style="width: 70%; margin-left: 15%; color: #8f8f8f" id="isEffective"></div>
                     </div>
@@ -564,14 +568,14 @@
                             <img class="mrjf-img2" src="img/jfzy/user_right.png" />
                         </div>
                     </a>
-                    <a class="a1">
+                    <a href="#jfshop" class="a1">
                         <img class="mrjf-img " src="img/mrqd/icon_zan.png" />
                         <div class="mrjf-text">
                             <span class="mrjf-span">每日首次点赞+5积分</span>
                             <img class="mrjf-img2" src="img/jfzy/user_right.png" />
                         </div>
                     </a>
-                    <a class="a1">
+                    <a href="#jjzq" class="a1">
                         <img class="mrjf-img " src="img/mrqd/icon_help.png" />
                         <div class="mrjf-text">
                             <span class="mrjf-span">每日首次提问+5积分</span>
@@ -854,83 +858,134 @@
             <!-------------------------------------礼品劵------------------------------------------>
            
             <!-------------------------------------预约记录------------------------------------------>
-            <div title="预约记录" class="panel" id="yyjl" data-header="hyyjl" data-footer="none" data-tab="footer_jfshop" style=" width:100%; background-color:#f0f0f0;">
-               
-                <div style=" background-color:#FFF; margin:10px 10px 0 10px;padding:5px 0 5px 15px;border-left:solid 4px #cea6e5">
-                    <div style="height:30px;line-height:30px;width:100%; display:inline-table;">
-                        <span>公司名称：</span><span>鼎洋资产</span>
-                    </div>
-                    <div style="height:30px;line-height:30px;width:100%; display:inline-table;">
-                        <span>产品名称：</span><span>票据贴现-承兑（三个月内）</span>
-                    </div>
-                    <div style="height:30px;line-height:30px;width:100%; display:inline-table;">
-                        <span>预约日期：</span><span>2015-01-01</span>
-                    </div>
-                    <div style="height:30px;line-height:30px;width:100%; display:inline-table;">
-                        <span>公司名称：</span><span>10万元</span>
-                    </div>
-                    <div style="height:30px;line-height:30px;width:100%; display:inline-table;">
-                        <span>备&nbsp;&nbsp;注：</span><span></span>
-                    </div>
-                    <div style="height:30px;line-height:30px;width:100%; display:inline-table;">
-                        <span>状&nbsp;&nbsp;态：</span><span></span>
-                    </div>
-                </div>
+            <div title="预约记录" class="panel" id="yyjl" data-header="hyyjl" data-footer="none" data-tab="footer_jfshop" data-load="yyjl" style=" width:100%; background-color:#f0f0f0;selected=" true"">
 
+                <div id="yyadd"></div>
+                <script>
+                    function yyjl() {
+                        var id = window.localStorage["id"];
+                        $.ajax({
+                            url: "http://120.24.220.249/api/apitest/yy?id=" + id,
+                            type: "GET",
+                            dataType: "jsonp",
+                            jsonp: "callback",
+                            success: function (data) {
+                                $.each(data, function (k, vaule) {
+                                    var item = $(
+                                          "<div style=' background-color:#FFF; margin:10px 10px 0 10px;padding:5px 0 5px 15px;border-left:solid 4px #cea6e5'>" +
+                     "<div style='height:30px;line-height:30px;width:100%; display:inline-table;'>" +
+                         "<span>公司名称：</span><span id='yygsjc'>鼎洋资产</span>" +
+                      "</div>" +
+                      "<div style='height:30px;line-height:30px;width:100%;'>" +
+                      "<span>产品名称：</span><span id='yycpmc'>票据贴现-承兑（三个月内）</span>" +
+                                      " </div>" +
+                                      "<div style='height:30px;line-height:30px;width:100%;'>" +
+                                      "<span>预约日期：</span><span id='yytime'>2015-01-01</span>" +
+                                      " </div>" +
+                                      "<div style='height:30px;line-height:30px;width:100%;'>" +
+                                      " <span>预约金额：</span><span id='yymoney'>10</span>万元" +
+                                      " </div>" +
+                                      " <div style='height:30px;line-height:30px;width:100%; '>" +
+                                      "  <span>备&nbsp;&nbsp;注：</span><span id='yybz'></span>" +
+                                      " </div>" +
+                                      " <div style='height:30px;line-height:30px;width:100%; '>" +
+                                      "  <span>状&nbsp;&nbsp;态：</span><span id='yyzt'></span>" +
+                                      " </div>" +
+                                      " </div>");
+                                    $("#yyadd").append(item);
+
+
+                                    $("#yygsjc").text(vaule.seller.gsjc);
+
+                                    $("#yycpmc").text(vaule.name);
+                                    $("#yytime").text(vaule.createtime);
+                                    $("#yymoney").text(vaule.money);
+                                    //$("#yybz").text(vaule.celler.gsjc);
+                                    //$("#yyzt").text(vaule.celler.gsjc);
+
+                                })
+                            },
+                            error: function () {
+                                alert("错误哦")
+                            }
+                        })
+                    }//////////////////积分商城商品详情
+                </script>
             </div>
             <!-------------------------------------预约记录------------------------------------------>
-
             <!-------------------------------------交流专区------------------------------------------>
             <div title="交流专区" class="panel" id="jjzq" data-header="hjjzq" data-footer="custom_footer" data-tab="footer_jfshop" style=" width:100%;">
                 <div style="height:auto;width:100%;margin:10px 0px ">
                     <!--<img src="img/jlzq/jlss.jpg" style="height:32px;width:260px;margin:10px 0 0 6%;" />
                     <img src="img/jlzq/twjlimg.jpg" style="height:65px;width:60px;margin-left:10px;margin-bottom :-13px;"/>
                     <input type="text"  placeholder="搜索" style=" width:200px;height:29px;margin-left:8%;margin-top :-30px;border:none;" />-->
-                    <div style="float:left;width:70%;margin:10px 10px 10px 5%"><input type="text" id="mySearch" placeholder="搜索" style="border:red 1px solid;width:100%; height:40px; border-radius:25px;background-image:url(img/jlzq/search.png); background-position-x:right;background-size:contain;background-repeat:no-repeat;" />
-                    
+                    <div style="float:left;width:70%;margin:10px 10px 10px 5%">
+                        <input type="text" id="mySearch" placeholder="搜索" style="border:red 1px solid;width:100%; height:40px; border-radius:25px;background-image:url(img/jlzq/search.png); background-position-x:right;background-size:contain;background-repeat:no-repeat;" />
+
                         <a href="#" style="float:right;height:40px;width:40px;display:inline-block;margin:-40px 0px 0px -40px;">&nbsp;</a>
                     </div>
-                   
-                    <div style ="float:left;"><img src="img/jlzq/TiWen.png" style="height:60px;width:55px;" /><a href="#" style="float:right;height:60px;width:55px;display:inline-block;margin-left:-60px;">&nbsp;</a></div>
+
+                    <a href="#hkstw" style="float:left;">
+                        <img src="img/jlzq/TiWen.png" style="height:60px;width:55px;" />
+                        <a href="#kstw" style=" height:60px;width:55px;display:inline-block;margin-left:-50px;position:absolute;">
+                            &nbsp;
+                        </a>
+                    </a>
                     <div style="clear:both"></div>
                 </div>
-                
-                
+                <div id="jladd"></div>
+                <script>
+                    for (var a = 1; a < 30; a++) {
+                        var item = $(
+                            " <a style='width:33%;height:30px;display:inline-table;'>" +
+                    "<span class='jltbl'>1222</span>" +
+                    
+               " </a>")
+                        $("#jladd").append(item)
+                    }
+                </script>
 
-                <a>
-                    <div style="width:100%;border-top:solid 1px #4fbef3"></div>
-                    <span class="jltbl">123</span>
-                    <span class="jltbz">123</span>
-                    <span class="jltbr">123</span>
-                </a>
-                <a>
-                    <div style="width:100%;border-top:solid 1px #4fbef3"></div>
-                    <span class="jltbl">123</span>
-                    <span class="jltbz">123</span>
-                    <span class="jltbr">123</span>
-                </a>
-                <div>
-                    <div style="width:100%;border-top:solid 1px #4fbef3"></div>
-                    <span class="jltbl">123</span>
-                    <span class="jltbz">123</span>
-                    <span class="jltbr">123</span>
-                </div>
-                <div>
-                    <div style="width:100%;border-top:solid 1px #4fbef3"></div>
-                    <span class="jltbl">123</span>
-                    <span class="jltbz">123</span>
-                    <span class="jltbr">123</span>
-                </div>
-                <div>
-                    <div style="width:100%;border-top:solid 1px #4fbef3"></div>
-                    <span class="jltbl">123</span>
-                    <span class="jltbz">123</span>
-                    <span class="jltbr">123</span>
-                </div>
-  
             </div>
             <!-------------------------------------交流专区------------------------------------------>
+            <!-------------------------------------快速提问------------------------------------------>
+            <div title="快速提问" class="panel" id="kstw" data-header="hkstw" data-footer="none" data-tab="footer_jfshop" style=" width:100%;background-color:#f0f0f0">
+                <img src="img/jlzq/xzgs.jpg" style="height:50px;width:90%;margin:20px 5%">
+                <select onfocus="jlsel()" onblur="imghid()" style=" width:75%;height:40px;margin-left:8%;margin-top:-62px; border:none;color:#b3b3b3">
+                    <option>请选择提问公司</option>
+                    <option>公司1</option>
+                    <option>公司2</option>
+                    <option>公司3</option>
+                </select>
+                <textarea placeholder="请输入提问内容" style="color:#adadad; height:200px;width:86%;margin-left:7%;border:none;margin-top:7%">请输入提问内容</textarea>
+                <div style="width:86%;padding-top:3%; height:40px;margin-left:7%;margin-top:7%;background-color:#42d053;display:inline-table;">
+                    <span style="margin:5% 40%; color:white;font-size:18px;">提&nbsp; &nbsp;&nbsp;交</span>
+                </div>
+                <script>
 
+                </script>
+            </div>
+            <!-------------------------------------快速提问------------------------------------------>
+            <!-------------------------------------近期提问------------------------------------------>
+            <div title="近期提问" class="panel" id="jqtw" data-header="hjqtw" data-footer="none" data-tab="footer_jfshop" style=" width:100%;background-color:#f0f0f0">
+                <div style="background-color:white;margin:10px 10px 0 10px;border-radius:5px;padding:10px;">
+                    <div>
+                        <img src="img/jlzq/jqtw2.jpg" style="float:left;height:22px;width:25px; margin:5px 0 15px 30px;position:absolute;" />
+                        <span style=" margin-top:5px;margin-left:65px; display:inline-table;height:35px;color:#e4b362;font-size:18px;">上海意隆</span>
+                        <img src="img/jlzq/jqtw1.jpg" style="float:right;height:15px;width:15px;margin-top:8px;" />
+                        <div style="color:#83e180;float:right;height:30px;line-height:30px; ">更多</div>
+
+
+                        <div style="border-top:solid 1px #e4b362"></div>
+                        <div style="padding:15px 15px 15px 30px;">
+                            <span>问：</span><span style="line-height:25px;">这里是问题这里是问题这里是问题这里是问题这里是问题这里是问题这里是问题</span>
+                            <div style="height:1px;width:100%;display:inline-table;font-size:3px;">&nbsp;</div>
+                            <span>答：</span><span style="line-height:25px;">这里是答案</span>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-------------------------------------近期提问------------------------------------------>
             <!-------------------------------------- 头---------------------------------------------->
             <header id="mainH">
                 <h1>积分商城</h1>
@@ -938,11 +993,10 @@
                     <span id="jfTou_shuzi" style="font-size:18px;"></span><img style="width:15px;height:15px;" src="img/jfsc_images/jf666.png" />
                 </a>
             </header><!-----------------------------------积分商城------------->
-
             <header id="l_p_q">
                 <a href="#yhzx" class="biaotizuo">
                     <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
-                <h1>礼品劵</h1>
+                    <h1>礼品劵</h1>
                 </a>
                 <a href='#' style="float:right;padding:10px 5px 0px 0px; color:#fff; border:none; text-decoration:none;"></a>
             </header><!-------------------------------------礼品劵-------------->
@@ -1069,6 +1123,25 @@
 
                 <h1>交流专区</h1>
             </header><!---------------------------------交流专区--------->
+            <header id="hkstw">
+                <a href="#jjzq" class="biaotizuo">
+                    <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
+                </a>
+                <h1>快速提问</h1>
+                <a href='#jqtw' style="float:right;padding:12px 5px 0px 0px; color:#fff; border:none; text-decoration:none;">近期提问</a>
+            </header><!---------------------------------快速提问--------->
+            <header id="hzhuye">
+                <h1>首页</h1>
+            </header><!---------------------------------首页--------->
+            <header id="hyhzx">
+                <h1>我的</h1>
+            </header><!---------------------------------我的--------->
+            <header id="hjqtw">
+                <a href="#kstw" class="biaotizuo">
+                    <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
+                </a>
+                <h1>近期提问</h1>
+            </header><!---------------------------------近期提问--------->
             <!--------------------------------------- 头--------------------------------------------->
             <!--------------------------------------- 尾--------------------------------------------->
             <footer id="custom_footer">
@@ -1109,35 +1182,35 @@
                     })
 
 
-                var hideall = function () {
-                    $("#footer_zhuye").find("img").attr("src", "img/footerimg/icon-home.png")
-                    $("#footer_anjian").find("img").attr("src", "img/footerimg/icon-search.png")
-                    $("#footer_jiaoliu").find("img").attr("src", "img/footerimg/icon-chat.png")
-                    $("#footer_jfshop").find("img").attr("src", "img/footerimg/icon-shop.png")
-                    $("#footer_yhzx").find("img").attr("src", "img/footerimg/icon-user.png")
-                }
+                    var hideall = function () {
+                        $("#footer_zhuye").find("img").attr("src", "img/footerimg/icon-home.png")
+                        $("#footer_anjian").find("img").attr("src", "img/footerimg/icon-search.png")
+                        $("#footer_jiaoliu").find("img").attr("src", "img/footerimg/icon-chat.png")
+                        $("#footer_jfshop").find("img").attr("src", "img/footerimg/icon-shop.png")
+                        $("#footer_yhzx").find("img").attr("src", "img/footerimg/icon-user.png")
+                    }
 
-                $("#footer_zhuye").click(function () {
-                    hideall();
-                    $("#footer_zhuye").find("img").attr("src", "img/footerimg/icon-home-2.png")
-                })
+                    $("#footer_zhuye").click(function () {
+                        hideall();
+                        $("#footer_zhuye").find("img").attr("src", "img/footerimg/icon-home-2.png")
+                    })
 
-                $("#footer_anjian").click(function () {
-                    hideall();
-                    $("#footer_anjian").find("img").attr("src", "img/footerimg/icon-search-2.png")
-                })
-                $("#footer_jiaoliu").click(function () {
-                    hideall();
-                    $("#footer_jiaoliu").find("img").attr("src", "img/footerimg/icon-chat-2.png")
-                })
-                $("#footer_jfshop").click(function () {
-                    hideall();
-                    $("#footer_jfshop").find("img").attr("src", "img/footerimg/icon-shop-2.png")
-                })
-                $("#footer_yhzx").click(function () {
-                    hideall();
-                    $("#footer_yhzx").find("img").attr("src", "img/footerimg/icon-user-2.png")
-                })
+                    $("#footer_anjian").click(function () {
+                        hideall();
+                        $("#footer_anjian").find("img").attr("src", "img/footerimg/icon-search-2.png")
+                    })
+                    $("#footer_jiaoliu").click(function () {
+                        hideall();
+                        $("#footer_jiaoliu").find("img").attr("src", "img/footerimg/icon-chat-2.png")
+                    })
+                    $("#footer_jfshop").click(function () {
+                        hideall();
+                        $("#footer_jfshop").find("img").attr("src", "img/footerimg/icon-shop-2.png")
+                    })
+                    $("#footer_yhzx").click(function () {
+                        hideall();
+                        $("#footer_yhzx").find("img").attr("src", "img/footerimg/icon-user-2.png")
+                    })
 
                 </script>
             </footer>
@@ -1728,16 +1801,20 @@
 
 
 
-   //---------------------------------------------------------------------------------------------------------------
-
-    $("input[name='search']").blur(function () { $.query("#navbar").show(); });//当快速安检输入框失去焦点的时候
-
-    $("input[name='search']").focus(function () { $.query("#navbar").hide(); });//当快速安检输入框失去焦点的时候
-
-
-
-
-
+    //---------------------------------------------------------------------------------------------------------------
+    var keyboardval = 0;
+    function onKeyboardHide() {//当键盘隐藏时，对data-footer显示
+        if(keyboardval!=0){
+            $.query("#navbar").css("display","block");
+            keyboardval = 0;
+        }
+    }//当键盘隐藏时，对data-footer显示
+    function onKeyboardShow() {//当键盘显示时，对data-footer显示
+        if($.query("#navbar").css("display")!="none"){
+            keyboardval=1;
+            $.query("#navbar").css("display","none");
+        }
+    }//当键盘显示时，对data-footer显示
     function qianDao() { //每日签到
         var myId = window.localStorage["id"];
         //alert(myId)
@@ -1790,13 +1867,13 @@
                 }
             },
             error: function () {
-            $.ui.loadContent("#login");
+                $.ui.loadContent("#login");
             }
         })
     }//用户中心主页面签到
 
 
-    $("#sign").click(qianDao);//点击立刻签到按钮 
+    $("#sign").click(qianDao);//点击立刻签到按钮
 
     function fnGetTickedByType(types)//显示活动或礼品券列表
     {
@@ -1891,8 +1968,6 @@
         padding-left: 10px;
         display: inline-block;
     }
-
-
 </style>
 
 
