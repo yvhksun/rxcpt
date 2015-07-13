@@ -371,7 +371,7 @@
             </div>
             <!----------------------------------积分商城详情页--------------------------------------->
             <!---------------------------------------主页-------------------------------------------->
-            <div id="zhuye" title="主页" class="panel" data-header="head" data-footer="custom_footer" data-tab="footer_zhuye" selected="true">
+            <div id="zhuye" title="主页" class="panel" data-header="hzhuye" data-footer="custom_footer" data-tab="footer_zhuye" selected="true">
                 <div style="height:45px;"></div>
                 <div>
                     <a href="/mobile/check">
@@ -418,7 +418,7 @@
             </div>
             <!---------------------------------------主页-------------------------------------------->
             <!---------------------------------------搜索-------------------------------------------->
-            <div id="sous" title="主页" class="panel" data-header="head" data-footer="custom_footer" data-tab="footer_zhuye">
+            <div id="sous" title="安检专区" class="panel" data-header="head" data-footer="custom_footer" data-tab="footer_zhuye">
                 <div class="row" style="margin-top:20px;padding:0 20px;">
                     <form method="get" action="/mobile/CheckList">
                         <input type="text" name="search" style="width:75%; border:2px solid #a9deec;font-size:20px;font-family:'Microsoft YaHei';border-radius:10px;height:45px;" placeholder="快速安检" />
@@ -438,7 +438,7 @@
             </div>
             <!---------------------------------------搜索-------------------------------------------->
             <!-------------------------------------用户中心------------------------------------------>
-            <div id="yhzx" title="用户中心" class="panel y-scroll" data-header="head" data-footer="custom_footer" data-load="showUserinfo" data-tab="footer_yhzx">
+            <div id="yhzx" title="用户中心" class="panel y-scroll" data-header="hyhzx" data-footer="custom_footer" data-load="showUserinfo" data-tab="footer_yhzx">
                 <div id="username">
                     <span><img src="img/jfzy/bg_user.jpg" style="height:200px; width:100%; position:absolute;"></span>
                     <div style=" width:250px; z-index:11; position:absolute; top:50px; left:15%;">
@@ -957,7 +957,7 @@
                         <span>预约日期：</span><span>2015-01-01</span>
                     </div>
                     <div style="height:30px;line-height:30px;width:100%; display:inline-table;">
-                        <span>公司名称：</span><span>10万元</span>
+                        <span>预约金额：</span><span>10万元</span>
                     </div>
                     <div style="height:30px;line-height:30px;width:100%; display:inline-table;">
                         <span>备&nbsp;&nbsp;注：</span><span></span>
@@ -1026,7 +1026,7 @@
             </div>
             <!-------------------------------------交流专区------------------------------------------>
             <!-------------------------------------快速提问------------------------------------------>
-            <div title="快速提问" class="panel" id="kstw" data-header="hkstw" data-footer="none" data-tab="footer_jfshop" style=" width:100%;background-color:#f0f0f0" selected="true">
+            <div title="快速提问" class="panel" id="kstw" data-header="hkstw" data-footer="none" data-tab="footer_jfshop" style=" width:100%;background-color:#f0f0f0">
                 <img src="img/jlzq/xzgs.jpg" style="height:50px;width:90%;margin:20px 5%">
                 <select onfocus="jlsel()" onblur="imghid()" style=" width:75%;height:40px;margin-left:8%;margin-top:-62px; border:none;color:#b3b3b3">
                     <option>请选择提问公司</option>
@@ -1043,6 +1043,27 @@
                 </script>
             </div>
             <!-------------------------------------快速提问------------------------------------------>
+            <!-------------------------------------近期提问------------------------------------------>
+            <div title="近期提问" class="panel" id="jqtw" data-header="hjqtw" data-footer="none" data-tab="footer_jfshop" style=" width:100%;background-color:#f0f0f0">
+                <div style="background-color:white;margin:10px 10px 0 10px;border-radius:5px;padding:10px;">
+                    <div>
+                        <img src="img/jlzq/jqtw2.jpg" style="float:left; margin:0px 0 15px 30px;position:absolute;" />
+                        <span style=" margin-top:5px;margin-left:70px; display:inline-table;height:30px;color:#e4b362;font-size:18px;">上海意隆</span>
+                        <img src="img/jlzq/jqtw1.jpg" style="float:right;height:15px;width:15px;margin-top:8px;" />
+                        <div style="color:#83e180;float:right;height:30px;line-height:30px; ">更多</div>
+
+
+                        <div style="border-top:solid 1px #e4b362"></div>
+                        <div style="padding:10px 30px;">
+                            <span>问：</span><span>123</span>
+                            <div style="height:10px;width:100%;display:inline-table;">&nbsp;</div>
+                            <span>答：</span><span>123</span>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-------------------------------------近期提问------------------------------------------>
             <!-------------------------------------- 头---------------------------------------------->
             <header id="mainH">
                 <h1>积分商城</h1>
@@ -1171,7 +1192,7 @@
                 <h1>积分记录</h1>
             </header><!---------------------------------积分记录详情--------->
             <header id="hyyjl">
-                <a href="#yhzx" class="biaotizuo">
+                <a href="#kstw" class="biaotizuo">
                     <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
                 </a>
                 <h1>预约记录</h1>
@@ -1185,8 +1206,20 @@
                     <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
                 </a>
                 <h1>快速提问</h1>
-                <a href='#' style="float:right;padding:12px 5px 0px 0px; color:#fff; border:none; text-decoration:none;">近期提问</a>
+                <a href='#jqtw' style="float:right;padding:12px 5px 0px 0px; color:#fff; border:none; text-decoration:none;">近期提问</a>
             </header><!---------------------------------快速提问--------->
+            <header id="hzhuye">
+                <h1>首页</h1>
+            </header><!---------------------------------首页--------->
+            <header id="hyhzx">
+                <h1>我的</h1>
+            </header><!---------------------------------我的--------->
+            <header id="hjqtw">
+                <a href="#kstw" class="biaotizuo">
+                    <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
+                </a>
+                <h1>近期提问</h1>
+            </header><!---------------------------------近期提问--------->
             <!--------------------------------------- 头--------------------------------------------->
             <!--------------------------------------- 尾--------------------------------------------->
             <footer id="custom_footer">
