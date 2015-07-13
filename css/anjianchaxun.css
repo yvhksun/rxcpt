@@ -26,6 +26,12 @@
             border-top: 1px solid #bdbdbd;
 
         }
+		.div_Right:after{
+			content:"";
+			display:block;
+			height:1px;
+			clear:both;			
+			}
 
         .div_LSmall {
             width: 100%;
