@@ -438,13 +438,13 @@
             </div>
             <!---------------------------------------搜索-------------------------------------------->
             <!-------------------------------------用户中心------------------------------------------>
-            <div id="yhzx" title="用户中心" class="panel" data-header="head" data-footer="custom_footer" data-load="showUserinfo" data-tab="footer_yhzx">
+            <div id="yhzx" title="用户中心" class="panel y-scroll" data-header="head" data-footer="custom_footer" data-load="showUserinfo" data-tab="footer_yhzx">
                 <div id="username">
                     <span><img src="img/jfzy/bg_user.jpg" style="height:200px; width:100%; position:absolute;"></span>
-                    <div style=" width:60%; z-index:11; position:absolute; top:50px; left:15%;">
+                    <div style=" width:250px; z-index:11; position:absolute; top:50px; left:15%;">
 
                         <div style="width:80px; height:80px;float:left;margin-top:12px;"><img style="width: 100%; height: 100%;" src="img/jfzy/user_head.png" /></div>
-                        <div id="headerfont" style=" font-size:16px;">欢迎您<br /><img src="img/jfzy/user_phone_sm.png" style="width:10px;height:16px;margin-right:12px;" />12345678901</div>
+                        <div id="headerfont" style=" font-size:16px;">欢迎您<br /><img src="img/jfzy/user_phone_sm.png" style="width:10px;height:16px;margin-right:12px;" /><span id="myTel"></span></div>
                     </div>
                     <div style="float:right; margin-top:130px; margin-right:5%;"><a><img style="width: 15px; height: 15px;" src="img/jfzy/user_right.png" /></a></div>
                 </div>
@@ -456,12 +456,7 @@
                     <img class="aright" src="img/jfzy/user_right.png" />
                 </a>
                 <div class="aup" style="margin-top:20px;">
-                    <!-- <a class="a1">
-                         <img class="aimg" src="img/jfzy/user_money.png" />
-                         <div class="aspan">我的余额</div>
-                         <div id="myMoney" style="color: #d1d1d1;margin-left:130px;margin-top:-35px;height:35px;">￥000</div>
-                     </a>
-                     <div class="link"></div>-->
+               
                     <a href="#hyzx_wdjf" class="a1">
                         <img class="aimg" src="img/jfzy/user_jifen.png" />
                         <div class="aspan">我的积分</div>
@@ -976,7 +971,7 @@
             <!-------------------------------------预约记录------------------------------------------>
 
             <!-------------------------------------交流专区------------------------------------------>
-            <div title="交流专区" class="panel" id="jjzq" data-header="hjjzq" data-footer="custom_footer" data-tab="footer_jfshop" style=" width:100%;" selected="true">
+            <div title="交流专区" class="panel" id="jjzq" data-header="hjjzq" data-footer="custom_footer" data-tab="footer_jfshop" style=" width:100%;">
                 <div style="height:auto;width:100%;margin:10px 0px ">
                     <!--<img src="img/jlzq/jlss.jpg" style="height:32px;width:260px;margin:10px 0 0 6%;" />
                     <img src="img/jlzq/twjlimg.jpg" style="height:65px;width:60px;margin-left:10px;margin-bottom :-13px;"/>
@@ -1739,6 +1734,7 @@
     })//// 商城购买物品实现
 
     function showUserinfo() {
+        $("#myTel").text(window.localStorage["tel"])//显示的手机号码
         $("#myMoney").text(window.localStorage["money"] + "元");
         $("#myJF").text(window.localStorage["score"] + "积分");
     }// 加载本地信息到页面
