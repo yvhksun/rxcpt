@@ -807,11 +807,58 @@
             </div>
             <!---------------------------------会员中心个人资料身份证号码---------------------------->
             <!---------------------------------会员中心个人资料性别---------------------------------->
-            <div class="panel" id="grzl_xb" data-header="xingbie" data-footer="none" style="background-color:#f0f0f0;">
+            <div class="panel" id="grzl_xb" data-header="xingbie" data-footer="none" style="background-color:#f0f0f0;" data-load="grsex">
 
                 <div id="dx_nan" style="width:100%; background:#FFF; border-top: solid 1px #dbdbdb; border-bottom: solid 1px #dbdbdb; margin-top: 20px; "><span name="txt_sfz" style="margin:0px;border-radius:0px; border:none;height:50px;width:100%;line-height:50px; font-size:20px;padding-left:20px; color:#999999; font-weight:bold;" />男</span><img id="dx_g1" style=" float:right; width:20px; position:relative;top:15px;right:10px;" src="img/grzl_xb/xb_gou.png" /></div>
                 <div id="dx_nv" style="width:100%; background:#FFF; border-top: solid 1px #dbdbdb; border-bottom: solid 1px #dbdbdb; margin-top: 20px; "><span name="txt_sfz" style="margin:0px;border-radius:0px; border:none;height:50px;width:100%;line-height:50px; font-size:20px;padding-left:20px; color:#999999; font-weight:bold;" />女</span><img id="dx_g2" style=" float:right; width:20px; position:relative;top:15px;right:10px; display:none;" src="img/grzl_xb/xb_gou.png" /></div>
+                <script>
+                    function grsex() {
+                        var Tsex = window.localStorage["gender"];
+                        if (Tsex == 1) {
+                            $("#dx_nan").click();
+                        }
+                        else if (Tsex == 2) {
+                            $("#dx_nv").click();
+                        }
+                        else { $("#dx_nan").click(); }
+                    }
+                    var tempsex;
+                    $("#dx_nan").click(function () {
+                        tempsex = "1";
+                    })
+                    $("#dx_nv").click(function () {
+                        tempsex = "2";
+                    })
+                    function savesex() {
+                      
+                        var id = window.localStorage["id"];
+                        if (id == null) {
+                            $.ui.loadContent("#login");
+                        }
 
+                        $.ajax({
+                            type: "GET",
+                            dataType: "jsonp",
+                            jsonp: "callback",
+                            url: "http://www.shrxc.com/api/apitest/userInfo",
+                            data: { 'id': id, "gender": tempsex },
+                            success: function (data) {
+                                if (data == "1") {
+
+                                    toast("修改成功", 1000);
+                                    localStorage.setItem("gender", tempsex);
+                                    $.ui.loadContent("#hyzx_grzl");
+                                    return;
+                                }
+                                else {
+                                    toast("修改失败 请重试", 1000);
+                                }
+                            },
+                            error: function () { alert("网络连接失败") }
+                       
+                        })
+                    }
+                </script>
 
             </div>
             <!---------------------------------会员中心个人资料性别---------------------------------->
@@ -1387,7 +1434,7 @@
             <header id="xingbie">
                 <a href="#hyzx_grzl" style="float:left; margin:12px 0 0 20px;  color:white; font-size:14px;">取消</a>
                 <h1>性别</h1>
-                <a href='#' style="float:right;padding:12px 5px 0px 0px; color:#fff; border:none; text-decoration:none;">保存</a>
+                <a href='#' onclick="savesex()" style="float:right;padding:12px 5px 0px 0px; color:#fff; border:none; text-decoration:none;">保存</a>
             </header><!---------------------------------个人资料_性别-------->
             <header id="xingming">
                 <a href="#hyzx_grzl" style="float:left; margin:12px 0 0 20px;  color:white; font-size:14px;">取消</a>
