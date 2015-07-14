@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 /* CSS Document */
         .divName {
             text-align: center;
@@ -21,7 +21,7 @@
 
         .div_Right {
             width: 80%;
-
+            height:1200px;
             float: right;
             border-top: 1px solid #bdbdbd;
 
