@@ -425,50 +425,58 @@
             </div>
             <!----------------------------------积分商城详情页--------------------------------------->
             <!---------------------------------------主页-------------------------------------------->
-            <div id="zhuye" title="主页" class="panel" data-header="hzhuye" data-footer="custom_footer" data-tab="footer_zhuye" selected="true">
-                <div style="height:45px;"></div>
-                <div>
-                    <a href="/mobile/check">
-                        <span class="bimg"><img class="img" src="img/index/btn-aj.png" /></span>
-                    </a>
-                    <a href="#">
-                        <span class="bimg"><img class="img" src="img/index/btn-jl.png" /></span>
-                    </a>
-                    <a href="#">
-                        <span class="bimg"> <img class="img" src="img/index/btn-shop.png" /></span>
-                    </a>
-                </div>
+            <div id="zhuye" title="主页" class="panel" data-header="hzhuye" data-footer="custom_footer" data-tab="footer_zhuye" selected="true" style="background-color:#f0f0f0">
+                <div style="height:180px;width:100%;"><img style="height:180px;width:100%;" src="img/index/zhuyegg.jpg" /></div>
+
 
                 <div class="row" style="margin-top:20px;padding:0 20px;">
                     <form method="get" action="/mobile/checklist">
-                        <input type="text" name="search" class="col-xs-12" style="border:2px solid #a9deec;font-size:20px;font-family:'Microsoft YaHei';border-radius:10px;height:46px;" placeholder="快速安检" />
-                        <input type="submit" style="position: absolute; top: 8px; left: 80%; border: 0; background: url('../../Content/mobile/check/i-g-search.png');width:30px;height:30px;" value="" />
+                        <img src="img/index/writeimg.png" style="height:20px;width:20px;position:absolute;margin-top:15px;margin-left:15px;">
+                        <img src="img/index/sous.png" style="position:absolute;margin-top:10px; margin-left:90%; height:25px;width:25px;">
+                        <input type="text" style="padding-left:40px;background-color:#fcfcfc; border:2px solid #99e9ff; font-size:20px;font-family:'Microsoft YaHei';border-radius:10px;height:46px;" placeholder="快速安检" />
                     </form>
                 </div>
+                <div style="background-color:white;margin-top:25px;padding:30px 0">
+                    <div style="width:35%;margin-left:40%;font-size:20px;">热门服务</div>
 
-                <div class="row text-center" style="margin-top:20px;">
-                    <a href="#">
-                        <span class="simg"><img class="img" src="img/index/btn-gn.png" /></span>
-                    </a>
-                    <a href="#">
-                        <span class="simg"><img class="img" src="img/index/icon-favorite.png" /></span>
-                    </a>
-                    <a href="#">
-                        <span class="simg"><img class="img" src="img/index/icon-about.png" /></span>
-                    </a>
+                    <div class="row text-center" style="margin-top:20px;">
+                        <a href="#">
+                            <span style="width:32%;display:inline-table; padding-left:20%; "><img  class="img" src="img/index/btn-gn.png" /></span>
+                        </a>
+                        <a href="#">     
+                            <span style="width:32%;display:inline-table; padding-left:10%; padding-right:10%;"><img class="img" src="img/index/icon-favorite.png" /></span>
+                        </a>
+                        <a href="#">
+                            <span style="width:32%;display:inline-table; padding-right:20%;"><img class="img" src="img/index/icon-about.png" /></span>
+                        </a>
+                    </div>
+
+                    <div class="row text-center" style="margin-top:20px;">
+                        <a href="" class="col-xs-4">
+                            <span style="width:32%;display:inline-table; padding-left:20%; "><img class="img" src="img/index/icon-join.png" /></span>
+                        </a>
+                        <a href="" class="col-xs-4">
+                            <span style="width:32%;display:inline-table; padding-left:10%; padding-right:10%;"><img class="img" src="img/index/icon-safe.png" /></span>
+                        </a>
+                        <a href="" class="col-xs-4">
+                            <span style="width:32%;display:inline-table; padding-right:20%;"><img class="img" src="img/index/icon-news.png" /></span>
+                        </a>
+                    </div>
                 </div>
 
-                <div class="row text-center" style="margin-top:20px;">
-                    <a href="" class="col-xs-4">
-                        <span class="simg"><img class="img" src="img/index/icon-join.png" /></span>
-                    </a>
-                    <a href="" class="col-xs-4">
-                        <span class="simg"><img class="img" src="img/index/icon-safe.png" /></span>
-                    </a>
-                    <a href="" class="col-xs-4">
-                        <span class="simg"><img class="img" src="img/index/icon-news.png" /></span>
-                    </a>
-                </div>
+                <script>
+                    function dengl() {
+                        var id = window.localStorage["id"];
+                        if (id == null) {
+                            $.ui.loadContent("#login");
+                        }
+                        else {
+                            toast("您已登录", 1000);
+                        }
+
+                    }
+
+                </script>
             </div>
             <!---------------------------------------主页-------------------------------------------->
             <!---------------------------------------搜索-------------------------------------------->
@@ -643,7 +651,7 @@
                                 alert("错误哦")
                             }
                         })
-                    }//////////////////积分商城商品详情
+                    }
                 </script>
 
 
@@ -694,9 +702,9 @@
             </div>
             <!---------------------------------会员中心每日任务签到---------------------------------->
             <!---------------------------------会员中心积分记录-------------------------------------->
-            <div id="hyjfjl" title="积分记录" class="panel" data-header="hhyjfjl"data-load="jfjl" data-footer="none" data-tab="footer_zhuye">
+            <div id="hyjfjl" title="积分记录" class="panel" data-header="hhyjfjl" data-load="jfjl" data-footer="none" data-tab="footer_zhuye">
                 <div>
-                    
+
                     <div id="jifadd"></div>
                 </div>
                 <script>
@@ -1056,7 +1064,6 @@
                 </div>
                 <script>
                     function ajjl() {
-
                         $("#ajadd").text("")
                         var id = window.localStorage["id"];
                         $.ajax({
@@ -1643,6 +1650,7 @@
                 <a href='#jqtw' style="float:right;padding:12px 5px 0px 0px; color:#fff; border:none; text-decoration:none;">近期提问</a>
             </header><!---------------------------------快速提问--------->
             <header id="hzhuye">
+                <a onclick="dengl()" style="float:left; margin:12px 0 0 20px;  color:white; font-size:14px;">登录</a>
                 <h1>首页</h1>
             </header><!---------------------------------首页--------->
             <header id="hyhzx">

@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 /* CSS Document */
         .bimg
 		{
@@ -11,7 +11,7 @@
 		{
 			width:32%;
 			 display:inline-table; 
-			 padding-left:8%; 
+			 padding-left:10%; 
 			 padding-right:8%;
 		}
 		.img
