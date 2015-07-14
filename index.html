@@ -240,36 +240,35 @@
                         </div>
                         <div id="btnShowLeft" class="clsBtnShow">
                             <div>
-                                <span>全&nbsp;&nbsp;部</span>
-                                <span>黄浦区</span>
-                                <span>静安区</span>
-                                <span>杨浦区</span>
+                                <span onclick="fnSearchToShop(this)">全&nbsp;&nbsp;部</span>
+                                <span onclick="fnSearchToShop(this)">黄浦区</span>
+                                <span onclick="fnSearchToShop(this)">静安区</span>
+                                <span onclick="fnSearchToShop(this)">杨浦区</span>
                             </div>
                             <div>
-                                <span>虹口区</span>
-                                <span>普陀区</span>
-                                <span>闸北区</span>
-                                <span>宝山区</span>
+                                <span onclick="fnSearchToShop(this)">虹口区</span>
+                                <span onclick="fnSearchToShop(this)">普陀区</span>
+                                <span onclick="fnSearchToShop(this)">闸北区</span>
+                                <span onclick="fnSearchToShop(this)">宝山区</span>
                             </div>
                             <div>
-                                <span>金山区</span>
-                                <span>长宁区</span>
-                                <span>闵行区</span>
-                                <span>卢湾区</span>
+                                <span onclick="fnSearchToShop(this)">金山区</span>
+                                <span onclick="fnSearchToShop(this)">长宁区</span>
+                                <span onclick="fnSearchToShop(this)">闵行区</span>
+                                <span onclick="fnSearchToShop(this)">卢湾区</span>
                             </div>
                             <div>
-                                <span>嘉定区</span>
-                                <span>青浦区</span>
-                                <span>松江区</span>
-                                <span>浦东新区</span>
+                                <span onclick="fnSearchToShop(this)">嘉定区</span>
+                                <span onclick="fnSearchToShop(this)">青浦区</span>
+                                <span onclick="fnSearchToShop(this)">松江区</span>
+                                <span onclick="fnSearchToShop(this)">浦东新区</span>
                             </div>
                         </div>
                         <div id="btnShowRight" class="clsBtnShow">
                             <div>
-                                <span>全&nbsp;&nbsp;部</span>
-                                <span>礼品券</span>
-                                <span>活动券</span>
-                                <span>反佣券</span>
+                                <span onclick="fnSearchToShop(this)" style="float:left;width:33.3%" >全&nbsp;&nbsp;部</span>
+                                <span onclick="fnSearchToShop(this)" style="float:left;width:33.3%">礼品券</span>
+                                <span onclick="fnSearchToShop(this)" style="float:left;width:33.3%">活动券</span>
                             </div>
                         </div>
                     </div>
@@ -1560,7 +1559,6 @@
             url: "http://120.24.220.249/api/apitest/actlist",
             success: function (data) {
 
-                var i = 1;
                 $.each(data, function (key, value) {
 
                     var item = $("<div style='width:100%;border-bottom:1px solid  #d1d1d1;position:relative;'>"
@@ -1585,16 +1583,59 @@
     } ///////////////////////////////////////////////////////end展示商品
 
 
-    $("#btnShowLeft").children().find("span").click(function () {
-        alert($("#btnShowLeft").children().find("span[clicked =clicked]").text())
-    })
+    function fnSearchToShop(thisEv)
+    {
+        hidelistRight();
+        hidelistLeft();
+        var item = thisEv.parentNode.parentNode.id;
+        id=1
+        if (item == "btnShowLeft" && thisEv.innerHTML != "全&nbsp;&nbsp;部")
+            fnShowShop(id, "", thisEv.innerHTML);
+        else if (item == "btnShowRight" && thisEv.innerHTML != "全&nbsp;&nbsp;部")
+            fnShowShop(id, thisEv.innerHTML, "");
+        else
+           fnShowShop(id);
+    }
 
-    $("#btnShowRight").children().find("span").click(function () {
-        alert($.afui.innerHTML);
-    })
+    function fnShowShop(num ,types,area)
+    {
+        switch(types)
+        {
+            case "礼品券": types = "lp"; break;
+            case "活动券": types = "hd"; break;
+            default: types == ""; break;
+        }
+        $.ajax({
+            url: "http://www.shrxc.com/api/apitest/act",
+            data: { "num":num , "type": types, "area": area },
+            type: "GET",
+            dataType: "jsonp",
+            jsonp: "callback",
+            success: function (data) {
+                $("#con").html("");
+                $.each(data, function (key, value) {
+                
+                    var item = $("<div style='width:100%;border-bottom:1px solid  #d1d1d1;position:relative;'>"
+                        + "<div style='width:100%;'onclick=' Gotojifengxiangqing(\"" + value.actid + "\")'>"
+                        + "<div style='float:left;width:37%;padding:10px;'><img style='width:110px;height:90px' src='http://120.24.220.249" + value.imgsrc + "' /></div>"
+                        + "<div style='float:left;width:62%;line-height:24px;margin-top:10px;'>"
+                        + "<h3>" + value.title + "</h3>"
+                        + "<span>活动地区：</span><span style='color:#4fbef3'>" + value.area + "</span><br />"
+                         + " <span style='margin-top:10px;'>所需积分：<span style='color:#ff7372'>" + value.score + "</span></span>"
+                        + "</div>"
+                        + " <div style='clear:both;'></div>"
+                        + "</div>"
+                        + "<div style='position:absolute;right:10px;bottom:10px;'  onclick='fnDianZhan(this,\"" + value.actid + "\")'  ><img style='width:18px;' src='img/jfsc_images/icon_good.png' /><span> " + value.topnum + "</span></div>"
+                        + '</div>')
+                    $("#con").append(item);
+                });
 
-
-
+            },
+            error: function () {
+                toast("网络断开连接", 3000);
+            }
+        })
+    }
 
 
 
