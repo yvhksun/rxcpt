@@ -635,39 +635,42 @@
             </div>
             <!---------------------------------会员中心每日任务签到---------------------------------->
             <!---------------------------------会员中心积分记录-------------------------------------->
-            <div id="hyjfjl" title="每日任务" class="panel" data-header="hhyjfjl" data-footer="none" data-tab="footer_zhuye">
+            <div id="hyjfjl" title="积分记录" class="panel" data-header="hhyjfjl"data-load="jfjl" data-footer="none" data-tab="footer_zhuye">
                 <div>
-                    <a href="#jfjlxq" class="marjfjla">
-                        <span class="mrjfjl1">签到</span>
-                        <span class="mrjfjl2">2015.1.1</span>
-                        <span class="mrjfjl3">10分</span>
-                        <div style="border-bottom: solid 1px #c7c7c7;"></div>
-                    </a>
-                    <a href="#jfjlxq" class="marjfjla">
-                        <span class="mrjfjl1">点赞</span>
-                        <span class="mrjfjl2">2015.1.1</span>
-                        <span class="mrjfjl3">5分</span>
-                        <div style="border-bottom: solid 1px #c7c7c7;"></div>
-                    </a>
-                    <a href="#jfjlxq" class="marjfjla">
-                        <span class="mrjfjl1">提问</span>
-                        <span class="mrjfjl2">2015.1.1</span>
-                        <span class="mrjfjl3">5分</span>
-                        <div style="border-bottom: solid 1px #c7c7c7;"></div>
-                    </a>
-                    <a href="#jfjlxq" class="marjfjla">
-                        <span class="mrjfjl1">安检</span>
-                        <span class="mrjfjl2">2015.1.1</span>
-                        <span class="mrjfjl3">5分</span>
-                        <div style="border-bottom: solid 1px #c7c7c7;"></div>
-                    </a>
-                    <a href="#jfjlxq" class="marjfjla">
-                        <span class="mrjfjl1">返佣券</span>
-                        <span class="mrjfjl2">2015.1.1</span>
-                        <span class="mrjfjl3">-100分</span>
-                        <div style="border-bottom: solid 1px #c7c7c7;"></div>
-                    </a>
+                    
+                    <div id="jifadd"></div>
                 </div>
+                <script>
+                    function jfjl() {
+                        $("#twadd").text("")
+                        var id = window.localStorage["id"];
+                        $.ajax({
+                            url: "http://120.24.220.249/api/apitest/scoreList?id=" + id,
+                            type: "GET",
+                            dataType: "jsonp",
+                            jsonp: "callback",
+                            success: function (data) {
+                                $.each(data, function (k, value) {
+                                    var item = $(
+                                    "<a href='#jfjlxq' class='marjfjla'>"+
+                        "<span class='mrjfjl1'>"+value.type+"</span>"+
+                        "<span class='mrjfjl2'>" + value.createtime.substring(0, 10) + "</span>" +
+                        "<span class='mrjfjl3'>" + value.change + "分</span>" +
+                        "<div style='border-bottom: solid 1px #c7c7c7;'></div>"+
+                        " </a>"
+                                        )
+                                    $("#jifadd").append(item);
+
+                                })
+                            },
+                            error: function () {
+                                alert("错误哦")
+                            }
+                        })
+                    }//////////////////积分商城商品详情
+                </script>
+
+
             </div>
             <!---------------------------------会员中心积分记录-------------------------------------->
             <!---------------------------------会员中心个人资料-------------------------------------->
@@ -830,7 +833,7 @@
                         tempsex = "2";
                     })
                     function savesex() {
-                      
+
                         var id = window.localStorage["id"];
                         if (id == null) {
                             $.ui.loadContent("#login");
@@ -855,7 +858,7 @@
                                 }
                             },
                             error: function () { alert("网络连接失败") }
-                       
+
                         })
                     }
                 </script>
@@ -1066,8 +1069,8 @@
                             error: function () { alert("网络连接失败") }
                         })
                     }
-                    </script>
-                
+                </script>
+
             </div>
             <!------------------------------------会员中心QQ----------------------------------------->
             <!--------------------------------------登录框------------------------------------------->
@@ -1419,12 +1422,12 @@
                     <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
                 </a>
                 <h1>我的积分</h1>
-                <a href='#' style="float:right;padding:10px 5px 0px 0px; color:#fff; border:none; text-decoration:none;margin-right:5px;margin-top:5px;">积分说明</a>
+                <a href='#hyjfjl' style="float:right;padding:10px 5px 0px 0px; color:#fff; border:none; text-decoration:none;margin-right:5px;margin-top:5px;">积分记录</a>
             </header><!------------------------------------我的积分------------->
             <header id="dizi">
                 <a href="#hyzx_grzl" style="float:left; margin:12px 0 0 20px;  color:white; font-size:14px;">取消</a>
                 <h1>地址</h1>
-                <a href='#'onclick="savesdz()" style="float:right;padding:12px 5px 0px 0px; color:#fff; border:none; text-decoration:none;">保存</a>
+                <a href='#' onclick="savesdz()" style="float:right;padding:12px 5px 0px 0px; color:#fff; border:none; text-decoration:none;">保存</a>
             </header><!------------------------------------个人资料_地址-------->
             <header id="shenfenzheng">
                 <a href="#hyzx_grzl" style="float:left; margin:12px 0 0 20px;  color:white; font-size:14px;">取消</a>
@@ -2485,18 +2488,17 @@
         fnGetTickedByType(LipinOrHuodong);
     }
 
-                      
-  //***************修改密码*******************                    
+
+    //***************修改密码*******************
     function changePasssword() {
-        var myid= window.localStorage["id"];
-        if(myid==null)
-        {
+        var myid = window.localStorage["id"];
+        if (myid == null) {
             $.ui.loadContent("#login");
             return;
         }
         $.ajax({
             url: "http://www.shrxc.com/api/apitest/changPWD",
-            data: { "id":myid,"old":$("#txt_oldPWD").val(),"new1":$("#txt_newPWD").val(),"new2":$("#txt_newPWD2").val() },
+            data: { "id": myid, "old": $("#txt_oldPWD").val(), "new1": $("#txt_newPWD").val(), "new2": $("#txt_newPWD2").val() },
             dataType: "jsonp",
             jsonp: "callback",
             type: "GET",
@@ -2526,13 +2528,13 @@
                     return;
                 }
             },
-            error: function () { alert("操作失败");}
+            error: function () { alert("操作失败"); }
         })
     }
-    
+
     $("#btn_changePWD").click(changePasssword);
-    //***************修改密码*******************                   
-               
+    //***************修改密码*******************
+
 
 
 </script>
