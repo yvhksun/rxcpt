@@ -214,6 +214,9 @@
             margin-bottom: 0px;
         }
 
+        #afui input[type=password] {
+            margin-bottom: 0px;
+        }
     </style>
 
 
@@ -744,18 +747,18 @@
             <div class="panel" id="grzl_xgmm" data-header="xiugaimima" data-footer="none" style="background-color:#f0f0f0;">
 
                 <div style="margin:0 20px;border-radius:6px;">
-                    <input type="text" checked="true" placeholder="旧密码" name="txt_dz" style="padding-top:30px;padding-bottom:30px; border: solid 1px #dbdbdb; margin-top: 20px;  border-radius:6px; border:none;width:100%;font-size:20px;padding-left:20px;" />
+                    <input type="password" checked="true" placeholder="旧密码" name="txt_oldPWD" id="txt_oldPWD" style="padding-top:30px;padding-bottom:30px; border: solid 1px #dbdbdb; margin-top: 20px;  border-radius:6px; border:none;width:100%;font-size:20px;padding-left:20px;" />
                 </div>
                 <div style="margin:0 20px;border-radius:6px;">
-                    <input type="text" checked="true" placeholder="新密码" name="txt_dz" style="padding-top:30px;padding-bottom:30px; border: solid 1px #dbdbdb; margin-top: 20px;  border-radius:6px; border:none;width:100%;font-size:20px;padding-left:20px;" />
+                    <input type="password" checked="true" placeholder="新密码" name="txt_newPWD" id="txt_newPWD" style="padding-top:30px;padding-bottom:30px; border: solid 1px #dbdbdb; margin-top: 20px;  border-radius:6px; border:none;width:100%;font-size:20px;padding-left:20px;" />
                 </div>
 
                 <div style="margin:0 20px;border-radius:6px;">
-                    <input type="text" checked="true" placeholder="确认新密码" name="txt_dz" style="padding-top:30px;padding-bottom:30px; border: solid 1px #dbdbdb; margin-top: 20px;  border-radius:6px; border:none;width:100%;font-size:20px;padding-left:20px;" />
+                    <input type="password" checked="true" placeholder="确认新密码" name="txt_newPWD2" id="txt_newPWD2" style="padding-top:30px;padding-bottom:30px; border: solid 1px #dbdbdb; margin-top: 20px;  border-radius:6px; border:none;width:100%;font-size:20px;padding-left:20px;" />
                 </div>
 
 
-                <a class="button" style="border:none; display:block;color:#FFF; background:#53de6d; height:50px; line-height:50px; margin:0 20px; font-size:20px;margin-top:20px;"><span style=" position:relative;top:-10px;">确认并提交</span></a>
+                <a class="button" id="btn_changePWD" style="border:none; display:block;color:#FFF; background:#53de6d; height:50px; line-height:50px; margin:0 20px; font-size:20px;margin-top:20px;"><span style=" position:relative;top:-10px;">确认并提交</span></a>
 
             </div>
             <!---------------------------------会员中心个人资料修改密码------------------------------>
@@ -2237,11 +2240,53 @@
         $("#lpjuan").attr("data-title", myTitle);
         fnGetTickedByType(LipinOrHuodong);
     }
-                       
                       
-                       
-                  
-                  
+  //***************修改密码*******************                    
+    function changePasssword() {
+        var myid= window.localStorage["id"];
+        if(myid==null)
+        {
+            $.ui.loadContent("#login");
+            return;
+        }
+        $.ajax({
+            url: "http://www.shrxc.com/api/apitest/changPWD",
+            data: { "id":myid,"old":$("#txt_oldPWD").val(),"new1":$("#txt_newPWD").val(),"new2":$("#txt_newPWD2").val() },
+            dataType: "jsonp",
+            jsonp: "callback",
+            type: "GET",
+            success: function (data) {
+                if (data == 1) {
+                    alert("修改成功");
+                    return;
+                }
+                if (data == -1) {
+                    alert("id无效 请重新登录");
+                    return;
+                }
+                if (data == -2) {
+                    alert("旧密码不正确");
+                    return;
+                }
+                if (data == -3) {
+                    alert("两次密码输入不一致");
+                    return;
+                }
+                if (data == -4) {
+                    alert("新密码太短");
+                    return;
+                }
+                if (data == -5) {
+                    alert("修改失败 请重试");
+                    return;
+                }
+            },
+            error: function () { alert("操作失败");}
+        })
+    }
+    
+    $("#btn_changePWD").click(changePasssword);
+    //***************修改密码*******************                   
                
 
 </script>
