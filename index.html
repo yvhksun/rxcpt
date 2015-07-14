@@ -678,12 +678,12 @@
 
                     <div style="width:100%;background-color:#FFF;border-top:#c7c7c7 1px solid;border-bottom:#c7c7c7 1px solid;">
                         <ul class="list" style="margin:0 10px;">
-                            <li style=" border-top:none;"><a href="#grzl_xm">姓名</a></li>
-                            <li><a href="#grzl_xb">性别</a></li>
-                            <li><a href="#grzl_yx">邮箱</a></li>
-                            <li><a href="#hyqq">QQ</a></li>
-                            <li><a href="#grzl_sfz">身份证号码</a></li>
-                            <li style="border-bottom:none;"><a href="#grzl_dz">地址</a></li>
+                            <li style=" border-top:none;"><a id="grname" href="#grzl_xm">姓名</a></li>
+                            <li><a id="grsex" href="#grzl_xb">性别:</a></li>
+                            <li><a id="grem" href="#grzl_yx">邮箱:</a></li>
+                            <li><a id="grqq" href="#hyqq">QQ:</a></li>
+                            <li><a id="grsfz" href="#grzl_sfz">身份证号码:</a></li>
+                            <li style="border-bottom:none;"><a id="gedz" href="#grzl_dz">地址:</a></li>
                         </ul>
                     </div>
                     <div style=" margin-top:10px;width:100%;background-color:#FFF;border-top:#c7c7c7 1px solid;border-bottom:#c7c7c7 1px solid;">
@@ -696,7 +696,25 @@
                         <a href="" id="Tuichu_btn" class="button" style="border-radius:0px; border:none; display:block;padding:15px 0; background:#18c6f3;color:#FFF;font-size:20px;">退出登录</a>
                     </div>
                 </div>
-                
+                <script>
+                    function grzll() {
+                        var sex = "";
+                        if (window.localStorage["gender"] == "1") {
+                            sex = "男";
+                        }
+                        else if (window.localStorage["gender"] == "2") {
+                            sex = "女";
+                        }
+
+                        $("#grname").html("姓名: &nbsp;" + window.localStorage["username"])
+                        $("#grsex").html("性别: &nbsp;" + sex)
+                        $("#grem").html("邮箱: &nbsp;" + window.localStorage["email"])
+                        $("#grqq").html("QQ: &nbsp;" + window.localStorage["qq"])
+                        $("#grsfz").html("身份证: &nbsp;" + window.localStorage["idcard"])
+                        $("#gedz").html("地址: &nbsp;" + window.localStorage["address"])
+                    }
+                </script>
+
             </div>
             <!---------------------------------会员中心个人资料-------------------------------------->
             <!---------------------------------会员中心个人资料地址---------------------------------->
@@ -709,7 +727,37 @@
                     function grdz() {
                         $("#zldz").attr("placeholder", window.localStorage["address"])
                     }
+                    function savesdz() {
+                        var zldz = $("#zldz").val()
+                        var id = window.localStorage["id"];
+                        if (id == null) {
+                            $.ui.loadContent("#login");
+                        }
+                        $.ajax({
 
+                            type: "GET",
+                            dataType: "jsonp",
+                            jsonp: "callback",
+                            url: "http://www.shrxc.com/api/apitest/userInfo",
+                            data: { 'id': id, 'address': zldz },
+                            success: function (data) {
+                                if (data == 1) {
+
+                                    toast("修改成功", 1000);
+                                    localStorage.setItem("address", zldz);
+                                    $.ui.loadContent("#hyzx_grzl");
+                                    return;
+                                }
+                                else {
+                                    toast("验证码无效!", 1000);
+                                    $("#registerPhone").val("");
+                                    $("#sendCode").css("background-color", "46ab46");
+                                    $("#sendCode").off("click");
+                                }
+                            },
+                            error: function () { alert("网络连接失败") }
+                        })
+                    }
                 </script>
             </div>
             <!---------------------------------会员中心个人资料地址---------------------------------->
@@ -723,7 +771,37 @@
                     function grsf() {
                         $("#zlsf").attr("placeholder", window.localStorage["idcard"])
                     }
+                    function savesfz() {
+                        var zlsf = $("#zlsf").val()
+                        var id = window.localStorage["id"];
+                        if (id == null) {
+                            $.ui.loadContent("#login");
+                        }
+                        $.ajax({
 
+                            type: "GET",
+                            dataType: "jsonp",
+                            jsonp: "callback",
+                            url: "http://www.shrxc.com/api/apitest/userInfo",
+                            data: { 'id': id, 'idcard': zlsf },
+                            success: function (data) {
+                                if (data == 1) {
+
+                                    toast("修改成功", 1000);
+                                    localStorage.setItem("idcard", zlsf);
+                                    $.ui.loadContent("#hyzx_grzl");
+                                    return;
+                                }
+                                else {
+                                    toast("验证码无效!", 1000);
+                                    $("#registerPhone").val("");
+                                    $("#sendCode").css("background-color", "46ab46");
+                                    $("#sendCode").off("click");
+                                }
+                            },
+                            error: function () { alert("网络连接失败") }
+                        })
+                    }
                 </script>
 
             </div>
@@ -741,13 +819,43 @@
             <div class="panel" id="grzl_xm" data-load="grname" data-header="xingming" data-footer="none" style="background-color:#f0f0f0;">
 
                 <div class="aup" style=" background-color:none; border-top: solid 1px #dbdbdb; border-bottom: solid 1px #dbdbdb; margin-top: 20px; ">
-                    <input id="zlname" type="text" placeholder="Andy" style="border:none;height:50px;width:100%; font-size:20px;padding-left:20px;" />
+                    <input id="zlname" type="text" placeholder="" style="border:none;height:50px;width:100%; font-size:20px;padding-left:20px;" />
                 </div>
                 <script>
                     function grname() {
                         $("#zlname").attr("placeholder", window.localStorage["username"])
                     }
+                    function savename() {
+                        var uname = $("#zlname").val()
+                        var id = window.localStorage["id"];
+                        if (id == null) {
+                            $.ui.loadContent("#login");
+                        }
+                        $.ajax({
 
+                            type: "GET",
+                            dataType: "jsonp",
+                            jsonp: "callback",
+                            url: "http://www.shrxc.com/api/apitest/userInfo",
+                            data: { 'id': id, 'username': uname },
+                            success: function (data) {
+                                if (data == 1) {
+
+                                    toast("修改成功", 1000);
+                                    localStorage.setItem("username", uname);
+                                    $.ui.loadContent("#hyzx_grzl");
+                                    return;
+                                }
+                                else {
+                                    toast("验证码无效!", 1000);
+                                    $("#registerPhone").val("");
+                                    $("#sendCode").css("background-color", "46ab46");
+                                    $("#sendCode").off("click");
+                                }
+                            },
+                            error: function () { alert("网络连接失败") }
+                        })
+                    }
                 </script>
 
             </div>
@@ -761,8 +869,39 @@
                 <script>
                     function grem() {
                         $("#zlem").attr("placeholder", window.localStorage["email"])
-                    }
 
+                    }
+                    function saveem() {
+                        var zlem = $("#zlem").val()
+                        var id = window.localStorage["id"];
+                        if (id == null) {
+                            $.ui.loadContent("#login");
+                        }
+                        $.ajax({
+
+                            type: "GET",
+                            dataType: "jsonp",
+                            jsonp: "callback",
+                            url: "http://www.shrxc.com/api/apitest/userInfo",
+                            data: { 'id': id, 'email': zlem },
+                            success: function (data) {
+                                if (data == 1) {
+
+                                    toast("修改成功", 1000);
+                                    localStorage.setItem("email", zlem);
+                                    $.ui.loadContent("#hyzx_grzl");
+                                    return;
+                                }
+                                else {
+                                    toast("验证码无效!", 1000);
+                                    $("#registerPhone").val("");
+                                    $("#sendCode").css("background-color", "46ab46");
+                                    $("#sendCode").off("click");
+                                }
+                            },
+                            error: function () { alert("网络连接失败") }
+                        })
+                    }
                 </script>
 
             </div>
@@ -808,7 +947,7 @@
                 </div>
                 <script>
                     function ajjl() {
-                        
+
                         $("#ajadd").text("")
                         var id = window.localStorage["id"];
                         $.ajax({
@@ -817,7 +956,7 @@
                             dataType: "jsonp",
                             jsonp: "callback",
                             success: function (data) {
-                                
+
                                 $.each(data, function (k, value) {
                                     var item = $(
                                    "<a href='#AnJianChaXun' class='a1'>" +
@@ -849,8 +988,39 @@
                     function grqq() {
                         $("#zlqq").attr("placeholder", window.localStorage["qq"])
                     }
+                    function saveqq() {
+                        var zlqq = $("#zlqq").val()
+                        var id = window.localStorage["id"];
+                        if (id == null) {
+                            $.ui.loadContent("#login");
+                        }
+                        $.ajax({
 
-                </script>
+                            type: "GET",
+                            dataType: "jsonp",
+                            jsonp: "callback",
+                            url: "http://www.shrxc.com/api/apitest/userInfo",
+                            data: { 'id': id, 'qq': zlqq },
+                            success: function (data) {
+                                if (data == 1) {
+
+                                    toast("修改成功", 1000);
+                                    localStorage.setItem("qq", zlqq);
+                                    $.ui.loadContent("#hyzx_grzl");
+                                    return;
+                                }
+                                else {
+                                    toast("验证码无效!", 1000);
+                                    $("#registerPhone").val("");
+                                    $("#sendCode").css("background-color", "46ab46");
+                                    $("#sendCode").off("click");
+                                }
+                            },
+                            error: function () { alert("网络连接失败") }
+                        })
+                    }
+                    </script>
+                
             </div>
             <!------------------------------------会员中心QQ----------------------------------------->
             <!--------------------------------------登录框------------------------------------------->
@@ -1068,7 +1238,7 @@
                         <div id="CPXX" class="div_LeftSmall"><div class="div_position">产品<br /><span class="div_xinxi">信息</span></div></div>
                     </div>
 
-                    <div class="div_Right"style="height:300px;">
+                    <div class="div_Right" style="height:300px;">
                         <!-----------------------------------------------------------------基本信息---------------------------------------------------------------------------------->
                         <ul class="list" id="JBXX_show" style="list-style-type:none;text-align:center; padding:0 10px;margin:0px;">
                             <li class="LiSize" style="border-top:none;padding:10px 5px 15px 5px;"><p style="  font-size:14px;width:60%; margin:0 auto;text-align:left;">法人代表：唐文雲</p></li>
@@ -1082,7 +1252,7 @@
                             <li class="LiSize" style="padding:10px 5px 15px 5px;"><p style="  font-size:14px;width:60%; margin:0 auto;text-align:left;">董事：</p></li>
                             <li class="LiSize" style="padding:10px 5px 15px 5px;"><p style=" font-size:14px; width:60%; margin:0 auto;text-align:left;">董事：</p></li>
                         </ul>
-                                             
+
                         <!-----------------------------------------------------------------联络信息---------------------------------------------------------------------------------->
                         <ul id="LLXX_show" class="list" style="display:none;list-style-type:none;text-align:center; padding:0 10px;margin:0px;">
                             <li style="border-top:none;padding:15px 10px 20px 10px;"><p style=" width:40%; margin:0 auto;text-align:left;">官网：www.peer-capital.net</p></li>
@@ -1109,17 +1279,17 @@
                             <div style="margin-top:20px;width:100%;height:87px;line-height:87px;background-image:url(img/anjianbaogao/ajhd6.png);font-size:14px;"><span style="display:inline-block;color:#fff;padding-left:5px;">活动券:佛教养老项目考察券</span><img style="width:14px;float:right;position:relative;top:35px;right:5px;" src="img/anjianbaogao/jiantou_lv.png" /></div>
                             <div style="margin-top:20px;width:100%;height:87px;line-height:87px;background-image:url(img/anjianbaogao/ajhd6.png);font-size:14px;"><span style="display:inline-block;color:#fff;padding-left:5px;">活动券:丰收日大酒店晚宴</span><img style="width:14px;float:right;position:relative;top:35px;right:5px;" src="img/anjianbaogao/jiantou_lv.png" /></div>
                             <div style="margin-top:20px;width:100%;height:87px;line-height:87px;background-image:url(img/anjianbaogao/ajhd5.png);font-size:14px;"><span style="display:inline-block;color:#fff;padding-left:5px;">礼品券:洁丽雅毛巾</span><img style="width:14px;float:right;position:relative;top:35px;right:5px;" src="img/anjianbaogao/jiantou_lv.png" /></div>
-                         
+
                         </div>
                         <!-----------------------------------------------------------------产品信息---------------------------------------------------------------------------------->
                         <div id="CPXX_show" style="display:none;padding-left:20px;padding-right:20px;">
                             <div style="margin-top:20px;width:100%;height:87px;line-height:87px;background-color:#fad58c;font-size:14px;"><span style="display:inline-block;color:#c69026;padding-left:40px;">主销产品:P2P理财产品</span><img style="width:14px;float:right;position:relative;top:35px;right:5px;" src="img/anjianbaogao/jiantou_lv.png" /></div>
-                        
+
                         </div>
 
                     </div>
-                    
-                    
+
+
                 </div>
 
                 <div style="width:100%;">
@@ -1170,7 +1340,7 @@
             <header id="hhyqq" class="biaotizuo">
                 <a href="#hyzx_grzl" style="float:left; margin:4% 0 0 15px;  color:white; font-size:14px;">取消</a>
                 <h1>QQ</h1>
-                <a style="float:right; margin:4% 15px 0 0;  color:white; font-size:14px;">保存</a>
+                <a onclick="saveqq()" style="float:right; margin:4% 15px 0 0;  color:white; font-size:14px;">保存</a>
             </header><!-----------------------------------QQ------------------->
             <header id="hhymrrw">
                 <a href="#yhzx" class="biaotizuo">
@@ -1207,12 +1377,12 @@
             <header id="dizi">
                 <a href="#hyzx_grzl" style="float:left; margin:12px 0 0 20px;  color:white; font-size:14px;">取消</a>
                 <h1>地址</h1>
-                <a href='#' style="float:right;padding:12px 5px 0px 0px; color:#fff; border:none; text-decoration:none;">保存</a>
+                <a href='#'onclick="savesdz()" style="float:right;padding:12px 5px 0px 0px; color:#fff; border:none; text-decoration:none;">保存</a>
             </header><!------------------------------------个人资料_地址-------->
             <header id="shenfenzheng">
                 <a href="#hyzx_grzl" style="float:left; margin:12px 0 0 20px;  color:white; font-size:14px;">取消</a>
                 <h1>身份证号码</h1>
-                <a href='#' style="float:right;padding:12px 5px 0px 0px; color:#fff; border:none; text-decoration:none;">保存</a>
+                <a href='#' onclick="savesfz()" style="float:right;padding:12px 5px 0px 0px; color:#fff; border:none; text-decoration:none;">保存</a>
             </header><!----------------------------个人资料_身份证号码-->
             <header id="xingbie">
                 <a href="#hyzx_grzl" style="float:left; margin:12px 0 0 20px;  color:white; font-size:14px;">取消</a>
@@ -1222,12 +1392,12 @@
             <header id="xingming">
                 <a href="#hyzx_grzl" style="float:left; margin:12px 0 0 20px;  color:white; font-size:14px;">取消</a>
                 <h1>姓名</h1>
-                <a href='#' style="float:right;padding:12px 5px 0px 0px; color:#fff; border:none; text-decoration:none;">保存</a>
+                <a onclick="savename()" style="float:right;padding:12px 5px 0px 0px; color:#fff; border:none; text-decoration:none;">保存</a>
             </header><!--------------------------------个人资料_姓名-------->
             <header id="youxiang">
                 <a href="#hyzx_grzl" style="float:left; margin:12px 0 0 20px;  color:white; font-size:14px;">取消</a>
                 <h1>邮箱</h1>
-                <a href='#' style="float:right;padding:12px 5px 0px 0px; color:#fff; border:none; text-decoration:none;">保存</a>
+                <a onclick="saveem()" style="float:right;padding:12px 5px 0px 0px; color:#fff; border:none; text-decoration:none;">保存</a>
             </header><!--------------------------------个人资料_邮箱-------->
             <header id="xiugaimima">
                 <a href="#hyzx_grzl" style="float:left; margin:12px 0 0 20px;  color:white; font-size:14px;">取消</a>
@@ -1707,20 +1877,6 @@
             }
         })
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     var Actid; ///当前选中的礼品ID ///当前选中的礼品ID ///当前选中的礼品ID ///当前选中的礼品ID ///当前选中的礼品ID ///当前选中的礼品ID
