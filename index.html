@@ -1,4 +1,4 @@
-﻿hai<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!--HTML5 doctype-->
 <html>
 <head>
@@ -277,10 +277,58 @@
 
                     </div>
                 </div>
+                <script>
+                    var shopScroll;
+                    var page = 2;
+                    var hideClose;
+                    $.ui.ready(function () {
+                        shopScroll = $("#jfshop").scroller({
+                            refresh: true,
+                            scrollBars: true,
+                            verticalScroll: true,
+                            horizontalScroll: false,
+                            vScrollCSS: "jqmScrollbar",
+                            hScrollCSS: "jqmScrollbar"
+                        });
+                        shopScroll.addInfinite();
+                        shopScroll.addPullToRefresh();
+                        shopScroll.runCB = true;
+                        $.bind(shopScroll, "refresh-release", function () {
+                            clearTimeout(hideClose);
+                            var that = this;
+                            hideClose = setTimeout(function () { that.hideRefresh(); }, 500)
+                            
+                            return false;
+                        })
+                        shopScroll.enable();
+                        $.bind(shopScroll, "infinite-scroll", function () {
+                            var self = this;
+                          
+                            setTimeout(function () {
+                                self.clearInfinite();
+                                if (shopFilter == "lp" || shopFilter == 'hd'){
+                                    fnShowShop(page, shopFilter, '');
+                                    page++;
+                                }
+                                  
+                                else if (shopFilter != "") {
+                                    fnShowShop(page, '', shopFilter)
+                                    
+                                    page++;
+                                }
+                             
+                               
+                                self.scrollToButton();
+                            }, 1000);
+                        })
+                        $("#jfshop").css("overflow", "auto");
+                    })
+                </script>
             </div>
+            
             <!-------------------------------------积分商城------------------------------------------>
             <!----------------------------------积分商城详情页--------------------------------------->
-            <div class="panel" id="jifengxiangqing" data-header="jf_xq" data-footer="none" data-load="fnShowShopInfo">
+            <div class="panel" data-title="详情" id="jifengxiangqing" data-footer="none" data-load="fnShowShopInfo">
                 <div style="width:100%;font-family:'微软雅黑'">
 
                     <div style="width:90.6%;margin:0 auto;">
@@ -421,8 +469,8 @@
             <div id="sous" title="安检专区" class="panel" data-header="head" data-footer="custom_footer" data-tab="footer_zhuye">
                 <div class="row" style="margin-top:20px;padding:0 20px;">
                     <form method="get" action="/mobile/CheckList">
-                        <input type="text" name="search" style="width:75%; border:2px solid #a9deec;font-size:20px;font-family:'Microsoft YaHei';border-radius:10px;height:45px;" placeholder="快速安检" />
-                        <a style="float:right; margin-right:15px; height:40px;border-radius:5px;width:40px;display:inline-table; background: #f7cd6a;"><img src="img/check/i-search.png" style=" width:70%; padding:12% 0 0 12%;"></a>
+                        <input id="quickSearch" type="text" name="search" style="width:75%; border:2px solid #a9deec;font-size:20px;font-family:'Microsoft YaHei';border-radius:10px;height:45px;" placeholder="快速安检" />
+                        <a id="quickSearchBtn" style="float:right; margin-right:15px; height:40px;border-radius:5px;width:40px;display:inline-table; background: #f7cd6a;"><img src="img/check/i-search.png" style=" width:70%; padding:12% 0 0 12%;"></a>
                     </form>
                 </div>
                 <div style="padding:0 20px;">
@@ -435,6 +483,15 @@
                     <a href="#" class="rm_btn">传衡资产</a>
                     <a href="#" class="rm_btn">传衡资产</a>
                 </div>
+                <script>
+                  
+                    $("#quickSearchBtn").click(function () {
+                       
+                        $("#inertText").val($("#quickSearch").val());
+                        $.ui.loadContent("#SearchAnjianshenqi");
+                        fnSearch( $("#inertText").val())
+                    })
+                </script>
             </div>
             <!---------------------------------------搜索-------------------------------------------->
             <!-------------------------------------用户中心------------------------------------------>
@@ -1057,6 +1114,88 @@
                 
             </div>
             <!-------------------------------------融信城&安检查询------------------------------------------>
+
+            <!-------------------------------------搜索结果------------------------------------------>
+            <div data-title="安检专区" class="panel" id="SearchAnjianshenqi" style="background-color:#f0f0f0">
+                <header >
+                    <a class="button" id="backButton"></a>
+                    <h1>安检专区</h1>
+                </header>
+                <div style="width:92%;margin:10px 4%">
+                    <div style="width:85%;height:40px;float:left;border-radius:10px;border:1px solid #a9deec;color: #a9deec;text-indent:10px;line-height:35px;background:#fff" class="icon pencil">
+                        <input id="inertText" typ="text" style="height:38px;width:85%;margin:0px;border:0px;font-size:14px;" />
+                    </div>
+                    <div id="checkHereToSearch" class="icon magnifier big" style="float:left;color:#fff;border-radius:5px;margin-left:2%; background-color:#f7cd6a;width:13%;height:40px;font-size:18px;line-height:50px;text-align:center"></div>
+                    <div style="clear:both"></div>
+                </div>
+                <div style="border-top:1px solid #ccc;width:100%;margin-top:20px" id="searchShowHere">
+                    
+
+                </div>
+
+                <script>
+                    function fnSearch(search) {
+                        $.ui.showMask("");
+                        $("#searchShowHere").text("");
+                        
+                        if (search.length < 2)
+                        {
+                            toast("请至少输入两个关键字",1000);
+                            return;
+                        }
+                        var id=localStorage["id"];
+                        if(id==null)
+                            id="";
+                        $.ajax({
+                            url: "http://www.shrxc.com/api/apitest/searchreport",
+                            data: { "search": search, "id": id },
+                            dataType:"jsonp",
+                            jsonp:"callback",
+                            type:"GET",
+                            success: function (data) 
+                            {
+                                $.ui.hideMask();
+                                var i = 0;
+                                $.each(data, function (key, value) {
+                                    i++;
+                                    if (i > 9)
+                                    {
+                                        return;
+                                    }
+                                      
+                                    var item = "<div onclick='fnShowAnJianInfo(this)' gsqc=" + value.gsqc + " style=\"height:60px;line-height:30px;padding-left:10px; border:1px solid #dbdbdb;margin:10px 10px 0px 10px;background-color:#fff\" >"
+                                    + "<div style=\"float:left\">"
+                                    + "<div>"+value.gsqc+"</div>"
+                                    + "<div>简称: " + value.gsjc + "</div>"
+                                     + "</div>"
+                                     + " <div style=\"float:right;\"><img style=\"height:50%;margin-top:35%;margin-right:10px;\" src=\"./img/check/next_03.png\" /></div>"
+                                     + "</div>";
+
+                                    $("#searchShowHere").append(item);
+                                })
+                            },
+                            error: function () {
+                                $.ui.hideMask();
+                            }
+                        })
+                    }
+                           
+                    $("#checkHereToSearch").click(function () {
+
+                        var inertText = $("#inertText").val();
+                        fnSearch(inertText);
+                    });
+                       
+
+                    function fnShowAnJianInfo(thisEv) {
+
+                        $.ui.loadContent("#AnJianChaXun");
+                    }
+                </script>
+            </div>
+            <!-------------------------------------//搜索结果------------------------------------------>
+
+
             <!-------------------------------------- 头---------------------------------------------->
             <header id="rxc_ajcx">
                 <a href="#hyaj" class="biaotizuo">
@@ -1555,40 +1694,20 @@
 
     function showShangPin() { ///////////////////////////////////////////////////////展示商品
         $("#con").html("");
-        $.jsonP({
-            url: "http://120.24.220.249/api/apitest/actlist",
-            success: function (data) {
-
-                $.each(data, function (key, value) {
-
-                    var item = $("<div style='width:100%;border-bottom:1px solid  #d1d1d1;position:relative;'>"
-                        + "<div style='width:100%;'onclick=' Gotojifengxiangqing(\"" + value.actid + "\")'>"
-                        + "<div style='float:left;width:37%;padding:10px;'><img style='width:110px;height:90px' src='http://120.24.220.249" + value.imgsrc + "' /></div>"
-                        + "<div style='float:left;width:62%;line-height:24px;margin-top:10px;'>"
-                        + "<h3>" + value.title + "</h3>"
-                        + "<span>活动地区：</span><span style='color:#4fbef3'>" + value.area + "</span><br />"
-                         + " <span style='margin-top:10px;'>所需积分：<span style='color:#ff7372'>" + value.score + "</span></span>"
-                        + "</div>"
-                        + " <div style='clear:both;'></div>"
-                        + "</div>"
-                        + "<div style='position:absolute;right:10px;bottom:10px;'  onclick='fnDianZhan(this,\"" + value.actid + "\")'  ><img style='width:18px;' src='img/jfsc_images/icon_good.png' /><span> " + value.topnum + "</span></div>"
-                        + '</div>')
-                    $("#con").append(item);
-                });
-
-            },
-            error: function () { alert("网络断开连接") }
-        })
+        page = 2;
+        fnShowShop(1);
         $("#jfTou_shuzi").text(window.localStorage["score"]);
     } ///////////////////////////////////////////////////////end展示商品
 
 
     function fnSearchToShop(thisEv)
     {
+        page = 2;
         hidelistRight();
         hidelistLeft();
         var item = thisEv.parentNode.parentNode.id;
-        id=1
+        id = 1;
+        $("#con").html("");
         if (item == "btnShowLeft" && thisEv.innerHTML != "全&nbsp;&nbsp;部")
             fnShowShop(id, "", thisEv.innerHTML);
         else if (item == "btnShowRight" && thisEv.innerHTML != "全&nbsp;&nbsp;部")
@@ -1596,6 +1715,8 @@
         else
            fnShowShop(id);
     }
+
+    var shopFilter = "";
 
     function fnShowShop(num ,types,area)
     {
@@ -1605,6 +1726,10 @@
             case "活动券": types = "hd"; break;
             default: types == ""; break;
         }
+
+        shopFilter = types == "" && area == "" ? "" : (types == "" ? area : types);
+        
+
         $.ajax({
             url: "http://www.shrxc.com/api/apitest/act",
             data: { "num":num , "type": types, "area": area },
@@ -1612,7 +1737,7 @@
             dataType: "jsonp",
             jsonp: "callback",
             success: function (data) {
-                $("#con").html("");
+               
                 $.each(data, function (key, value) {
                 
                     var item = $("<div style='width:100%;border-bottom:1px solid  #d1d1d1;position:relative;'>"
@@ -1629,7 +1754,7 @@
                         + '</div>')
                     $("#con").append(item);
                 });
-
+              
             },
             error: function () {
                 toast("网络断开连接", 3000);
@@ -1874,6 +1999,7 @@
                         thisev.children[1].innerHTML = " ";
                         thisev.children[1].innerHTML += parseInt(thisEv) + 1;
                         fnRefreshLocalStorage() //刷新本地数据
+                        $("#wdjf_shuzi").text(window.localStorage["score"]);
                         break;
 
                     case '-2': $.ui.showToast("今天已经点过赞");
@@ -1886,6 +2012,7 @@
                         break;
                 }
             },
+
 
             error: function () { alert("网络断开连接") }
         });
@@ -2145,12 +2272,12 @@
               
                 $.each(data, function (key, value) {
                     var imgsrc = types == "lp" ? (parseInt(value.state) == 0 ? "url(./img/lpjuan/notUse_lp.png)" : "url(./img/lpjuan/useed_lp.png)") : (parseInt(value.state) == 0 ? "url(./img/lpjuan/notUes_hd.png)" : "url(./img/lpjuan/notUes_hd.png)");
-                    var item = "<div onclick='fnClickShow(this)' imgsrc='" + value.activity.imgsrc + "' coid='" + value.coid + "' score='" + value.score + "' gsjc='" + value.seller.gsjc + "'  state='" + value.state + "' titles='" + value.activity.title + "'theDate='有效日期:" + (value.activity.begintime).substring(0, 10) + "日~" + (value.endtime).substring(0, 10) + "日' style='margin-top:5px;padding:5px 10px;border:1px solid #ccc;background-image:" + imgsrc + "; background-position:right top;background-repeat:no-repeat;background-color:#FFF'>"//code
-                        + " <div style='float:left;width:110px;height:90px;background:#4fbef3'><img style='width:100%;height:100%' src='http://www.shrxc.com"+ value.activity.imgsrc+"' /></div>"//code
-                        + "<div style='margin-left:10px;float:left'>"
-                        + "<div style='line-height:35px;font-weight:bolder; font-size:18px;'>" + value.activity.title + "</div>"
-                        + " <div style='line-height:27.5px; font-size:16px;'>所需积分: <span style='color:#ff8a8a'>" + value.score + "</span></div>"
-                        + "<div style='line-height:27.5px; font-size:16px;'>有效期: " + (value.activity.begintime).substring(0,10) + "日 ~" + (value.endtime).substring(0,10) + "日</div>"
+                    var item = "<div onclick='fnClickShow(this)' imgsrc='" + value.activity.imgsrc + "' coid='" + value.coid + "' score='" + value.score + "' gsjc='" + value.seller.gsjc + "'  state='" + value.state + "' titles='" + value.activity.title + "'theDate='有效日期:" + (value.activity.begintime).substring(0, 10) + "日~" + (value.endtime).substring(0, 10) + "日' style='margin-top:5px;padding:2% 4%;border:1px solid #ccc;background-image:" + imgsrc + "; background-position:right top;background-repeat:no-repeat;background-color:#FFF;width:100%'>"//code
+                        + " <div style='float:left;width:35%;height:90px;background:#4fbef3'><img style='width:100%;height:100%' src='http://www.shrxc.com"+ value.activity.imgsrc+"' /></div>"//code
+                        + "<div style='margin-left:10px;float:left;width:57%'>"
+                        + "<div style='line-height:30px;font-weight:bolder; font-size:18px;'>" + value.activity.title + "</div>"
+                        + " <div style='line-height:20px; font-size:16px;'>所需积分: <span style='color:#ff8a8a'>" + value.score + "</span></div>"
+                        + "<div style='line-height:20px; font-size:16px;'>有效期: " + (value.activity.begintime).substring(0,10) + "日 ~" + (value.endtime).substring(0,10) + "日</div>"
                         + " </div>"
                         + " <div style='clear:both'></div>"
                         + "</div>";
