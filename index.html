@@ -1112,12 +1112,12 @@
 
                                 $.each(data, function (k, value) {
                                     var item = $(
-                                   "<a href='#AnJianChaXun' class='a1'>" +
+                                   "<div onclick='fnGotoSearchAnjianshenqi(this)' fsqc='" + value.keyword.substring(0, 4) + "' class='a1'>" +
                         "<span class='ajspan1'>" + value.keyword.substring(0, 4) + "</span>" +
                        "<span class='ajspan2'>" + value.createtime.substring(0, 10) + "</span>" +
                        "<span class='ajspan3'>查看报告</span>" +
                        "<img class='ajimg' src='img/jfzy/user_right.png' />" +
-                                    "</a>" +
+                                    "</div>" +
                                     "<div class='link'></div>")
                                     $("#ajadd").append(item);
 
@@ -1128,7 +1128,17 @@
                             }
                         })
                     }
-                </script>
+
+
+                    function fnGotoSearchAnjianshenqi(thisEv)
+                    {
+                        var item = thisEv.getAttribute("fsqc");
+                        $("#inertText").val(item);
+                        fnSearch(item);
+                        $.ui.loadContent("#SearchAnjianshenqi");
+                    }
+                </script>     
+                       
             </div>
             <!---------------------------------会员中心安检记录-------------------------------------->
             <!------------------------------------会员中心QQ----------------------------------------->
