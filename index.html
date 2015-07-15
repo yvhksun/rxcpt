@@ -273,6 +273,7 @@
                                 <span onclick="fnSearchToShop(this)" style="float:left;width:33.3%">全&nbsp;&nbsp;部</span>
                                 <span onclick="fnSearchToShop(this)" style="float:left;width:33.3%">礼品券</span>
                                 <span onclick="fnSearchToShop(this)" style="float:left;width:33.3%">活动券</span>
+                                <div style="clear:both"></div>
                             </div>
                         </div>
                     </div>
@@ -320,9 +321,9 @@
                                     
                                     page++;
                                 }
-                             
+                                self.clearInfinite();
                                
-                                self.scrollToButton();
+                                self.scrollToBottom();
                             }, 1000);
                         })
                         $("#jfshop").css("overflow", "auto");
@@ -332,7 +333,13 @@
             
             <!-------------------------------------积分商城------------------------------------------>
             <!----------------------------------积分商城详情页--------------------------------------->
-            <div class="panel" data-title="详情" id="jifengxiangqing" data-footer="none" data-load="fnShowShopInfo">
+            <div class="panel" id="jifengxiangqing" data-footer="none" data-load="fnShowShopInfo">
+                <header>
+                    <a href="#jfshop" >
+                        <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
+                    </a>
+                    <h1>详情</h1>
+                </header>
                 <div style="width:100%;font-family:'微软雅黑'">
 
                     <div style="width:90.6%;margin:0 auto;">
@@ -2002,31 +2009,6 @@
         page = 2;
         fnShowShop(1);
 
-        $.jsonP({
-            url: "http://120.24.220.249/api/apitest/actlist",
-            success: function (data) {
-
-                $.each(data, function (key, value) {
-
-                    var item = $("<div style='width:100%;border-bottom:1px solid  #d1d1d1;position:relative;'>"
-                        + "<div style='width:100%;'onclick=' Gotojifengxiangqing(\"" + value.actid + "\")'>"
-                        + "<div style='float:left;width:37%;padding:10px;'><img style='width:90px;height:80px' src='http://120.24.220.249" + value.imgsrc + "' /></div>"
-                        + "<div style='float:left;width:62%;line-height:24px;margin-top:10px;'>"
-                        + "<h3>" + value.title + "</h3>"
-                        + "<span>活动地区：</span><span style='color:#4fbef3'>" + value.area + "</span><br />"
-                         + " <span style='margin-top:10px;'>所需积分：<span style='color:#ff7372'>" + value.score + "</span></span>"
-                        + "</div>"
-                        + " <div style='clear:both;'></div>"
-                        + "</div>"
-                        + "<div style='position:absolute;right:10px;bottom:10px;'  onclick='fnDianZhan(this,\"" + value.actid + "\")'  ><img style='width:18px;' src='img/jfsc_images/icon_good.png' /><span> " + value.topnum + "</span></div>"
-                        + '</div>')
-                    $("#con").append(item);
-                });
-
-            },
-            error: function () { alert("网络断开连接") }
-        })
-
         $("#jfTou_shuzi").text(window.localStorage["score"]);
     } ///////////////////////////////////////////////////////end展示商品
 
@@ -2074,10 +2056,10 @@
             success: function (data) {
                
                 $.each(data, function (key, value) {
-
+                    
                     var item = $("<div style='width:100%;border-bottom:1px solid  #d1d1d1;position:relative;'>"
                         + "<div style='width:100%;'onclick=' Gotojifengxiangqing(\"" + value.actid + "\")'>"
-                        + "<div style='float:left;width:37%;padding:10px;'><img style='width:110px;height:90px' src='http://120.24.220.249" + value.imgsrc + "' /></div>"
+                        + "<div style='float:left;width:37%;padding:10px;'><img style='width:100%;height:90px' src='http://120.24.220.249" + value.imgsrc + "' /></div>"
                         + "<div style='float:left;width:62%;line-height:24px;margin-top:10px;'>"
                         + "<h3>" + value.title + "</h3>"
                         + "<span>活动地区：</span><span style='color:#4fbef3'>" + value.area + "</span><br />"
@@ -2088,6 +2070,7 @@
                         + "<div style='position:absolute;right:10px;bottom:10px;'  onclick='fnDianZhan(this,\"" + value.actid + "\")'  ><img style='width:18px;' src='img/jfsc_images/icon_good.png' /><span> " + value.topnum + "</span></div>"
                         + '</div>')
                     $("#con").append(item);
+                    alert(item.children().children().find("img").css("width"));
                 });
               
             },
