@@ -337,18 +337,18 @@
                                     self.scrollToBottom();
                                 }, 1600);
                             })
-                            
+
                         })
                         $("#jfshop").css("overflow", "auto");
                     })
                 </script>
             </div>
-            
+
             <!-------------------------------------积分商城------------------------------------------>
             <!----------------------------------积分商城详情页--------------------------------------->
             <div class="panel" id="jifengxiangqing" data-footer="none" data-load="fnShowShopInfo">
                 <header>
-                    <a href="#jfshop" >
+                    <a href="#jfshop">
                         <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
                     </a>
                     <h1>详情</h1>
@@ -440,7 +440,7 @@
                 </div>
 
                 <script>
-                   
+
                 </script>
             </div>
             <!----------------------------------积分商城详情页--------------------------------------->
@@ -470,9 +470,9 @@
 
                     <div class="row text-center" style="margin-top:20px;">
                         <a href="#">
-                            <span style="width:32%;display:inline-table; padding-left:20%; "><img  class="img" src="img/index/btn-gn.png" /></span>
+                            <span style="width:32%;display:inline-table; padding-left:20%; "><img class="img" src="img/index/btn-gn.png" /></span>
                         </a>
-                        <a href="#">     
+                        <a href="#">
                             <span style="width:32%;display:inline-table; padding-left:10%; padding-right:10%;"><img class="img" src="img/index/icon-favorite.png" /></span>
                         </a>
                         <a href="#">
@@ -535,12 +535,12 @@
                     <a href="#" class="rm_btn">传衡资产</a>
                 </div>
                 <script>
-                  
+
                     $("#quickSearchBtn").click(function () {
-                       
+
                         $("#inertText").val($("#quickSearch").val());
                         $.ui.loadContent("#SearchAnjianshenqi");
-                        fnSearch( $("#inertText").val())
+                        fnSearch($("#inertText").val())
                     })
                 </script>
             </div>
@@ -592,7 +592,7 @@
                     </a>
                 </div>
                 <div class="aup" style="margin-top:20px;">
-                   
+
                     <a class="a1" href="#lpjuan" id="btnLipinQuan">
                         <img class="aimg" src="img/jfzy/user_lpq.png" />
                         <div class="aspan">礼品券</div>
@@ -652,7 +652,7 @@
             <!------------------------------------提问记录------------------------------------------->
             <div id="twjl" title="礼品券详细" class="panel" data-header="htwjl" data-footer="none" data-load="twjl" data-tab="footer_zhuye" style="background-color:#f0f0f0;">
 
-                <div  id="twadd"></div>
+                <div id="twadd"></div>
                 <script>
                     function twjl() {
                         $("#twadd").text("")
@@ -755,11 +755,11 @@
                             success: function (data) {
                                 $.each(data, function (k, value) {
                                     var item = $(
-                                    "<a href='#jfjlxq' class='marjfjla'>"+
-                        "<span class='mrjfjl1'>"+value.type+"</span>"+
+                                    "<a href='#jfjlxq' class='marjfjla'>" +
+                        "<span class='mrjfjl1'>" + value.type + "</span>" +
                         "<span class='mrjfjl2'>" + value.createtime.substring(0, 10) + "</span>" +
                         "<span class='mrjfjl3'>" + value.change + "分</span>" +
-                        "<div style='border-bottom: solid 1px #c7c7c7;'></div>"+
+                        "<div style='border-bottom: solid 1px #c7c7c7;'></div>" +
                         " </a>"
                                         )
                                     $("#jifadd").append(item);
@@ -1116,7 +1116,7 @@
                        "<span class='ajspan2'>" + value.createtime.substring(0, 10) + "</span>" +
                        "<span class='ajspan3'>查看报告</span>" +
                        "<img class='ajimg' src='img/jfzy/user_right.png' />" +
-                                    "</a>"+
+                                    "</a>" +
                                     "<div class='link'></div>")
                                     $("#ajadd").append(item);
 
@@ -1308,8 +1308,8 @@
             <div title="交流专区" class="panel" data-load="jiaoliu" id="jjzq" data-header="hjjzq" data-footer="custom_footer" data-tab="footer_jfshop" style=" width:100%;">
                 <div style="height:auto;width:100%;margin:10px 0px ">
                     <!--<img src="img/jlzq/jlss.jpg" style="height:32px;width:260px;margin:10px 0 0 6%;" />
-            <img src="img/jlzq/twjlimg.jpg" style="height:65px;width:60px;margin-left:10px;margin-bottom :-13px;"/>
-            <input type="text"  placeholder="搜索" style=" width:200px;height:29px;margin-left:8%;margin-top :-30px;border:none;" />-->
+                    <img src="img/jlzq/twjlimg.jpg" style="height:65px;width:60px;margin-left:10px;margin-bottom :-13px;"/>
+                    <input type="text"  placeholder="搜索" style=" width:200px;height:29px;margin-left:8%;margin-top :-30px;border:none;" />-->
                     <div style="float:left;width:70%;margin:10px 10px 10px 5%">
                         <input type="text" id="mySearch" placeholder="搜索" style="border:red 1px solid;width:100%; height:40px; border-radius:25px;background-image:url(img/jlzq/search.png); background-position-x:right;background-size:contain;background-repeat:no-repeat;" />
 
@@ -1327,15 +1327,27 @@
                 <div id="jladd"></div>
                 <script>
                     function jiaoliu() {
-                        for (var a = 1; a < 30; a++) {
-                            var item = $(
-                                " <a style='width:33%;height:30px;display:inline-table;'>" +
-                        "<span class='jltbl'>1222</span>" +
-
-                   " </a>")
-                            $("#jladd").append(item)
-                        }
+                        var id = window.localStorage["id"];
+                        $.ajax({
+                            url: "http://120.24.220.249/api/apitest/sellerList?id=" + id,
+                            type: "GET",
+                            dataType: "jsonp",
+                            jsonp: "callback",
+                            success: function (data) {
+                                $.each(data, function (k, value) {
+                                    var item = $(
+                                        " <a style='width:33%;height:100px;display:inline-table;padding-top:10px;padding-left:20px;'>" +
+                                "<img src='http://120.24.220.249" + value.logo + "' class='jltbl'style='height:80%;width:80%'/>" +
+                            " </a>")
+                                    $("#jladd").append(item)
+                                })
+                            }
+                        })
                     }
+
+
+
+
                 </script>
 
             </div>
@@ -1453,10 +1465,9 @@
 
             </div>
             <!-------------------------------------融信城&安检查询------------------------------------------>
-
             <!-------------------------------------搜索结果------------------------------------------>
             <div data-title="安检专区" class="panel" id="SearchAnjianshenqi" style="background-color:#f0f0f0">
-                <header >
+                <header>
                     <a class="button" id="backButton"></a>
                     <h1>安检专区</h1>
                 </header>
@@ -1468,7 +1479,7 @@
                     <div style="clear:both"></div>
                 </div>
                 <div style="border-top:1px solid #ccc;width:100%;margin-top:20px" id="searchShowHere">
-                    
+
 
                 </div>
 
@@ -1476,7 +1487,7 @@
                     function fnSearch(search) {
                         $.ui.showMask(" ");
                         $("#searchShowHere").text("");
-                        
+
                         if (search.length < 2)
                         {
                             toast("请至少输入两个关键字", 1000);
@@ -1492,7 +1503,7 @@
                             dataType:"jsonp",
                             jsonp:"callback",
                             type:"GET",
-                            success: function (data) 
+                            success: function (data)
                             {
                                 $.ui.hideMask();
                                 var i = 0;
@@ -1502,7 +1513,7 @@
                                     {
                                         return;
                                     }
-                                      
+
                                     var item = "<div onclick='fnShowAnJianInfo(this)' gsqc=" + value.gsqc + " style=\"height:60px;line-height:30px;padding-left:10px; border:1px solid #dbdbdb;margin:10px 10px 0px 10px;background-color:#fff\" >"
                                     + "<div style=\"float:left\">"
                                     + "<div>"+value.gsqc+"</div>"
@@ -1519,13 +1530,13 @@
                             }
                         })
                     }
-                           
+
                     $("#checkHereToSearch").click(function () {
 
                         var inertText = $("#inertText").val();
                         fnSearch(inertText);
                     });
-                       
+
 
                     function fnShowAnJianInfo(thisEv) {
 
@@ -1534,8 +1545,6 @@
                 </script>
             </div>
             <!-------------------------------------//搜索结果------------------------------------------>
-
-
             <!-------------------------------------- 头---------------------------------------------->
             <header id="rxc_ajcx">
                 <a href="#hyaj" class="biaotizuo">
@@ -2044,8 +2053,7 @@
 
 
 
-    function fnSearchToShop(thisEv)
-    {
+    function fnSearchToShop(thisEv) {
         page = 2;
         hidelistRight();
         hidelistLeft();
@@ -2064,10 +2072,8 @@
 
     var shopFilter = "";
 
-    function fnShowShop(num ,types,area)
-    {
-        switch(types)
-        {
+    function fnShowShop(num, types, area) {
+        switch (types) {
 
             case "礼品券": types = "lp"; break;
             case "活动券": types = "hd"; break;
@@ -2075,7 +2081,7 @@
         }
 
         shopFilter = types == "" && area == "" ? "" : (types == "" ? area : types);
-        
+
 
         $.ajax({
             url: "http://www.shrxc.com/api/apitest/act",
@@ -2084,9 +2090,9 @@
             dataType: "jsonp",
             jsonp: "callback",
             success: function (data) {
-               
+
                 $.each(data, function (key, value) {
-                    
+
                     var item = $("<div style='width:100%;border-bottom:1px solid  #d1d1d1;position:relative;'>"
                         + "<div style='width:100%;'onclick=' Gotojifengxiangqing(\"" + value.actid + "\")'>"
                         + "<div style='float:left;width:37%;padding:10px;'><img style='width:100%;height:90px' src='http://120.24.220.249" + value.imgsrc + "' /></div>"
@@ -2101,7 +2107,7 @@
                         + '</div>')
                     $("#con").append(item);
                 });
-              
+
             },
             error: function () {
                 toast("网络断开连接", 3000);
@@ -2607,11 +2613,11 @@
                     var imgsrc = types == "lp" ? (parseInt(value.state) == 0 ? "url(./img/lpjuan/notUse_lp.png)" : "url(./img/lpjuan/useed_lp.png)") : (parseInt(value.state) == 0 ? "url(./img/lpjuan/notUes_hd.png)" : "url(./img/lpjuan/notUes_hd.png)");
 
                     var item = "<div onclick='fnClickShow(this)' imgsrc='" + value.activity.imgsrc + "' coid='" + value.coid + "' score='" + value.score + "' gsjc='" + value.seller.gsjc + "'  state='" + value.state + "' titles='" + value.activity.title + "'theDate='有效日期:" + (value.activity.begintime).substring(0, 10) + "日~" + (value.endtime).substring(0, 10) + "日' style='margin-top:5px;padding:2% 4%;border:1px solid #ccc;background-image:" + imgsrc + "; background-position:right top;background-repeat:no-repeat;background-color:#FFF;width:100%'>"//code
-                        + " <div style='float:left;width:35%;height:90px;background:#4fbef3'><img style='width:100%;height:100%' src='http://www.shrxc.com"+ value.activity.imgsrc+"' /></div>"//code
+                        + " <div style='float:left;width:35%;height:90px;background:#4fbef3'><img style='width:100%;height:100%' src='http://www.shrxc.com" + value.activity.imgsrc + "' /></div>"//code
                         + "<div style='margin-left:10px;float:left;width:57%'>"
                         + "<div style='line-height:30px;font-weight:bolder; font-size:18px;'>" + value.activity.title + "</div>"
                         + " <div style='line-height:20px; font-size:16px;'>所需积分: <span style='color:#ff8a8a'>" + value.score + "</span></div>"
-                        + "<div style='line-height:20px; font-size:16px;'>有效期: " + (value.activity.begintime).substring(0,10) + "日 ~" + (value.endtime).substring(0,10) + "日</div>"
+                        + "<div style='line-height:20px; font-size:16px;'>有效期: " + (value.activity.begintime).substring(0, 10) + "日 ~" + (value.endtime).substring(0, 10) + "日</div>"
 
                         + " </div>"
                         + " <div style='clear:both'></div>"
@@ -2726,7 +2732,6 @@
 
 <style type="text/css">
     .biaotizuo {
-       
     }
 </style>
 
