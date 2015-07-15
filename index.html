@@ -1336,12 +1336,13 @@
                             success: function (data) {
                                 $.each(data, function (k, value) {
                                     var item = $(
-                                        " <a style='width:33.33%;height:130px;display:inline-table;padding:15px 15px;border:solid 1px #dbdbdb'>" +
-                                "<img src='http://120.24.220.249" + value.logo + "' class='jltbl'style='height:73%;width:100%'/>" +
-                                "<span style='text-align:center;width:100%;display:inline-table;margin-top:10px;'>" + value.gsjc + "</span>" +
-                            " </a>")
+                                        " <div style='width:33.33%;height:130px;float:left;padding:15px 15px;border:solid 1px #dbdbdb'>" +
+                                            "<img src='http://120.24.220.249" + value.logo + "' class='jltbl'style='height:73%;width:100%'/>" +
+                                            "<span style='text-align:center;width:100%;display:inline-table;margin-top:10px;'>" + value.gsjc + "</span>" +
+                                        " </div>")
                                     $("#jladd").append(item)
                                 })
+                                $("#jladd").append("<div style=\"clear:both;\"></div>");
                             }
                         })
                     }
@@ -1638,6 +1639,25 @@
 
 
             <!-------------------------------------//搜索结果------------------------------------------>
+            <!-------------------------------------使用手册------------------------------------------>
+            <div data-title="安检专区" class="panel" id="SearchAnjianshenqi" style="background-color:#f0f0f0">
+                <header>
+                    <a href="#zhuye" >
+                        <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
+                    </a>
+                    <h1>使用手册</h1>
+                </header>
+                <div style="width:92%;margin:10px 4%">
+                    <div style="width:85%;height:40px;float:left;border-radius:10px;border:1px solid #a9deec;color: #a9deec;text-indent:10px;line-height:35px;background:#fff" class="icon pencil">
+                        <input id="inertText" typ="text" style="height:38px;width:85%;margin:0px;border:0px;font-size:14px;" />
+                    </div>
+                    <div id="checkHereToSearch" style="float:left;border-radius:5px;margin-left:2%; background-color:#f7cd6a;width:13%;height:40px;background-image:url(img/check/i-search.png);background-repeat:no-repeat;background-size:25px;background-position:center "></div>
+                    <div style="clear:both"></div>
+                </div>
+                <div style="border-top:1px solid #ccc;width:100%;margin-top:20px" id="searchShowHere">
+                </div>
+            </div>
+            <!-------------------------------------使用手册------------------------------------------>
             <!-------------------------------------- 头---------------------------------------------->
             <header id="rxc_ajcx">
                 <a href="#hyaj" class="biaotizuo">
