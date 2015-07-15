@@ -700,7 +700,7 @@
             <div id="hymrrw" title="每日任务" class="panel" data-header="hhymrrw" data-footer="none" data-tab="footer_zhuye" style="background-color:#f0f0f0;">
                 <div style="margin-top: 20px;background-color:white;">
                     <div style="border-bottom: solid 1px #dbdbdb;"></div>
-                    <a href="#mrrw_qiandao" style="    width: 100%;padding-left: 30px;display: inline-table;">
+                    <a href="#mrrw_qiandao" class="a1">
                         <img class="mrjf-img " src="img/mrqd/icon_sign.png" />
                         <div class="mrjf-text">
                             <span class="mrjf-span">每日签到+10积分</span>
@@ -757,11 +757,11 @@
                             success: function (data) {
                                 $.each(data, function (k, value) {
                                     var item = $(
-                                    "<a href='#jfjlxq' class='marjfjla'>"+
-                        "<span class='mrjfjl1'>"+value.type+"</span>"+
+                                    "<a href='#jfjlxq' class='marjfjla'>" +
+                        "<span class='mrjfjl1'>" + value.type + "</span>" +
                         "<span class='mrjfjl2'>" + value.createtime.substring(0, 10) + "</span>" +
                         "<span class='mrjfjl3'>" + value.change + "分</span>" +
-                        "<div style='border-bottom: solid 1px #c7c7c7;'></div>"+
+                        "<div style='border-bottom: solid 1px #c7c7c7;'></div>" +
                         " </a>"
                                         )
                                     $("#jifadd").append(item);
@@ -1307,7 +1307,7 @@
             </div>
             <!-------------------------------------预约记录------------------------------------------>
             <!-------------------------------------交流专区------------------------------------------>
-            <div title="交流专区" class="panel" id="jjzq" data-header="hjjzq" data-footer="custom_footer" data-tab="footer_jfshop" style=" width:100%;">
+            <div title="交流专区" class="panel" data-load="jiaoliu" id="jjzq" data-header="hjjzq" data-footer="custom_footer" data-tab="footer_jfshop" style=" width:100%;">
                 <div style="height:auto;width:100%;margin:10px 0px ">
                     <!--<img src="img/jlzq/jlss.jpg" style="height:32px;width:260px;margin:10px 0 0 6%;" />
                     <img src="img/jlzq/twjlimg.jpg" style="height:65px;width:60px;margin-left:10px;margin-bottom :-13px;"/>
@@ -1318,7 +1318,7 @@
                         <a href="#" style="float:right;height:40px;width:40px;display:inline-block;margin:-40px 0px 0px -40px;">&nbsp;</a>
                     </div>
 
-                    <a href="#hkstw" style="float:left;">
+                    <a href="#kstw" style="float:left;">
                         <img src="img/jlzq/TiWen.png" style="height:60px;width:55px;" />
                         <a href="#kstw" style=" height:60px;width:55px;display:inline-block;margin-left:-50px;position:absolute;">
                             &nbsp;
@@ -1328,22 +1328,36 @@
                 </div>
                 <div id="jladd"></div>
                 <script>
-                    for (var a = 1; a < 30; a++) {
-                        var item = $(
-                            " <a style='width:33%;height:30px;display:inline-table;'>" +
-                    "<span class='jltbl'>1222</span>" +
-
-               " </a>")
-                        $("#jladd").append(item)
+                    function jiaoliu() {
+                        var id = window.localStorage["id"];
+                        $.ajax({
+                            url: "http://120.24.220.249/api/apitest/sellerList?id=" + id,
+                            type: "GET",
+                            dataType: "jsonp",
+                            jsonp: "callback",
+                            success: function (data) {
+                                $.each(data, function (k, value) {
+                                    var item = $(
+                                        " <a style='width:33%;height:100px;display:inline-table;padding-top:10px;padding-left:20px;'>" +
+                                "<img src='http://120.24.220.249" + value.logo + "' class='jltbl'style='height:80%;width:80%'/>" +
+                            " </a>")
+                                    $("#jladd").append(item)
+                                })
+                            }
+                        })
                     }
+
+
+
+
                 </script>
 
             </div>
             <!-------------------------------------交流专区------------------------------------------>
             <!-------------------------------------快速提问------------------------------------------>
-            <div title="快速提问" class="panel" id="kstw" data-header="hkstw" data-footer="none" data-tab="footer_jfshop" style=" width:100%;background-color:#f0f0f0">
+            <div title="快速提问" class="panel" id="kstw" data-header="hkstw" data-footer="none" style=" width:100%;background-color:#f0f0f0">
                 <img src="img/jlzq/xzgs.jpg" style="height:50px;width:90%;margin:20px 5%">
-                <select onfocus="jlsel()" onblur="imghid()" style=" width:75%;height:40px;margin-left:8%;margin-top:-62px; border:none;color:#b3b3b3">
+                <select onfocus="jlsel()" onblur="imghid()" style="position:absolute; width:75%;height:40px;margin-left:8%;margin-top:-65px; border:none;color:#b3b3b3">
                     <option>请选择提问公司</option>
                     <option>公司1</option>
                     <option>公司2</option>
@@ -1353,9 +1367,7 @@
                 <div style="width:86%;padding-top:3%; height:40px;margin-left:7%;margin-top:7%;background-color:#42d053;display:inline-table;">
                     <span style="margin:5% 40%; color:white;font-size:18px;">提&nbsp; &nbsp;&nbsp;交</span>
                 </div>
-                <script>
 
-                </script>
             </div>
             <!-------------------------------------快速提问------------------------------------------>
             <!-------------------------------------近期提问------------------------------------------>
@@ -1558,7 +1570,12 @@
                         $.ui.showMask(" ");
                         $("#searchShowHere").text("");
 
+<<<<<<< HEAD
                         if (search.length < 2) {
+=======
+                        if (search.length < 2)
+                        {
+>>>>>>> origin/master
                             toast("请至少输入两个关键字", 1000);
                             $.ui.hideMask();
                             return;
@@ -1569,10 +1586,18 @@
                         $.ajax({
                             url: "http://www.shrxc.com/api/apitest/searchreport",
                             data: { "search": search, "id": id },
+<<<<<<< HEAD
                             dataType: "jsonp",
                             jsonp: "callback",
                             type: "GET",
                             success: function (data) {
+=======
+                            dataType:"jsonp",
+                            jsonp:"callback",
+                            type:"GET",
+                            success: function (data)
+                            {
+>>>>>>> origin/master
                                 $.ui.hideMask();
                                 var i = 0;
                                 $.each(data, function (key, value) {
@@ -1603,6 +1628,10 @@
                         var inertText = $("#inertText").val();
                         fnSearch(inertText);
                     });
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
 
 
                     function fnShowAnJianInfo(thisEv) {///跳转到安检查询
@@ -1757,7 +1786,7 @@
                 <h1>交流专区</h1>
             </header><!---------------------------------交流专区--------->
             <header id="hkstw">
-                <a href="#jjzq" class="biaotizuo">
+                <a href="#jjzq">
                     <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
                 </a>
                 <h1>快速提问</h1>
