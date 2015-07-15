@@ -1130,15 +1130,14 @@
                     }
 
 
-                    function fnGotoSearchAnjianshenqi(thisEv)
-                    {
+                    function fnGotoSearchAnjianshenqi(thisEv) {
                         var item = thisEv.getAttribute("fsqc");
                         $("#inertText").val(item);
                         fnSearch(item);
                         $.ui.loadContent("#SearchAnjianshenqi");
                     }
-                </script>     
-                       
+                </script>
+
             </div>
             <!---------------------------------会员中心安检记录-------------------------------------->
             <!------------------------------------会员中心QQ----------------------------------------->
@@ -1329,7 +1328,7 @@
 
                     <a href="#kstw" style="float:left; text-align:center">
                         <img src="img/jlzq/TiWen.png" style="height:60px;width:55px;" />
-                        
+
                     </a>
                     <div style="clear:both;"></div>
                 </div>
@@ -1346,10 +1345,10 @@
                             success: function (data) {
                                 $.each(data, function (k, value) {
                                     var item = $(
-                                        " <div style='width:33.33%;height:130px;float:left;padding:15px 15px;border:solid 1px #dbdbdb'>" +
+                                        " <a href='#companypro' style='width:33.33%;height:130px;float:left;padding:15px 15px;border:solid 1px #dbdbdb'>" +
                                             "<img src='http://120.24.220.249" + value.logo + "' class='jltbl'style='height:73%;width:100%'/>" +
                                             "<span style='text-align:center;width:100%;display:inline-table;margin-top:10px;'>" + value.gsjc + "</span>" +
-                                        " </div>")
+                                        " </a>")
                                     $("#jladd").append(item)
                                 })
                                 $("#jladd").append("<div style=\"clear:both;\"></div>");
@@ -1637,22 +1636,109 @@
             <!-------------------------------------//搜索结果------------------------------------------>
             <!------------------------------------- 公司简介------------------------------------------>
 
-            <div id="companypro" class="aspan " style="background:#f0f0f0">
-                <ul>
-                    <li style="float:left;width:33.3%;margin:0px;border:1px solid #000"></li>
-                    <li style="float:left;width:33.3%;margin:0px;border:1px solid #000"></li>
-                    <li style="float:left;width:33.3%;margin:0px;border:1px solid #000"></li>
-                </ul>
+            <div id="companypro" class="panel " style="background:#f0f0f0">
+                <header>
+                    <a href="#jjzq" class="biaotizuo">
+                        <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
+                    </a>
+                    <h1>公司详情</h1>
+                </header>
+                <div>
 
+                    <div style="width:25%;margin-left:37.5% ;margin-top:40px;">
+                        <img style="width:100% " src="img/conpanyPro/company_log_03.png" />
+                        <div style="width:100%;line-height:30px;height:80px;letter-spacing:10px;text-align:center ;">
+                            融信城
+                        </div>
+                    </div>
+
+                    <div style=" text-align:center;width:100%;">
+                        <div style="float:left;width:25%;-webkit-transform: rotate(-10deg);margin-top:10px;">公司简介</div>
+                        <div style="float:left;width:25%;-webkit-transform: rotate(-4deg);">提问解答</div>
+                        <div style="float:left;width:25%;-webkit-transform: rotate(4deg);">活动专栏</div>
+                        <div style="float:left;width:25%;-webkit-transform: rotate(10deg);margin-top:10px;">产品系列</div>
+                        <div style="clear:both"></div>
+                        <div style="width:100%;background-image:url(img/conpanyPro/gsjj_ch_02.png);background-repeat:no-repeat;background-position:top;background-size:contain">
+                            <img style="height:80px;width:10px;margin-top:5px;" src="img/conpanyPro/gsjj_sz_03.png" />
+                            <img style="height:80px;width:10px;margin-left:33%" src="img/conpanyPro/gsjj_sz_03.png" />
+
+                        </div>
+                        <div style="width:90%;margin:-30px 5% 0px 5%;border-radius:5px;background-color:#fff;padding:40px 20px;">
+                            <div id="mainAtCompanyPro" style="border-top:1px #c0c0c0 dotted;text-indent:30px;text-align:left">
+                                <p>
+                                    融信城独有的便捷功能让百姓可以简单便捷的“安检
+                                    查询”上海各个金融公司的详细情况，包括（工商部门备
+                                    案、联络方式、公司地址、官网情况、预警名单、同城活
+                                    动、礼券领取等消息）让百姓在投资任何一家金融公司之
+                                    前通过简单的步骤，全面了解相关金融公司的真实情况，
+                                    可以更好的分析判断相关金融公司资质，简化了繁琐的资
+                                    料收集步骤，提高了百姓安全意识。同时又不错过任何同
+                                    城优惠活动及礼券，例如：领取代金券、礼品券、活动券
+                                    等。
+                                </p>
+                                <p>
+                                    目前融信城已经收录了1000 家上海地区金融公司信
+                                    息资料并整合，便于用户快速安检查询，并且每周更新工
+                                    商部门“预警名单”供用户参考，避免了用户因信息不对
+                                    称而造成的损失。
+                                </p>
+                                <p>
+                                    另外融信城在用户与金融机构之间搭建了垂直沟通的
+                                    桥梁，使用户可以直接向各个金融公司提问咨询，收到金
+                                </p>
+                            </div>
+
+                            <div id="solveAtCompanyPro">
+                                <div id="solveAfter">
+                                    <div style="border:#05c9fa 1px solid;padding:20px;border-radius:5px;text-align:left">
+                                        <p>问：那票据类的理财安不安全？</p>
+                                        <p style="border-bottom:#adadad 1px solid;padding-bottom:10px;">
+                                            答：票据类理财分为很多种的，我们公司做的
+                                            是和银行合作的承兑汇票，最后是由银行无条
+                                            件兑付的，所以是十分安全的一种理财产品。
+                                        </p>
+
+                                        <p>问：如果要买的话一般买多久的比较安全？</p>
+
+                                        <p>
+                                            答：亲，如果比较产品安全度的话只有从产品
+                                            的风控措施和还款来源来看的，与投资产品的
+                                            时间长短无关！说到产品收益的话一般来说是
+                                            时间越久收益越丰厚！对于我们公司的这款零
+                                            风险产品肯定是时间越长收益越丰厚的！谢谢
+                                            亲的关注！希望亲能在投资我们公司产品的同
+                                            时体验到安全的理财产品给您带来的收益享受！
+                                        </p>
+                                    </div>
+                                    <div style="width:100%;height:40px;background:#ff6b6b;color:#fff;letter-spacing:10px;border-radius:5px;line-height:40px;margin-top:10px;">去提问</div>
+                                </div>
+                                <div id="solveNow">
+                                    <textarea id="problemAtCompanyPro" cols="20" rows="4" style="width:100%;border-radius:5px;border:#05c9fa 1px solid;">请问贵公司有什么产品?</textarea>
+                                    <div style="width:100%;height:40px;background:#35d728;color:#fff;letter-spacing:10px;border-radius:5px;line-height:40px;margin-top:20px;">提&nbsp;&nbsp;&nbsp;&nbsp;交</div>
+                                    <div style="width:100%;height:40px;background:#faa54b;color:#fff;letter-spacing:10px;border-radius:5px;line-height:40px;margin-top:20px;">公司解答</div>
+                                </div>
+                            </div>
+
+                            <div id="activityAtCompanyPro">
+                                <div style="width:30%;height:30px;margin-bottom:10px;margin-left:2.5%;margin-top:25px;border:#c393e6 solid 1px;border-bottom:#c393e6 dashed 5px;background:#c393e6"></div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+
+                </div>
+                <script>
+
+                </script>
             </div>
-
-
 
             <!-------------------------------------//搜索结果------------------------------------------>
             <!-------------------------------------使用手册------------------------------------------>
             <div data-title="安检专区" class="panel" id="SearchAnjianshenqi" style="background-color:#f0f0f0">
                 <header>
-                    <a href="#zhuye" >
+                    <a href="#zhuye">
                         <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
                     </a>
                     <h1>使用手册</h1>
