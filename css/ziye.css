@@ -49,12 +49,13 @@
     height: 28px;
     width: 28px;
     margin-top: 10px;
+
 }
 
 .mrjf-text {
     height: 28px;
     margin-left: 15%;
-    line-height:28px;
+    margin-top: -25px;
     border-bottom: solid 1px #dbdbdb;
 }
 
@@ -62,14 +63,16 @@
     font-size: 14px;
     width: 80%;
     display: inline-table;
-    margin-top: -2%;
+   line-height:0px;
 }
 
 .mrjf-img2 {
     height: 15px;
     width: 10px;
-    margin-left: 90%;
-    margin-top: -0%;
+    margin-left: 10%;
+    margin-top: -5px;
+    position:absolute;
+}
 }
 /* --------------每日任务 ----------------*/
 
