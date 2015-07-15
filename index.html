@@ -343,7 +343,6 @@
                     })
                 </script>
             </div>
-
             <!-------------------------------------积分商城------------------------------------------>
             <!----------------------------------积分商城详情页--------------------------------------->
             <div class="panel" id="jifengxiangqing" data-footer="none" data-load="fnShowShopInfo">
@@ -1318,17 +1317,18 @@
                         <a href="#" style="float:right;height:40px;width:40px;display:inline-block;margin:-40px 0px 0px -40px;">&nbsp;</a>
                     </div>
 
-                    <a href="#kstw" style="float:left;">
+                    <a href="#kstw" style="float:left; text-align:center">
                         <img src="img/jlzq/TiWen.png" style="height:60px;width:55px;" />
                         <a href="#kstw" style=" height:60px;width:55px;display:inline-block;margin-left:-50px;position:absolute;">
                             &nbsp;
                         </a>
                     </a>
-                    <div style="clear:both"></div>
+                    <div style="clear:both;"></div>
                 </div>
                 <div id="jladd"></div>
                 <script>
                     function jiaoliu() {
+                        $("#jladd").text("")
                         var id = window.localStorage["id"];
                         $.ajax({
                             url: "http://120.24.220.249/api/apitest/sellerList?id=" + id,
@@ -1338,18 +1338,15 @@
                             success: function (data) {
                                 $.each(data, function (k, value) {
                                     var item = $(
-                                        " <a style='width:33%;height:100px;display:inline-table;padding-top:10px;padding-left:20px;'>" +
-                                "<img src='http://120.24.220.249" + value.logo + "' class='jltbl'style='height:80%;width:80%'/>" +
+                                        " <a style='width:33.33%;height:130px;display:inline-table;padding:15px 15px;border:solid 1px #dbdbdb'>" +
+                                "<img src='http://120.24.220.249" + value.logo + "' class='jltbl'style='height:73%;width:100%'/>" +
+                                "<span style='text-align:center;width:100%;display:inline-table;margin-top:10px;'>" + value.gsjc + "</span>" +
                             " </a>")
                                     $("#jladd").append(item)
                                 })
                             }
                         })
                     }
-
-
-
-
                 </script>
 
             </div>
