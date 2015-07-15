@@ -53,7 +53,7 @@
 }
 
 .mrjf-text {
-    height: 28px;
+    height: 35px;
     margin-left: 15%;
     margin-top: -25px;
     border-bottom: solid 1px #dbdbdb;
@@ -63,14 +63,14 @@
     font-size: 14px;
     width: 80%;
     display: inline-table;
-   line-height:0px;
+   height:30px;
 }
 
 .mrjf-img2 {
     height: 15px;
     width: 10px;
     margin-left: 10%;
-    margin-top: -5px;
+    margin-top: 05px;
     position:absolute;
 }
 }
