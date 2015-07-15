@@ -288,13 +288,12 @@
                     var hideClose;
                     $.ui.ready(function () {
                         shopScroll = $("#jfshop").scroller({
-                            refresh: true,
-                            scrollBars: true,
                             verticalScroll: true,
                             horizontalScroll: false,
                             vScrollCSS: "jqmScrollbar",
-                            hScrollCSS: "jqmScrollbar"
+                            autoEnable:true
                         });
+
                         shopScroll.addInfinite();
                         shopScroll.addPullToRefresh();
                         shopScroll.runCB = true;
@@ -302,29 +301,43 @@
                             clearTimeout(hideClose);
                             var that = this;
                             hideClose = setTimeout(function () { that.hideRefresh(); }, 500)
-                            
+                            console.log("上啦")
                             return false;
                         })
                         shopScroll.enable();
+                        $(document.body).unbind("touchmove");
+                        $(document.body).bind("touchmove", function (e) {
+                            //if (touch.y1 - touch.y2 <= 0) {
+                            //    $("#infinite").hide();
+                            //} else {
+                            //    $("#infinite").show();
+                            //}
+                        });
+                        $.unbind(shopScroll, "infinite-scroll");
                         $.bind(shopScroll, "infinite-scroll", function () {
                             var self = this;
-                          
-                            setTimeout(function () {
-                                self.clearInfinite();
-                                if (shopFilter == "lp" || shopFilter == 'hd'){
-                                    fnShowShop(page, shopFilter, '');
-                                    page++;
-                                }
-                                  
-                                else if (shopFilter != "") {
-                                    fnShowShop(page, '', shopFilter)
-                                    
-                                    page++;
-                                }
-                                self.clearInfinite();
-                               
+                            $.unbind(shopScroll, "infinite-scroll-end");
+                            $.bind(shopScroll, "infinite-scroll-end", function () {
+                                $.unbind(shopScroll, "infinite-scroll-end");
                                 self.scrollToBottom();
-                            }, 1000);
+                                setTimeout(function () {
+                                    self.clearInfinite();
+                                    if (shopFilter == "lp" || shopFilter == 'hd') {
+                                        fnShowShop(page, shopFilter, '');
+                                        page++;
+                                    }
+
+                                    else if (shopFilter != "") {
+                                        fnShowShop(page, '', shopFilter)
+
+                                        page++;
+                                    }
+
+
+                                    self.scrollToBottom();
+                                }, 1600);
+                            })
+                            
                         })
                         $("#jfshop").css("overflow", "auto");
                     })
