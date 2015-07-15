@@ -346,7 +346,7 @@
 
             <!-------------------------------------积分商城------------------------------------------>
             <!----------------------------------积分商城详情页--------------------------------------->
-            <div class="panel" id="jifengxiangqing"  data-footer="none" data-load="fnShowShopInfo">
+            <div class="panel" id="jifengxiangqing" data-footer="none" data-load="fnShowShopInfo">
                 <header>
                     <a href="#jfshop">
                         <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
@@ -1441,11 +1441,11 @@
                         </div>
                         <!-----------------------------------------------------------------活动信息---------------------------------------------------------------------------------->
                         <div id="HDXX_show" style="display:none;padding:20px;">
-                          
+
                         </div>
                         <!-----------------------------------------------------------------产品信息---------------------------------------------------------------------------------->
                         <div id="CPXX_show" style="display:none;padding-left:20px;padding-right:20px;">
-                           
+
                         </div>
 
                     </div>
@@ -1505,9 +1505,9 @@
                             type: "GET",
                             jsonp: "callback",
                             success: function (data) {
-                             
-                                $.each(data,function (key, value) {
-                                   
+
+                                $.each(data, function (key, value) {
+
                                     imgsrc = value.type == "lp" ? "url(img/anjianbaogao/ajhd5.png)" : "url(img/anjianbaogao/ajhd6.png)";
 
                                     var item = ' <div onclick="Gotojifengxiangqing(\'' + value.actid + '\')"  " style="margin-top:20px;width:100%;height:87px;line-height:87px;background-image:' + imgsrc + ';font-size:14px;">'
@@ -1528,7 +1528,7 @@
                             type: "GET",
                             jsonp: "callback",
                             success: function (data) {
-                                $.each(data, function (key,value) {
+                                $.each(data, function (key, value) {
                                     var item = ' <div style="margin-top:20px;width:100%;height:87px;line-height:87px;background-color:#fad58c;font-size:14px;">'
                                     + '<span style="display:inline-block;color:#c69026;padding-left:40px;">' + value.pname + '</span>'
                                     + '<img style="width:14px;float:right;position:relative;top:35px;right:5px;" src="img/anjianbaogao/jiantou_lv.png" /></div>';
@@ -1542,7 +1542,7 @@
                         })
                     }
 
-                    
+
                 </script>
 
             </div>
@@ -1570,12 +1570,9 @@
                         $.ui.showMask(" ");
                         $("#searchShowHere").text("");
 
-<<<<<<< HEAD
+
                         if (search.length < 2) {
-=======
-                        if (search.length < 2)
-                        {
->>>>>>> origin/master
+
                             toast("请至少输入两个关键字", 1000);
                             $.ui.hideMask();
                             return;
@@ -1586,18 +1583,12 @@
                         $.ajax({
                             url: "http://www.shrxc.com/api/apitest/searchreport",
                             data: { "search": search, "id": id },
-<<<<<<< HEAD
+
                             dataType: "jsonp",
                             jsonp: "callback",
                             type: "GET",
                             success: function (data) {
-=======
-                            dataType:"jsonp",
-                            jsonp:"callback",
-                            type:"GET",
-                            success: function (data)
-                            {
->>>>>>> origin/master
+
                                 $.ui.hideMask();
                                 var i = 0;
                                 $.each(data, function (key, value) {
@@ -1628,10 +1619,6 @@
                         var inertText = $("#inertText").val();
                         fnSearch(inertText);
                     });
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/master
 
 
                     function fnShowAnJianInfo(thisEv) {///跳转到安检查询
@@ -1641,6 +1628,24 @@
                     }
                 </script>
             </div>
+            <!-------------------------------------//搜索结果------------------------------------------>
+            <!------------------------------------- 公司简介------------------------------------------>
+
+            <div class="aspan " style="background:#f0f0f0" selected="true">
+                <ul>
+                    <li style="float:left;width:33.3%;margin:0px;border:1px solid #000"></li>
+                    <li style="float:left;width:33.3%;margin:0px;border:1px solid #000"></li>
+                    <li style="float:left;width:33.3%;margin:0px;border:1px solid #000"></li>
+                </ul>
+
+
+
+
+
+            </div>
+
+
+
             <!-------------------------------------//搜索结果------------------------------------------>
             <!-------------------------------------- 头---------------------------------------------->
             <header id="rxc_ajcx">
@@ -2216,8 +2221,8 @@
     var Actid; ///当前选中的礼品ID ///当前选中的礼品ID ///当前选中的礼品ID ///当前选中的礼品ID ///当前选中的礼品ID ///当前选中的礼品ID
 
     function Gotojifengxiangqing(data) {///////设置当前选中的商品ID
-       // Actid = data;
-        $("#jifengxiangqing").attr("actid",data)
+        // Actid = data;
+        $("#jifengxiangqing").attr("actid", data)
         $.ui.loadContent("#jifengxiangqing");
     }///////设置当前选中的商品ID
 
