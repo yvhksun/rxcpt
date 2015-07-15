@@ -1109,12 +1109,12 @@
 
                                 $.each(data, function (k, value) {
                                     var item = $(
-                                   "<a href='#AnJianChaXun' class='a1'>" +
+                                   "<div onclick='fnGotoSearchAnjianshenqi(this)' fsqc='" + value.keyword.substring(0, 4) + "' class='a1'>" +
                         "<span class='ajspan1'>" + value.keyword.substring(0, 4) + "</span>" +
                        "<span class='ajspan2'>" + value.createtime.substring(0, 10) + "</span>" +
                        "<span class='ajspan3'>查看报告</span>" +
                        "<img class='ajimg' src='img/jfzy/user_right.png' />" +
-                                    "</a>" +
+                                    "</div>" +
                                     "<div class='link'></div>")
                                     $("#ajadd").append(item);
 
@@ -1125,7 +1125,17 @@
                             }
                         })
                     }
-                </script>
+
+
+                    function fnGotoSearchAnjianshenqi(thisEv)
+                    {
+                        var item = thisEv.getAttribute("fsqc");
+                        $("#inertText").val(item);
+                        fnSearch(item);
+                        $.ui.loadContent("#SearchAnjianshenqi");
+                    }
+                </script>     
+                       
             </div>
             <!---------------------------------会员中心安检记录-------------------------------------->
             <!------------------------------------会员中心QQ----------------------------------------->
@@ -1303,11 +1313,11 @@
             </div>
             <!-------------------------------------预约记录------------------------------------------>
             <!-------------------------------------交流专区------------------------------------------>
-            <div title="交流专区" class="panel" data-load="jiaoliu" id="jjzq" data-header="hjjzq" data-footer="custom_footer" data-tab="footer_jfshop" style=" width:100%;">
+            <div title="交流专区" class="panel" data-load="fnShowjiaoliu" id="jjzq" data-header="hjjzq" data-footer="custom_footer" data-tab="footer_jfshop" style=" width:100%;">
                 <div style="height:auto;width:100%;margin:10px 0px ">
                     <!--<img src="img/jlzq/jlss.jpg" style="height:32px;width:260px;margin:10px 0 0 6%;" />
-                    <img src="img/jlzq/twjlimg.jpg" style="height:65px;width:60px;margin-left:10px;margin-bottom :-13px;"/>
-                    <input type="text"  placeholder="搜索" style=" width:200px;height:29px;margin-left:8%;margin-top :-30px;border:none;" />-->
+            <img src="img/jlzq/twjlimg.jpg" style="height:65px;width:60px;margin-left:10px;margin-bottom :-13px;"/>
+            <input type="text"  placeholder="搜索" style=" width:200px;height:29px;margin-left:8%;margin-top :-30px;border:none;" />-->
                     <div style="float:left;width:70%;margin:10px 10px 10px 5%">
                         <input type="text" id="mySearch" placeholder="搜索" style="border:red 1px solid;width:100%; height:40px; border-radius:25px;background-image:url(img/jlzq/search.png); background-position-x:right;background-size:contain;background-repeat:no-repeat;" />
 
@@ -1316,35 +1326,95 @@
 
                     <a href="#kstw" style="float:left; text-align:center">
                         <img src="img/jlzq/TiWen.png" style="height:60px;width:55px;" />
-                        
+
                     </a>
                     <div style="clear:both;"></div>
                 </div>
                 <div id="jladd"></div>
                 <script>
-                    function jiaoliu() {
-                        $("#jladd").text("")
+
+                    function fnShowjiaoliu() {
+                        $("#jladd").html("");
+                        jiaoliu(1);
+                    }
+
+
+                    function jiaoliu(pagex) {
+
                         var id = window.localStorage["id"];
                         $.ajax({
-                            url: "http://120.24.220.249/api/apitest/sellerList?id=" + id,
+                            url: "http://120.24.220.249/api/apitest/sellerList?id=" + id + "&page=" + pagex,
                             type: "GET",
                             dataType: "jsonp",
                             jsonp: "callback",
                             success: function (data) {
                                 $.each(data, function (k, value) {
                                     var item = $(
-                                        " <a style='width:33.33%;height:130px;display:inline-table;padding:15px 15px;border:solid 1px #dbdbdb'>" +
-                                "<img src='http://120.24.220.249" + value.logo + "' class='jltbl'style='height:73%;width:100%'/>" +
-                                "<span style='text-align:center;width:100%;display:inline-table;margin-top:10px;'>" + value.gsjc + "</span>" +
-                            " </a>")
+                                        " <div style='width:33.33%;height:130px;float:left;padding:15px 15px;border:solid 1px #dbdbdb'>" +
+                                            "<img src='http://120.24.220.249" + value.logo + "' class='jltbl'style='height:73%;width:100%'/>" +
+                                            "<span style='text-align:center;width:100%;display:inline-table;margin-top:10px;'>" + value.gsjc + "</span>" +
+                                        " </div>")
                                     $("#jladd").append(item)
+                                    page++
                                 })
+                                $("#jladd").append("<div style=\"clear:both;\"></div>");
                             }
                         })
                     }
+
+
+                    var jlshopScroll;
+                    var jlpage = 2;
+                    var jlhideClose;
+                    $.ui.ready(function () {
+                        jlshopScroll = $("#jjzq").scroller({
+                            verticalScroll: true,
+                            horizontalScroll: false,
+                            vScrollCSS: "jqmScrollbar",
+                            autoEnable: true
+                        });
+
+                        jlshopScroll.addInfinite();
+                        jlshopScroll.addPullToRefresh();
+                        jlshopScroll.runCB = true;
+                        $.bind(jlshopScroll, "refresh-release", function () {
+                            clearTimeout(jlhideClose);
+                            var jlthat = this;
+                            jlhideClose = setTimeout(function () { jlthat.hideRefresh(); }, 500)
+                            console.log("上啦")
+                            return false;
+                        })
+                        jlshopScroll.enable();
+                        $(document.body).unbind("touchmove");
+                        $(document.body).bind("touchmove", function (e) {
+                            //if (touch.y1 - touch.y2 <= 0) {
+                            //    $("#infinite").hide();
+                            //} else {
+                            //    $("#infinite").show();
+                            //}
+                        });
+                        $.unbind(jlshopScroll, "infinite-scroll");
+                        $.bind(jlshopScroll, "infinite-scroll", function () {
+                            var self = this;
+                            $.unbind(jlshopScroll, "infinite-scroll-end");
+                            $.bind(jlshopScroll, "infinite-scroll-end", function () {
+                                $.unbind(jlshopScroll, "infinite-scroll-end");
+                                self.scrollToBottom();
+                                setTimeout(function () {
+                                    self.clearInfinite();
+                                    jiaoliu(jlpage);
+                                    jlpage++;
+                                    self.scrollToBottom();
+                                }, 1600);
+                            })
+
+                        })
+                        $("#jjzq").css("overflow", "auto");
+                    })
                 </script>
 
             </div>
+
             <!-------------------------------------交流专区------------------------------------------>
             <!-------------------------------------快速提问------------------------------------------>
             <div title="快速提问" class="panel" id="kstw" data-header="hkstw" data-footer="none" style=" width:100%;background-color:#f0f0f0">
@@ -1632,6 +1702,7 @@
 
             </div>
             <!-------------------------------------//搜索结果------------------------------------------>
+
             <!-------------------------------------预警名单------------------------------------------>
             <div class="panel" id="yjm_d" data-header="yjmd" data-footer="none" style="background-color: rgb(240, 240, 240);">
                 <div id="yjcontent"style="margin: 10px;">
@@ -1649,11 +1720,10 @@
                 </div>
             </div>
             <!-------------------------------------预警名单------------------------------------------>
+
             <!-------------------------------------- 头---------------------------------------------->
             <header id="rxc_ajcx">
-                <a href="#hyaj" class="biaotizuo">
-                    <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
-                </a>
+                <a class="button" id="backButton"></a>
                 <h1>融信城&安检查询</h1>
             </header><!-----------------------------------融信城&安检查询------------->
             <header id="mainH">
