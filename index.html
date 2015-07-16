@@ -728,13 +728,19 @@
                 </div>
             </div>
             <!---------------------------------会员中心每日任务-------------------------------------->
-            <!---------------------------------会员中心每日任务签到---------------------------------->
-            <div class="panel" id="mrrw_qiandao" data-header="meiriqiandao" data-footer="none" style="background-color:#ff5f53;">
+            <!---------------------------------会员中心每日任务签到送积分---------------------------------->
+            <div class="panel" id="mrrw_qiandao" data-header="meiriqiandao" data-footer="none" style="background-color:#ff5f53;" data-load="JFshow">
                 <div style=" margin-top:-50px;"><img style="width:50%; margin:25%;" src="img/mrrw_qiandao/qiadao_wenzi.png" /></div>
-                <div style=" margin-top:-50px;"><img style="width:60%; margin:20%;" src="img/mrrw_qiandao/qiandao_jifen.png" /></div>
+                <div style=" margin-top:-50px;"><img style="width:60%; margin:20%;" src="img/mrrw_qiandao/qiandao_jifen.png" /><div style="color:#fff;font-size:30px;position:relative;top:-245px;left:250px;"><span id="jfqd_jfxs"></span><span style="margin-left:5px;;font-size:20px;font-family:'微软雅黑';position:relative;top:-3px;">积分</span></div></div>
                 <input style="width:70%; margin:15%;" type="image" src="img/mrrw_qiandao/qiandao_anniu.png" name="btnQianDao" id="btnQianDao" />
             </div>
-            <!---------------------------------会员中心每日任务签到---------------------------------->
+            <script>
+                function JFshow() {
+                    $("#jfqd_jfxs").text(window.localStorage["score"]);
+                }
+               
+            </script>
+            <!---------------------------------会员中心每日任务签到送积分---------------------------------->
             <!---------------------------------会员中心积分记录-------------------------------------->
             <div id="hyjfjl" title="积分记录" class="panel" data-header="hhyjfjl" data-load="jfjl" data-footer="none" data-tab="footer_zhuye">
                 <div>
@@ -1867,7 +1873,7 @@
                 <a href="#hyjfjl" style="float: right; margin: 4% 15px 0 0; color: white; font-size: 15px; ">积分记录</a>
             </header><!---------------------------------每日任务------------->
             <header id="meiriqiandao">
-                <a href="#hymrrw" style="margin-left:10px; display:inline-block;">
+                <a href="#hymrrw" style="margin-left:10px; display:block;">
                     <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
                 </a>
                 <h1>签到送积分</h1>
