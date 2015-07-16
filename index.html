@@ -520,29 +520,40 @@
             <!---------------------------------------搜索-------------------------------------------->
             <div id="sous" title="安检专区" class="panel" data-header="head" data-footer="custom_footer" data-tab="footer_zhuye">
                 <div class="row" style="margin-top:20px;padding:0 20px;">
-                    <form method="get" action="/mobile/CheckList">
-                        <input id="quickSearch" type="text" name="search" style="width:75%; border:2px solid #a9deec;font-size:20px;font-family:'Microsoft YaHei';border-radius:10px;height:45px;" placeholder="快速安检" />
-                        <div style="float:right;border-radius:5px;margin-top:0px;margin-right:15px; background-color:#f7cd6a;width:13%;height:40px;background-image:url(img/check/i-search.png);background-repeat:no-repeat;background-size:25px;background-position:center "></div>
-                    </form>
+                    <input id="quickSearch" type="text" name="search" style="width:75%; border:2px solid #a9deec;font-size:20px;font-family:'Microsoft YaHei';border-radius:10px;height:45px;" placeholder="快速安检" />
+                    <div id="gosearch2" style="float:right;border-radius:5px;margin-top:0px;margin-right:15px; background-color:#f7cd6a;width:13%;height:40px;background-image:url(img/check/i-search.png);background-repeat:no-repeat;background-size:25px;background-position:center "></div>
+
                 </div>
                 <div style="padding:0 20px;">
                     <a href="#" class="rm_btn" style="color:#ec866a;">热门安检</a>
                 </div>
                 <div style="padding: 0 20px 20px 20px; ">
-                    <a href="#" class="rm_btn">中融信托</a>
-                    <a href="#" class="rm_btn">传衡资产</a>
-                    <a href="#" class="rm_btn">传衡资产</a>
-                    <a href="#" class="rm_btn">传衡资产</a>
-                    <a href="#" class="rm_btn">传衡资产</a>
+                    <a onclick="hotsearch('融信城')" class="rm_btn">融信城</a>
+                    <a onclick="hotsearch('晋田金融')" class="rm_btn">晋田金融</a>
+                    <a onclick="hotsearch('雷拓金融')" class="rm_btn">雷拓金融</a>
+                    <a onclick="hotsearch('中晋资产')" class="rm_btn">中晋资产</a>
+                    <a onclick="hotsearch('鼎洋资产')" class="rm_btn">鼎洋资产</a>
                 </div>
                 <script>
 
-                    $("#quickSearchBtn").click(function () {
-
-                        $("#inertText").val($("#quickSearch").val());
+                    function hotsearch(keyword) {
                         $.ui.loadContent("#SearchAnjianshenqi");
-                        fnSearch($("#inertText").val())
-                    })
+                        fnSearch(keyword);
+                    }
+
+                    $("#gosearch2").click(function () {
+                        var inertText = $("#quickSearch").val();
+                        $.ui.loadContent("#SearchAnjianshenqi");
+                        fnSearch(inertText);
+                    });
+
+                    //有问题 TODO
+                    //$("#quickSearchBtn").click(function () {
+
+                    //    $("#inertText").val($("#quickSearch").val());
+                    //    $.ui.loadContent("#SearchAnjianshenqi");
+                    //    fnSearch($("#inertText").val())
+                    //})
                 </script>
             </div>
             <!---------------------------------------搜索-------------------------------------------->
@@ -1328,8 +1339,8 @@
 
                     </a>
                     <div style="clear:both;"></div>
-                </div>
-                <div id="jladd"></div>
+                </div>     
+                <div onclick="" id="jladd"></div>
                 <script>
 
                     function fnShowjiaoliu() {
@@ -1342,7 +1353,7 @@
 
                         var id = window.localStorage["id"];
                         $.ajax({
-                            url: "http://120.24.220.249/api/apitest/sellerList?id=" + id + "&page=" + pagex,
+                            url: "http://120.24.220.249/api/apitest/sellerList?page=" + pagex,
                             type: "GET",
                             dataType: "jsonp",
                             jsonp: "callback",
@@ -1356,7 +1367,7 @@
                                     $("#jladd").append(item)
                                     page++
                                 })
-                                $("#jladd").append("<div style=\"clear:both;\"></div>");
+                                $("#jladd").append("<div style=\"clear:both;\"></div><div id=jlgd onclick='' >加载更多</div>");
                             }
                         })
                     }
@@ -1636,6 +1647,7 @@
                     function fnSearch(search) {
                         $.ui.showMask(" ");
                         $("#searchShowHere").text("");
+                        $("#inertText").val(search);
 
 
                         if (search.length < 2) {
@@ -1674,6 +1686,7 @@
 
                                     $("#searchShowHere").append(item);
                                 })
+                                $("#searchShowHere").append("<div style='clear:both;'></div>");
                             },
                             error: function () {
                                 $.ui.hideMask();
@@ -1890,7 +1903,7 @@
 
             <!-------------------------------------//搜索结果------------------------------------------>
             <!-------------------------------------使用手册------------------------------------------>
-            <div data-title="安检专区" class="panel" id="SearchAnjianshenqi" style="background-color:#f0f0f0">
+            <!--<div data-title="安检专区" class="panel" id="SearchAnjianshenqi" style="background-color:#f0f0f0">
                 <header>
                     <a href="#zhuye">
                         <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
@@ -1899,10 +1912,11 @@
                 </header>
                 <div style="width:92%;margin:10px 4%">
                     <div style="width:85%;height:40px;float:left;border-radius:10px;border:1px solid #a9deec;color: #a9deec;text-indent:10px;line-height:35px;background:#fff" class="icon pencil">
+<!--<<<<<<< HEAD
                         <input id="inertText" typ="text" style="height:38px;width:85%;margin:0px;border:0px;font-size:14px;" />
                     </div>
                     <!-------------------------------------预警名单------------------------------------------>
-                    <div class="panel" id="yjm_d" data-header="yjmd" data-footer="none" style="background-color: rgb(240, 240, 240);">
+                    <!--<div class="panel" id="yjm_d" data-header="yjmd" data-footer="none" style="background-color: rgb(240, 240, 240);">
                         <div id="yjcontent" style="margin: 10px;">
                             <div style="border: 1px solid #ccc;width: 100%; background-color: white;height: 82px;">
                                 <div style="margin: 10px; width: 60%;float: left;">
@@ -1915,8 +1929,26 @@
                                 </div>
                                 <div style="clear: both;"></div>
                             </div>
+=======
+                        <input type="text" style="height:38px;width:85%;margin:0px;border:0px;font-size:14px;" />
+                    </div>
+                </div>
+            </div>-->
+            <!-------------------------------------预警名单------------------------------------------>
+            <!--<div class="panel" id="yjm_d" data-header="yjmd" data-footer="none" style="background-color: rgb(240, 240, 240);">
+                <div id="yjcontent"style="margin: 10px;">
+                    <div style="border: 1px solid #ccc;width: 100%; background-color: white;height: 82px;">
+                        <div style="margin: 10px; width: 60%;float: left;">
+                            <div style="width:280px;font-weight: bolder; font-size: 18px;text-overflow: ellipsis;overflow: hidden;margin-bottom: 2%;"><nobr>上海胜誉投资管理有限公司网络虚假宣传</nobr></div>
+                            <div style=" font-size: 16px;">处罚日期</div>
+                            <div style=" font-size: 16px;">2015-06-23</div>
+                        </div>
+                        <div style="float: right;height: inherit;display: block;margin: auto 0;width:50px;position:relative;">
+                            <img src="img/yjmd/APP_yjmd_icon.jpg" style="width: 50px;height:50px;margin: auto 0;position:absolute;top:0;left:0;right:0;bottom:0;"/>
+                
                         </div>
                     </div>
+>>>>>>> origin/master-->
                     <!-------------------------------------预警名单------------------------------------------>
                     <!-------------------------------------- 头---------------------------------------------->
                     <header id="rxc_ajcx">
