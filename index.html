@@ -291,7 +291,7 @@
                             verticalScroll: true,
                             horizontalScroll: false,
                             vScrollCSS: "jqmScrollbar",
-                            autoEnable:true
+                            autoEnable: true
                         });
 
                         shopScroll.addInfinite();
@@ -1315,8 +1315,8 @@
             <div title="交流专区" class="panel" data-load="fnShowjiaoliu" id="jjzq" data-header="hjjzq" data-footer="custom_footer" data-tab="footer_jfshop" style=" width:100%;">
                 <div style="height:auto;width:100%;margin:10px 0px ">
                     <!--<img src="img/jlzq/jlss.jpg" style="height:32px;width:260px;margin:10px 0 0 6%;" />
-            <img src="img/jlzq/twjlimg.jpg" style="height:65px;width:60px;margin-left:10px;margin-bottom :-13px;"/>
-            <input type="text"  placeholder="搜索" style=" width:200px;height:29px;margin-left:8%;margin-top :-30px;border:none;" />-->
+                    <img src="img/jlzq/twjlimg.jpg" style="height:65px;width:60px;margin-left:10px;margin-bottom :-13px;"/>
+                    <input type="text"  placeholder="搜索" style=" width:200px;height:29px;margin-left:8%;margin-top :-30px;border:none;" />-->
                     <div style="float:left;width:70%;margin:10px 10px 10px 5%">
                         <input type="text" id="mySearch" placeholder="搜索" style="border:red 1px solid;width:100%; height:40px; border-radius:25px;background-image:url(img/jlzq/search.png); background-position-x:right;background-size:contain;background-repeat:no-repeat;" />
 
@@ -1349,10 +1349,10 @@
                             success: function (data) {
                                 $.each(data, function (k, value) {
                                     var item = $(
-                                        " <a href='#companypro' style='width:33.33%;height:130px;float:left;padding:15px 15px;border:solid 1px #dbdbdb'>" +
+                                        " <div onclick='fnGotoCompanyPro(this)' gsqc='"+value.gsqc+"' style='width:33.33%;height:130px;float:left;padding:15px 15px;border:solid 1px #dbdbdb'>" +
                                             "<img src='http://120.24.220.249" + value.logo + "' class='jltbl'style='height:73%;width:100%'/>" +
                                             "<span style='text-align:center;width:100%;display:inline-table;margin-top:10px;'>" + value.gsjc + "</span>" +
-                                        " </a>")
+                                        " </div>")
                                     $("#jladd").append(item)
                                     page++
                                 })
@@ -1360,6 +1360,12 @@
                             }
                         })
                     }
+
+
+                    function fnGotoCompanyPro(thisEv) {
+
+                    }
+
 
 
                     var jlshopScroll;
@@ -1692,7 +1698,7 @@
             <!-------------------------------------//搜索结果------------------------------------------>
             <!------------------------------------- 公司简介------------------------------------------>
 
-            <div id="companypro" class="panel " style="background:#f0f0f0">
+            <div id="companypro" class="panel " style="background:#f0f0f0" data-load="fnShowWhatNow" showNow="1">
                 <header>
                     <a href="#jjzq" class="biaotizuo">
                         <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
@@ -1708,15 +1714,14 @@
                     </div>
 
                     <div style=" text-align:center;width:100%;">
-                        <div style="float:left;width:25%;-webkit-transform: rotate(-10deg);margin-top:10px;">公司简介</div>
-                        <div style="float:left;width:25%;-webkit-transform: rotate(-4deg);">提问解答</div>
-                        <div style="float:left;width:25%;-webkit-transform: rotate(4deg);">活动专栏</div>
-                        <div style="float:left;width:25%;-webkit-transform: rotate(10deg);margin-top:10px;">产品系列</div>
+                        <div id="onClickCompanyPro" style="float:left;width:25%;-webkit-transform: rotate(-10deg);margin-top:10px;">公司简介</div>
+                        <div id="onClickSolve" style="float:left;width:25%;-webkit-transform: rotate(-4deg);">提问解答</div>
+                        <div id="onClickActivity" style="float:left;width:25%;-webkit-transform: rotate(4deg);">活动专栏</div>
+                        <div id="onClickProduct" style="float:left;width:25%;-webkit-transform: rotate(10deg);margin-top:10px;">产品系列</div>
                         <div style="clear:both"></div>
                         <div style="width:100%;background-image:url(img/conpanyPro/gsjj_ch_02.png);background-repeat:no-repeat;background-position:top;background-size:contain">
                             <img style="height:80px;width:10px;margin-top:5px;" src="img/conpanyPro/gsjj_sz_03.png" />
                             <img style="height:80px;width:10px;margin-left:33%" src="img/conpanyPro/gsjj_sz_03.png" />
-
                         </div>
                         <div style="width:90%;margin:-30px 5% 0px 5%;border-radius:5px;background-color:#fff;padding:40px 20px;">
                             <div id="mainAtCompanyPro" style="border-top:1px #c0c0c0 dotted;text-indent:30px;text-align:left">
@@ -1765,9 +1770,9 @@
                                             时体验到安全的理财产品给您带来的收益享受！
                                         </p>
                                     </div>
-                                    <div style="width:100%;height:40px;background:#ff6b6b;color:#fff;letter-spacing:10px;border-radius:5px;line-height:40px;margin-top:10px;">去提问</div>
+                                    <div id="btnSovleAfter" style="width:100%;height:40px;background:#ff6b6b;color:#fff;letter-spacing:10px;border-radius:5px;line-height:40px;margin-top:10px;margin-bottom:10px;">去提问</div>
                                 </div>
-                                <div id="solveNow">
+                                <div id="solveNow" style="display:none">
                                     <textarea id="problemAtCompanyPro" cols="20" rows="4" style="width:100%;border-radius:5px;border:#05c9fa 1px solid;">请问贵公司有什么产品?</textarea>
                                     <div style="width:100%;height:40px;background:#35d728;color:#fff;letter-spacing:10px;border-radius:5px;line-height:40px;margin-top:20px;">提&nbsp;&nbsp;&nbsp;&nbsp;交</div>
                                     <div style="width:100%;height:40px;background:#faa54b;color:#fff;letter-spacing:10px;border-radius:5px;line-height:40px;margin-top:20px;">公司解答</div>
@@ -1775,18 +1780,112 @@
                             </div>
 
                             <div id="activityAtCompanyPro">
-                                <div style="width:30%;height:30px;margin-bottom:10px;margin-left:2.5%;margin-top:25px;border:#c393e6 solid 1px;border-bottom:#c393e6 dashed 5px;background:#c393e6"></div>
+                                <div style="float:left; width:30%;margin-left:2.5%;margin-top:25px;border:#c393e6 solid 1px;border-bottom:none;">
+                                    <div style="width:100%;height:50px;"></div>
+                                    <div style="width:100%;height:25px; background:url(img/conpanyPro/product_back_03.png) no-repeat;background-size: 100% 100%"></div>
+                                </div>
+
+                                <div style="clear:both;"></div>
                             </div>
 
-
+                            <div id="prductAtCompany">
+                                <p style="color:#c89022;">产品目录</p>
+                                <div  style="width:100%;height:40px;background:#93e6e0;position:relative;text-align:left;">
+                                    <span class="productList">产品名称：票据贴现-承兑（六个月）</span>
+                                </div>
+                                
+                            </div>
 
                         </div>
                     </div>
 
                 </div>
-                <script>
+                <script>  
+                    
+                    //*************************导航切换*****************//    
+                    $("#onClickCompanyPro").click(function () {
+                        lightAtTheID("onClickCompanyPro");
+                        showWhoAtTheId("mainAtCompanyPro");
+                    })
+                    $("#onClickSolve").click(function () {
+                        lightAtTheID("onClickSolve");
+                        showWhoAtTheId("solveAtCompanyPro");
+                    })
+                    $("#onClickActivity").click(function () {
+                        lightAtTheID("onClickActivity");
+                        showWhoAtTheId("activityAtCompanyPro");
+                    })
+                    $("#onClickProduct").click(function () {
+                        lightAtTheID("onClickProduct");
+                        showWhoAtTheId("prductAtCompany");
+                    })
+
+                    function lightAtTheID(id)///
+                    {
+                        $("#" + id).addClass("showNowCss");
+                        $("#" + id).parent().children().not($("#" + id)).removeClass("showNowCss");
+                    }
+
+                    function showWhoAtTheId(id) {
+                        $("#" + id).removeClass("showNowAtCompany");
+                        $("#" + id).parent().children().not($("#" + id)).addClass("showNowAtCompany");
+                    }
+                    //*************************导航切换 end  *****************//    
+
+                    $("#btnSovleAfter").click(function () { //提问按钮
+                        $("#solveAfter").hide();
+                        $("#solveNow").show();
+                    })
+                    function fnShowWhatNow() {
+                        var showNow = $("#companypro").attr("showNow");
+                        switch(showNow)
+                        {
+                            case "1": lightAtTheID("onClickCompanyPro");
+                                showWhoAtTheId("mainAtCompanyPro"); break;
+                            case "2": lightAtTheID("onClickSolve");
+                                showWhoAtTheId("solveAtCompanyPro"); break;
+                            case "3": lightAtTheID("onClickActivity");
+                                showWhoAtTheId("activityAtCompanyPro");break;
+                            case "4":  lightAtTheID("onClickProduct");
+                                showWhoAtTheId("prductAtCompany"); break;
+                            default: lightAtTheID("onClickCompanyPro");
+                                showWhoAtTheId("mainAtCompanyPro");; break;
+                        }
+                    }
+
+
+
+
+
 
                 </script>
+                <style>
+                    .productList{
+                       text-align:left;
+                       line-height:40px;
+                      margin-left:10px;
+                    }
+                    .productList:after{
+                        position:absolute;
+                        font-size:24px;
+                        right:10px;
+                        color:#fff;
+                        font-family: 'chevron';
+                        content:"\f054";
+                        
+                    }
+
+
+                    .showNowAtCompany { /*切换显示样式*/
+                        display: none;
+                    }
+
+
+                    .showNowCss{
+                        color:#ea1e63;
+                    }
+
+                </style>
             </div>
 
             <!-------------------------------------//搜索结果------------------------------------------>
@@ -1801,269 +1900,268 @@
                 <div style="width:92%;margin:10px 4%">
                     <div style="width:85%;height:40px;float:left;border-radius:10px;border:1px solid #a9deec;color: #a9deec;text-indent:10px;line-height:35px;background:#fff" class="icon pencil">
                         <input id="inertText" typ="text" style="height:38px;width:85%;margin:0px;border:0px;font-size:14px;" />
-            </div>
-            <!-------------------------------------预警名单------------------------------------------>
-            <div class="panel" id="yjm_d" data-header="yjmd" data-footer="none" style="background-color: rgb(240, 240, 240);">
-                <div id="yjcontent"style="margin: 10px;">
-                    <div style="border: 1px solid #ccc;width: 100%; background-color: white;height: 82px;">
-                        <div style="margin: 10px; width: 60%;float: left;">
-                            <div style="width:280px;font-weight: bolder; font-size: 18px;text-overflow: ellipsis;overflow: hidden;margin-bottom: 2%;"><nobr>上海胜誉投资管理有限公司网络虚假宣传</nobr></div>
-                            <div style=" font-size: 16px;">处罚日期</div>
-                            <div style=" font-size: 16px;">2015-06-23</div>
-                        </div>
-                        <div style="float: right;height: inherit;display: block;margin: auto 0;width:50px;position:relative;">
-                            <img src="img/yjmd/APP_yjmd_icon.jpg" style="width: 50px;height:50px;margin: auto 0;position:absolute;top:0;left:0;right:0;bottom:0;"/>
-                        </div>
-                        <div style="clear: both;"></div>
                     </div>
+                    <!-------------------------------------预警名单------------------------------------------>
+                    <div class="panel" id="yjm_d" data-header="yjmd" data-footer="none" style="background-color: rgb(240, 240, 240);">
+                        <div id="yjcontent" style="margin: 10px;">
+                            <div style="border: 1px solid #ccc;width: 100%; background-color: white;height: 82px;">
+                                <div style="margin: 10px; width: 60%;float: left;">
+                                    <div style="width:280px;font-weight: bolder; font-size: 18px;text-overflow: ellipsis;overflow: hidden;margin-bottom: 2%;"><nobr>上海胜誉投资管理有限公司网络虚假宣传</nobr></div>
+                                    <div style=" font-size: 16px;">处罚日期</div>
+                                    <div style=" font-size: 16px;">2015-06-23</div>
+                                </div>
+                                <div style="float: right;height: inherit;display: block;margin: auto 0;width:50px;position:relative;">
+                                    <img src="img/yjmd/APP_yjmd_icon.jpg" style="width: 50px;height:50px;margin: auto 0;position:absolute;top:0;left:0;right:0;bottom:0;" />
+                                </div>
+                                <div style="clear: both;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-------------------------------------预警名单------------------------------------------>
+                    <!-------------------------------------- 头---------------------------------------------->
+                    <header id="rxc_ajcx">
+                        <a class="button" id="backButton"></a>
+                        <h1>融信城&安检查询</h1>
+                    </header><!-----------------------------------融信城&安检查询------------->
+                    <header id="mainH">
+                        <h1>积分商城</h1>
+                        <a href='#' style=" float:right;padding:10px 5px 0px 0px; color:#fff; border:none; text-decoration:none;">
+                            <span id="jfTou_shuzi" style="font-size:18px;"></span><img style="width:15px;height:15px;" src="img/jfsc_images/jf666.png" />
+                        </a>
+                    </header><!-----------------------------------积分商城------------->
+                    <header id="l_p_q">
+                        <a href="#yhzx" class="biaotizuo">
+                            <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
+                            <h1>礼品劵</h1>
+                        </a>
+                        <a href='#' style="float:right;padding:10px 5px 0px 0px; color:#fff; border:none; text-decoration:none;"></a>
+                    </header><!-------------------------------------礼品劵-------------->
+                    <header id="jf_xq">
+                        <a href="#jfshop" class="biaotizuo">
+                            <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
+                        </a>
+                        <h1>详情</h1>
+                    </header> <!----------------------------------积分商城详细--------->
+                    <header id="head">
+                        <a style="float:left;" onclick='' class='menuButton'></a>
+                        <h1>融信城安检神器</h1>
+                    </header><!------------------------------------项目名称------------->
+                    <header id="hhyaj">
+                        <a href="#yhzx" class="biaotizuo">
+                            <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
+                        </a>
+                        <h1>安检记录</h1>
+                    </header><!-----------------------------------安检记录------------->
+                    <header id="hhyqq" class="biaotizuo">
+                        <a href="#hyzx_grzl" style="float:left; margin:4% 0 0 15px;  color:white; font-size:14px;">取消</a>
+                        <h1>QQ</h1>
+                        <a onclick="saveqq()" style="float:right; margin:4% 15px 0 0;  color:white; font-size:14px;">保存</a>
+                    </header><!-----------------------------------QQ------------------->
+                    <header id="hhymrrw">
+                        <a href="#yhzx" class="biaotizuo">
+                            <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
+                        </a>
+                        <h1>每日任务</h1>
+                        <a href="#hyjfjl" style="float: right; margin: 4% 15px 0 0; color: white; font-size: 15px; ">积分记录</a>
+                    </header><!---------------------------------每日任务------------->
+                    <header id="meiriqiandao">
+                        <a href="#hymrrw" style="margin-left:10px; display:inline-block;">
+                            <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
+                        </a>
+                        <h1>签到送积分</h1>
+                    </header><!---------------------------------每日任务签到送积分------------->
+                    <header id="hhyjfjl">
+                        <a href="#hymrrw" class="biaotizuo">
+                            <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
+                        </a>
+                        <h1>积分记录</h1>
+                    </header><!---------------------------------积分记录------------->
+                    <header id="grzl">
+                        <a href="#yhzx" class="biaotizuo">
+                            <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
+                        </a>
+                        <h1>个人资料</h1>
+                    </header><!------------------------------------个人资料------------->
+                    <header id="wdjf">
+                        <a href="#yhzx" class="biaotizuo">
+                            <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
+                        </a>
+                        <h1>我的积分</h1>
+                        <a href='#hyjfjl' style="float:right;padding:10px 5px 0px 0px; color:#fff; border:none; text-decoration:none;margin-right:5px;margin-top:5px;">积分记录</a>
+                    </header><!------------------------------------我的积分------------->
+                    <header id="dizi">
+                        <a href="#hyzx_grzl" style="float:left; margin:12px 0 0 20px;  color:white; font-size:14px;">取消</a>
+                        <h1>地址</h1>
+                        <a href='#' onclick="savesdz()" style="float:right;padding:12px 5px 0px 0px; color:#fff; border:none; text-decoration:none;">保存</a>
+                    </header><!------------------------------------个人资料_地址-------->
+                    <header id="shenfenzheng">
+                        <a href="#hyzx_grzl" style="float:left; margin:12px 0 0 20px;  color:white; font-size:14px;">取消</a>
+                        <h1>身份证号码</h1>
+                        <a href='#' onclick="savesfz()" style="float:right;padding:12px 5px 0px 0px; color:#fff; border:none; text-decoration:none;">保存</a>
+                    </header><!----------------------------个人资料_身份证号码-->
+                    <header id="xingbie">
+                        <a href="#hyzx_grzl" style="float:left; margin:12px 0 0 20px;  color:white; font-size:14px;">取消</a>
+                        <h1>性别</h1>
+                        <a href='#' onclick="savesex()" style="float:right;padding:12px 5px 0px 0px; color:#fff; border:none; text-decoration:none;">保存</a>
+                    </header><!---------------------------------个人资料_性别-------->
+                    <header id="xingming">
+                        <a href="#hyzx_grzl" style="float:left; margin:12px 0 0 20px;  color:white; font-size:14px;">取消</a>
+                        <h1>姓名</h1>
+                        <a onclick="savename()" style="float:right;padding:12px 5px 0px 0px; color:#fff; border:none; text-decoration:none;">保存</a>
+                    </header><!--------------------------------个人资料_姓名-------->
+                    <header id="youxiang">
+                        <a href="#hyzx_grzl" style="float:left; margin:12px 0 0 20px;  color:white; font-size:14px;">取消</a>
+                        <h1>邮箱</h1>
+                        <a onclick="saveem()" style="float:right;padding:12px 5px 0px 0px; color:#fff; border:none; text-decoration:none;">保存</a>
+                    </header><!--------------------------------个人资料_邮箱-------->
+                    <header id="xiugaimima">
+                        <a href="#hyzx_grzl" style="float:left; margin:12px 0 0 20px;  color:white; font-size:14px;">取消</a>
+                        <h1>修改密码</h1>
+
+                    </header><!------------------------------个人资料_修改密码---->
+                    <header id="htwjl">
+                        <a href="#yhzx" class="biaotizuo">
+                            <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
+                        </a>
+                        <h1>提问记录</h1>
+                    </header><!-----------------------------------提问记录------------->
+                    <header id="hzhuce1">
+                        <a href="#login" class="biaotizuo">
+                            <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
+                        </a>
+                        <h1>注册</h1>
+                    </header><!----------------------------------注册----------------->
+                    <header id="hzhuce">
+                        <a href="#zhuce" class="biaotizuo">
+                            <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
+                        </a>
+                        <h1>注册</h1>
+                    </header><!----------------------------------next注册----------------->
+                    <header id="hlpqxx">
+                        <a href="#lpjuan" class="biaotizuo">
+                            <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
+                        </a>
+                        <h1>礼品券</h1>
+                    </header><!----------------------------------礼品券详细--------------->
+                    <header id="hjfjlxq">
+                        <a href="#hyjfjl" class="biaotizuo">
+                            <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
+                        </a>
+                        <h1>积分记录</h1>
+                    </header><!---------------------------------积分记录详情--------->
+                    <header id="hyyjl">
+                        <a href="#yhzx" class="biaotizuo">
+                            <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
+                        </a>
+                        <h1>预约记录</h1>
+                    </header><!---------------------------------预约记录--------->
+                    <header id="hjjzq">
+
+                        <h1>交流专区</h1>
+                    </header><!---------------------------------交流专区--------->
+                    <header id="hkstw">
+                        <a href="#jjzq">
+                            <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
+                        </a>
+                        <h1>快速提问</h1>
+                        <a href='#jqtw' style="float:right;padding:12px 5px 0px 0px; color:#fff; border:none; text-decoration:none;">近期提问</a>
+                    </header><!---------------------------------快速提问--------->
+                    <header id="hzhuye">
+                        <a onclick="dengl()" style="float:left; margin:12px 0 0 20px;  color:white; font-size:14px;">登录</a>
+                        <h1>首页</h1>
+                    </header><!---------------------------------首页--------->
+                    <header id="hyhzx">
+                        <h1>我的</h1>
+                    </header><!---------------------------------我的--------->
+                    <header id="hjqtw">
+                        <a href="#kstw" class="biaotizuo">
+                            <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
+                        </a>
+                        <h1>近期提问</h1>
+                    </header><!---------------------------------近期提问--------->
+                    <header id="yjmd">
+                        <a href="#zhuye">
+                            <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png);"></span>
+                        </a>
+                        <h1>预警名单</h1>
+                        <a href='#' style=" float:right;padding:10px 5px 0px 0px; color:#fff; border:none; text-decoration:none;">
+                        </a>
+                    </header><!-----------------------------------预警名单------------->
+                    <!--------------------------------------- 头--------------------------------------------->
+                    <!--------------------------------------- 尾--------------------------------------------->
+                    <footer id="custom_footer">
+                        <a href='#zhuye' id="footer_zhuye"><img src="img/footerimg/icon-home.png" style="height:43px; width:53px;"></a>
+                        <a href='#sous' id="footer_anjian"><img src="img/footerimg/icon-search.png" style="height:43px; width:53px;"></a>
+                        <a href='#jjzq' id="footer_jiaoliu"><img src="img/footerimg/icon-chat.png" style="height:43px; width:53px;"></a>
+                        <a href='#jfshop' id="footer_jfshop"><img src="img/footerimg/icon-shop.png" style="height:43px; width:53px"></a>
+                        <a href='#yhzx' id="footer_yhzx"><img src="img/footerimg/icon-user.png" style="height:43px; width:53px;"></a>
+                        <script>
+                            var hideall = function () {
+                                $("#footer_zhuye").find("img").attr("src", "img/footerimg/icon-home.png")
+                                $("#footer_anjian").find("img").attr("src", "img/footerimg/icon-search.png")
+                                $("#footer_jiaoliu").find("img").attr("src", "img/footerimg/icon-chat.png")
+                                $("#footer_jfshop").find("img").attr("src", "img/footerimg/icon-shop.png")
+                                $("#footer_yhzx").find("img").attr("src", "img/footerimg/icon-user.png")
+                            }
+
+                            $("#footer_zhuye").click(function () {
+                                hideall();
+                                $("#footer_zhuye").find("img").attr("src", "img/footerimg/icon-home-2.png")
+                            })
+
+                            $("#footer_anjian").click(function () {
+                                hideall();
+                                $("#footer_anjian").find("img").attr("src", "img/footerimg/icon-search-2.png")
+                            })
+                            $("#footer_jiaoliu").click(function () {
+                                hideall();
+                                $("#footer_jiaoliu").find("img").attr("src", "img/footerimg/icon-chat-2.png")
+                            })
+                            $("#footer_jfshop").click(function () {
+                                hideall();
+                                $("#footer_jfshop").find("img").attr("src", "img/footerimg/icon-shop-2.png")
+                            })
+                            $("#footer_yhzx").click(function () {
+                                hideall();
+                                $("#footer_yhzx").find("img").attr("src", "img/footerimg/icon-user-2.png")
+                            })
+
+
+                            var hideall = function () {
+                                $("#footer_zhuye").find("img").attr("src", "img/footerimg/icon-home.png")
+                                $("#footer_anjian").find("img").attr("src", "img/footerimg/icon-search.png")
+                                $("#footer_jiaoliu").find("img").attr("src", "img/footerimg/icon-chat.png")
+                                $("#footer_jfshop").find("img").attr("src", "img/footerimg/icon-shop.png")
+                                $("#footer_yhzx").find("img").attr("src", "img/footerimg/icon-user.png")
+                            }
+
+                            $("#footer_zhuye").click(function () {
+                                hideall();
+                                $("#footer_zhuye").find("img").attr("src", "img/footerimg/icon-home-2.png")
+                            })
+
+                            $("#footer_anjian").click(function () {
+                                hideall();
+                                $("#footer_anjian").find("img").attr("src", "img/footerimg/icon-search-2.png")
+                            })
+                            $("#footer_jiaoliu").click(function () {
+                                hideall();
+                                $("#footer_jiaoliu").find("img").attr("src", "img/footerimg/icon-chat-2.png")
+                            })
+                            $("#footer_jfshop").click(function () {
+                                hideall();
+                                $("#footer_jfshop").find("img").attr("src", "img/footerimg/icon-shop-2.png")
+                            })
+                            $("#footer_yhzx").click(function () {
+                                hideall();
+                                $("#footer_yhzx").find("img").attr("src", "img/footerimg/icon-user-2.png")
+                            })
+
+                        </script>
+                    </footer>
+                    <!--------------------------------------- 尾--------------------------------------------->
                 </div>
             </div>
-            <!-------------------------------------预警名单------------------------------------------>
-
-            <!-------------------------------------- 头---------------------------------------------->
-            <header id="rxc_ajcx">
-                <a class="button" id="backButton"></a>
-                <h1>融信城&安检查询</h1>
-            </header><!-----------------------------------融信城&安检查询------------->
-            <header id="mainH">
-                <h1>积分商城</h1>
-                <a href='#' style=" float:right;padding:10px 5px 0px 0px; color:#fff; border:none; text-decoration:none;">
-                    <span id="jfTou_shuzi" style="font-size:18px;"></span><img style="width:15px;height:15px;" src="img/jfsc_images/jf666.png" />
-                </a>
-            </header><!-----------------------------------积分商城------------->
-            <header id="l_p_q">
-                <a href="#yhzx" class="biaotizuo">
-                    <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
-                    <h1>礼品劵</h1>
-                </a>
-                <a href='#' style="float:right;padding:10px 5px 0px 0px; color:#fff; border:none; text-decoration:none;"></a>
-            </header><!-------------------------------------礼品劵-------------->
-            <header id="jf_xq">
-                <a href="#jfshop" class="biaotizuo">
-                    <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
-                </a>
-                <h1>详情</h1>
-            </header> <!----------------------------------积分商城详细--------->
-            <header id="head">
-                <a style="float:left;" onclick='' class='menuButton'></a>
-                <h1>融信城安检神器</h1>
-            </header><!------------------------------------项目名称------------->
-            <header id="hhyaj">
-                <a href="#yhzx" class="biaotizuo">
-                    <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
-                </a>
-                <h1>安检记录</h1>
-            </header><!-----------------------------------安检记录------------->
-            <header id="hhyqq" class="biaotizuo">
-                <a href="#hyzx_grzl" style="float:left; margin:4% 0 0 15px;  color:white; font-size:14px;">取消</a>
-                <h1>QQ</h1>
-                <a onclick="saveqq()" style="float:right; margin:4% 15px 0 0;  color:white; font-size:14px;">保存</a>
-            </header><!-----------------------------------QQ------------------->
-            <header id="hhymrrw">
-                <a href="#yhzx" class="biaotizuo">
-                    <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
-                </a>
-                <h1>每日任务</h1>
-                <a href="#hyjfjl" style="float: right; margin: 4% 15px 0 0; color: white; font-size: 15px; ">积分记录</a>
-            </header><!---------------------------------每日任务------------->
-            <header id="meiriqiandao">
-                <a href="#hymrrw" style="margin-left:10px; display:inline-block;">
-                    <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
-                </a>
-                <h1>签到送积分</h1>
-            </header><!---------------------------------每日任务签到送积分------------->
-            <header id="hhyjfjl">
-                <a href="#hymrrw" class="biaotizuo">
-                    <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
-                </a>
-                <h1>积分记录</h1>
-            </header><!---------------------------------积分记录------------->
-            <header id="grzl">
-                <a href="#yhzx" class="biaotizuo">
-                    <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
-                </a>
-                <h1>个人资料</h1>
-            </header><!------------------------------------个人资料------------->
-            <header id="wdjf">
-                <a href="#yhzx" class="biaotizuo">
-                    <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
-                </a>
-                <h1>我的积分</h1>
-                <a href='#hyjfjl' style="float:right;padding:10px 5px 0px 0px; color:#fff; border:none; text-decoration:none;margin-right:5px;margin-top:5px;">积分记录</a>
-            </header><!------------------------------------我的积分------------->
-            <header id="dizi">
-                <a href="#hyzx_grzl" style="float:left; margin:12px 0 0 20px;  color:white; font-size:14px;">取消</a>
-                <h1>地址</h1>
-                <a href='#' onclick="savesdz()" style="float:right;padding:12px 5px 0px 0px; color:#fff; border:none; text-decoration:none;">保存</a>
-            </header><!------------------------------------个人资料_地址-------->
-            <header id="shenfenzheng">
-                <a href="#hyzx_grzl" style="float:left; margin:12px 0 0 20px;  color:white; font-size:14px;">取消</a>
-                <h1>身份证号码</h1>
-                <a href='#' onclick="savesfz()" style="float:right;padding:12px 5px 0px 0px; color:#fff; border:none; text-decoration:none;">保存</a>
-            </header><!----------------------------个人资料_身份证号码-->
-            <header id="xingbie">
-                <a href="#hyzx_grzl" style="float:left; margin:12px 0 0 20px;  color:white; font-size:14px;">取消</a>
-                <h1>性别</h1>
-                <a href='#' onclick="savesex()" style="float:right;padding:12px 5px 0px 0px; color:#fff; border:none; text-decoration:none;">保存</a>
-            </header><!---------------------------------个人资料_性别-------->
-            <header id="xingming">
-                <a href="#hyzx_grzl" style="float:left; margin:12px 0 0 20px;  color:white; font-size:14px;">取消</a>
-                <h1>姓名</h1>
-                <a onclick="savename()" style="float:right;padding:12px 5px 0px 0px; color:#fff; border:none; text-decoration:none;">保存</a>
-            </header><!--------------------------------个人资料_姓名-------->
-            <header id="youxiang">
-                <a href="#hyzx_grzl" style="float:left; margin:12px 0 0 20px;  color:white; font-size:14px;">取消</a>
-                <h1>邮箱</h1>
-                <a onclick="saveem()" style="float:right;padding:12px 5px 0px 0px; color:#fff; border:none; text-decoration:none;">保存</a>
-            </header><!--------------------------------个人资料_邮箱-------->
-            <header id="xiugaimima">
-                <a href="#hyzx_grzl" style="float:left; margin:12px 0 0 20px;  color:white; font-size:14px;">取消</a>
-                <h1>修改密码</h1>
-
-            </header><!------------------------------个人资料_修改密码---->
-            <header id="htwjl">
-                <a href="#yhzx" class="biaotizuo">
-                    <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
-                </a>
-                <h1>提问记录</h1>
-            </header><!-----------------------------------提问记录------------->
-            <header id="hzhuce1">
-                <a href="#login" class="biaotizuo">
-                    <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
-                </a>
-                <h1>注册</h1>
-            </header><!----------------------------------注册----------------->
-            <header id="hzhuce">
-                <a href="#zhuce" class="biaotizuo">
-                    <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
-                </a>
-                <h1>注册</h1>
-            </header><!----------------------------------next注册----------------->
-            <header id="hlpqxx">
-                <a href="#lpjuan" class="biaotizuo">
-                    <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
-                </a>
-                <h1>礼品券</h1>
-            </header><!----------------------------------礼品券详细--------------->
-            <header id="hjfjlxq">
-                <a href="#hyjfjl" class="biaotizuo">
-                    <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
-                </a>
-                <h1>积分记录</h1>
-            </header><!---------------------------------积分记录详情--------->
-            <header id="hyyjl">
-                <a href="#yhzx" class="biaotizuo">
-                    <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
-                </a>
-                <h1>预约记录</h1>
-            </header><!---------------------------------预约记录--------->
-            <header id="hjjzq">
-
-                <h1>交流专区</h1>
-            </header><!---------------------------------交流专区--------->
-            <header id="hkstw">
-                <a href="#jjzq">
-                    <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
-                </a>
-                <h1>快速提问</h1>
-                <a href='#jqtw' style="float:right;padding:12px 5px 0px 0px; color:#fff; border:none; text-decoration:none;">近期提问</a>
-            </header><!---------------------------------快速提问--------->
-            <header id="hzhuye">
-                <a onclick="dengl()" style="float:left; margin:12px 0 0 20px;  color:white; font-size:14px;">登录</a>
-                <h1>首页</h1>
-            </header><!---------------------------------首页--------->
-            <header id="hyhzx">
-                <h1>我的</h1>
-            </header><!---------------------------------我的--------->
-            <header id="hjqtw">
-                <a href="#kstw" class="biaotizuo">
-                    <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
-                </a>
-                <h1>近期提问</h1>
-            </header><!---------------------------------近期提问--------->
-            <header id="yjmd">
-                <a href="#zhuye">
-                    <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png);"></span>
-                </a>
-                <h1>预警名单</h1>
-                <a href='#' style=" float:right;padding:10px 5px 0px 0px; color:#fff; border:none; text-decoration:none;">
-                </a>
-            </header><!-----------------------------------预警名单------------->
-            <!--------------------------------------- 头--------------------------------------------->
-            <!--------------------------------------- 尾--------------------------------------------->
-            <footer id="custom_footer">
-                <a href='#zhuye' id="footer_zhuye"><img src="img/footerimg/icon-home.png" style="height:43px; width:53px;"></a>
-                <a href='#sous' id="footer_anjian"><img src="img/footerimg/icon-search.png" style="height:43px; width:53px;"></a>
-                <a href='#jjzq' id="footer_jiaoliu"><img src="img/footerimg/icon-chat.png" style="height:43px; width:53px;"></a>
-                <a href='#jfshop' id="footer_jfshop"><img src="img/footerimg/icon-shop.png" style="height:43px; width:53px"></a>
-                <a href='#yhzx' id="footer_yhzx"><img src="img/footerimg/icon-user.png" style="height:43px; width:53px;"></a>
-                <script>
-                    var hideall = function () {
-                        $("#footer_zhuye").find("img").attr("src", "img/footerimg/icon-home.png")
-                        $("#footer_anjian").find("img").attr("src", "img/footerimg/icon-search.png")
-                        $("#footer_jiaoliu").find("img").attr("src", "img/footerimg/icon-chat.png")
-                        $("#footer_jfshop").find("img").attr("src", "img/footerimg/icon-shop.png")
-                        $("#footer_yhzx").find("img").attr("src", "img/footerimg/icon-user.png")
-                    }
-
-                    $("#footer_zhuye").click(function () {
-                        hideall();
-                        $("#footer_zhuye").find("img").attr("src", "img/footerimg/icon-home-2.png")
-                    })
-
-                    $("#footer_anjian").click(function () {
-                        hideall();
-                        $("#footer_anjian").find("img").attr("src", "img/footerimg/icon-search-2.png")
-                    })
-                    $("#footer_jiaoliu").click(function () {
-                        hideall();
-                        $("#footer_jiaoliu").find("img").attr("src", "img/footerimg/icon-chat-2.png")
-                    })
-                    $("#footer_jfshop").click(function () {
-                        hideall();
-                        $("#footer_jfshop").find("img").attr("src", "img/footerimg/icon-shop-2.png")
-                    })
-                    $("#footer_yhzx").click(function () {
-                        hideall();
-                        $("#footer_yhzx").find("img").attr("src", "img/footerimg/icon-user-2.png")
-                    })
-
-
-                    var hideall = function () {
-                        $("#footer_zhuye").find("img").attr("src", "img/footerimg/icon-home.png")
-                        $("#footer_anjian").find("img").attr("src", "img/footerimg/icon-search.png")
-                        $("#footer_jiaoliu").find("img").attr("src", "img/footerimg/icon-chat.png")
-                        $("#footer_jfshop").find("img").attr("src", "img/footerimg/icon-shop.png")
-                        $("#footer_yhzx").find("img").attr("src", "img/footerimg/icon-user.png")
-                    }
-
-                    $("#footer_zhuye").click(function () {
-                        hideall();
-                        $("#footer_zhuye").find("img").attr("src", "img/footerimg/icon-home-2.png")
-                    })
-
-                    $("#footer_anjian").click(function () {
-                        hideall();
-                        $("#footer_anjian").find("img").attr("src", "img/footerimg/icon-search-2.png")
-                    })
-                    $("#footer_jiaoliu").click(function () {
-                        hideall();
-                        $("#footer_jiaoliu").find("img").attr("src", "img/footerimg/icon-chat-2.png")
-                    })
-                    $("#footer_jfshop").click(function () {
-                        hideall();
-                        $("#footer_jfshop").find("img").attr("src", "img/footerimg/icon-shop-2.png")
-                    })
-                    $("#footer_yhzx").click(function () {
-                        hideall();
-                        $("#footer_yhzx").find("img").attr("src", "img/footerimg/icon-user-2.png")
-                    })
-
-                </script>
-            </footer>
-            <!--------------------------------------- 尾--------------------------------------------->
-        </div>
-    </div>
 </body>
 
 </html>
