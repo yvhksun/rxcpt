@@ -1374,7 +1374,9 @@
 
 
                     function fnGotoCompanyPro(thisEv) {
-
+                        var item = thisEv.getAttribute("gsqc");
+                        $("#companypro").attr("gsqc", item);
+                        $.ui.loadContent("#companypro");
                     }
 
 
@@ -1711,7 +1713,7 @@
             <!-------------------------------------//搜索结果------------------------------------------>
             <!------------------------------------- 公司简介------------------------------------------>
 
-            <div id="companypro" class="panel " style="background:#f0f0f0" data-load="fnShowWhatNow" showNow="1">
+            <div id="companypro" class="panel " style="background:#f0f0f0" data-load="fnShowWhatNow" shownow="1" gsqc="">
                 <header>
                     <a href="#jjzq" class="biaotizuo">
                         <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
@@ -1720,8 +1722,8 @@
                 </header>
                 <div>
                     <div style="width:25%;margin-left:37.5% ;margin-top:40px;">
-                        <img style="width:100% " src="img/conpanyPro/company_log_03.png" />
-                        <div style="width:100%;line-height:30px;height:80px;letter-spacing:10px;text-align:center ;">
+                        <img id="logAtCompany" style="width:100% " src="img/conpanyPro/company_log_03.png" />
+                        <div id="titleAtCompany" style="width:100%;line-height:30px;height:80px;letter-spacing:10px;text-align:center ;">
                             融信城
                         </div>
                     </div>
@@ -1793,29 +1795,30 @@
                             </div>
 
                             <div id="activityAtCompanyPro">
-                                <div style="float:left; width:30%;margin-left:2.5%;margin-top:25px;border:#c393e6 solid 1px;border-bottom:none;">
-                                    <div style="width:100%;height:50px;"></div>
-                                    <div style="width:100%;height:25px; background:url(img/conpanyPro/product_back_03.png) no-repeat;background-size: 100% 100%"></div>
-                                </div>
+                                <!--<div style="float:left; width:30%;margin-left:2.5%;margin-top:25px;border:#c393e6 solid 1px;border-bottom:none;">
+                            <div style="width:100%;height:50px;"></div>
+                            <div style="width:100%;height:25px; background:url(img/conpanyPro/product_back_03.png) no-repeat;background-size: 100% 100%"></div>
+                        </div>-->
 
-                                <div style="clear:both;"></div>
+
                             </div>
 
                             <div id="prductAtCompany">
                                 <p style="color:#c89022;">产品目录</p>
-                                <div  style="width:100%;height:40px;background:#93e6e0;position:relative;text-align:left;">
-                                    <span class="productList">产品名称：票据贴现-承兑（六个月）</span>
-                                </div>
-                                
+                                <!--<div  style="width:100%;height:40px;background:#93e6e0;position:relative;text-align:left;">
+                            <span class="productList">产品名称：票据贴现-承兑（六个月）</span>
+                        </div>-->
+
                             </div>
 
+                            <div id="productDetails"  ></div>
                         </div>
                     </div>
 
                 </div>
-                <script>  
-                    
-                    //*************************导航切换*****************//    
+                <script>
+
+                    //*************************导航切换*****************//
                     $("#onClickCompanyPro").click(function () {
                         lightAtTheID("onClickCompanyPro");
                         showWhoAtTheId("mainAtCompanyPro");
@@ -1843,50 +1846,122 @@
                         $("#" + id).removeClass("showNowAtCompany");
                         $("#" + id).parent().children().not($("#" + id)).addClass("showNowAtCompany");
                     }
-                    //*************************导航切换 end  *****************//    
+                    //*************************导航切换 end  *****************//
 
                     $("#btnSovleAfter").click(function () { //提问按钮
                         $("#solveAfter").hide();
                         $("#solveNow").show();
                     })
-                    function fnShowWhatNow() {
+
+
+                    function fnShowWhatNow() {  // panel  companypro 的构造函数
+
+                        var gsqc = $("#companypro").attr("gsqc")
                         var showNow = $("#companypro").attr("showNow");
-                        switch(showNow)
-                        {
+                        switch (showNow) {
                             case "1": lightAtTheID("onClickCompanyPro");
                                 showWhoAtTheId("mainAtCompanyPro"); break;
                             case "2": lightAtTheID("onClickSolve");
                                 showWhoAtTheId("solveAtCompanyPro"); break;
                             case "3": lightAtTheID("onClickActivity");
-                                showWhoAtTheId("activityAtCompanyPro");break;
-                            case "4":  lightAtTheID("onClickProduct");
+                                showWhoAtTheId("activityAtCompanyPro"); break;
+                            case "4": lightAtTheID("onClickProduct");
                                 showWhoAtTheId("prductAtCompany"); break;
                             default: lightAtTheID("onClickCompanyPro");
                                 showWhoAtTheId("mainAtCompanyPro");; break;
                         }
+
+                        //******************* show 公司详情(company details)begin *******************//
+                        $.ajax({
+                            url: "http://www.shrxc.com/api/apitest/getsellerbygsqc",
+                            data: { "gsqc": gsqc },
+                            dataType: "jsonp",
+                            type: "GET",
+                            jsonp: "callback",
+                            success: function (data) {
+                                $("#logAtCompany").attr("src","http://www.shrxc.com"+ data.logo);
+                                $("#titleAtCompany").text(data.gsjc);
+                                $("#mainAtCompanyPro").html(data.jj);
+                            },
+                            error:function(){}
+                        })
+
+                        //******************* show 活动(company details)end *******************//
+                        //******************* show 活动(activity )begin *******************//
+
+                        $("#activityAtCompanyPro").html("")
+                        $.ajax({
+                            url: "http://www.shrxc.com/api/apitest/getactbygsqc",
+                            data: { "gsqc": gsqc },
+                            dataType: "jsonp",
+                            type: "GET",
+                            jsonp: "callback",
+                            success: function (data) {
+
+                                $.each(data, function (key, value) {
+
+                                    imgsrc = value.type == "lp" ? "url(img/anjianbaogao/ajhd5.png)" : "url(img/anjianbaogao/ajhd6.png)";
+
+                                    var item = ' <div style="float:left; width:30%;margin-left:2.5%;margin-top:25px;border:#c393e6 solid 1px;border-bottom:none;">'
+                                    + '<div style="width:100%;height:50px;">' + value.title + '</div>'
+                                    + ' <div style="width:100%;height:25px; background:' + imgsrc + ' no-repeat;background-size: 100% 100%"></div>'
+                                    + '</div>'
+
+                                    $("#activityAtCompanyPro").append(item);
+                                })
+
+                                $("#activityAtCompanyPro").append('<div style="clear:both;"></div>')
+
+                            },
+                            error: function () { }
+                        })
+                        //******************* show 活动(activity)end *******************//
+
+                        //******************* show 产品(product) begin *******************//
+                        $("#prductAtCompany").html('<p style="color:#c89022;">产品目录</p>')
+                        $.ajax({
+                            url: "http://www.shrxc.com/api/apitest/getprobygsqc",
+                            data: { "gsqc": gsqc },
+                            dataType: "jsonp",
+                            type: "GET",
+                            jsonp: "callback",
+                            success: function (data) {
+                                $.each(data, function (key, value) {
+                                    var item = '<div  style="width:100%;height:40px;background:#93e6e0;position:relative;text-align:left; margin-top:25px"> '
+                                    + '<span class="productList">产品名称：' + value.pname + '</span>'
+                                    + ' </div>';
+
+
+                                    $("#prductAtCompany").append(item);
+                                })
+                            },
+                            error: function () { }
+                        })
+                        //******************* show 产品(product) end *******************//
+
+
+
+
                     }
-
-
-
 
 
 
                 </script>
                 <style>
-                    .productList{
-                       text-align:left;
-                       line-height:40px;
-                      margin-left:10px;
+                    .productList {
+                        text-align: left;
+                        line-height: 40px;
+                        margin-left: 10px;
                     }
-                    .productList:after{
-                        position:absolute;
-                        font-size:24px;
-                        right:10px;
-                        color:#fff;
-                        font-family: 'chevron';
-                        content:"\f054";
-                        
-                    }
+
+                        .productList:after {
+                            position: absolute;
+                            font-size: 24px;
+                            right: 10px;
+                            color: #fff;
+                            font-family: 'chevron';
+                            content: "\f054";
+                        }
 
 
                     .showNowAtCompany { /*切换显示样式*/
@@ -1894,12 +1969,13 @@
                     }
 
 
-                    .showNowCss{
-                        color:#ea1e63;
+                    .showNowCss {
+                        color: #ea1e63;
                     }
-
                 </style>
             </div>
+
+
 
             <!-------------------------------------//搜索结果------------------------------------------>
             <!-------------------------------------使用手册------------------------------------------>
@@ -2501,7 +2577,7 @@
             dataType: "jsonp",
             jsonp: "callback",
             success: function (data) {
-
+                $("#con").append("<div style='width:'></div>");
                 $.each(data, function (key, value) {
 
                     var item = $("<div style='width:100%;border-bottom:1px solid  #d1d1d1;position:relative;'>"
