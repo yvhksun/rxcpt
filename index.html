@@ -522,7 +522,7 @@
                 <div class="row" style="margin-top:20px;padding:0 20px;">
                     <form method="get" action="/mobile/CheckList">
                         <input id="quickSearch" type="text" name="search" style="width:75%; border:2px solid #a9deec;font-size:20px;font-family:'Microsoft YaHei';border-radius:10px;height:45px;" placeholder="快速安检" />
-                        <div id="checkHereToSearch" style="float:right;border-radius:5px;margin-top:0px;margin-right:15px; background-color:#f7cd6a;width:13%;height:40px;background-image:url(img/check/i-search.png);background-repeat:no-repeat;background-size:25px;background-position:center "></div>
+                        <div style="float:right;border-radius:5px;margin-top:0px;margin-right:15px; background-color:#f7cd6a;width:13%;height:40px;background-image:url(img/check/i-search.png);background-repeat:no-repeat;background-size:25px;background-position:center "></div>
                     </form>
                 </div>
                 <div style="padding:0 20px;">
@@ -1609,7 +1609,7 @@
             </div>
             <!-------------------------------------融信城&安检查询------------------------------------------>
             <!-------------------------------------搜索结果------------------------------------------>
-            <div data-title="安检专区" class="panel" id="SearchAnjianshenqi" style="background-color:#f0f0f0">
+            <div data-title="安检专区" class="panel" id="SearchAnjianshenqi" style="background-color:#f0f0f0"data-footer="custom_footer">
                 <header>
                     <a class="button" id="backButton"></a>
                     <h1>安检专区</h1>
@@ -1653,11 +1653,11 @@
                                 $.ui.hideMask();
                                 var i = 0;
                                 $.each(data, function (key, value) {
-                                    i++;
+                                  
                                     if (i > 9) {
                                         return;
                                     }
-
+                                    i++;
                                     var item = "<div onclick='fnShowAnJianInfo(this)' gsqc=" + value.gsqc + " style=\"height:60px;line-height:30px;padding-left:10px; border:1px solid #dbdbdb;margin:10px 10px 0px 10px;background-color:#fff\" >"
                                     + "<div style=\"float:left\">"
                                     + "<div>" + value.gsqc + "</div>"
