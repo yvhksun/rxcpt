@@ -1340,18 +1340,20 @@
                     </a>
                     <div style="clear:both;"></div>
                 </div>     
-                <div onclick="" id="jladd"></div>
+                <div id="jladd"></div>
+                <div id=jlgd onclick="jiaoliutianjia()" style="height:30px;display:inline-table;">加载更多</div>
                 <script>
 
                     function fnShowjiaoliu() {
                         $("#jladd").html("");
+
                         jiaoliu(1);
                     }
-
-
+                    
+                    var myPage = 2;
                     function jiaoliu(pagex) {
-
-                        var id = window.localStorage["id"];
+                       
+                       
                         $.ajax({
                             url: "http://120.24.220.249/api/apitest/sellerList?page=" + pagex,
                             type: "GET",
@@ -1360,67 +1362,74 @@
                             success: function (data) {
                                 $.each(data, function (k, value) {
                                     var item = $(
+                                       
                                         " <a href='#companypro' style='width:33.33%;height:130px;float:left;padding:15px 15px;border:solid 1px #dbdbdb'>" +
                                             "<img src='http://120.24.220.249" + value.logo + "' class='jltbl'style='height:73%;width:100%'/>" +
                                             "<span style='text-align:center;width:100%;display:inline-table;margin-top:10px;'>" + value.gsjc + "</span>" +
                                         " </a>")
                                     $("#jladd").append(item)
-                                    page++
+                                   
                                 })
-                                $("#jladd").append("<div style=\"clear:both;\"></div><div id=jlgd onclick='' >加载更多</div>");
+                                $("#jladd").append("<div style=\"clear:both;\"></div>");
+                             
                             }
+                            
                         })
                     }
+                    
+                    function jiaoliutianjia() {
+                        jiaoliu(myPage);
+                        myPage++;
+                    }
 
+                    //var jlshopScroll;
+                    //var jlpage = 2;
+                    //var jlhideClose;
+                    //$.ui.ready(function () {
+                    //    jlshopScroll = $("#jjzq").scroller({
+                    //        verticalScroll: true,
+                    //        horizontalScroll: false,
+                    //        vScrollCSS: "jqmScrollbar",
+                    //        autoEnable: true
+                    //    });
 
-                    var jlshopScroll;
-                    var jlpage = 2;
-                    var jlhideClose;
-                    $.ui.ready(function () {
-                        jlshopScroll = $("#jjzq").scroller({
-                            verticalScroll: true,
-                            horizontalScroll: false,
-                            vScrollCSS: "jqmScrollbar",
-                            autoEnable: true
-                        });
+                    //    jlshopScroll.addInfinite();
+                    //    jlshopScroll.addPullToRefresh();
+                    //    jlshopScroll.runCB = true;
+                    //    $.bind(jlshopScroll, "refresh-release", function () {
+                    //        clearTimeout(jlhideClose);
+                    //        var jlthat = this;
+                    //        jlhideClose = setTimeout(function () { jlthat.hideRefresh(); }, 500)
+                    //        console.log("上啦")
+                    //        return false;
+                    //    })
+                    //    jlshopScroll.enable();
+                    //    $(document.body).unbind("touchmove");
+                    //    $(document.body).bind("touchmove", function (e) {
+                    //        //if (touch.y1 - touch.y2 <= 0) {
+                    //        //    $("#infinite").hide();
+                    //        //} else {
+                    //        //    $("#infinite").show();
+                    //        //}
+                    //    });
+                    //    $.unbind(jlshopScroll, "infinite-scroll");
+                    //    $.bind(jlshopScroll, "infinite-scroll", function () {
+                    //        var self = this;
+                    //        $.unbind(jlshopScroll, "infinite-scroll-end");
+                    //        $.bind(jlshopScroll, "infinite-scroll-end", function () {
+                    //            $.unbind(jlshopScroll, "infinite-scroll-end");
+                    //            self.scrollToBottom();
+                    //            setTimeout(function () {
+                    //                self.clearInfinite();
+                    //                jiaoliu(jlpage);
+                    //                jlpage++;
+                    //                self.scrollToBottom();
+                    //            }, 1600);
+                    //        })
 
-                        jlshopScroll.addInfinite();
-                        jlshopScroll.addPullToRefresh();
-                        jlshopScroll.runCB = true;
-                        $.bind(jlshopScroll, "refresh-release", function () {
-                            clearTimeout(jlhideClose);
-                            var jlthat = this;
-                            jlhideClose = setTimeout(function () { jlthat.hideRefresh(); }, 500)
-                            console.log("上啦")
-                            return false;
-                        })
-                        jlshopScroll.enable();
-                        $(document.body).unbind("touchmove");
-                        $(document.body).bind("touchmove", function (e) {
-                            //if (touch.y1 - touch.y2 <= 0) {
-                            //    $("#infinite").hide();
-                            //} else {
-                            //    $("#infinite").show();
-                            //}
-                        });
-                        $.unbind(jlshopScroll, "infinite-scroll");
-                        $.bind(jlshopScroll, "infinite-scroll", function () {
-                            var self = this;
-                            $.unbind(jlshopScroll, "infinite-scroll-end");
-                            $.bind(jlshopScroll, "infinite-scroll-end", function () {
-                                $.unbind(jlshopScroll, "infinite-scroll-end");
-                                self.scrollToBottom();
-                                setTimeout(function () {
-                                    self.clearInfinite();
-                                    jiaoliu(jlpage);
-                                    jlpage++;
-                                    self.scrollToBottom();
-                                }, 1600);
-                            })
-
-                        })
-                        $("#jjzq").css("overflow", "auto");
-                    })
+                    //    })
+                    //    $("#jjzq").css("overflow", "auto");
+                    //})
                 </script>
 
             </div>
