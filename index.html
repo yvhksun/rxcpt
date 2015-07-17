@@ -282,7 +282,10 @@
 
 
                     </div>
-                    <div id="del_tianjia" onclick="jifgd()">添加更多</div>
+                    <div onclick="jifgd()" style="width:100%;padding-top:10px;">
+                        <div id="del_tianjia" style="height:30px;line-height:30px ;width:50%;text-align:center; margin:0 auto;border-radius:15px;border:solid 1px #dbdbdb ">加载更多</div>
+                    </div>
+                    
                 </div>
                 <script>
                     var addpag = 2
@@ -299,9 +302,6 @@
                         }
 
                     }
-
-
-
 
                     //var shopScroll;
                     //var page
@@ -1349,10 +1349,13 @@
                     <div style="clear:both;"></div>
                 </div>
                 <div id="jladd"></div>
-                <div id="jlgd" onclick="jiaoliutianjia()" style="height:30px;display:inline-table;">加载更多</div>
+                <div onclick="jiaoliutianjia()" style="width:100%;padding-top:10px;">
+                    <div id="jlgd" style="height:30px;line-height:30px ;width:50%;text-align:center; margin:0 auto;border-radius:15px;border:solid 1px #dbdbdb ">加载更多</div>
+                </div>
                 <script>
                     function jiaolss() {
                         $("#jladd").html("");
+                        
                         var iptext = $("#mySearch").val()
                         jiaoliu(1, iptext)
 
@@ -1360,7 +1363,7 @@
 
                     function fnShowjiaoliu() {
                         $("#jladd").html("");
-
+                        $("#jlgd").show()
                         jiaoliu(1, "");
                     }
 
@@ -1376,7 +1379,7 @@
                             success: function (data) {
 
                                 if (data.length < 12) {
-                                    $("#jlgd").remove()
+                                    $("#jlgd").hide()
                                 }
                                 $.each(data, function (k, value) {
 
@@ -1417,44 +1420,99 @@
 
             <!-------------------------------------交流专区------------------------------------------>
             <!-------------------------------------快速提问------------------------------------------>
-            <div title="快速提问" class="panel" id="kstw" data-header="hkstw" data-footer="none" style=" width:100%;background-color:#f0f0f0">
+            <div title="快速提问" data-load="gslb" class="panel" id="kstw" data-header="hkstw" data-footer="none" style=" width:100%;background-color:#f0f0f0">
                 <img src="img/jlzq/xzgs.jpg" style="height:50px;width:90%;margin:20px 5%">
-                <select onfocus="jlsel()" onblur="imghid()" style="position:absolute; width:75%;height:40px;margin-left:8%;margin-top:-65px; border:none;color:#b3b3b3">
-                    <option>请选择提问公司</option>
-                    <option>公司1</option>
-                    <option>公司2</option>
-                    <option>公司3</option>
+                <select id="gslby" style="position:absolute; width:75%;height:40px;margin-left:8%;margin-top:-65px; border:none;color:#b3b3b3">
+                    <option value="">请选择提问公司</option>
                 </select>
-                <textarea placeholder="请输入提问内容" style="color:#adadad; height:200px;width:86%;margin-left:7%;border:none;margin-top:7%">请输入提问内容</textarea>
-                <div style="width:86%;padding-top:3%; height:40px;margin-left:7%;margin-top:7%;background-color:#42d053;display:inline-table;">
-                    <span style="margin:5% 40%; color:white;font-size:18px;">提&nbsp; &nbsp;&nbsp;交</span>
+                <textarea placeholder="请输入提问内容" id="kstwnr" style="color:#adadad; height:200px;width:86%;margin-left:7%;border:none;margin-top:7%"></textarea>
+                <div onclick="kstwtj()" id="kstwtj" style="width:86%;padding-top:3%;padding-bottom:3%; height:40px;margin-left:7%;margin-top:7%;background-color:#c7c7c7;display:inline-table;">
+                    <span style="margin:2% 40%;height:20px;width:10% color:white;font-size:18px;display:inline-table">提&nbsp; &nbsp;&nbsp;交</span>
                 </div>
+                <script>
+                    function gslb() {
+                        $("#gslby").val("")
+                        $("#kstwnr").val("")
+                        $.ajax({
+                            url: "http://120.24.220.249/api/apitest/getAllSellerListForQuestion",
+                            type: "GET",
+                            dataType: "jsonp",
+                            jsonp: "callback",
+                            success: function (data) {
+                                $.each(data, function (k, value) {
+                                    var item = $(
+                                       "<option value='" + value.sid + "'>" + value.gsqc + "</option>"
+                                    )
+                                    $("#gslby").append(item)
+                                })
+                            }
+                        })
+                    }
+                    $("#kstwnr").keyup(function () {
+                        kstw_tj();
+                    })
+                    function kstw_tj() {
+
+                        if ($("#kstwnr").val() == "") {
+                            $("#kstwtj").css("background-color", "#c7c7c7");
+                        }
+                        else {
+                            $("#kstwtj").css("background-color", "#40c752");
+                        }
+                    }
+                    function kstwtj(sid, question, id) {
+                        var id = window.localStorage["id"];
+                        var qt = $("#kstwnr").val();
+                        var gsname = $("#gslby").val();
+                        if (id == null) {
+                            toast("请重新登录", 1000);
+                            $.ui.loadContent("#login");
+                            return;
+                        }
+                        else if (qt == "") {
+                            toast("请输入内容", 1000);
+                        }
+                        else if (gsname == "") {
+                            toast("请选择提问公司", 1000);
+                        }
+                        else {
+                            $.ajax({
+                                url: "http://120.24.220.249/api/apitest/Question",
+                                type: "GET",
+                                dataType: "jsonp",
+                                jsonp: "callback",
+                                data: { 'sid': gsname, 'question': qt, 'id': id },
+                                success: function (data) {
+                                    if (data == 1) {
+
+                                        toast("提问成功", 1000);
+                                        $("#gslby").val("")
+                                        $("#kstwnr").val("")
+                                    }
+                                    else if (data == -1) {
+                                        toast("请重新登录", 1000);
+                                        $.ui.loadContent("#login");
+                                        $("#gslby").val("")
+                                        $("#kstwnr").val("")
+                                    }
+                                    else {
+                                        toast("公司不存在!", 1000);
+                                    }
+                                },
+                                error: function () {
+                                    alert("网络连接失败")
+                                }
+                            })
+                        }
+                    }
+                </script>
+
 
 
             </div>
+
             <!-------------------------------------快速提问------------------------------------------>
-            <!-------------------------------------近期提问------------------------------------------>
-            <div title="近期提问" class="panel" id="jqtw" data-header="hjqtw" data-footer="none" data-tab="footer_jfshop" style=" width:100%;background-color:#f0f0f0">
-                <div style="background-color:white;margin:10px 10px 0 10px;border-radius:5px;padding:10px;">
-                    <div>
-                        <img src="img/jlzq/jqtw2.jpg" style="float:left;height:22px;width:25px; margin:5px 0 15px 30px;position:absolute;" />
-                        <span style=" margin-top:5px;margin-left:65px; display:inline-table;height:35px;color:#e4b362;font-size:18px;">上海意隆</span>
-                        <img src="img/jlzq/jqtw1.jpg" style="float:right;height:15px;width:15px;margin-top:8px;" />
-                        <div style="color:#83e180;float:right;height:30px;line-height:30px; ">更多</div>
-
-
-                        <div style="border-top:solid 1px #e4b362"></div>
-                        <div style="padding:15px 15px 15px 30px;">
-                            <span>问：</span><span style="line-height:25px;">这里是问题这里是问题这里是问题这里是问题这里是问题这里是问题这里是问题</span>
-                            <div style="height:1px;width:100%;display:inline-table;font-size:3px;">&nbsp;</div>
-                            <span>答：</span><span style="line-height:25px;">这里是答案</span>
-
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <!-------------------------------------近期提问------------------------------------------>
+            
             <!-------------------------------------融信城&安检查询------------------------------------------>
             <div class="panel" id="AnJianChaXun" data-header="rxc_ajcx" data-footer="none" style="background-color:#fff;font-family:'微软雅黑';" data-load="fnShowAllInformation">
 
@@ -2091,19 +2149,27 @@
 
             <!-------------------------------------意见反馈------------------------------------------>
 
-            <div class="panel" id="yjfk" style="background-color:#f0f0f0" data-header="YJFK_H" data-footer="none" data-load="yjfk_tj">
+            <div class="panel" id="yjfk" style="background-color:#f0f0f0" data-header="YJFK_H" data-footer="none" data-load="YJFK_start">
 
                 <div style="margin:auto;width:80%;margin-top:20px;">
 
                     <div style="height:200px;width:100%;background-color:#fff;border:1px solid #c7c7c7;"><textarea id="txtYiJian" placeholder="留下您的宝贵意见,我们将持续改进产品" style="border:none;width:100%;height:198px;"></textarea></div>
 
                     <div id="txtLianXi" style="border-bottom:1px solid #c7c7c7;border-left:1px solid #c7c7c7;border-right:1px solid #c7c7c7;border-radius:0px;width:100%;height:50px;line-height:50px;background-color:#fff;"><input id="userContact" type="text" placeholder="轻触留下邮箱, QQ, 电话等, 以便联系" style="border:none;" /></div>
+                    <a id="btn_YJtijiao" href="" onclick="YJ_submitContent()" class="button" style="display:block;background-color:#c7c7c7;color:#fff;border:none;padding:20px 0;font-size:20px;margin-top:40px;">提交</a>
 
                 </div>
 
                 <script>
 
                     // var userid = window.localStorage["id"];
+<<<<<<< HEAD
+=======
+                    function YJFK_start() {
+                        $("#txtYiJian").val("");
+                        $("#userContact").val("");
+                    }
+>>>>>>> origin/master
 
                     $("#txtYiJian").keyup(function () {
 
@@ -2113,14 +2179,18 @@
 
                         if ($("#txtYiJian").val() == "") {
                             $("#btn_YJtijiao").css("background-color", "#c7c7c7");
+
                         }
+
                         else {
                             $("#btn_YJtijiao").css("background-color", "#40c752");
+
                         }
 
 
                     }
                     function YJ_submitContent() {
+
                         $.ajax({
                             url: "http://120.24.220.249/api/apitest/feedback",
                             type: "GET",
@@ -2130,7 +2200,12 @@
                             success: function (date) {
 
                                 toast("提交成功", 1000);
+<<<<<<< HEAD
 
+=======
+                                $("#txtYiJian").val("");
+                                $("#userContact").val("");
+>>>>>>> origin/master
                             },
                             error: function (date) {
 
@@ -2151,6 +2226,8 @@
 
             </div>
 
+
+
             <!-------------------------------------意见反馈------------------------------------------>
             <!-------------------------------------- 头---------------------------------------------->
             <header id="YJFK_H">
@@ -2158,7 +2235,7 @@
                     <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
                 </a>
 
-                <h1>近期提问</h1>
+                <h1>意见反馈</h1>
 
             </header><!---------------------------------意见反馈--------->
             <header id="rxc_ajcx">
@@ -2697,7 +2774,7 @@
 
     function showShangPin() { ///////////////////////////////////////////////////////展示商品
         $("#con").html("");
-
+        $("#del_tianjia").show();
         page = 2;
         fnShowShop(1);
 
@@ -2713,6 +2790,8 @@
         var item = thisEv.parentNode.parentNode.id;
         id = 1;
         $("#con").html("");
+        
+       
 
         if (item == "btnShowLeft" && thisEv.innerHTML != "全&nbsp;&nbsp;部")
             fnShowShop(id, "", thisEv.innerHTML);
@@ -2745,7 +2824,7 @@
             success: function (data) {
 
                 if (data.length < 10) {
-                    $("#del_tianjia").remove();
+                    $("#del_tianjia").hide();
                 }
                 $.each(data, function (key, value) {
 
