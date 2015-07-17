@@ -1394,7 +1394,7 @@
 
                                     var item = $(
 
-                                        " <div onclick='fnGotoCompanyPro(this)' gsqc='" + value.gsqc + "' style='width:33.33%;height:130px;float:left;padding:15px 15px;border:solid 1px #dbdbdb'>" +
+                                        " <div onclick='fnGotoCompanyPro(1,\""+value.gsqc+"\")' gsqc='" + value.gsqc + "' style='width:33.33%;height:130px;float:left;padding:15px 15px;border:solid 1px #dbdbdb'>" +
 
                                             "<img src='http://120.24.220.249" + value.logo + "' class='jltbl'style='height:73%;width:100%'/>" +
                                             "<span style='text-align:center;width:100%;display:inline-table;margin-top:10px;'>" + value.gsjc + "</span>" +
@@ -1411,11 +1411,6 @@
 
 
 
-                    function fnGotoCompanyPro(thisEv) {
-                        var item = thisEv.getAttribute("gsqc");
-                        $("#companypro").attr("gsqc", item);
-                        $.ui.loadContent("#companypro");
-                    }
 
                     function jiaoliutianjia() {
                         jiaoliu(myPage, "");
@@ -1935,6 +1930,7 @@
 
                     function fnGotoCompanyPro(showNum,gsqc)
                     {
+                        alert(1)
                         $("#companypro").attr("shownow", showNum);
                         $("#companypro").attr("gsqc", gsqc);
                         $.ui.loadContent("#companypro");
@@ -1997,7 +1993,7 @@
                             default: lightAtTheID("onClickCompanyPro");
                                 showWhoAtTheId("mainAtCompanyPro"); break;
                         }
-
+                   
                         //******************* show 公司详情(company details)begin *******************//
                         $.ajax({
                             url: "http://www.shrxc.com/api/apitest/getsellerbygsqc",
