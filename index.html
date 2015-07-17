@@ -761,6 +761,7 @@
             <!---------------------------------会员中心每日任务-------------------------------------->
             <!---------------------------------会员中心每日任务签到送积分---------------------------------->
             <div class="panel" id="mrrw_qiandao" data-header="meiriqiandao" data-footer="none" style="background-color:#ff5f53;" data-load="JFshow">
+<<<<<<< HEAD
                
                <div style="margin:auto;margin-top:20px; width:200px;height:320px;background-image:url(img/mrrw_qiandao/Bqd.png)">
                 
@@ -775,6 +776,21 @@
 
             </script>
                 </div>
+=======
+                <div style=" margin-top:-50px;"><img style="width:50%; margin:25%;" src="img/mrrw_qiandao/qiadao_wenzi.png" /></div>
+                <div style=" margin-top:-50px;"><img style="width:60%; margin:20%;" src="img/mrrw_qiandao/qiandao_jifen.png" /><div style="color:#fff;font-size:30px;position:relative;top:-245px;left:250px;"><span id="jfqd_jfxs"></span><span style="margin-left:5px;;font-size:20px;font-family:'微软雅黑';position:relative;top:-3px;">积分</span></div></div>
+                <input style="width:70%; margin:15%;" type="image" src="img/mrrw_qiandao/qiandao_anniu.png" name="btnQianDao" id="btnQianDao" />
+
+                <script>
+                    function JFshow() {
+                        $("#jfqd_jfxs").text(window.localStorage["score"]);
+                    }
+
+                </script>
+
+            </div>
+
+>>>>>>> origin/我的分支
             <!---------------------------------会员中心每日任务签到送积分---------------------------------->
             <!---------------------------------会员中心积分记录-------------------------------------->
             <div id="hyjfjl" title="积分记录" class="panel" data-header="hhyjfjl" data-load="jfjl" data-footer="none" data-tab="footer_zhuye">
@@ -1277,7 +1293,6 @@
                 <a id="registerNow" class=" button block" style="font-size:18px;line-height:35px;margin:5%;border:none;background-color:#9f780d; color:#fff;width:90%;height:50px;border-radius:5px;">完成注册</a>
             </div>
             <!--------------------------------------next注册----------------------------------------->
-    
             <!-------------------------------------礼品劵------------------------------------------>
             <div class="panel" id="lpjuan" data-footer="custom_footer" data-load="fnShowTickedbyHuoDong" data-tab="footer_jfshop" style=" width:100%; background-color:#f0f0f0;">
                 <div id="showLiPingQuan"></div>
@@ -1347,7 +1362,11 @@
                         <img src="img/jlzq/TiWen.png" style="height:60px;width:55px;" />
 
                     </a>
+<<<<<<< HEAD
                     <div  style="clear:both;"></div>
+=======
+                    <div style="clear:both;"></div>
+>>>>>>> origin/我的分支
                 </div>
                 <div id="jladd"></div>
                 <div id="jlgd" onclick="jiaoliutianjia()" style="height:30px;display:inline-table;">加载更多</div>
@@ -1366,7 +1385,11 @@
                     }
 
                     var myPage = 2;
+<<<<<<< HEAD
                     function jiaoliu(pagex,serch) {
+=======
+                    function jiaoliu(pagex) {
+>>>>>>> origin/我的分支
 
 
                         $.ajax({
@@ -1382,9 +1405,18 @@
                                 $.each(data, function (k, value) {
                                     
                                     var item = $(
+<<<<<<< HEAD
 
                                         " <div onclick='fnGotoCompanyPro(this)' gsqc='" + value.gsqc + "' style='width:33.33%;height:130px;float:left;padding:15px 15px;border:solid 1px #dbdbdb'>" +
 
+=======
+//<<<<<<< HEAD
+
+                                        //" <a href='#companypro' style='width:33.33%;height:130px;float:left;padding:15px 15px;border:solid 1px #dbdbdb'>" +
+//=======
+                                        " <div onclick='fnGotoCompanyPro(this)' gsqc='"+value.gsqc+"' style='width:33.33%;height:130px;float:left;padding:15px 15px;border:solid 1px #dbdbdb'>" +
+//>>>>>>> origin/master
+>>>>>>> origin/我的分支
                                             "<img src='http://120.24.220.249" + value.logo + "' class='jltbl'style='height:73%;width:100%'/>" +
                                             "<span style='text-align:center;width:100%;display:inline-table;margin-top:10px;'>" + value.gsjc + "</span>" +
                                         " </div>")
@@ -1412,6 +1444,115 @@
 
                     }
 
+<<<<<<< HEAD
+=======
+                    //<<<<<<< HEAD
+                    //var jlshopScroll;
+                    //var jlpage = 2;
+                    //var jlhideClose;
+                    //$.ui.ready(function () {
+                    //    jlshopScroll = $("#jjzq").scroller({
+                    //        verticalScroll: true,
+                    //        horizontalScroll: false,
+                    //        vScrollCSS: "jqmScrollbar",
+                    //        autoEnable: true
+                    //    });
+
+                    //    jlshopScroll.addInfinite();
+                    //    jlshopScroll.addPullToRefresh();
+                    //    jlshopScroll.runCB = true;
+                    //    $.bind(jlshopScroll, "refresh-release", function () {
+                    //        clearTimeout(jlhideClose);
+                    //        var jlthat = this;
+                    //        jlhideClose = setTimeout(function () { jlthat.hideRefresh(); }, 500)
+                    //        console.log("上啦")
+                    //        return false;
+                    //    })
+                    //    jlshopScroll.enable();
+                    //    $(document.body).unbind("touchmove");
+                    //    $(document.body).bind("touchmove", function (e) {
+                    //        //if (touch.y1 - touch.y2 <= 0) {
+                    //        //    $("#infinite").hide();
+                    //        //} else {
+                    //        //    $("#infinite").show();
+                    //        //}
+                    //    });
+                    //    $.unbind(jlshopScroll, "infinite-scroll");
+                    //    $.bind(jlshopScroll, "infinite-scroll", function () {
+                    //        var self = this;
+                    //        $.unbind(jlshopScroll, "infinite-scroll-end");
+                    //        $.bind(jlshopScroll, "infinite-scroll-end", function () {
+                    //            $.unbind(jlshopScroll, "infinite-scroll-end");
+                    //            self.scrollToBottom();
+                    //            setTimeout(function () {
+                    //                self.clearInfinite();
+                    //                jiaoliu(jlpage);
+                    //                jlpage++;
+                    //                self.scrollToBottom();
+                    //            }, 1600);
+                    //        })
+
+                    //    })
+                    //    $("#jjzq").css("overflow", "auto");
+                    //})
+                    //=======
+
+                    //function fnGotoCompanyPro(thisEv) {
+
+                    //}
+
+
+
+                    //                    var jlshopScroll;
+                    //                    var jlpage = 2;
+                    //                    var jlhideClose;
+                    //                    $.ui.ready(function () {
+                    //                        jlshopScroll = $("#jjzq").scroller({
+                    //                            verticalScroll: true,
+                    //                            horizontalScroll: false,
+                    //                            vScrollCSS: "jqmScrollbar",
+                    //                            autoEnable: true
+                    //                        });
+
+                    //                        jlshopScroll.addInfinite();
+                    //                        jlshopScroll.addPullToRefresh();
+                    //                        jlshopScroll.runCB = true;
+                    //                        $.bind(jlshopScroll, "refresh-release", function () {
+                    //                            clearTimeout(jlhideClose);
+                    //                            var jlthat = this;
+                    //                            jlhideClose = setTimeout(function () { jlthat.hideRefresh(); }, 500)
+                    //                            console.log("上啦")
+                    //                            return false;
+                    //                        })
+                    //                        jlshopScroll.enable();
+                    //                        $(document.body).unbind("touchmove");
+                    //                        $(document.body).bind("touchmove", function (e) {
+                    //                            //if (touch.y1 - touch.y2 <= 0) {
+                    //                            //    $("#infinite").hide();
+                    //                            //} else {
+                    //                            //    $("#infinite").show();
+                    //                            //}
+                    //                        });
+                    //                        $.unbind(jlshopScroll, "infinite-scroll");
+                    //                        $.bind(jlshopScroll, "infinite-scroll", function () {
+                    //                            var self = this;
+                    //                            $.unbind(jlshopScroll, "infinite-scroll-end");
+                    //                            $.bind(jlshopScroll, "infinite-scroll-end", function () {
+                    //                                $.unbind(jlshopScroll, "infinite-scroll-end");
+                    //                                self.scrollToBottom();
+                    //                                setTimeout(function () {
+                    //                                    self.clearInfinite();
+                    //                                    jiaoliu(jlpage);
+                    //                                    jlpage++;
+                    //                                    self.scrollToBottom();
+                    //                                }, 1600);
+                    //                            })
+
+                    //                        })
+                    //                        $("#jjzq").css("overflow", "auto");
+                    //                    })
+                    //>>>>>>> origin/master
+>>>>>>> origin/我的分支
                 </script>
 
             </div>
@@ -1695,8 +1836,12 @@
             </div>
             <!-------------------------------------//搜索结果------------------------------------------>
             <!------------------------------------- 公司简介------------------------------------------>
+<<<<<<< HEAD
 
             <div id="companypro" class="panel " style="background:#f0f0f0" data-load="fnShowWhatNow" shownow="1" gsqc="" data-footer="none">
+=======
+            <div id="companypro" class="panel " style="background:#f0f0f0" data-load="fnShowWhatNow" shownow="1" gsqc="">
+>>>>>>> origin/我的分支
                 <header>
                     <a href="#jjzq" class="biaotizuo">
                         <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
@@ -1794,9 +1939,13 @@
 
                             </div>
 
+<<<<<<< HEAD
                             <div id="productDetails">
                                 <div onclick="">\f054 返回目录</div>
                             </div>
+=======
+                            <div id="productDetails"></div>
+>>>>>>> origin/我的分支
                         </div>
                     </div>
 
@@ -1977,6 +2126,7 @@
                     }
                 </style>
             </div>
+<<<<<<< HEAD
 
 
             <!-------------------------------------预警名单---<input type="text" placeholder="留下您的宝贵意见,我们将持续改进产品"style="border-radius:0px;margin:0 auto;border:none;" />--------------------------------------->
@@ -1992,6 +2142,188 @@
 
                 </div>
 
+=======
+            <!-------------------------------------//公司简介------------------------------------------>
+         
+            <!-------------------------------------- 头---------------------------------------------->
+            <div>
+            <header id="rxc_ajcx">
+                <a class="button" id="backButton"></a>
+                <h1>融信城&安检查询</h1>
+            </header><!-----------------------------------融信城&安检查询------------->
+            <header id="mainH">
+                <h1>积分商城</h1>
+                <a href='#' style=" float:right;padding:10px 5px 0px 0px; color:#fff; border:none; text-decoration:none;">
+                    <span id="jfTou_shuzi" style="font-size:18px;"></span><img style="width:15px;height:15px;" src="img/jfsc_images/jf666.png" />
+                </a>
+            </header><!-----------------------------------积分商城------------->
+            <header id="l_p_q">
+                <a href="#yhzx" class="biaotizuo">
+                    <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
+                    <h1>礼品劵</h1>
+                </a>
+                <a href='#' style="float:right;padding:10px 5px 0px 0px; color:#fff; border:none; text-decoration:none;"></a>
+            </header><!-------------------------------------礼品劵-------------->
+            <header id="jf_xq">
+                <a href="#jfshop" class="biaotizuo">
+                    <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
+                </a>
+                <h1>详情</h1>
+            </header> <!----------------------------------积分商城详细--------->
+            <header id="head">
+                <a style="float:left;" onclick='' class='menuButton'></a>
+                <h1>融信城安检神器</h1>
+            </header><!------------------------------------项目名称------------->
+            <header id="hhyaj">
+                <a href="#yhzx" class="biaotizuo">
+                    <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
+                </a>
+                <h1>安检记录</h1>
+            </header><!-----------------------------------安检记录------------->
+            <header id="hhyqq" class="biaotizuo">
+                <a href="#hyzx_grzl" style="float:left; margin:4% 0 0 15px;  color:white; font-size:14px;">取消</a>
+                <h1>QQ</h1>
+                <a onclick="saveqq()" style="float:right; margin:4% 15px 0 0;  color:white; font-size:14px;">保存</a>
+            </header><!-----------------------------------QQ------------------->
+            <header id="hhymrrw">
+                <a href="#yhzx" class="biaotizuo">
+                    <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
+                </a>
+                <h1>每日任务</h1>
+                <a href="#hyjfjl" style="float: right; margin: 4% 15px 0 0; color: white; font-size: 15px; ">积分记录</a>
+            </header><!---------------------------------每日任务------------->
+            <header id="meiriqiandao">
+                <a href="#hymrrw" style="margin-left:10px; display:block;">
+                    <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
+                </a>
+                <h1>签到送积分</h1>
+            </header><!---------------------------------每日任务签到送积分------------->
+            <header id="hhyjfjl">
+                <a href="#hymrrw" class="biaotizuo">
+                    <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
+                </a>
+                <h1>积分记录</h1>
+            </header><!---------------------------------积分记录------------->
+            <header id="grzl">
+                <a href="#yhzx" class="biaotizuo">
+                    <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
+                </a>
+                <h1>个人资料</h1>
+            </header><!------------------------------------个人资料------------->
+            <header id="wdjf">
+                <a href="#yhzx" class="biaotizuo">
+                    <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
+                </a>
+                <h1>我的积分</h1>
+                <a href='#hyjfjl' style="float:right;padding:10px 5px 0px 0px; color:#fff; border:none; text-decoration:none;margin-right:5px;margin-top:5px;">积分记录</a>
+            </header><!------------------------------------我的积分------------->
+            <header id="dizi">
+                <a href="#hyzx_grzl" style="float:left; margin:12px 0 0 20px;  color:white; font-size:14px;">取消</a>
+                <h1>地址</h1>
+                <a href='#' onclick="savesdz()" style="float:right;padding:12px 5px 0px 0px; color:#fff; border:none; text-decoration:none;">保存</a>
+            </header><!------------------------------------个人资料_地址-------->
+            <header id="shenfenzheng">
+                <a href="#hyzx_grzl" style="float:left; margin:12px 0 0 20px;  color:white; font-size:14px;">取消</a>
+                <h1>身份证号码</h1>
+                <a href='#' onclick="savesfz()" style="float:right;padding:12px 5px 0px 0px; color:#fff; border:none; text-decoration:none;">保存</a>
+            </header><!----------------------------个人资料_身份证号码-->
+            <header id="xingbie">
+                <a href="#hyzx_grzl" style="float:left; margin:12px 0 0 20px;  color:white; font-size:14px;">取消</a>
+                <h1>性别</h1>
+                <a href='#' onclick="savesex()" style="float:right;padding:12px 5px 0px 0px; color:#fff; border:none; text-decoration:none;">保存</a>
+            </header><!---------------------------------个人资料_性别-------->
+            <header id="xingming">
+                <a href="#hyzx_grzl" style="float:left; margin:12px 0 0 20px;  color:white; font-size:14px;">取消</a>
+                <h1>姓名</h1>
+                <a onclick="savename()" style="float:right;padding:12px 5px 0px 0px; color:#fff; border:none; text-decoration:none;">保存</a>
+            </header><!--------------------------------个人资料_姓名-------->
+            <header id="youxiang">
+                <a href="#hyzx_grzl" style="float:left; margin:12px 0 0 20px;  color:white; font-size:14px;">取消</a>
+                <h1>邮箱</h1>
+                <a onclick="saveem()" style="float:right;padding:12px 5px 0px 0px; color:#fff; border:none; text-decoration:none;">保存</a>
+            </header><!--------------------------------个人资料_邮箱-------->
+            <header id="xiugaimima">
+                <a href="#hyzx_grzl" style="float:left; margin:12px 0 0 20px;  color:white; font-size:14px;">取消</a>
+                <h1>修改密码</h1>
+
+            </header><!------------------------------个人资料_修改密码---->
+            <header id="htwjl">
+                <a href="#yhzx" class="biaotizuo">
+                    <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
+                </a>
+                <h1>提问记录</h1>
+            </header><!-----------------------------------提问记录------------->
+            <header id="hzhuce1">
+                <a href="#login" class="biaotizuo">
+                    <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
+                </a>
+                <h1>注册</h1>
+            </header><!----------------------------------注册----------------->
+            <header id="hzhuce">
+                <a href="#zhuce" class="biaotizuo">
+                    <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
+                </a>
+                <h1>注册</h1>
+            </header><!----------------------------------next注册----------------->
+            <header id="hlpqxx">
+                <a href="#lpjuan" class="biaotizuo">
+                    <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
+                </a>
+                <h1>礼品券</h1>
+            </header><!----------------------------------礼品券详细--------------->
+            <header id="hjfjlxq">
+                <a href="#hyjfjl" class="biaotizuo">
+                    <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
+                </a>
+                <h1>积分记录</h1>
+            </header><!---------------------------------积分记录详情--------->
+            <header id="hyyjl">
+                <a href="#yhzx" class="biaotizuo">
+                    <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
+                </a>
+                <h1>预约记录</h1>
+            </header><!---------------------------------预约记录--------->
+            <header id="hjjzq">
+
+                <h1>交流专区</h1>
+            </header><!---------------------------------交流专区--------->
+            <header id="hkstw">
+                <a href="#jjzq">
+                    <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
+                </a>
+                <h1>快速提问</h1>
+                <a href='#jqtw' style="float:right;padding:12px 5px 0px 0px; color:#fff; border:none; text-decoration:none;">近期提问</a>
+            </header><!---------------------------------快速提问--------->
+            <header id="hzhuye">
+                <a onclick="dengl()" style="float:left; margin:12px 0 0 20px;  color:white; font-size:14px;">登录</a>
+                <h1>首页</h1>
+            </header><!---------------------------------首页--------->
+            <header id="hyhzx">
+                <h1>我的</h1>
+            </header><!---------------------------------我的--------->
+            <header id="hjqtw">
+                <a href="#kstw" class="biaotizuo">
+                    <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
+                </a>
+                <h1>近期提问</h1>
+            </header><!---------------------------------近期提问--------->
+            <header id="yjmd">
+                <a href="#zhuye">
+                    <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png);"></span>
+                </a>
+                <h1>预警名单</h1>
+                <a href='#' style=" float:right;padding:10px 5px 0px 0px; color:#fff; border:none; text-decoration:none;">
+                </a>
+            </header><!-----------------------------------预警名单------------->
+            <!--------------------------------------- 头--------------------------------------------->
+            <!--------------------------------------- 尾--------------------------------------------->
+            <footer id="custom_footer">
+                <a href='#zhuye' id="footer_zhuye"><img src="img/footerimg/icon-home.png" style="height:43px; width:53px;"></a>
+                <a href='#sous' id="footer_anjian"><img src="img/footerimg/icon-search.png" style="height:43px; width:53px;"></a>
+                <a href='#jjzq' id="footer_jiaoliu"><img src="img/footerimg/icon-chat.png" style="height:43px; width:53px;"></a>
+                <a href='#jfshop' id="footer_jfshop"><img src="img/footerimg/icon-shop.png" style="height:43px; width:53px"></a>
+                <a href='#yhzx' id="footer_yhzx"><img src="img/footerimg/icon-user.png" style="height:43px; width:53px;"></a>
+>>>>>>> origin/我的分支
                 <script>
                     $("#txtYiJian").keyup(function () {
                         yjfk_tj();
@@ -2235,6 +2567,7 @@
                         $("#footer_jfshop").find("img").attr("src", "img/footerimg/icon-shop.png")
                         $("#footer_yhzx").find("img").attr("src", "img/footerimg/icon-user.png")
                     }
+<<<<<<< HEAD
 
 
                     $("#footer_anjian").click(function () {
@@ -2284,13 +2617,71 @@
                         hideall();
                         $("#footer_yhzx").find("img").attr("src", "img/footerimg/icon-user-2.png")
                     })
+=======
+
+                            $("#footer_zhuye").click(function () {
+                                hideall();
+                                    $("#footer_zhuye").find("img").attr("src", "img/footerimg/icon-home-2.png")
+                                })
+
+                            $("#footer_anjian").click(function () {
+                                hideall();
+                                $("#footer_anjian").find("img").attr("src", "img/footerimg/icon-search-2.png")
+                                })
+                            $("#footer_jiaoliu").click(function () {
+                                hideall();
+                                $("#footer_jiaoliu").find("img").attr("src", "img/footerimg/icon-chat-2.png")
+                                })
+                            $("#footer_jfshop").click(function () {
+                                hideall();
+                                $("#footer_jfshop").find("img").attr("src", "img/footerimg/icon-shop-2.png")
+                                })
+                            $("#footer_yhzx").click(function () {
+                                hideall();
+                                $("#footer_yhzx").find("img").attr("src", "img/footerimg/icon-user-2.png")
+                                })
+
+
+                            var hideall = function () {
+                                $("#footer_zhuye").find("img").attr("src", "img/footerimg/icon-home.png")
+                                $("#footer_anjian").find("img").attr("src", "img/footerimg/icon-search.png")
+                                $("#footer_jiaoliu").find("img").attr("src", "img/footerimg/icon-chat.png")
+                                $("#footer_jfshop").find("img").attr("src", "img/footerimg/icon-shop.png")
+                                $("#footer_yhzx").find("img").attr("src", "img/footerimg/icon-user.png")
+                                }
+
+                            $("#footer_zhuye").click(function () {
+                                hideall();
+                                $("#footer_zhuye").find("img").attr("src", "img/footerimg/icon-home-2.png")
+                                })
+
+                            $("#footer_anjian").click(function () {
+                                hideall();
+                                $("#footer_anjian").find("img").attr("src", "img/footerimg/icon-search-2.png")
+                                })
+                            $("#footer_jiaoliu").click(function () {
+                                hideall();
+                                $("#footer_jiaoliu").find("img").attr("src", "img/footerimg/icon-chat-2.png")
+                                })
+                            $("#footer_jfshop").click(function () {
+                                hideall();
+                                $("#footer_jfshop").find("img").attr("src", "img/footerimg/icon-shop-2.png")
+                                })
+                            $("#footer_yhzx").click(function () {
+                                hideall();
+                                $("#footer_yhzx").find("img").attr("src", "img/footerimg/icon-user-2.png")
+                                })
+>>>>>>> origin/我的分支
 
                 </script>
             </footer>
             <!--------------------------------------- 尾--------------------------------------------->
         </div>
     </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/我的分支
 </body>
 
 </html>
@@ -2305,13 +2696,13 @@
 
         $("#dx_g1").hide();
         $("#dx_g2").show();
-    })
+})
     $("#dx_nan").click(function () {
 
         $("#dx_g2").hide();
         $("#dx_g1").show();
         //个人资料_性别
-    })
+})
     //积分商城
     $("#btnLeft").click(showlist);
 
@@ -2330,77 +2721,77 @@
     $(document).ready(function () {
 
         document.addEventListener("deviceready", onDeviceReady, false);
-    })
+        })
 
-    /// 监听设备成功回调函数
-    function onDeviceReady() {
+/// 监听设备成功回调函数
+function onDeviceReady() {
         //监听键盘
         document.addEventListener("hidekeyboard", onKeyboardHide, false);
 
         document.addEventListener("showkeyboard", onKeyboardShow, false);
         window.addEventListener("load", function () { FastClick.attach(document.body); }, false)
 
-        //如果未曾登录过先登录
-        if (window.localStorage["id"] == null) {
-            $.ui.loadContent("#login");
-        }
+            //如果未曾登录过先登录
+            if (window.localStorage["id"] == null) {
+                $.ui.loadContent("#login");
+                }
 
-    }
+                }
 
 
-    function fnLogin() {//登录
+        function fnLogin() {//登录
 
         $.ui.showMask("登录中");//加载中
 
-        //获取对话框内容
+            //获取对话框内容
         var name = $("#loginname").val();
         var password = $("#loginpwd").val();
 
         $.ajax({
-            url: "http://120.24.220.249/api/apitest/login",
-            type: "GET",
-            data: { 'tel': name, 'pwd': password },
-            dataType: "jsonp",
-            jsonp: "callback",
-            success: function (date) {
+                url: "http://120.24.220.249/api/apitest/login",
+type: "GET",
+    data: { 'tel': name, 'pwd': password },
+    dataType: "jsonp",
+        jsonp: "callback",
+    success: function (date) {
 
-                if (date == null) {
+    if (date == null) {
                     alert("账号或密码错误");
-                    $.ui.hideMask();
+        $.ui.hideMask();
 
                 } else {
-                    window.localStorage.clear();
-                    $.each(date, function (key, value) {
+        window.localStorage.clear();
+        $.each(date, function (key, value) {
 
-                        window.localStorage.setItem(key, value);
+            window.localStorage.setItem(key, value);
                     });//html5数据库
 
                     $.ui.hideMask();
-                    alert("融信城欢迎您");
+        alert("融信城欢迎您");
 
                     $.ui.loadContent("#zhuye");//停止加载
                 }
-            },
-            error: function (date) {
-                $.ui.hideMask(); //数据加载完毕需要清除掉载入动画
-                alert('账号或密码不能为空');
-            }
-        })
+                },
+                    error: function (date) {
+                        $.ui.hideMask(); //数据加载完毕需要清除掉载入动画
+    alert('账号或密码不能为空');
+    }
+            })
 
 
 
     }// End login
 
-    $("#registerPhone").keyup(function () {
-        var phone = $("#registerPhone").val();
-        if (phone.length == 11) {
-            $.ajax({
-                url: "http://www.shrxc.com/api/apitest/checktel",
-                type: "GET",
-                dataType: "jsonp",
-                jsonp: "callback",
-                data: { 'tel': phone },
-                success: function (data) {
+$("#registerPhone").keyup(function () {
+var phone = $("#registerPhone").val();
+if (phone.length == 11) {
+    $.ajax({
+    url: "http://www.shrxc.com/api/apitest/checktel",
+        type: "GET",
+dataType: "jsonp",
+    jsonp: "callback",
+            data: { 'tel': phone },
+            success: function (data) {
 
                     if (data != 1) {
                         toast("手机号码已注册!!!", 1000);
@@ -2409,32 +2800,32 @@
                         $("#sendPhone").css("background-color", "ffd07f");
                         $("#sendPhone").on("click", fnSendPhone);
                     }
-                }
+                    }
             })
-        }
-        else {
+            }
+                    else {
             $("#sendPhone").css("background-color", "cfa04f");
             $("#sendPhone").off("click");
-        }
-    })/// 约束手机位数 ==11位
+            }
+                    })/// 约束手机位数 ==11位
 
     function fnSendPhone() { ///////////////////向服务器发送手机号码
 
         var phone = $("#registerPhone").val();
-        var reg = RegExp(/^1[3,5,8]\d{9}$/)
-        if (!reg.test(phone)) {
-            toast("手机号码不正确!!!", 1000);
-            return;
-        }
+    var reg = RegExp(/^1[3,5,8]\d{9}$/)
+    if (!reg.test(phone)) {
+        toast("手机号码不正确!!!", 1000);
+        return;
+}
 
 
         $.ajax({
-            type: "GET",
-            dataType: "jsonp",
-            jsonp: "callback",
+    type: "GET",
+    dataType: "jsonp",
+                jsonp: "callback",
             url: "http://www.shrxc.com/api/apitest/sendcheckcode",
-            data: { 'tel': phone },
-            success: function (data) {
+                data: { 'tel': phone },
+                    success: function (data) {
 
                 if (data != 1) {
                     toast("出错", 1000);
@@ -2444,106 +2835,106 @@
                     $("#sendPhone").off("click");
                     fnShowAtTime(30);
                 }
-            },
-            error: function () { alert("失败"); }
-        })
-    }///////////////////向服务器发送手机号码end
-    var tHandle;
-    function fnShowAtTime(time) {
+                },
+                    error: function () { alert("失败"); }
+                })
+                }///////////////////向服务器发送手机号码end
+                var tHandle;
+                function fnShowAtTime(time) {
 
         $("#sendPhone").text(time + "秒后重发");
 
         if (time != 0) {
             time -= 1;
             tHandle = setTimeout("fnShowAtTime(" + time + ")", 1000);
-        }
-        else {
+                }
+else {
             clearTimeout(tHandle);
             $("#sendPhone").css("background-color", "ffd07f");
             $("#sendPhone").text("获取验证码");
             $("#sendPhone").on("click", fnSendPhone);
-        }
+            }
 
 
-    }///显示时间倒计时
+            }///显示时间倒计时
     $("#registerYanz").keyup(function () {
 
         var yanz = $("#registerYanz").val();
         if (yanz.length == 6) {
             $("#sendCode").css("background-color", "76db76");
             $("#sendCode").on("click", fnSendCode);
-        }
-        else {
+            }
+else {
             $("#sendCode").css("background-color", "46ab46");
             $("#sendCode").off("click");
         }
-    })
+        })
     function fnSendCode() {///////////////////向服务器核对验证码
         var yanz = $("#registerYanz").val();
         var phone = $("#registerPhone").val();
         $.ajax({
-            type: "GET",
+                type: "GET",
             dataType: "jsonp",
-            jsonp: "callback",
-            url: "http://www.shrxc.com/api/apitest/checkcode",
-            data: { 'tel': phone, 'code': yanz },
-            success: function (data) {
-                if (data == 1) {
-                    $.ui.loadContent("#createPwd");
+                jsonp: "callback",
+url: "http://www.shrxc.com/api/apitest/checkcode",
+    data: { 'tel': phone, 'code': yanz },
+        success: function (data) {
+    if (data == 1) {
+        $.ui.loadContent("#createPwd");
                 }
-                else {
+    else {
                     toast("验证码无效!", 1000);
-                    $("#registerPhone").val("");
-                    $("#sendCode").css("background-color", "46ab46");
-                    $("#sendCode").off("click");
-                }
-            },
-            error: function () { alert("网络连接失败") }
-        })
-    }///////////////////向服务器发送验证码end
-    $("#registerPwd").keyup(function () {
-        var pwd = $("#registerPwd").val();
-        if (pwd.length >= 6) {
-            $("#registerNow").css("background-color", "ffb83d");
-            $("#registerNow").on("click", fnRegister);
+        $("#registerPhone").val("");
+        $("#sendCode").css("background-color", "46ab46");
+        $("#sendCode").off("click");
         }
-        else {
+        },
+            error: function () { alert("网络连接失败") }
+            })
+        }///////////////////向服务器发送验证码end
+        $("#registerPwd").keyup(function () {
+            var pwd = $("#registerPwd").val();
+if (pwd.length >= 6) {
+    $("#registerNow").css("background-color", "ffb83d");
+    $("#registerNow").on("click", fnRegister);
+}
+else {
             $("#registerNow").css("background-color", "9f780d");
             $("#registerNow").off("click");
-        }
+            }
 
-    })
+            })
     function fnRegister() {///////////////////////注册
         var pwd = $("#registerPwd").val();
         var phone = $("#registerPhone").val();
 
         $.ajax({
-            type: "GET",
-            dataType: "jsonp",
-            jsonp: "callback",
-            url: "http://www.shrxc.com/api/apitest/createuser",
-            data: { 'tel': phone, 'pwd': pwd },
-            success: function (data) {
-                alert(pwd);
+                    type: "GET",
+                dataType: "jsonp",
+                    jsonp: "callback",
+                url: "http://www.shrxc.com/api/apitest/createuser",
+    data: { 'tel': phone, 'pwd': pwd },
+                        success: function (data) {
+                    alert(pwd);
                 if (data != null) {
-                    toast("注册成功", 1000);
-                    $.each(data, function (key, value) {
-                        window.localStorage.setItem(key, value);
+                        toast("注册成功", 1000);
+                        $.each(data, function (key, value) {
+                            window.localStorage.setItem(key, value);
                     })
                     $.ui.loadContent("#zhuye");
                 }
                 else { alert("注册失败") }
-            },
-            error: function () { }
-        })
+                },
+                    error: function () { }
+                    })
 
-    }///////////////////////注册end
+                    }///////////////////////注册end
 
-    function onKeyboardHide() {
+                    function onKeyboardHide() {
 
-    }
+                    }
 
-    function onKeyboardShow() {
+            function onKeyboardShow() {
 
     }
 
@@ -2551,23 +2942,23 @@
 
 
     function showShangPin() { ///////////////////////////////////////////////////////展示商品
-        $("#con").html("");
+            $("#con").html("");
 
-        page = 2;
+            page = 2;
         fnShowShop(1);
 
         $("#jfTou_shuzi").text(window.localStorage["score"]);
-    } ///////////////////////////////////////////////////////end展示商品
+        } ///////////////////////////////////////////////////////end展示商品
 
 
 
-    function fnSearchToShop(thisEv) {
-        page = 2;
-        hidelistRight();
-        hidelistLeft();
-        var item = thisEv.parentNode.parentNode.id;
-        id = 1;
-        $("#con").html("");
+function fnSearchToShop(thisEv) {
+    page = 2;
+    hidelistRight();
+    hidelistLeft();
+    var item = thisEv.parentNode.parentNode.id;
+    id = 1;
+    $("#con").html("");
 
         if (item == "btnShowLeft" && thisEv.innerHTML != "全&nbsp;&nbsp;部")
             fnShowShop(id, "", thisEv.innerHTML);
@@ -2575,7 +2966,7 @@
             fnShowShop(id, thisEv.innerHTML, "");
         else
             fnShowShop(id);
-    }
+            }
 
 
     var shopFilter = "";
@@ -2586,16 +2977,17 @@
             case "礼品券": types = "lp"; break;
             case "活动券": types = "hd"; break;
             default: types == ""; break;
-        }
+}
 
         shopFilter = types == "" && area == "" ? "" : (types == "" ? area : types);
 
         
         $.ajax({
-            url: "http://www.shrxc.com/api/apitest/act",
-            data: { "num": num, "type": types, "area": area },
-            type: "GET",
+                url: "http://www.shrxc.com/api/apitest/act",
+                        data: { "num": num, "type": types, "area": area },
+                        type: "GET",
             dataType: "jsonp",
+<<<<<<< HEAD
             jsonp: "callback",
             success: function (data) {
               
@@ -2603,6 +2995,11 @@
                 {
                     $("#del_tianjia").remove();
                 }
+=======
+                jsonp: "callback",
+                success: function (data) {
+                $("#con").append("<div style='width:'></div>");
+>>>>>>> origin/我的分支
                 $.each(data, function (key, value) {
 
                     var item = $("<div style='width:100%;border-bottom:1px solid  #d1d1d1;position:relative;'>"
@@ -2618,26 +3015,26 @@
                         + "<div style='position:absolute;right:10px;bottom:10px;'  onclick='fnDianZhan(this,\"" + value.actid + "\")'  ><img style='width:18px;' src='img/jfsc_images/icon_good.png' /><span> " + value.topnum + "</span></div>"
                         + '</div>')
                     $("#con").append(item);
-                });
+                        });
 
-            },
-            error: function () {
+                        },
+                            error: function () {
                 toast("网络断开连接", 3000);
-            }
-        })
-    }
+                        }
+                        })
+                        }
 
 
     var Actid; ///当前选中的礼品ID ///当前选中的礼品ID ///当前选中的礼品ID ///当前选中的礼品ID ///当前选中的礼品ID ///当前选中的礼品ID
 
     function Gotojifengxiangqing(data) {///////设置当前选中的商品ID
-        // Actid = data;
-        $("#jifengxiangqing").attr("actid", data)
-        $.ui.loadContent("#jifengxiangqing");
-    }///////设置当前选中的商品ID
+                    // Actid = data;
+                    $("#jifengxiangqing").attr("actid", data)
+                    $.ui.loadContent("#jifengxiangqing");
+                    }///////设置当前选中的商品ID
 
 
-    //商品详情---点击切换
+//商品详情---点击切换
     $("#xxjs1").click(function () {//详情介绍
 
         $("#zysx1").css("background-color", "#e0e0e0");
@@ -2654,7 +3051,7 @@
         $("#XiangQing_js").css("display", "block");
         $("#xxjs1").css("background-color", "#ffb362");
 
-    })
+        })
 
     $("#sylc1").click(function () {	//使用流程
 
@@ -2672,7 +3069,7 @@
         $("#ShiYong_lc").css("display", "block");
         $("#sylc1").css("background-color", "#ffb362");
 
-    })
+        })
     $("#zysx1").click(function () {//注意事项
 
         $("#xxjs1").css("background-color", "#e0e0e0");
@@ -2689,12 +3086,12 @@
         $("#ZhuYi_sx").css("display", "block");
         $("#zysx1").css("background-color", "#ffb362");
 
-    })
+        })
 
-    //商品详情---点击切换
+            //商品详情---点击切换
 
-    //******************融信城&安检查询*****************
-    $("#JBXX").click(function () {//基本信息
+            //******************融信城&安检查询*****************
+            $("#JBXX").click(function () {//基本信息
 
         $("#LLXX").css("background-color", "#edf0f5");
         $("#LLXX").css("color", "#666666");
@@ -2719,7 +3116,7 @@
         $("#JBXX_show").css("display", "block");
         $("#JBXX").css("background-color", "#27d6ca");
 
-    })
+        })
 
     $("#LLXX").click(function () {//联络信息
 
@@ -2746,7 +3143,7 @@
         $("#JBXX_show").css("display", "none");
         $("#JBXX").css("background-color", "#edf0f5");
 
-    })
+        })
 
     $("#YJXX").click(function () {//预警信息
 
@@ -2773,7 +3170,7 @@
         $("#JBXX_show").css("display", "none");
         $("#JBXX").css("background-color", "#edf0f5");
 
-    })
+        })
 
     $("#HDXX").click(function () {//活动信息
 
@@ -2800,7 +3197,7 @@
         $("#JBXX_show").css("display", "none");
         $("#JBXX").css("background-color", "#edf0f5");
 
-    })
+        })
 
     $("#CPXX").click(function () {//产品信息
 
@@ -2827,23 +3224,23 @@
         $("#JBXX_show").css("display", "none");
         $("#JBXX").css("background-color", "#edf0f5");
 
-    })
-    //******************融信城&安检查询*****************
+        })
+            //******************融信城&安检查询*****************
 
     function fnDianZhan(thisev, actid) {//////////////////////点赞/点赞/点赞/点赞/点赞/点赞
         var item = window.localStorage["id"]
         if (item == null) {
             $.ui.loadContent("#login");
             return;
-        }
+}
         var thisEv = thisev.children[1].innerHTML;
         $.ajax({
-            url: "http://120.24.220.249/api/apitest/topact",
-            type: "GET",
+    url: "http://120.24.220.249/api/apitest/topact",
+                type: "GET",
             data: { 'actid1': actid, 'id': item },
-            dataType: "jsonp",
-            jsonp: "callback",
-            success: function (data) {
+                    dataType: "jsonp",
+                jsonp: "callback",
+                success: function (data) {
 
                 switch (data) {
                     case "1": $.ui.showToast("点赞成功!");
@@ -2863,11 +3260,11 @@
                         $.ui.loadContent("#login");
                         break;
                 }
-            },
+                },
 
 
-            error: function () { alert("网络断开连接") }
-        });
+                                error: function () { alert("网络断开连接") }
+                        });
 
     }/////////////////////商城页点赞
 
@@ -2877,7 +3274,7 @@
 
         var actid = $("#jifengxiangqing").attr("actid");
         $.jsonP({
-            url: "http://120.24.220.249/api/apitest/getActByActid?actid=" + actid,
+        url: "http://120.24.220.249/api/apitest/getActByActid?actid=" + actid,
             success: function (data) {
                 $("#pro_price").text(data.score);
                 $("#pro_price").attr("price", data.score);
@@ -2896,17 +3293,17 @@
                 $("#del").addClass("lowLight");
                 if (data.isonce == 1) {
                     $("#add").off("click");
-                    $("#add").addClass("lowLight");
+                        $("#add").addClass("lowLight");
                 }
 
-            }
-        })
-    }//////////////////积分商城商品详情
+                }
+                })
+                }//////////////////积分商城商品详情
 
     $("#xiangqingdianzhan").click(function () {
         fnDianZhan(Actid);
-    });  //++++++++++++++ 详情页的点赞
-    //*************************************** 选择商品数量********************************//
+        });  //++++++++++++++ 详情页的点赞
+            //*************************************** 选择商品数量********************************//
     $("#add").click(function () {//数量++
         var max = window.localStorage[""]
         var tempcount = $("#count").html();
@@ -2915,44 +3312,44 @@
         if (parseInt(num) > 1)
             $("#del").removeClass("lowLight");
         fnShowScore(parseInt(num));
-    })//数量++
+        })//数量++
     $("#del").click(function () {//数量--
         var tempcount = $("#count").html();
         if (parseInt(tempcount) > 1) {
             $("#del").removeClass("lowLight");
             $("#count").html(parseInt(tempcount) - 1);
             fnShowScore(tempcount);
-        }
+}
         else {
             $("#del").addClass("lowLight");
-        }
+            }
 
-    })//数量--
+            })//数量--
 
     function fnShowScore(num) {
         var tempprice = $("#pro_price").attr("price");
         $("#pro_price").text(num * tempprice);
     } //显示购买商品所需的积分
 
-    //*************************************** 选择商品数量********************************//
+        //*************************************** 选择商品数量********************************//
 
     $("#buyButton").click(function () {
 
         var id = window.localStorage["id"];
         if (id == null) {
             $.ui.loadContent("#login");
-        }
+    }
 
         var actid = Actid;
         var num = $("#count").text();
 
         $.ajax({
-            url: "http://120.24.220.249/api/apitest/buy",
-            type: "GET",
-            dataType: "jsonp",
-            jsonp: "callback",
+url: "http://120.24.220.249/api/apitest/buy",
+        type: "GET",
+    dataType: "jsonp",
+        jsonp: "callback",
             data: { 'id': id, 'actid': actid, 'number': num },
-            success: function (data) {
+        success: function (data) {
 
                 if (data == -1) {
                     $.ui.showToast("积分不足");
@@ -2972,43 +3369,43 @@
                     setTimeout($.ui.hideToast, 2000);
                     window.localStorage["score"] = data;
 
-                }
-            },
-            error: function () {
+                    }
+                    },
+                        error: function () {
                 alert("error");
-            }
-        })
-    })//// 商城购买物品实现
+                    }
+                    })
+                    })//// 商城购买物品实现
 
     function showUserinfo() {
         $("#myTel").text(window.localStorage["tel"])//显示的手机号码
         $("#myMoney").text(window.localStorage["money"] + "元");
         $("#myJF").text(window.localStorage["score"] + "积分");
-    }// 加载本地信息到页面
+        }// 加载本地信息到页面
     $("#Tuichu_btn1").click(function () {
 
         window.localStorage.clear();
         // $.ui.loadContent("#login");
         navigator.app.exitApp();
 
-    })//////////////退出程序
+        })//////////////退出程序
 
 
 
-    ////刷新本地数据
-    function fnRefreshLocalStorage() {
+        ////刷新本地数据
+        function fnRefreshLocalStorage() {
         var myId = window.localStorage["id"];
         $.ajax({
             url: "http://www.shrxc.com/api/apitest/getuserbyid",
             data: { "id": myId },
             dataType: "jsonp",
-            jsonp: "callback",
-            type: "GET",
-            success: function (data) {
-                if (data.tel == window.localStorage['tel']) {
-                    $.each(data, function (key, value) {
-                        window.localStorage.setItem(key, value);
-                    })
+jsonp: "callback",
+    type: "GET",
+    success: function (data) {
+        if (data.tel == window.localStorage['tel']) {
+            $.each(data, function (key, value) {
+                window.localStorage.setItem(key, value);
+        })
                 }
                 else {
                     toast("请重新登录", 1000);
@@ -3016,21 +3413,21 @@
                 }
 
             },
-            error: function () { }
+                error: function () { }
         })
-    }/// 加载服务器数据到本地
+        }/// 加载服务器数据到本地
 
     var toast = function (string, time) {
         $.ui.showToast(string);
         setTimeout($.ui.hideToast, time);
 
-    }
-    //我的积分页面 积分显示
-    function wdjfShuZi() {
+                    }
+                        //我的积分页面 积分显示
+                        function wdjfShuZi() {
         $("#wdjf_shuzi").text(window.localStorage["score"]);
-    }
+        }
 
-    //$.ui.Toast显示和隐藏
+//$.ui.Toast显示和隐藏
 
 
 
@@ -3040,44 +3437,44 @@
 
     //---------------------------------------------------------------------------------------------------------------
     var keyboardval = 0;
-    function onKeyboardHide() {//当键盘隐藏时，对data-footer显示
-        if (keyboardval != 0) {
+function onKeyboardHide() {//当键盘隐藏时，对data-footer显示
+    if (keyboardval != 0) {
             $.query("#navbar").css("display", "block");
             keyboardval = 0;
-        }
-    }//当键盘隐藏时，对data-footer显示
+}
+}//当键盘隐藏时，对data-footer显示
     function onKeyboardShow() {//当键盘显示时，对data-footer显示
         if ($.query("#navbar").css("display") != "none") {
             keyboardval = 1;
-            $.query("#navbar").css("display", "none");
-        }
+                $.query("#navbar").css("display", "none");
+            }
     }//当键盘显示时，对data-footer显示
     function qianDao() { //每日签到
         var myId = window.localStorage["id"];
-        //alert(myId)
-        $.ajax({
-            url: "http://www.shrxc.com/api/apitest/qiandao",
-            data: { "id": myId },
-            dataType: "jsonp",
-            jsonp: "callback",
-            type: "GET",
-            success: function (data) {
-                if (data == "1") {
+            //alert(myId)
+            $.ajax({
+                url: "http://www.shrxc.com/api/apitest/qiandao",
+                    data: { "id": myId },
+                dataType: "jsonp",
+jsonp: "callback",
+    type: "GET",
+        success: function (data) {
+    if (data == "1") {
                     toast("签到成功", 1000);
-                }
-                else if (data == "-1") {
+                    }
+                    else if (data == "-1") {
                     toast("你今天已经签过了", 1000);
                 }
                 else {
                     toast("请重新登录", 1000);
                     $.ui.loadContent("#login");
                 }
-            },
-            error: function () {
+                    },
+                        error: function () {
 
             }
-        })
-    }//每日签到
+            })
+            }//每日签到
 
 
     $("#btnQianDao").click(qianDao);//点击立刻签到按钮
@@ -3086,79 +3483,79 @@
         var myId = window.localStorage["id"];
         //alert(myId)
         $.ajax({
-            url: "http://www.shrxc.com/api/apitest/qiandao",
-            data: { "id": myId },
-            dataType: "jsonp",
-            jsonp: "callback",
-            type: "GET",
-            success: function (data) {
-                if (data == "1") {
+                        url: "http://www.shrxc.com/api/apitest/qiandao",
+                        data: { "id": myId },
+    dataType: "jsonp",
+jsonp: "callback",
+    type: "GET",
+        success: function (data) {
+    if (data == "1") {
                     toast("签到成功", 1000);
-                }
-                else if (data == "-1") {
+                    }
+                    else if (data == "-1") {
                     toast("你今天已经签过了", 1000);
                 }
                 else {
                     toast("请重新登录", 1000);
                     $.ui.loadContent("#login");
                 }
-            },
-            error: function () {
+                    },
+                        error: function () {
                 $.ui.loadContent("#login");
-            }
-        })
-    }//用户中心主页面签到
+                }
+                })
+                }//用户中心主页面签到
 
 
     $("#sign").click(qianDao);//点击立刻签到按钮
 
     function fnGetTickedByType(types)//显示活动或礼品券列表
-    {
+                    {
         $("#showLiPingQuan").text("")
         id = window.localStorage["id"];
         $.ajax({
-            url: "http://www.shrxc.com/api/apitest/quan",
-            data: { "id": id, "type": types },
-            type: "GET",
-            dataType: "jsonp",
-            jsonp: "callback",
-            success: function (data) {
+                url: "http://www.shrxc.com/api/apitest/quan",
+data: { "id": id, "type": types },
+type: "GET",
+    dataType: "jsonp",
+    jsonp: "callback",
+    success: function (data) {
 
-                $.each(data, function (key, value) {
-                    var imgsrc = types == "lp" ? (parseInt(value.state) == 0 ? "url(./img/lpjuan/notUse_lp.png)" : "url(./img/lpjuan/useed_lp.png)") : (parseInt(value.state) == 0 ? "url(./img/lpjuan/notUes_hd.png)" : "url(./img/lpjuan/notUes_hd.png)");
+    $.each(data, function (key, value) {
+        var imgsrc = types == "lp" ? (parseInt(value.state) == 0 ? "url(./img/lpjuan/notUse_lp.png)" : "url(./img/lpjuan/useed_lp.png)") : (parseInt(value.state) == 0 ? "url(./img/lpjuan/notUes_hd.png)" : "url(./img/lpjuan/notUes_hd.png)");
 
-                    var item = "<div onclick='fnClickShow(this)' imgsrc='" + value.activity.imgsrc + "' coid='" + value.coid + "' score='" + value.score + "' gsjc='" + value.seller.gsjc + "'  state='" + value.state + "' titles='" + value.activity.title + "'theDate='有效日期:" + (value.activity.begintime).substring(0, 10) + "日~" + (value.endtime).substring(0, 10) + "日' style='margin-top:5px;padding:2% 4%;border:1px solid #ccc;background-image:" + imgsrc + "; background-position:right top;background-repeat:no-repeat;background-color:#FFF;width:100%'>"//code
-                        + " <div style='float:left;width:35%;height:90px;background:#4fbef3'><img style='width:100%;height:100%' src='http://www.shrxc.com" + value.activity.imgsrc + "' /></div>"//code
-                        + "<div style='margin-left:10px;float:left;width:57%'>"
-                        + "<div style='line-height:30px;font-weight:bolder; font-size:18px;'>" + value.activity.title + "</div>"
-                        + " <div style='line-height:20px; font-size:16px;'>所需积分: <span style='color:#ff8a8a'>" + value.score + "</span></div>"
-                        + "<div style='line-height:20px; font-size:16px;'>有效期: " + (value.activity.begintime).substring(0, 10) + "日 ~" + (value.endtime).substring(0, 10) + "日</div>"
+        var item = "<div onclick='fnClickShow(this)' imgsrc='" + value.activity.imgsrc + "' coid='" + value.coid + "' score='" + value.score + "' gsjc='" + value.seller.gsjc + "'  state='" + value.state + "' titles='" + value.activity.title + "'theDate='有效日期:" + (value.activity.begintime).substring(0, 10) + "日~" + (value.endtime).substring(0, 10) + "日' style='margin-top:5px;padding:2% 4%;border:1px solid #ccc;background-image:" + imgsrc + "; background-position:right top;background-repeat:no-repeat;background-color:#FFF;width:100%'>"//code
+            + " <div style='float:left;width:35%;height:90px;background:#4fbef3'><img style='width:100%;height:100%' src='http://www.shrxc.com" + value.activity.imgsrc + "' /></div>"//code
+            + "<div style='margin-left:10px;float:left;width:57%'>"
+            + "<div style='line-height:30px;font-weight:bolder; font-size:18px;'>" + value.activity.title + "</div>"
+            + " <div style='line-height:20px; font-size:16px;'>所需积分: <span style='color:#ff8a8a'>" + value.score + "</span></div>"
+            + "<div style='line-height:20px; font-size:16px;'>有效期: " + (value.activity.begintime).substring(0, 10) + "日 ~" + (value.endtime).substring(0, 10) + "日</div>"
 
-                        + " </div>"
-                        + " <div style='clear:both'></div>"
-                        + "</div>";
+            + " </div>"
+            + " <div style='clear:both'></div>"
+            + "</div>";
 
-                    $("#showLiPingQuan").append(item);
-                })
+        $("#showLiPingQuan").append(item);
+        })
 
-            },
+        },
             error: function () { }
         })
-    }
-    var lpAndHdInfo //礼品和活动详情实体
-    function fnClickShow(thisEv) {//填充礼品和活动详情实体
-        lpAndHdInfo = {
-            coid: thisEv.getAttribute("coid"),
-            score: thisEv.getAttribute("score"),
-            gsjc: thisEv.getAttribute("gsjc"),
-            state: thisEv.getAttribute("state"),
-            titles: thisEv.getAttribute("titles"),
-            imgsrc: thisEv.getAttribute("imgsrc"),
-            theDate: thisEv.getAttribute("theDate")
         }
+var lpAndHdInfo //礼品和活动详情实体
+function fnClickShow(thisEv) {//填充礼品和活动详情实体
+lpAndHdInfo = {
+            coid: thisEv.getAttribute("coid"),
+                score: thisEv.getAttribute("score"),
+        gsjc: thisEv.getAttribute("gsjc"),
+    state: thisEv.getAttribute("state"),
+    titles: thisEv.getAttribute("titles"),
+            imgsrc: thisEv.getAttribute("imgsrc"),
+                    theDate: thisEv.getAttribute("theDate")
+                    }
 
         $.ui.loadContent("#lpqxx");
-    }//跳转页面并保存详情实体
+        }//跳转页面并保存详情实体
 
     function fnShowLpInfo() {//显示礼品或活动详情
 
@@ -3166,17 +3563,17 @@
 
         $("#lpAndHdTitle").text(lpAndHdInfo.titles);
         $("#isAvailable").text(parseInt(lpAndHdInfo.state) == 0 ? "可使用" : "已使用");
-        $("#hasScore").text(lpAndHdInfo.score);
-        $("#myCompany").text(lpAndHdInfo.gsjc);
-        $("#myCoid").text(lpAndHdInfo.coid);
+$("#hasScore").text(lpAndHdInfo.score);
+$("#myCompany").text(lpAndHdInfo.gsjc);
+$("#myCoid").text(lpAndHdInfo.coid);
         $("#isEffective").text(lpAndHdInfo.theDate);
 
         $("#showImges").attr("src", "http://www.shrxc.com" + lpAndHdInfo.imgsrc);
-    }
+        }
 
     function fnShowTickedbyLiPing() {////显示礼品券领取记录
 
-        fnGetTickedByType("lp");
+fnGetTickedByType("lp");
     }
 
     var LipinOrHuodong /// 标识点击的是活动券还是礼品券
@@ -3187,59 +3584,59 @@
 
 
 
-    function fnShowTickedbyHuoDong() {////显示礼品券领取记录
-        var myTitle = LipinOrHuodong == "lp" ? "礼品券" : "活动券";
+function fnShowTickedbyHuoDong() {////显示礼品券领取记录
+    var myTitle = LipinOrHuodong == "lp" ? "礼品券" : "活动券";
 
         $("#lpjuan").attr("data-title", myTitle);
         fnGetTickedByType(LipinOrHuodong);
-    }
+        }
 
 
-    //***************修改密码*******************
+//***************修改密码*******************
     function changePasssword() {
         var myid = window.localStorage["id"];
         if (myid == null) {
             $.ui.loadContent("#login");
             return;
-        }
-        $.ajax({
-            url: "http://www.shrxc.com/api/apitest/changPWD",
-            data: { "id": myid, "old": $("#txt_oldPWD").val(), "new1": $("#txt_newPWD").val(), "new2": $("#txt_newPWD2").val() },
-            dataType: "jsonp",
-            jsonp: "callback",
-            type: "GET",
-            success: function (data) {
-                if (data == 1) {
+    }
+    $.ajax({
+        url: "http://www.shrxc.com/api/apitest/changPWD",
+data: { "id": myid, "old": $("#txt_oldPWD").val(), "new1": $("#txt_newPWD").val(), "new2": $("#txt_newPWD2").val() },
+        dataType: "jsonp",
+    jsonp: "callback",
+        type: "GET",
+                success: function (data) {
+            if (data == 1) {
                     alert("修改成功");
                     return;
                 }
                 if (data == -1) {
-                    alert("id无效 请重新登录");
-                    return;
-                }
+                alert("id无效 请重新登录");
+                return;
+        }
                 if (data == -2) {
                     alert("旧密码不正确");
                     return;
-                }
+                    }
                 if (data == -3) {
                     alert("两次密码输入不一致");
                     return;
-                }
+                    }
                 if (data == -4) {
                     alert("新密码太短");
                     return;
-                }
+                    }
                 if (data == -5) {
                     alert("修改失败 请重试");
                     return;
-                }
-            },
-            error: function () { alert("操作失败"); }
-        })
-    }
+                    }
+                    },
+                    error: function () { alert("操作失败"); }
+                    })
+                    }
 
     $("#btn_changePWD").click(changePasssword);
-    //***************修改密码*******************
+                    //***************修改密码*******************
 
 
 
