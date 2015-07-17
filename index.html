@@ -451,14 +451,23 @@
                         <a href="#" style="text-decoration:none;color:#4d4d4d;"><img src="img/shopdetail/333_09.png" style="position:relative;top:5px;" /> 提问</a>
                     </div>
                     <div id="xiangqingdianzhan" style="border-bottom:1px solid #999999;border-top:1px solid #999999;width:20%;height:58px;line-height:58px;background-color:#ffffff;text-align:center;float:left;cursor:pointer;">
-                        <a href="#" style="text-decoration:none;color:#4d4d4d;"><img src="img/shopdetail/444_12.png" style="position:relative;top:2px;" /> 点赞</a>
+                        <a  style="text-decoration:none;color:#4d4d4d;"><img src="img/shopdetail/444_12.png" style="position:relative;top:2px;" /> 点赞</a>
                     </div>
-                    <div style="width:30%;height:58px;line-height:58px;background-color:#b6ff00;text-align:center;float:left;background-color:#18c6f3;cursor:pointer;color:#ffffff;"><a href="#" style="text-decoration:none;color:#ffffff;">企业详情</a></div>
+                    <div id="qiyexiangqing" style="width:30%;height:58px;line-height:58px;background-color:#b6ff00;text-align:center;float:left;background-color:#18c6f3;cursor:pointer;color:#ffffff;"><a href="#" style="text-decoration:none;color:#ffffff;">企业详情</a></div>
                     <div id="buyButton" style="width:30%;height:58px;line-height:58px;background-color:#b6ff00;text-align:center;float:left;background-color:#e31e1e;cursor:pointer;"><a href="#" style="text-decoration:none;color:#ffffff;">立即兑换</a></div>
                     <div style="clear:both"></div>
                 </div>
 
                 <script>
+                  
+                    $("#qiyexiangqing").click(function () {
+                        $("#companypro").attr("gsqc", $("#jifengxiangqing").attr("GSQC"));
+                        $.ui.loadContent("#companypro");
+                    })
+                    function fnGotoJiFenXianQing(actid) {//构造函数
+                        $("#qiyexiangqing").attr("actid", actid);
+                        $.ui.loadContent("#qiyexiangqing");
+                    }
 
                 </script>
             </div>
@@ -2177,7 +2186,7 @@
 
                     $("#txtYiJian").keyup(function () {
 
-                        yjfk_tj();
+                        yjfk_tj(); 
                     })
                     function yjfk_tj() {
 
@@ -2819,7 +2828,7 @@
 
         $.ajax({
             url: "http://www.shrxc.com/api/apitest/act",
-            data: { "num": num, "type": types, "area": area },
+            data: { "num": num, "type": types, "area": area  },
             type: "GET",
             dataType: "jsonp",
             jsonp: "callback",
@@ -2840,7 +2849,7 @@
                         + "</div>"
                         + " <div style='clear:both;'></div>"
                         + "</div>"
-                        + "<div style='position:absolute;right:10px;bottom:10px;'  onclick='fnDianZhan(this,\"" + value.actid + "\")'  ><img style='width:18px;' src='img/jfsc_images/icon_good.png' /><span> " + value.topnum + "</span></div>"
+                        + "<div style='position:absolute;right:10px;bottom:10px;' topnum='" + value.topnum + "' onclick='fnDianZhan(\"" + value.actid + "\")'  ><img style='width:18px;' src='img/jfsc_images/icon_good.png' /><span> " + value.topnum + "</span></div>"
                         + '</div>')
                     $("#con").append(item);
                 });
@@ -3055,13 +3064,12 @@
     })
     //******************融信城&安检查询*****************
 
-    function fnDianZhan(thisev, actid) {//////////////////////点赞/点赞/点赞/点赞/点赞/点赞
+    function fnDianZhan(actid) {//////////////////////点赞/点赞/点赞/点赞/点赞/点赞
         var item = window.localStorage["id"]
         if (item == null) {
             $.ui.loadContent("#login");
             return;
         }
-        var thisEv = thisev.children[1].innerHTML;
         $.ajax({
             url: "http://120.24.220.249/api/apitest/topact",
             type: "GET",
@@ -3104,6 +3112,7 @@
         $.jsonP({
             url: "http://120.24.220.249/api/apitest/getActByActid?actid=" + actid,
             success: function (data) {
+                $("#jifengxiangqing").attr("GSQC", data.seller.gsqc);
                 $("#pro_price").text(data.score);
                 $("#pro_price").attr("price", data.score);
                 switch (data.type) {
@@ -3129,7 +3138,8 @@
     }//////////////////积分商城商品详情
 
     $("#xiangqingdianzhan").click(function () {
-        fnDianZhan(Actid);
+        var actid = $("#jifengxiangqing").attr("actid");
+        fnDianZhan(actid);
     });  //++++++++++++++ 详情页的点赞
     //*************************************** 选择商品数量********************************//
     $("#add").click(function () {//数量++
@@ -3167,8 +3177,8 @@
         if (id == null) {
             $.ui.loadContent("#login");
         }
-
-        var actid = Actid;
+        var actid = $("#jifengxiangqing").attr("actid");
+        
         var num = $("#count").text();
 
         $.ajax({
