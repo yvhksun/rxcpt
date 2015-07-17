@@ -300,9 +300,6 @@
 
                     }
 
-
-
-
                     //var shopScroll;
                     //var page
                     //var hideClose;
@@ -1353,6 +1350,7 @@
                 <script>
                     function jiaolss() {
                         $("#jladd").html("");
+                        
                         var iptext = $("#mySearch").val()
                         jiaoliu(1, iptext)
 
@@ -1360,7 +1358,7 @@
 
                     function fnShowjiaoliu() {
                         $("#jladd").html("");
-
+                        $("#jlgd").show()
                         jiaoliu(1, "");
                     }
 
@@ -1376,7 +1374,7 @@
                             success: function (data) {
 
                                 if (data.length < 12) {
-                                    $("#jlgd").remove()
+                                    $("#jlgd").hide()
                                 }
                                 $.each(data, function (k, value) {
 
@@ -2656,7 +2654,7 @@
 
     function showShangPin() { ///////////////////////////////////////////////////////展示商品
         $("#con").html("");
-
+        $("#del_tianjia").show();
         page = 2;
         fnShowShop(1);
 
@@ -2672,6 +2670,8 @@
         var item = thisEv.parentNode.parentNode.id;
         id = 1;
         $("#con").html("");
+        
+       
 
         if (item == "btnShowLeft" && thisEv.innerHTML != "全&nbsp;&nbsp;部")
             fnShowShop(id, "", thisEv.innerHTML);
@@ -2704,7 +2704,7 @@
             success: function (data) {
 
                 if (data.length < 10) {
-                    $("#del_tianjia").remove();
+                    $("#del_tianjia").hide();
                 }
                 $.each(data, function (key, value) {
 
