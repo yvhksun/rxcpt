@@ -1430,7 +1430,7 @@
                     <span style="margin:5% 40%; color:white;font-size:18px;">提&nbsp; &nbsp;&nbsp;交</span>
                 </div>
 
-<<<<<<< HEAD
+
             </div>
             <!-------------------------------------快速提问------------------------------------------>
             <!-------------------------------------近期提问------------------------------------------>
@@ -1451,79 +1451,7 @@
 
                         </div>
                     </div>
-=======
-        <!-------------------------------------交流专区------------------------------------------>
-        <!-------------------------------------快速提问------------------------------------------>
-            <div title="快速提问" data-load="gslb" class="panel" id="kstw" data-header="hkstw" data-footer="none" style=" width:100%;background-color:#f0f0f0">
-                <img src="img/jlzq/xzgs.jpg" style="height:50px;width:90%;margin:20px 5%">
-                <select id="gslby"style="position:absolute; width:75%;height:40px;margin-left:8%;margin-top:-65px; border:none;color:#b3b3b3">
-                    <option>请选择提问公司</option>
 
-                </select>
-                <textarea placeholder="请输入提问内容" id="kstwnr" style="color:#adadad; height:200px;width:86%;margin-left:7%;border:none;margin-top:7%">请输入提问内容</textarea>
-                <div id="kstwtj" style="width:86%;padding-top:3%; height:40px;margin-left:7%;margin-top:7%;background-color:#c7c7c7;display:inline-table;">
-                    <span style="margin:5% 40%; color:white;font-size:18px;">提&nbsp; &nbsp;&nbsp;交</span>
-                </div>
-                <script>
-
-                    function gslb() {
-
-                        $.ajax({
-                            url: "http://120.24.220.249/api/apitest/getAllSellerListForQuestion",
-                            type: "GET",
-                            dataType: "jsonp",
-                            jsonp: "callback",
-                            success: function (data) {
-
-
-                                $.each(data, function (k, value) {
-
-                                    var item = $(
-
-                                       "<option >" + value.gsqc + "</option>"
-                                    )
-                                    $("#gslby").append(item)
-
-                                })
-
-
-                            }
-
-                        })
-                    }
-                    $("#kstwnr").keyup(function () {
-                        kstw_tj();
-                    })
-                    function kstw_tj() {
-
-                        if ($("#kstwnr").val() == "") {
-                            $("#kstwtj").css("background-color", "#c7c7c7");
-                        }
-                        else {
-                            $("#kstwtj").css("background-color", "#40c752");
-                        }
-                    }
-
-
-
-
-                </script>
-
-            </div>
-
-        <!-------------------------------------快速提问------------------------------------------>
-        <!-------------------------------------融信城&安检查询------------------------------------------>
-        <div class="panel" id="AnJianChaXun" data-header="rxc_ajcx" data-footer="none" style="background-color:#fff;font-family:'微软雅黑';" data-load="fnShowAllInformation">
-
-            <div class="divName"><span>名称:<span id="spanGSQCAtInformation">上海朋尔资产管理有限公司</span></span><br /><span class="sp_Name">简称:<span id="idGsjcAtInformation">朋尔资产</span></span></div>
-            <div style="width:100%;height:530px;">
-                <div class="div_Left">
-                    <div id="JBXX" class="div_LSmall"><div class="div_position">基本<br /><span class="div_xinxi">信息</span></div></div>
-                    <div id="LLXX" class="div_LeftSmall"><div class="div_position">联络<br /><span class="div_xinxi">信息</span></div></div>
-                    <div id="YJXX" class="div_LeftSmall"><div class="div_position">预警<br /><span class="div_xinxi">信息</span></div></div>
-                    <div id="HDXX" class="div_LeftSmall"><div class="div_position">活动<br /><span class="div_xinxi">信息</span></div></div>
-                    <div id="CPXX" class="div_LeftSmall"><div class="div_position">产品<br /><span class="div_xinxi">信息</span></div></div>
->>>>>>> origin/master
                 </div>
             </div>
             <!-------------------------------------近期提问------------------------------------------>
