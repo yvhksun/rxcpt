@@ -1924,7 +1924,12 @@
                 </div>
                 <script>
 
-
+                    function fnGotoCompanyPro(showNum,gsqc)
+                    {
+                        $("#companypro").attr("shownow", showNum);
+                        $("#companypro").attr("gsqc", gsqc);
+                        $.ui.loadContent("#companypro");
+                    }
 
 
 
@@ -2163,13 +2168,12 @@
                 <script>
 
                     // var userid = window.localStorage["id"];
-<<<<<<< HEAD
-=======
+
                     function YJFK_start() {
                         $("#txtYiJian").val("");
                         $("#userContact").val("");
                     }
->>>>>>> origin/master
+
 
                     $("#txtYiJian").keyup(function () {
 
@@ -2200,12 +2204,10 @@
                             success: function (date) {
 
                                 toast("提交成功", 1000);
-<<<<<<< HEAD
 
-=======
                                 $("#txtYiJian").val("");
                                 $("#userContact").val("");
->>>>>>> origin/master
+
                             },
                             error: function (date) {
 
