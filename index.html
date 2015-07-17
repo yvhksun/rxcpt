@@ -1417,44 +1417,99 @@
 
             <!-------------------------------------交流专区------------------------------------------>
             <!-------------------------------------快速提问------------------------------------------>
-            <div title="快速提问" class="panel" id="kstw" data-header="hkstw" data-footer="none" style=" width:100%;background-color:#f0f0f0">
+            <div title="快速提问" data-load="gslb" class="panel" id="kstw" data-header="hkstw" data-footer="none" style=" width:100%;background-color:#f0f0f0">
                 <img src="img/jlzq/xzgs.jpg" style="height:50px;width:90%;margin:20px 5%">
-                <select onfocus="jlsel()" onblur="imghid()" style="position:absolute; width:75%;height:40px;margin-left:8%;margin-top:-65px; border:none;color:#b3b3b3">
-                    <option>请选择提问公司</option>
-                    <option>公司1</option>
-                    <option>公司2</option>
-                    <option>公司3</option>
+                <select id="gslby" style="position:absolute; width:75%;height:40px;margin-left:8%;margin-top:-65px; border:none;color:#b3b3b3">
+                    <option value="">请选择提问公司</option>
                 </select>
-                <textarea placeholder="请输入提问内容" style="color:#adadad; height:200px;width:86%;margin-left:7%;border:none;margin-top:7%">请输入提问内容</textarea>
-                <div style="width:86%;padding-top:3%; height:40px;margin-left:7%;margin-top:7%;background-color:#42d053;display:inline-table;">
+                <textarea placeholder="请输入提问内容" id="kstwnr" style="color:#adadad; height:200px;width:86%;margin-left:7%;border:none;margin-top:7%"></textarea>
+                <div onclick="kstwtj()" id="kstwtj" style="width:86%;padding-top:3%; height:40px;margin-left:7%;margin-top:7%;background-color:#c7c7c7;display:inline-table;">
                     <span style="margin:5% 40%; color:white;font-size:18px;">提&nbsp; &nbsp;&nbsp;交</span>
                 </div>
+                <script>
+                    function gslb() {
+                        $("#gslby").val("")
+                        $("#kstwnr").val("")
+                        $.ajax({
+                            url: "http://120.24.220.249/api/apitest/getAllSellerListForQuestion",
+                            type: "GET",
+                            dataType: "jsonp",
+                            jsonp: "callback",
+                            success: function (data) {
+                                $.each(data, function (k, value) {
+                                    var item = $(
+                                       "<option value='" + value.sid + "'>" + value.gsqc + "</option>"
+                                    )
+                                    $("#gslby").append(item)
+                                })
+                            }
+                        })
+                    }
+                    $("#kstwnr").keyup(function () {
+                        kstw_tj();
+                    })
+                    function kstw_tj() {
+
+                        if ($("#kstwnr").val() == "") {
+                            $("#kstwtj").css("background-color", "#c7c7c7");
+                        }
+                        else {
+                            $("#kstwtj").css("background-color", "#40c752");
+                        }
+                    }
+                    function kstwtj(sid, question, id) {
+                        var id = window.localStorage["id"];
+                        var qt = $("#kstwnr").val();
+                        var gsname = $("#gslby").val();
+                        if (id == null) {
+                            toast("请重新登录", 1000);
+                            $.ui.loadContent("#login");
+                            return;
+                        }
+                        else if (qt == "") {
+                            toast("请输入内容", 1000);
+                        }
+                        else if (gsname == "") {
+                            toast("请选择提问公司", 1000);
+                        }
+                        else {
+                            $.ajax({
+                                url: "http://120.24.220.249/api/apitest/Question",
+                                type: "GET",
+                                dataType: "jsonp",
+                                jsonp: "callback",
+                                data: { 'sid': gsname, 'question': qt, 'id': id },
+                                success: function (data) {
+                                    if (data == 1) {
+
+                                        toast("提问成功", 1000);
+                                        $("#gslby").val("")
+                                        $("#kstwnr").val("")
+                                    }
+                                    else if (data == -1) {
+                                        toast("请重新登录", 1000);
+                                        $.ui.loadContent("#login");
+                                        $("#gslby").val("")
+                                        $("#kstwnr").val("")
+                                    }
+                                    else {
+                                        toast("公司不存在!", 1000);
+                                    }
+                                },
+                                error: function () {
+                                    alert("网络连接失败")
+                                }
+                            })
+                        }
+                    }
+                </script>
+
 
 
             </div>
+
             <!-------------------------------------快速提问------------------------------------------>
-            <!-------------------------------------近期提问------------------------------------------>
-            <div title="近期提问" class="panel" id="jqtw" data-header="hjqtw" data-footer="none" data-tab="footer_jfshop" style=" width:100%;background-color:#f0f0f0">
-                <div style="background-color:white;margin:10px 10px 0 10px;border-radius:5px;padding:10px;">
-                    <div>
-                        <img src="img/jlzq/jqtw2.jpg" style="float:left;height:22px;width:25px; margin:5px 0 15px 30px;position:absolute;" />
-                        <span style=" margin-top:5px;margin-left:65px; display:inline-table;height:35px;color:#e4b362;font-size:18px;">上海意隆</span>
-                        <img src="img/jlzq/jqtw1.jpg" style="float:right;height:15px;width:15px;margin-top:8px;" />
-                        <div style="color:#83e180;float:right;height:30px;line-height:30px; ">更多</div>
-
-
-                        <div style="border-top:solid 1px #e4b362"></div>
-                        <div style="padding:15px 15px 15px 30px;">
-                            <span>问：</span><span style="line-height:25px;">这里是问题这里是问题这里是问题这里是问题这里是问题这里是问题这里是问题</span>
-                            <div style="height:1px;width:100%;display:inline-table;font-size:3px;">&nbsp;</div>
-                            <span>答：</span><span style="line-height:25px;">这里是答案</span>
-
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <!-------------------------------------近期提问------------------------------------------>
+            
             <!-------------------------------------融信城&安检查询------------------------------------------>
             <div class="panel" id="AnJianChaXun" data-header="rxc_ajcx" data-footer="none" style="background-color:#fff;font-family:'微软雅黑';" data-load="fnShowAllInformation">
 
