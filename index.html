@@ -285,82 +285,82 @@
                     <div id="del_tianjia" onclick="jifgd()">添加更多</div>
                 </div>
                 <script>
-                    //var addpag = 2
-                    //function jifgd() {
-                    //    if (shopFilter == "lp" || shopFilter == 'hd') {
-                    //        fnShowShop(page, shopFilter, '');
-                    //        page++;
-                    //    }
+                    var addpag = 2
+                    function jifgd() {
+                        if (shopFilter == "lp" || shopFilter == 'hd') {
+                            fnShowShop(page, shopFilter, '');
+                            page++;
+                        }
 
-                    //    else if (shopFilter != "") {
-                    //        fnShowShop(page, '', shopFilter)
+                        else if (shopFilter != "") {
+                            fnShowShop(page, '', shopFilter)
 
-                    //        page++;
-                    //    }
+                            page++;
+                        }
 
-                    //}
-
-
+                    }
 
 
-                    var shopScroll;
-                    var page
-                    var hideClose;
-                    $.ui.ready(function () {
-                        shopScroll = $("#jfshop").scroller({
-                            verticalScroll: true,
-                            horizontalScroll: false,
-                            vScrollCSS: "jqmScrollbar",
-                            autoEnable: true
-                        });
-
-                        shopScroll.addInfinite();
-                        shopScroll.addPullToRefresh();
-                        shopScroll.runCB = true;
-                        $.bind(shopScroll, "refresh-release", function () {
-                            clearTimeout(hideClose);
-                            var that = this;
-                            hideClose = setTimeout(function () { that.hideRefresh(); }, 500)
-                            console.log("上啦")
-                            return false;
-                        })
-                        shopScroll.enable();
-                        $(document.body).unbind("touchmove");
-                        $(document.body).bind("touchmove", function (e) {
-                            //if (touch.y1 - touch.y2 <= 0) {
-                            //    $("#infinite").hide();
-                            //} else {
-                            //    $("#infinite").show();
-                            //}
-                        });
-                        $.unbind(shopScroll, "infinite-scroll");
-                        $.bind(shopScroll, "infinite-scroll", function () {
-                            var self = this;
-                            $.unbind(shopScroll, "infinite-scroll-end");
-                            $.bind(shopScroll, "infinite-scroll-end", function () {
-                                $.unbind(shopScroll, "infinite-scroll-end");
-                                self.scrollToBottom();
-                                setTimeout(function () {
-                                    self.clearInfinite();
-                                    if (shopFilter == "lp" || shopFilter == 'hd') {
-                                        fnShowShop(page, shopFilter, '');
-                                        page++;
-                                    }
-
-                                    else if (shopFilter != "") {
-                                        fnShowShop(page, '', shopFilter)
-
-                                        page++;
-                                    }
 
 
-                                    self.scrollToBottom();
-                                }, 1600);
-                            })
+                    //var shopScroll;
+                    //var page
+                    //var hideClose;
+                    //$.ui.ready(function () {
+                    //    shopScroll = $("#jfshop").scroller({
+                    //        verticalScroll: true,
+                    //        horizontalScroll: false,
+                    //        vScrollCSS: "jqmScrollbar",
+                    //        autoEnable: true
+                    //    });
 
-                        })
-                        $("#jfshop").css("overflow", "auto");
-                    })
+                    //    shopScroll.addInfinite();
+                    //    shopScroll.addPullToRefresh();
+                    //    shopScroll.runCB = true;
+                    //    $.bind(shopScroll, "refresh-release", function () {
+                    //        clearTimeout(hideClose);
+                    //        var that = this;
+                    //        hideClose = setTimeout(function () { that.hideRefresh(); }, 500)
+                    //        console.log("上啦")
+                    //        return false;
+                    //    })
+                    //    shopScroll.enable();
+                    //    $(document.body).unbind("touchmove");
+                    //    $(document.body).bind("touchmove", function (e) {
+                    //        //if (touch.y1 - touch.y2 <= 0) {
+                    //        //    $("#infinite").hide();
+                    //        //} else {
+                    //        //    $("#infinite").show();
+                    //        //}
+                    //    });
+                    //    $.unbind(shopScroll, "infinite-scroll");
+                    //    $.bind(shopScroll, "infinite-scroll", function () {
+                    //        var self = this;
+                    //        $.unbind(shopScroll, "infinite-scroll-end");
+                    //        $.bind(shopScroll, "infinite-scroll-end", function () {
+                    //            $.unbind(shopScroll, "infinite-scroll-end");
+                    //            self.scrollToBottom();
+                    //            setTimeout(function () {
+                    //                self.clearInfinite();
+                    //                if (shopFilter == "lp" || shopFilter == 'hd') {
+                    //                    fnShowShop(page, shopFilter, '');
+                    //                    page++;
+                    //                }
+
+                    //                else if (shopFilter != "") {
+                    //                    fnShowShop(page, '', shopFilter)
+
+                    //                    page++;
+                    //                }
+
+
+                    //                self.scrollToBottom();
+                    //            }, 1600);
+                    //        })
+
+                    //    })
+                    //    $("#jfshop").css("overflow", "auto");
+                    //})
                 </script>
             </div>
             <!-------------------------------------积分商城------------------------------------------>
@@ -1424,7 +1424,7 @@
                 </select>
                 <textarea placeholder="请输入提问内容" id="kstwnr" style="color:#adadad; height:200px;width:86%;margin-left:7%;border:none;margin-top:7%"></textarea>
                 <div onclick="kstwtj()" id="kstwtj" style="width:86%;padding-top:3%;padding-bottom:3%; height:40px;margin-left:7%;margin-top:7%;background-color:#c7c7c7;display:inline-table;">
-                    <span style="margin:2% 40%;height:20px; color:white;font-size:18px;display:inline-table">提&nbsp; &nbsp;&nbsp;交</span>
+                    <span style="margin:2% 40%;height:20px;width:10% color:white;font-size:18px;display:inline-table">提&nbsp; &nbsp;&nbsp;交</span>
                 </div>
                 <script>
                     function gslb() {
