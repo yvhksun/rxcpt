@@ -1717,7 +1717,7 @@
             <!-------------------------------------//搜索结果------------------------------------------>
             <!------------------------------------- 公司简介------------------------------------------>
 
-            <div id="companypro" class="panel " style="background:#f0f0f0" data-load="fnShowWhatNow" shownow="1" gsqc="">
+            <div id="companypro" class="panel " style="background:#f0f0f0" data-load="fnShowWhatNow" shownow="1" gsqc="" data-footer="none">
                 <header>
                     <a href="#jjzq" class="biaotizuo">
                         <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
@@ -1815,7 +1815,9 @@
 
                             </div>
 
-                            <div id="productDetails"></div>
+                            <div id="productDetails">
+                                <div onclick="">\f054 返回目录</div>
+                            </div>
                         </div>
                     </div>
 
@@ -1890,7 +1892,7 @@
                             error: function () { }
                         })
 
-                        //******************* show 活动(company details)end *******************//
+                        //******************* show 公司详情(company details)end *******************//
                         //******************* show 活动(activity )begin *******************//
 
                         $("#activityAtCompanyPro").html("")
@@ -1931,7 +1933,7 @@
                             jsonp: "callback",
                             success: function (data) {
                                 $.each(data, function (key, value) {
-                                    var item = '<div  style="width:100%;height:40px;background:#93e6e0;position:relative;text-align:left; margin-top:25px"> '
+                                    var item = '<div onclick="fnGotoDetailsAtCompany(this)"  pid="'+value.pid+'" style="width:100%;height:40px;background:#93e6e0;position:relative;text-align:left; margin-top:25px"> '
                                     + '<span class="productList">产品名称：' + value.pname + '</span>'
                                     + ' </div>';
 
@@ -1942,11 +1944,29 @@
                             error: function () { }
                         })
                         //******************* show 产品(product) end *******************//
-
-
-
-
                     }
+
+
+                    //******************* show 产品详情(product) begin *******************//
+                    function fnGotoDetailsAtCompany(thisEv) {
+                        var id = thisEv.getAttribute("pid");
+                        
+                       
+                        //$.ajax({
+                        //    url: "http://www.shrxc.com/api/apitest/getprobyid",
+                        //    data: { "id": id },
+                        //    dataType: "jsonp",
+                        //    type: "GET",
+                        //    jsonp: "callback",
+                        //    success: function (data) {
+                        //        var item="<div><div>"
+                        //    }
+                        //})
+                        $("#prductAtCompany").hide();
+                        $("#productDetails").show();
+                        
+                    }
+                    //******************* show 产品详情(product) end *******************//
 
 
 
