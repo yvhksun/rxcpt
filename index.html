@@ -1433,19 +1433,43 @@
 
         <!-------------------------------------交流专区------------------------------------------>
         <!-------------------------------------快速提问------------------------------------------>
-        <div title="快速提问" class="panel" id="kstw" data-header="hkstw" data-footer="none" style=" width:100%;background-color:#f0f0f0">
-            <img src="img/jlzq/xzgs.jpg" style="height:50px;width:90%;margin:20px 5%">
-            <select onfocus="jlsel()" onblur="imghid()" style="position:absolute; width:75%;height:40px;margin-left:8%;margin-top:-65px; border:none;color:#b3b3b3">
-                <option>请选择提问公司</option>
-                <option>公司1</option>
-                <option>公司2</option>
-                <option>公司3</option>
-            </select>
-            <textarea placeholder="请输入提问内容" id="kstwnr" style="color:#adadad; height:200px;width:86%;margin-left:7%;border:none;margin-top:7%">请输入提问内容</textarea>
-            <div id="kstwtj" style="width:86%;padding-top:3%; height:40px;margin-left:7%;margin-top:7%;background-color:#c7c7c7;display:inline-table;">
-                <span style="margin:5% 40%; color:white;font-size:18px;">提&nbsp; &nbsp;&nbsp;交</span>
-            </div>
-            <script>
+            <div title="快速提问" data-load="gslb" class="panel" id="kstw" data-header="hkstw" data-footer="none" style=" width:100%;background-color:#f0f0f0">
+                <img src="img/jlzq/xzgs.jpg" style="height:50px;width:90%;margin:20px 5%">
+                <select id="gslby"style="position:absolute; width:75%;height:40px;margin-left:8%;margin-top:-65px; border:none;color:#b3b3b3">
+                    <option>请选择提问公司</option>
+
+                </select>
+                <textarea placeholder="请输入提问内容" id="kstwnr" style="color:#adadad; height:200px;width:86%;margin-left:7%;border:none;margin-top:7%">请输入提问内容</textarea>
+                <div id="kstwtj" style="width:86%;padding-top:3%; height:40px;margin-left:7%;margin-top:7%;background-color:#c7c7c7;display:inline-table;">
+                    <span style="margin:5% 40%; color:white;font-size:18px;">提&nbsp; &nbsp;&nbsp;交</span>
+                </div>
+                <script>
+
+                    function gslb() {
+
+                        $.ajax({
+                            url: "http://120.24.220.249/api/apitest/getAllSellerListForQuestion",
+                            type: "GET",
+                            dataType: "jsonp",
+                            jsonp: "callback",
+                            success: function (data) {
+
+
+                                $.each(data, function (k, value) {
+
+                                    var item = $(
+
+                                       "<option >" + value.gsqc + "</option>"
+                                    )
+                                    $("#gslby").append(item)
+
+                                })
+
+
+                            }
+
+                        })
+                    }
                     $("#kstwnr").keyup(function () {
                         kstw_tj();
                     })
@@ -1457,10 +1481,15 @@
                         else {
                             $("#kstwtj").css("background-color", "#40c752");
                         }
-                        }
-            </script>
+                    }
 
-        </div>
+
+
+
+                </script>
+
+            </div>
+
         <!-------------------------------------快速提问------------------------------------------>
         <!-------------------------------------融信城&安检查询------------------------------------------>
         <div class="panel" id="AnJianChaXun" data-header="rxc_ajcx" data-footer="none" style="background-color:#fff;font-family:'微软雅黑';" data-load="fnShowAllInformation">
