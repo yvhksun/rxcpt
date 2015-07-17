@@ -1983,20 +1983,24 @@
 
             <!-------------------------------------意见反馈------------------------------------------>
 
-            <div class="panel" id="yjfk" style="background-color:#f0f0f0" data-header="YJFK_H" data-footer="none" data-load="yjfk_tj">
+            <div class="panel" id="yjfk" style="background-color:#f0f0f0" data-header="YJFK_H" data-footer="none" data-load="YJFK_start">
 
                 <div style="margin:auto;width:80%;margin-top:20px;">
 
                     <div style="height:200px;width:100%;background-color:#fff;border:1px solid #c7c7c7;"><textarea id="txtYiJian" placeholder="留下您的宝贵意见,我们将持续改进产品" style="border:none;width:100%;height:198px;"></textarea></div>
 
                     <div id="txtLianXi" style="border-bottom:1px solid #c7c7c7;border-left:1px solid #c7c7c7;border-right:1px solid #c7c7c7;border-radius:0px;width:100%;height:50px;line-height:50px;background-color:#fff;"><input id="userContact" type="text" placeholder="轻触留下邮箱, QQ, 电话等, 以便联系" style="border:none;" /></div>
-                    <a id="btn_YJtijiao" href="" onclick="YJ_submitContent()" class="button" style="display:block;background-color:#40c752;color:#fff;border:none;padding:20px 0;font-size:20px;margin-top:40px;">提交</a>
+                    <a id="btn_YJtijiao" href="" onclick="YJ_submitContent()" class="button" style="display:block;background-color:#c7c7c7;color:#fff;border:none;padding:20px 0;font-size:20px;margin-top:40px;">提交</a>
 
                 </div>
 
                 <script>
 
-                   // var userid = window.localStorage["id"];
+                    // var userid = window.localStorage["id"];
+                    function YJFK_start() {
+                        $("#txtYiJian").val("");
+                        $("#userContact").val("");
+                    }
 
                     $("#txtYiJian").keyup(function () {
 
@@ -2006,35 +2010,39 @@
 
                         if ($("#txtYiJian").val() == "") {
                             $("#btn_YJtijiao").css("background-color", "#c7c7c7");
+
                         }
+
                         else {
                             $("#btn_YJtijiao").css("background-color", "#40c752");
+
                         }
 
 
                     }
                     function YJ_submitContent() {
+
                         $.ajax({
                             url: "http://120.24.220.249/api/apitest/feedback",
                             type: "GET",
-                            data: { 'contact': $("#userContact").val(), 'con': $("#txtYiJian").val(),'id':window.localStorage["id"],'sid':"" },
+                            data: { 'contact': $("#userContact").val(), 'con': $("#txtYiJian").val(), 'id': window.localStorage["id"], 'sid': "" },
                             dataType: "jsonp",
                             jsonp: "callback",
                             success: function (date) {
-                                
+
                                 toast("提交成功", 1000);
-                               
+                                $("#txtYiJian").val("");
+                                $("#userContact").val("");
                             },
                             error: function (date) {
-                                
-                                if ($("#txtYiJian").val() == "")
-                                {
+
+                                if ($("#txtYiJian").val() == "") {
                                     toast("反馈内容不能为空", 1000);
                                 }
                                 else {
                                     toast("网络连接失败 请重试", 1000);
                                 }
-                                
+
                             }
                         })
 
@@ -2044,6 +2052,8 @@
 
 
             </div>
+
+
 
             <!-------------------------------------意见反馈------------------------------------------>
             <!-------------------------------------- 头---------------------------------------------->
