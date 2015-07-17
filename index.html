@@ -1430,6 +1430,7 @@
                     <span style="margin:5% 40%; color:white;font-size:18px;">提&nbsp; &nbsp;&nbsp;交</span>
                 </div>
 
+<<<<<<< HEAD
             </div>
             <!-------------------------------------快速提问------------------------------------------>
             <!-------------------------------------近期提问------------------------------------------>
@@ -1450,6 +1451,79 @@
 
                         </div>
                     </div>
+=======
+        <!-------------------------------------交流专区------------------------------------------>
+        <!-------------------------------------快速提问------------------------------------------>
+            <div title="快速提问" data-load="gslb" class="panel" id="kstw" data-header="hkstw" data-footer="none" style=" width:100%;background-color:#f0f0f0">
+                <img src="img/jlzq/xzgs.jpg" style="height:50px;width:90%;margin:20px 5%">
+                <select id="gslby"style="position:absolute; width:75%;height:40px;margin-left:8%;margin-top:-65px; border:none;color:#b3b3b3">
+                    <option>请选择提问公司</option>
+
+                </select>
+                <textarea placeholder="请输入提问内容" id="kstwnr" style="color:#adadad; height:200px;width:86%;margin-left:7%;border:none;margin-top:7%">请输入提问内容</textarea>
+                <div id="kstwtj" style="width:86%;padding-top:3%; height:40px;margin-left:7%;margin-top:7%;background-color:#c7c7c7;display:inline-table;">
+                    <span style="margin:5% 40%; color:white;font-size:18px;">提&nbsp; &nbsp;&nbsp;交</span>
+                </div>
+                <script>
+
+                    function gslb() {
+
+                        $.ajax({
+                            url: "http://120.24.220.249/api/apitest/getAllSellerListForQuestion",
+                            type: "GET",
+                            dataType: "jsonp",
+                            jsonp: "callback",
+                            success: function (data) {
+
+
+                                $.each(data, function (k, value) {
+
+                                    var item = $(
+
+                                       "<option >" + value.gsqc + "</option>"
+                                    )
+                                    $("#gslby").append(item)
+
+                                })
+
+
+                            }
+
+                        })
+                    }
+                    $("#kstwnr").keyup(function () {
+                        kstw_tj();
+                    })
+                    function kstw_tj() {
+
+                        if ($("#kstwnr").val() == "") {
+                            $("#kstwtj").css("background-color", "#c7c7c7");
+                        }
+                        else {
+                            $("#kstwtj").css("background-color", "#40c752");
+                        }
+                    }
+
+
+
+
+                </script>
+
+            </div>
+
+        <!-------------------------------------快速提问------------------------------------------>
+        <!-------------------------------------融信城&安检查询------------------------------------------>
+        <div class="panel" id="AnJianChaXun" data-header="rxc_ajcx" data-footer="none" style="background-color:#fff;font-family:'微软雅黑';" data-load="fnShowAllInformation">
+
+            <div class="divName"><span>名称:<span id="spanGSQCAtInformation">上海朋尔资产管理有限公司</span></span><br /><span class="sp_Name">简称:<span id="idGsjcAtInformation">朋尔资产</span></span></div>
+            <div style="width:100%;height:530px;">
+                <div class="div_Left">
+                    <div id="JBXX" class="div_LSmall"><div class="div_position">基本<br /><span class="div_xinxi">信息</span></div></div>
+                    <div id="LLXX" class="div_LeftSmall"><div class="div_position">联络<br /><span class="div_xinxi">信息</span></div></div>
+                    <div id="YJXX" class="div_LeftSmall"><div class="div_position">预警<br /><span class="div_xinxi">信息</span></div></div>
+                    <div id="HDXX" class="div_LeftSmall"><div class="div_position">活动<br /><span class="div_xinxi">信息</span></div></div>
+                    <div id="CPXX" class="div_LeftSmall"><div class="div_position">产品<br /><span class="div_xinxi">信息</span></div></div>
+>>>>>>> origin/master
                 </div>
             </div>
             <!-------------------------------------近期提问------------------------------------------>
@@ -1978,6 +2052,7 @@
             </div>
 
 
+
             <!-------------------------------------意见反馈------------------------------------------>
 
             <div class="panel" id="yjfk" style="background-color:#f0f0f0" data-header="YJFK_H" data-footer="none" data-load="yjfk_tj">
@@ -1985,13 +2060,15 @@
                 <div style="margin:auto;width:80%;margin-top:20px;">
 
                     <div style="height:200px;width:100%;background-color:#fff;border:1px solid #c7c7c7;"><textarea id="txtYiJian" placeholder="留下您的宝贵意见,我们将持续改进产品" style="border:none;width:100%;height:198px;"></textarea></div>
-                    <div id="txtLianXi" style="border-bottom:1px solid #c7c7c7;border-left:1px solid #c7c7c7;border-right:1px solid #c7c7c7;border-radius:0px;width:100%;height:50px;line-height:50px;background-color:#fff;"><input type="text" placeholder="轻触留下邮箱, QQ, 电话等, 以便联系" style="border:none;" /></div>
+
+                    <div id="txtLianXi" style="border-bottom:1px solid #c7c7c7;border-left:1px solid #c7c7c7;border-right:1px solid #c7c7c7;border-radius:0px;width:100%;height:50px;line-height:50px;background-color:#fff;"><input id="userContact" type="text" placeholder="轻触留下邮箱, QQ, 电话等, 以便联系" style="border:none;" /></div>
+
                     <a id="btn_YJtijiao" href="" class="button" style="display:block;background-color:#40c752;color:#fff;border:none;padding:20px 0;font-size:20px;margin-top:40px;">提交</a>
 
                 </div>
 
                 <script>
-                    $("#txtYiJian").keyup(function () {
+<                    $("#txtYiJian").keyup(function () {
                         yjfk_tj();
                     })
                     function yjfk_tj() {
@@ -2002,8 +2079,29 @@
                         else {
                             $("#btn_YJtijiao").css("background-color", "#40c752");
                         }
+
+
+                    }
+                    function YJ_submitContent() {
+                        $.ajax({
+                            url: "http://120.24.220.249/api/apitest/feedback",
+                            type: "GET",
+                            data: { 'contact': $("#userContact").val(), 'con': $("#txtYiJian").val() },
+                            dataType: "jsonp",
+                            jsonp: "callback",
+                            success: function (date) {
+
+                               
+                            },
+                            error: function (date) {
+                              
+                            }
+                        })
+
                     }
                 </script>
+
+
 
             </div>
 
@@ -2013,7 +2111,9 @@
                 <a href="#zhuye" class="biaotizuo">
                     <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
                 </a>
+
                 <h1>近期提问</h1>
+
             </header><!---------------------------------意见反馈--------->
             <header id="rxc_ajcx">
                 <a class="button" id="backButton"></a>
@@ -2160,7 +2260,7 @@
                     <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
                 </a>
                 <h1>快速提问</h1>
-                <a href='#jqtw' style="float:right;padding:12px 5px 0px 0px; color:#fff; border:none; text-decoration:none;">近期提问</a>
+
             </header><!---------------------------------快速提问--------->
             <header id="hzhuye">
                 <a onclick="dengl()" style="float:left; margin:12px 0 0 20px;  color:white; font-size:14px;">登录</a>
@@ -2192,6 +2292,7 @@
                 <a href='#jfshop' id="footer_jfshop"><img src="img/footerimg/icon-shop.png" style="height:43px; width:53px"></a>
                 <a href='#yhzx' id="footer_yhzx"><img src="img/footerimg/icon-user.png" style="height:43px; width:53px;"></a>
                 <script>
+
                     var hideall = function () {
                         $("#footer_zhuye").find("img").attr("src", "img/footerimg/icon-home.png")
                         $("#footer_anjian").find("img").attr("src", "img/footerimg/icon-search.png")
