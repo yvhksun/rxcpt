@@ -2538,12 +2538,25 @@
             <!--------------------------------------- 头--------------------------------------------->
             <!--------------------------------------- 尾--------------------------------------------->
             <footer id="custom_footer">
-                <a href='#zhuye' id="footer_zhuye"><img src="img/footerimg/icon-home.png" style="height:43px; width:53px;"></a>
+                <a href='#zhuye' id="footer_zhuye"><img src="img/footerimg/icon-home-2.png" style="height:43px; width:53px;"></a>
                 <a href='#sous' id="footer_anjian"><img src="img/footerimg/icon-search.png" style="height:43px; width:53px;"></a>
                 <a href='#jjzq' id="footer_jiaoliu"><img src="img/footerimg/icon-chat.png" style="height:43px; width:53px;"></a>
                 <a href='#jfshop' id="footer_jfshop"><img src="img/footerimg/icon-shop.png" style="height:43px; width:53px"></a>
-                <a href='#yhzx' id="footer_yhzx"><img src="img/footerimg/icon-user.png" style="height:43px; width:53px;"></a>
+                <a href='' onclick="dltz_wd()" id="footer_yhzx"><img src="img/footerimg/icon-user.png" style="height:43px; width:53px;"></a>
                 <script>
+                    function dltz_wd() {
+                        var id = window.localStorage["id"];
+                        alert(id);
+
+                        if ( id== null||id==""||id=="null") {
+                            
+                            $.ui.loadContent("#login");
+                        }
+                        else {
+                            
+                            $.ui.loadContent("#yhzx");
+                        }
+                    }
 
                     var hideall = function () {
                         $("#footer_zhuye").find("img").attr("src", "img/footerimg/icon-home.png")
@@ -2729,7 +2742,7 @@
                     $.ui.hideMask();
                     alert("融信城欢迎您");
 
-                    $.ui.loadContent("#zhuye");//停止加载
+                    $.ui.loadContent("#yhzx");//停止加载
                 }
             },
             error: function (date) {
