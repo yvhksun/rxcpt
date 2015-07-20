@@ -541,14 +541,14 @@
 
 
                 <div style="position:fixed; bottom:0px;; width:100%;">
-                    <div onclick="fnGotoCompanyPro(2, $('#jifengxiangqing').attr('GSQC'))" style="border-top:1px solid #999999;border-right:1px solid #999999;width:20%;height:58px;line-height:58px;background-color:#ffffff;text-align:center;float:left;cursor:pointer;">
-                        <a href="#" style="text-decoration:none;color:#4d4d4d;"><img src="img/shopdetail/333_09.png" style="position:relative;top:5px;" /> 提问</a>
+                    <div onclick="fnGotoCompanyPro(2, $('#jifengxiangqing').attr('GSQC'))" style="border-top:1px solid #999999;border-right:1px solid #999999;width:20%;height:48px;line-height:48px;background-color:#ffffff;text-align:center;float:left;cursor:pointer;">
+                        <a href="#" style="text-decoration:none;color:#4d4d4d;font-size:16px;"><img src="img/shopdetail/333_09.png" style="position:relative;top:2px;width:15px;" /> 提问</a>
                     </div>
-                    <div id="xiangqingdianzhan" style="border-bottom:1px solid #999999;border-top:1px solid #999999;width:20%;height:58px;line-height:58px;background-color:#ffffff;text-align:center;float:left;cursor:pointer;">
-                        <a  style="text-decoration:none;color:#4d4d4d;"><img src="img/shopdetail/444_12.png" style="position:relative;top:2px;" /> 点赞</a>
+                    <div id="xiangqingdianzhan" style="border-top:1px solid #999999;width:20%;height:48px;line-height:48px;background-color:#ffffff;text-align:center;float:left;cursor:pointer;">
+                        <a  style="text-decoration:none;color:#4d4d4d;font-size:16px;"><img src="img/shopdetail/444_12.png" style="position:relative;top:2px;width:15px;" /> 点赞</a>
                     </div>
-                    <div id="qiyexiangqing" style="width:30%;height:58px;line-height:58px;background-color:#b6ff00;text-align:center;float:left;background-color:#18c6f3;cursor:pointer;color:#ffffff;"><a href="#" style="text-decoration:none;color:#ffffff;">企业详情</a></div>
-                    <div id="buyButton" style="width:30%;height:58px;line-height:58px;background-color:#b6ff00;text-align:center;float:left;background-color:#e31e1e;cursor:pointer;"><a href="#" style="text-decoration:none;color:#ffffff;">立即兑换</a></div>
+                    <div id="qiyexiangqing" style="width:30%;height:48px;line-height:48px;background-color:#b6ff00;text-align:center;float:left;background-color:#18c6f3;cursor:pointer;color:#ffffff;"><a href="#" style="text-decoration:none;color:#ffffff;font-size:16px;">企业详情</a></div>
+                    <div id="buyButton" style="width:30%;height:48px;line-height:48px;background-color:#b6ff00;text-align:center;float:left;background-color:#e31e1e;cursor:pointer;"><a href="#" style="text-decoration:none;color:#ffffff;font-size:16px;">立即兑换</a></div>
                     <div style="clear:both"></div>
                 </div>
 
@@ -2743,21 +2743,21 @@
                 <a href='#sous' id="footer_anjian"><img src="img/footerimg/icon-search.png" style="height:43px; width:53px;"></a>
                 <a href='#jjzq' id="footer_jiaoliu"><img src="img/footerimg/icon-chat.png" style="height:43px; width:53px;"></a>
                 <a href='#jfshop' id="footer_jfshop"><img src="img/footerimg/icon-shop.png" style="height:43px; width:53px"></a>
-                <a href='' onclick="dltz_wd()" id="footer_yhzx"><img src="img/footerimg/icon-user.png" style="height:43px; width:53px;"></a>
+                <a href='#yhzx' onclick="dltz_wd()" id="footer_yhzx"><img src="img/footerimg/icon-user.png" style="height:43px; width:53px;"></a>
                 <script>
-                    function dltz_wd() {
-                        var id = window.localStorage["id"];
-                        alert(id);
+                    //function dltz_wd() {
+                    //    var id = window.localStorage["id"];
+                        
 
-                        if ( id== null||id==""||id=="null") {
+                    //    if ( id== null||id==""||id=="null") {
                             
-                            $.ui.loadContent("#login");
-                        }
-                        else {
+                    //        $.ui.loadContent("#login");
+                    //    }
+                    //    else {
                             
-                            $.ui.loadContent("#yhzx");
-                        }
-                    }
+                    //        $.ui.loadContent("#yhzx");
+                    //    }
+                    //}
 
                     var hideall = function () {
                         $("#footer_zhuye").find("img").attr("src", "img/footerimg/icon-home.png")
@@ -3551,6 +3551,20 @@
         $("#myTel").text(window.localStorage["tel"])//显示的手机号码
         $("#myMoney").text(window.localStorage["money"] + "元");
         $("#myJF").text(window.localStorage["score"] + "积分");
+
+        //判断登录 跳转 我的 页面
+        var id = window.localStorage["id"];
+
+
+          if ( id== null||id==""||id=="null") {
+
+           $.ui.loadContent("#login");
+           }
+            else {
+
+                $.ui.loadContent("#yhzx");
+           }
+        
     }// 加载本地信息到页面
     $("#Tuichu_btn1").click(function () {
 
