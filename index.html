@@ -220,7 +220,7 @@
             margin-bottom: 0px;
         }
         /*----------------------轮播图---------------------**/
-          * {
+        * {
             margin: 0;
             padding: 0;
             list-style-type: none;
@@ -307,7 +307,7 @@
                     </div>
                 </div>
                 <div id="main">
-                    
+
 
                     <div id="parBtn">
                         <div id="btn">
@@ -365,7 +365,7 @@
                     <div onclick="jifgd()" style="width:100%;padding-top:10px;">
                         <div id="del_tianjia" style="height:30px;line-height:30px ;width:50%;text-align:center; margin:0 auto;border-radius:15px;border:solid 1px #dbdbdb ">加载更多</div>
                     </div>
-                    
+
                 </div>
                 <script>
                     var addpag = 2
@@ -545,7 +545,7 @@
                         <a href="#" style="text-decoration:none;color:#4d4d4d;"><img src="img/shopdetail/333_09.png" style="position:relative;top:5px;" /> 提问</a>
                     </div>
                     <div id="xiangqingdianzhan" style="border-bottom:1px solid #999999;border-top:1px solid #999999;width:20%;height:58px;line-height:58px;background-color:#ffffff;text-align:center;float:left;cursor:pointer;">
-                        <a  style="text-decoration:none;color:#4d4d4d;"><img src="img/shopdetail/444_12.png" style="position:relative;top:2px;" /> 点赞</a>
+                        <a style="text-decoration:none;color:#4d4d4d;"><img src="img/shopdetail/444_12.png" style="position:relative;top:2px;" /> 点赞</a>
                     </div>
                     <div id="qiyexiangqing" style="width:30%;height:58px;line-height:58px;background-color:#b6ff00;text-align:center;float:left;background-color:#18c6f3;cursor:pointer;color:#ffffff;"><a href="#" style="text-decoration:none;color:#ffffff;">企业详情</a></div>
                     <div id="buyButton" style="width:30%;height:58px;line-height:58px;background-color:#b6ff00;text-align:center;float:left;background-color:#e31e1e;cursor:pointer;"><a href="#" style="text-decoration:none;color:#ffffff;">立即兑换</a></div>
@@ -553,7 +553,7 @@
                 </div>
 
                 <script>
-                  
+
                     $("#qiyexiangqing").click(function () {
                         $("#companypro").attr("gsqc", $("#jifengxiangqing").attr("GSQC"));
                         $.ui.loadContent("#companypro");
@@ -569,7 +569,7 @@
             <!---------------------------------------主页-------------------------------------------->
             <div id="zhuye" title="主页" class="panel" data-header="hzhuye" data-footer="custom_footer" data-tab="footer_zhuye" selected="true" style="background-color:#f0f0f0">
                 <!--<div style="height:180px;width:100%;"><img style="height:180px;width:100%;" src="img/index/zhuyegg.jpg" /></div>-->
-                
+
                 <div class="scroll">
                     <div class="slide_02" id="slide_02">
                         <div class="mod_01"><a href="#"><img src="img/scroll_img/1.jpg" alt=""></a></div>
@@ -720,7 +720,7 @@
                     <div style="float:right; margin-top:130px; margin-right:5%;"><a><img style="width: 15px; height: 15px;" src="img/jfzy/user_right.png" /></a></div>
                 </div>
                 <div id="sign"> <img src="img/jfzy/user_sign.png" /></div>
-                <div style="width:100%;  padding:20px 0;"><a class="jifen">补全资料就送50积分!现在就去</a></div>
+                <div style="width:100%;  padding:20px 0;"><a href="#bqzl" class="jifen">补全资料就送50积分!现在就去</a></div>
                 <a class="aup" href="#hymrrw">
                     <img width="30" style="margin-left:30px;" class="aimg" src="img/jfzy/user_task.png" />
                     <div class="aspan" style="margin-left:80px;">每日任务</div>
@@ -1486,7 +1486,7 @@
                 <script>
                     function jiaolss() {
                         $("#jladd").html("");
-                        
+
                         var iptext = $("#mySearch").val()
                         jiaoliu(1, iptext)
 
@@ -1516,7 +1516,7 @@
 
                                     var item = $(
 
-                                        " <div onclick='fnGotoCompanyPro(1,\""+value.gsqc+"\")' gsqc='" + value.gsqc + "' style='width:33.33%;height:130px;float:left;padding:15px 15px;border:solid 1px #dbdbdb'>" +
+                                        " <div onclick='fnGotoCompanyPro(1,\"" + value.gsqc + "\")' gsqc='" + value.gsqc + "' style='width:33.33%;height:130px;float:left;padding:15px 15px;border:solid 1px #dbdbdb'>" +
 
                                             "<img src='http://120.24.220.249" + value.logo + "' class='jltbl'style='height:73%;width:100%'/>" +
                                             "<span style='text-align:center;width:100%;display:inline-table;margin-top:10px;'>" + value.gsjc + "</span>" +
@@ -1638,7 +1638,6 @@
             </div>
 
             <!-------------------------------------快速提问------------------------------------------>
-            
             <!-------------------------------------融信城&安检查询------------------------------------------>
             <div class="panel" id="AnJianChaXun" data-header="rxc_ajcx" data-footer="none" style="background-color:#fff;font-family:'微软雅黑';" data-load="fnShowAllInformation">
 
@@ -1880,7 +1879,6 @@
             </div>
             <!-------------------------------------//搜索结果------------------------------------------>
             <!------------------------------------- 公司简介------------------------------------------>
-
             <div id="companypro" class="panel " style="background:#f0f0f0" data-load="fnShowWhatNow" shownow="1" gsqc="" data-footer="none">
                 <header>
                     <a href="#jjzq" class="biaotizuo">
@@ -2050,9 +2048,8 @@
                 </div>
                 <script>
                     //showNum:显示导航条第几项 gsqc:公司全称
-                    function fnGotoCompanyPro(showNum,gsqc)
-                    {
-                        
+                    function fnGotoCompanyPro(showNum, gsqc) {
+
                         $("#companypro").attr("shownow", showNum);
                         $("#companypro").attr("gsqc", gsqc);
                         $.ui.loadContent("#companypro");
@@ -2115,7 +2112,7 @@
                             default: lightAtTheID("onClickCompanyPro");
                                 showWhoAtTheId("mainAtCompanyPro"); break;
                         }
-                   
+
                         //******************* show 公司详情(company details)begin *******************//
                         $.ajax({
                             url: "http://www.shrxc.com/api/apitest/getsellerbygsqc",
@@ -2251,7 +2248,6 @@
                         color: #ffb59f;
                         text-align: right;
                         height: 30px;
-                     
                         margin-top: 10px;
                     }
 
@@ -2277,10 +2273,7 @@
                 </style>
             </div>
 
-
-
             <!-------------------------------------意见反馈------------------------------------------>
-
             <div class="panel" id="yjfk" style="background-color:#f0f0f0" data-header="YJFK_H" data-footer="none" data-load="YJFK_start">
 
                 <div style="margin:auto;width:80%;margin-top:20px;">
@@ -2304,7 +2297,7 @@
 
                     $("#txtYiJian").keyup(function () {
 
-                        yjfk_tj(); 
+                        yjfk_tj();
                     })
                     function yjfk_tj() {
 
@@ -2350,215 +2343,233 @@
 
                     }
                 </script>
-
-
-
             </div>
-
-
 
             <!-------------------------------------意见反馈------------------------------------------>
+            <!-------------------------------------补全资料------------------------------------------>
+            <div id="bqzl" data-load="grqq" title="QQ" class="panel" data-header="hbqzl" style="background-color:#f0f0f0;" data-footer="none" data-tab="footer_zhuye">
+                <span style="line-height:50px;height:50px;display:inline-table;padding-left:20px;">姓名</span>
+                <div class="aup" style="border-top: solid 1px #dbdbdb; border-bottom: solid 1px #dbdbdb; ">
+                    <input id="bqname" placeholder="" style="border:none;height:50px;width:100%; font-size:20px;padding-left:20px;" />
+                </div>
+                <span style="line-height:50px;height:50px;display:inline-table;padding-left:20px;">性别</span>
+                <div>
+                    <input id="radio_1" type="radio" name="radio_test" value="1"><label for="radio_1">男</label>
+                    <input id="radio_2" type="radio" name="radio_test" value="2"><label for="radio_2">女</label>
+                </div>
+                <span style="line-height:50px;height:50px;display:inline-table;padding-left:20px;margin-top:50px;">身份证</span>
+                <div class="aup" style="border-top: solid 1px #dbdbdb; border-bottom: solid 1px #dbdbdb;">
+                    <input id="bqsfz" placeholder="" style="border:none;height:50px;width:100%; font-size:20px;padding-left:20px;" />
+                </div>
+                <span style="line-height:50px;height:50px;display:inline-table;padding-left:20px;">住址</span>
+                <div class="aup" style="border-top: solid 1px #dbdbdb; border-bottom: solid 1px #dbdbdb; ">
+                    <input id="bqdz" placeholder="" style="border:none;height:50px;width:100%; font-size:20px;padding-left:20px;" />
+                </div>
+                <script>
+    function savebq() {
+       
+    }
+                </script>
 
+            </div>
 
-
-        <!-------------------------------------------------------------------------使用手册--------------------------------------------------------------->
-        <style type="text/css">
-            /*--------------------------------使用手册CSS----------------------------------*/
-            li.syscselect {
-                background: url(img/sysc/sysc_icon_underline.jpg) no-repeat center;
-                background-position-y: 24px;
-            }
-            /*--------------------------------使用手册CSS----------------------------------*/
-        </style>
-        <!-- 基本介绍-->
-        <div title='基本介绍' id="jbjs_panel" class="panel" data-footer="none" data-header="headejajjh" data-load="load_jbjs_panel" data-unload="unload_jbjs_panel">
-            <div class="" style="height: 48px;color: black;background-color: white;background-image: url(img/sysc/sysc_line.jpg);background-repeat: no-repeat;background-position-y: 38px;">
-                <ul class="cate_top_ul" id="top_tab_ul" style="list-style-type:none;height: 48px;margin:0 auto;width:100%;">
-                    <!-- 基本介绍-->
-                    <li id="jbjs_tab" style="width: 20%;float: left;height:inherit;line-height:44px;text-align:center;" class="syscselect">
-                        <a href="#jbjs_panel" style="color: black;font-family:黑体;font-size:15px;" data-transition="slideRight" class="">基本介绍</a>
-                    </li>
-                    <!---安检查询-->
-                    <li id="ajcx_tab" style="width: 20%;float: left;height:inherit;line-height:44px;text-align:center;">
-                        <a href="#ajcx_panel" style="color: black;font-family:黑体,Helvetica Neue, Helvetica, Arial, sans-serif;font-size:15px;" class="">安检查询</a>
-                    </li>
-                    <!---交流互动-->
-                    <li id="jlhd_tab" style="width: 20%;float: left;height:inherit;line-height:44px;text-align:center;">
-                        <a href="#jlhd_panel" style="color: black;font-family:黑体,Helvetica Neue, Helvetica, Arial, sans-serif;font-size:15px;" class="">交流互动</a>
-                    </li>
-                    <!--积分商城--->
-                    <li id="jfsc_tab" style="width: 20%;float: left;height:inherit;line-height:44px;text-align:center;">
-                        <a href="#jfsc_panel" style="color: black;font-family:黑体,Helvetica Neue, Helvetica, Arial, sans-serif;font-size:15px;">积分商城</a>
-                    </li>
-                    <!--会员中心--->
-                    <li id="hyzx_tab" style="width: 20%;float: left;height:inherit;line-height:44px;text-align:center;">
-                        <a href="#hyzx_panel" style="color: black;font-family:黑体,Helvetica Neue, Helvetica, Arial, sans-serif;font-size:15px;">会员中心</a>
-                    </li>
-                </ul>
+            <!-------------------------------------补全资料------------------------------------------>
+            <!-------------------------------------------------------------------------使用手册--------------------------------------------------------------->
+            <style type="text/css">
+                /*--------------------------------使用手册CSS----------------------------------*/
+                li.syscselect {
+                    background: url(img/sysc/sysc_icon_underline.jpg) no-repeat center;
+                    background-position-y: 24px;
+                }
+                /*--------------------------------使用手册CSS----------------------------------*/
+            </style>
+            <!-- 基本介绍-->
+            <div title='基本介绍' id="jbjs_panel" class="panel" data-footer="none" data-header="headejajjh" data-load="load_jbjs_panel" data-unload="unload_jbjs_panel">
+                <div class="" style="height: 48px;color: black;background-color: white;background-image: url(img/sysc/sysc_line.jpg);background-repeat: no-repeat;background-position-y: 38px;">
+                    <ul class="cate_top_ul" id="top_tab_ul" style="list-style-type:none;height: 48px;margin:0 auto;width:100%;">
+                        <!-- 基本介绍-->
+                        <li id="jbjs_tab" style="width: 20%;float: left;height:inherit;line-height:44px;text-align:center;" class="syscselect">
+                            <a href="#jbjs_panel" style="color: black;font-family:黑体;font-size:15px;" data-transition="slideRight" class="">基本介绍</a>
+                        </li>
+                        <!---安检查询-->
+                        <li id="ajcx_tab" style="width: 20%;float: left;height:inherit;line-height:44px;text-align:center;">
+                            <a href="#ajcx_panel" style="color: black;font-family:黑体,Helvetica Neue, Helvetica, Arial, sans-serif;font-size:15px;" class="">安检查询</a>
+                        </li>
+                        <!---交流互动-->
+                        <li id="jlhd_tab" style="width: 20%;float: left;height:inherit;line-height:44px;text-align:center;">
+                            <a href="#jlhd_panel" style="color: black;font-family:黑体,Helvetica Neue, Helvetica, Arial, sans-serif;font-size:15px;" class="">交流互动</a>
+                        </li>
+                        <!--积分商城--->
+                        <li id="jfsc_tab" style="width: 20%;float: left;height:inherit;line-height:44px;text-align:center;">
+                            <a href="#jfsc_panel" style="color: black;font-family:黑体,Helvetica Neue, Helvetica, Arial, sans-serif;font-size:15px;">积分商城</a>
+                        </li>
+                        <!--会员中心--->
+                        <li id="hyzx_tab" style="width: 20%;float: left;height:inherit;line-height:44px;text-align:center;">
+                            <a href="#hyzx_panel" style="color: black;font-family:黑体,Helvetica Neue, Helvetica, Arial, sans-serif;font-size:15px;">会员中心</a>
+                        </li>
+                    </ul>
+                </div>
+                <div id="jbjs_list" style="padding: 4%; display:block;">
+                    <h3>新手教程</h3>
+                    <ol style="padding: 2% 0% 2% 5%;">
+                        <li style="width: 100%; padding-bottom:2%;">新手教程-自动演示-安检专区/交流专区/积分商城的使用方法</li>
+                        <li style="width: 100%; padding-bottom:2%;">安检专区:演示如何使用快速安检以及查看回复报告</li>
+                        <li style="width: 100%; padding-bottom:2%;">交流专区:演示如何使用连线提问及浏览企业回复内容</li>
+                        <li style="width: 100%;">积分商城:演示如何使用积分兑换商户发布的各类礼券</li>
+                    </ol>
+                    <hr color=#C7ECEA>
+                    <h3 style="padding-top: 4%;">会员注册</h3>
+                    <ol style="padding:  2% 0% 2% 5%;">
+                        <li style="width: 100%; padding-bottom:2%;">进入融信城首页、点击“会员登录”按钮</li>
+                        <li style="width: 100%; padding-bottom:2%;">点击免费注册</li>
+                        <li style="width: 100%; padding-bottom:2%;">输入手机号点击获取验证码，系统会将验证码发送到你的手机，输入验证码后，设置8位密码点击确认注册成为融信城会员</li>
+                        <li style="width: 100%;">注册时的手机号为融信城会员的用户名</li>
+                    </ol>
+                    <hr color=#C7ECEA>
+                    <h3 style="padding-top: 4%;">企业注册</h3>
+                    <ol style="padding: 2% 0% 2% 5%;">
+                        <li style="width: 100%; padding-bottom:2%;">依次输入账户邮箱、密码、确认密码、公司全称、手机号码点 　击获取验证码，系统会发送验证码至您手机，输入验证码后点击注册</li>
+                        <li style="width: 100%; padding-bottom:2%;">提交后会发送验证至邮箱</li>
+                        <li style="width: 100%; padding-bottom:2%;">邮箱验证成功</li>
+                        <li style="width: 100%;">完成注册</li>
+                    </ol>
+                    <hr color=#C7ECEA>
+                    <h3 style="padding-top: 4%;">商户认证</h3>
+                    <ol style="padding: 2% 0% 2% 5%;">
+                        <li style="width: 100%; padding-bottom:2%;">填写公司信息，点击下一步（红色星号必填）</li>
+                        <li style="width: 100%; padding-bottom:2%;">填写负责人信息，并勾选同意条款</li>
+                        <li style="width: 100%; padding-bottom:2%;">认证提交融信城审核</li>
+                        <li style="width: 100%;">融信城审核通过，会发送短信给商户预留手机，并同时抄送至 　您的邮箱，商户重新登录后即为认证成功</li>
+                    </ol>
+                </div>
+                <!---安检查询-->
+                <div id="ajcx_list" style="padding: 4%;display:none;">
+                    <h3>一键查询</h3>
+                    <dl style="padding: 3% 0% ;">
+                        <dd style="width: 100%;">空蓝内输入您需要安检查询的金融公司简称或两个字以上的关 键字，点击快速查询即可</dd>
+                    </dl>
+                    <hr color=#C7ECEA>
+                    <h3 style="padding-top: 4%;">秒回报告</h3>
+                    <dl style="padding: 3% 0;">
+                        <dd style="width: 100%;">查询后可立即看到相关企业的安检报告</dd>
+                    </dl>
+                    <hr color=#C7ECEA>
+                    <h3 style="padding-top: 4%;">公开浏览</h3>
+                    <dl style="padding: 3% 0;">
+                        <dd style="width: 100%;">已有安检查询报告进行展示，提供用户翻阅查询</dd>
+                    </dl>
+                </div>
+                <!---交流互动-->
+                <div id="jlhd_list" style="padding: 4%;">
+                    <h3>快速提问</h3>
+                    <dl style="padding: 3% 0%;">
+                        <dd style="width: 100%;">选择相关金融公司后在空栏内输入您的问题，点击“提交”即可</dd>
+                    </dl>
+                    <hr color=#C7ECEA>
+                    <h3 style="padding-top: 4%;">回复解答</h3>
+                    <dl style="padding: 3% 0;">
+                        <dd style="width: 100%;">收到会员提问的相关金融公司将尽快进行解答提问</dd>
+                    </dl>
+                    <hr color=#C7ECEA>
+                    <h3 style="padding-top: 4%;">公开浏览</h3>
+                    <dl style="padding: 3% 0;">
+                        <dd style="width: 100%;">最近解答栏内公开企业解答回复内容，提供所有会员查阅浏览</dd>
+                    </dl>
+                </div>
+                <!--积分商城--->
+                <div id="jfsc_list" style="padding: 4%;display:none;">
+                    <h3>积分兑换</h3>
+                    <ol style="padding: 2% 0% 2% 5%;">
+                        <li style="width: 100%; padding-bottom:2%;">用于积分商城内商户发布的各类礼品活动券兑换</li>
+                        <li style="width: 100%;">会员前往礼券活动指定地点使用相关礼券领取奖品</li>
+                    </ol>
+                    <hr color=#C7ECEA>
+                    <h3 style="padding-top: 4%;">如何赚取积分</h3>
+                    <ol style="padding:2% 0% 2% 5%;">
+                        <li style="width: 100%; padding-bottom:2%;">每日签到+10积分</li>
+                        <li style="width: 100%; padding-bottom:2%;">首次点赞+5分</li>
+                        <li style="width: 100%; padding-bottom:2%;">首次安检+5分</li>
+                        <li style="width: 100%;">首次提问+5分</li>
+                    </ol>
+                    <hr color=#C7ECEA>
+                    <h3 style="padding-top: 4%;">兑换细则</h3>
+                    <dl style="padding: 2% 0;">
+                        <dd style="width: 100%;">进入积分商城挑选您需要的兑换活动礼券，点击详情查看活动细则，礼券使用地点，活动详情等</dd>
+                    </dl>
+                </div>
+                <!--会员中心--->
+                <div id="hyzx_list" style="padding: 4%;display:none;">
+                    <h3 style="padding:0% 0% 2% 0% ; width: 60%;display:inline-block;position: relative;top:-8px;">安检记录查询</h3>
+                    <img src="img/sysc/sysc_buttongo.jpg" style="position: relative; top:6px; width:40px;left:90px;">
+                    <hr color=#C7ECEA>
+                    <h3 style="padding: 4% 0% ;width: 60%;display:inline-block;position: relative;top:-6px;">提问记录查询</h3>
+                    <img src="img/sysc/sysc_buttongo.jpg" style="position: relative; top:7px; width:40px;left:90px;">
+                    <hr color=#C7ECEA>
+                    <h3 style="padding: 4% 0%;width: 60%;display:inline-block;position: relative;top:-6px;">提现记录查询</h3>
+                    <img src="img/sysc/sysc_buttongo.jpg" style="position: relative; top:7px; width:40px;left:90px;">
+                    <hr color=#C7ECEA>
+                    <h3 style="padding: 6% 0% 2% 0%;">找回密码</h3>
+                    <ol style="padding: 0% 0% 0% 5%;">
+                        <li style="width: 100%; padding-bottom:2%;">在忘记密码页面填写注册时的手机号码，点击获取验证码，输入发送到手机的验证码</li>
+                        <li style="width: 100%; padding-bottom:2%;">填写新密码确认密码</li>
+                        <li style="width: 100%; padding-bottom:2%;">修改成功</li>
+                    </ol>
+                </div>
             </div>
-            <div id="jbjs_list" style="padding: 4%; display:block;">
-                <h3>新手教程</h3>
-                <ol style="padding: 2% 0% 2% 5%;">
-                    <li style="width: 100%; padding-bottom:2%;">新手教程-自动演示-安检专区/交流专区/积分商城的使用方法</li>
-                    <li style="width: 100%; padding-bottom:2%;">安检专区:演示如何使用快速安检以及查看回复报告</li>
-                    <li style="width: 100%; padding-bottom:2%;">交流专区:演示如何使用连线提问及浏览企业回复内容</li>
-                    <li style="width: 100%;">积分商城:演示如何使用积分兑换商户发布的各类礼券</li>
-                </ol>
-                <hr color=#C7ECEA>
-                <h3 style="padding-top: 4%;">会员注册</h3>
-                <ol style="padding:  2% 0% 2% 5%;">
-                    <li style="width: 100%; padding-bottom:2%;">进入融信城首页、点击“会员登录”按钮</li>
-                    <li style="width: 100%; padding-bottom:2%;">点击免费注册</li>
-                    <li style="width: 100%; padding-bottom:2%;">输入手机号点击获取验证码，系统会将验证码发送到你的手机，输入验证码后，设置8位密码点击确认注册成为融信城会员</li>
-                    <li style="width: 100%;">注册时的手机号为融信城会员的用户名</li>
-                </ol>
-                <hr color=#C7ECEA>
-                <h3 style="padding-top: 4%;">企业注册</h3>
-                <ol style="padding: 2% 0% 2% 5%;">
-                    <li style="width: 100%; padding-bottom:2%;">依次输入账户邮箱、密码、确认密码、公司全称、手机号码点 　击获取验证码，系统会发送验证码至您手机，输入验证码后点击注册</li>
-                    <li style="width: 100%; padding-bottom:2%;">提交后会发送验证至邮箱</li>
-                    <li style="width: 100%; padding-bottom:2%;">邮箱验证成功</li>
-                    <li style="width: 100%;">完成注册</li>
-                </ol>
-                <hr color=#C7ECEA>
-                <h3 style="padding-top: 4%;">商户认证</h3>
-                <ol style="padding: 2% 0% 2% 5%;">
-                    <li style="width: 100%; padding-bottom:2%;">填写公司信息，点击下一步（红色星号必填）</li>
-                    <li style="width: 100%; padding-bottom:2%;">填写负责人信息，并勾选同意条款</li>
-                    <li style="width: 100%; padding-bottom:2%;">认证提交融信城审核</li>
-                    <li style="width: 100%;">融信城审核通过，会发送短信给商户预留手机，并同时抄送至 　您的邮箱，商户重新登录后即为认证成功</li>
-                </ol>
-            </div>
-            <!---安检查询-->
-            <div id="ajcx_list" style="padding: 4%;display:none;">
-                <h3>一键查询</h3>
-                <dl style="padding: 3% 0% ;">
-                    <dd style="width: 100%;">空蓝内输入您需要安检查询的金融公司简称或两个字以上的关 键字，点击快速查询即可</dd>
-                </dl>
-                <hr color=#C7ECEA>
-                <h3 style="padding-top: 4%;">秒回报告</h3>
-                <dl style="padding: 3% 0;">
-                    <dd style="width: 100%;">查询后可立即看到相关企业的安检报告</dd>
-                </dl>
-                <hr color=#C7ECEA>
-                <h3 style="padding-top: 4%;">公开浏览</h3>
-                <dl style="padding: 3% 0;">
-                    <dd style="width: 100%;">已有安检查询报告进行展示，提供用户翻阅查询</dd>
-                </dl>
-            </div>
-            <!---交流互动-->
-            <div id="jlhd_list" style="padding: 4%;">
-                <h3>快速提问</h3>
-                <dl style="padding: 3% 0%;">
-                    <dd style="width: 100%;">选择相关金融公司后在空栏内输入您的问题，点击“提交”即可</dd>
-                </dl>
-                <hr color=#C7ECEA>
-                <h3 style="padding-top: 4%;">回复解答</h3>
-                <dl style="padding: 3% 0;">
-                    <dd style="width: 100%;">收到会员提问的相关金融公司将尽快进行解答提问</dd>
-                </dl>
-                <hr color=#C7ECEA>
-                <h3 style="padding-top: 4%;">公开浏览</h3>
-                <dl style="padding: 3% 0;">
-                    <dd style="width: 100%;">最近解答栏内公开企业解答回复内容，提供所有会员查阅浏览</dd>
-                </dl>
-            </div>
-            <!--积分商城--->
-            <div id="jfsc_list" style="padding: 4%;display:none;">
-                <h3>积分兑换</h3>
-                <ol style="padding: 2% 0% 2% 5%;">
-                    <li style="width: 100%; padding-bottom:2%;">用于积分商城内商户发布的各类礼品活动券兑换</li>
-                    <li style="width: 100%;">会员前往礼券活动指定地点使用相关礼券领取奖品</li>
-                </ol>
-                <hr color=#C7ECEA>
-                <h3 style="padding-top: 4%;">如何赚取积分</h3>
-                <ol style="padding:2% 0% 2% 5%;">
-                    <li style="width: 100%; padding-bottom:2%;">每日签到+10积分</li>
-                    <li style="width: 100%; padding-bottom:2%;">首次点赞+5分</li>
-                    <li style="width: 100%; padding-bottom:2%;">首次安检+5分</li>
-                    <li style="width: 100%;">首次提问+5分</li>
-                </ol>
-                <hr color=#C7ECEA>
-                <h3 style="padding-top: 4%;">兑换细则</h3>
-                <dl style="padding: 2% 0;">
-                    <dd style="width: 100%;">进入积分商城挑选您需要的兑换活动礼券，点击详情查看活动细则，礼券使用地点，活动详情等</dd>
-                </dl>
-            </div>
-            <!--会员中心--->
-            <div id="hyzx_list" style="padding: 4%;display:none;">
-                <h3 style="padding:0% 0% 2% 0% ; width: 60%;display:inline-block;position: relative;top:-8px;">安检记录查询</h3>
-                <img src="img/sysc/sysc_buttongo.jpg" style="position: relative; top:6px; width:40px;left:90px;">
-                <hr color=#C7ECEA>
-                <h3 style="padding: 4% 0% ;width: 60%;display:inline-block;position: relative;top:-6px;">提问记录查询</h3>
-                <img src="img/sysc/sysc_buttongo.jpg" style="position: relative; top:7px; width:40px;left:90px;">
-                <hr color=#C7ECEA>
-                <h3 style="padding: 4% 0%;width: 60%;display:inline-block;position: relative;top:-6px;">提现记录查询</h3>
-                <img src="img/sysc/sysc_buttongo.jpg" style="position: relative; top:7px; width:40px;left:90px;">
-                <hr color=#C7ECEA>
-                <h3 style="padding: 6% 0% 2% 0%;">找回密码</h3>
-                <ol style="padding: 0% 0% 0% 5%;">
-                    <li style="width: 100%; padding-bottom:2%;">在忘记密码页面填写注册时的手机号码，点击获取验证码，输入发送到手机的验证码</li>
-                    <li style="width: 100%; padding-bottom:2%;">填写新密码确认密码</li>
-                    <li style="width: 100%; padding-bottom:2%;">修改成功</li>
-                </ol>
-            </div>
-        </div>
-        <!---------------------------------------------------使用手册 的JS------------------------>
-        <script  type="text/javascript">
-            $("#jbjs_tab").click(function () {// 点击基本介绍
-                setClass("#jbjs_tab");
-                $("#jbjs_list").css({ "display": "block" }).nextAll().css({ "display": "none" })//点击基本介绍时，基本介绍页面显示，其他隐藏
-            });
-            $("#ajcx_tab").click(function () {// 点击安检查询
-                setClass("#ajcx_tab");
-                //$("#jbjs_list").css({ "display": "none" });
-                $("#ajcx_list").css({ "display": "block" }).prev().css({ "display": "none" }).next().next().next().css({ "display": "none" });//点击安检查询时，安检查询页面显示，其他隐藏
-                //$("#jlhd_list").css({ "display": "none" });
-                //$("#jfsc_list").css({ "display": "none" });
-                //$("#hyzx_list").css({ "display": "none" });
-            });
-            $("#jlhd_tab").click(function () {// 点击交流互动
-                setClass("#jlhd_tab");
-                $("#jbjs_list").css({ "display": "none" });
-                $("#ajcx_list").css({ "display": "none" });
-                $("#jlhd_list").css({ "display": "block" }).next().next().css({ "display": "none" });//点击安检查询时，安检查询页面显示，其他隐藏
-                //$("#jfsc_list").css({ "display": "none" });
-                //$("#hyzx_list").css({ "display": "none" });
-            });
-            $("#jfsc_tab").click(function () {// 点击积分商城
-                setClass("#jfsc_tab");
-                $("#jbjs_list").css({ "display": "none" });
-                $("#ajcx_list").css({ "display": "none" });
-                $("#jlhd_list").css({ "display": "none" });
-                $("#jfsc_list").css({ "display": "block" }).next().css({ "display": "none" });//点击积分商城时，安检查询页面显示，其他隐藏
-                //$("#hyzx_list");
-            });
-            $("#hyzx_tab").click(function () {// 点击会员中心
-                setClass("#hyzx_tab");
-                $("#jbjs_list").css({ "display": "none" });
-                $("#ajcx_list").css({ "display": "none" });
-                $("#jlhd_list").css({ "display": "none" });
-                $("#jfsc_list").css({ "display": "none" });
-                $("#hyzx_list").css({ "display": "block" });//点击会员中心时，安检查询页面显示，其他隐藏
-            });
-            function setClass(id)//公共的方法
-            {
-                $("#top_tab_ul").children().not($(id)).removeClass("syscselect");
-                $(id).addClass("syscselect");
-            }
-        </script>
-        <!---------------------------------------------------使用手册 的JS------------------------->
-        <!---------------------------------------使用手册--------------------------------------------------------------->
-        <header id="headejajjh">
-            <div class="top_header" style="height: 43px;">
-                <a href="#zhuye" class="biaotizuo">
-                    <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png);"></span>
-                </a>
-                <h1>使用手册</h1>
-            </div>
-        </header><!-----------------使用手册  基本介绍  安检查询---安检查询---交流互动-------会员中心----------------->
-
-
+            <!---------------------------------------------------使用手册 的JS------------------------>
+            <script type="text/javascript">
+                $("#jbjs_tab").click(function () {// 点击基本介绍
+                    setClass("#jbjs_tab");
+                    $("#jbjs_list").css({ "display": "block" }).nextAll().css({ "display": "none" })//点击基本介绍时，基本介绍页面显示，其他隐藏
+                });
+                $("#ajcx_tab").click(function () {// 点击安检查询
+                    setClass("#ajcx_tab");
+                    //$("#jbjs_list").css({ "display": "none" });
+                    $("#ajcx_list").css({ "display": "block" }).prev().css({ "display": "none" }).next().next().next().css({ "display": "none" });//点击安检查询时，安检查询页面显示，其他隐藏
+                    //$("#jlhd_list").css({ "display": "none" });
+                    //$("#jfsc_list").css({ "display": "none" });
+                    //$("#hyzx_list").css({ "display": "none" });
+                });
+                $("#jlhd_tab").click(function () {// 点击交流互动
+                    setClass("#jlhd_tab");
+                    $("#jbjs_list").css({ "display": "none" });
+                    $("#ajcx_list").css({ "display": "none" });
+                    $("#jlhd_list").css({ "display": "block" }).next().next().css({ "display": "none" });//点击安检查询时，安检查询页面显示，其他隐藏
+                    //$("#jfsc_list").css({ "display": "none" });
+                    //$("#hyzx_list").css({ "display": "none" });
+                });
+                $("#jfsc_tab").click(function () {// 点击积分商城
+                    setClass("#jfsc_tab");
+                    $("#jbjs_list").css({ "display": "none" });
+                    $("#ajcx_list").css({ "display": "none" });
+                    $("#jlhd_list").css({ "display": "none" });
+                    $("#jfsc_list").css({ "display": "block" }).next().css({ "display": "none" });//点击积分商城时，安检查询页面显示，其他隐藏
+                    //$("#hyzx_list");
+                });
+                $("#hyzx_tab").click(function () {// 点击会员中心
+                    setClass("#hyzx_tab");
+                    $("#jbjs_list").css({ "display": "none" });
+                    $("#ajcx_list").css({ "display": "none" });
+                    $("#jlhd_list").css({ "display": "none" });
+                    $("#jfsc_list").css({ "display": "none" });
+                    $("#hyzx_list").css({ "display": "block" });//点击会员中心时，安检查询页面显示，其他隐藏
+                });
+                function setClass(id)//公共的方法
+                {
+                    $("#top_tab_ul").children().not($(id)).removeClass("syscselect");
+                    $(id).addClass("syscselect");
+                }
+            </script>
+            <!---------------------------------------------------使用手册 的JS------------------------->
+            <!---------------------------------------使用手册--------------------------------------------------------------->
+            <header id="headejajjh">
+                <div class="top_header" style="height: 43px;">
+                    <a href="#zhuye" class="biaotizuo">
+                        <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png);"></span>
+                    </a>
+                    <h1>使用手册</h1>
+                </div>
+            </header><!-----------------使用手册  基本介绍  安检查询---安检查询---交流互动-------会员中心----------------->
             <!-------------------------------------- 头---------------------------------------------->
             <header id="YJFK_H">
                 <a href="#zhuye" class="biaotizuo">
@@ -2606,6 +2617,13 @@
                 <h1>QQ</h1>
                 <a onclick="saveqq()" style="float:right; margin:4% 15px 0 0;  color:white; font-size:14px;">保存</a>
             </header><!-----------------------------------QQ------------------->
+
+            <header id="hbqzl" class="biaotizuo">
+                <a href="#hyzx" style="float:left; margin:4% 0 0 15px;  color:white; font-size:14px;">取消</a>
+                <h1>补全资料</h1>
+                <a onclick="savebq()" style="float:right; margin:4% 15px 0 0;  color:white; font-size:14px;">保存</a>
+            </header><!--------------------------补全资料------------------------>
+
             <header id="hhymrrw">
                 <a href="#yhzx" class="biaotizuo">
                     <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
@@ -2749,12 +2767,12 @@
                         var id = window.localStorage["id"];
                         alert(id);
 
-                        if ( id== null||id==""||id=="null") {
-                            
+                        if (id == null || id == "" || id == "null") {
+
                             $.ui.loadContent("#login");
                         }
                         else {
-                            
+
                             $.ui.loadContent("#yhzx");
                         }
                     }
@@ -3133,8 +3151,8 @@
         var item = thisEv.parentNode.parentNode.id;
         id = 1;
         $("#con").html("");
-        
-       
+
+
 
         if (item == "btnShowLeft" && thisEv.innerHTML != "全&nbsp;&nbsp;部")
             fnShowShop(id, "", thisEv.innerHTML);
@@ -3160,7 +3178,7 @@
 
         $.ajax({
             url: "http://www.shrxc.com/api/apitest/act",
-            data: { "num": num, "type": types, "area": area  },
+            data: { "num": num, "type": types, "area": area },
             type: "GET",
             dataType: "jsonp",
             jsonp: "callback",
@@ -3510,7 +3528,7 @@
             $.ui.loadContent("#login");
         }
         var actid = $("#jifengxiangqing").attr("actid");
-        
+
         var num = $("#count").text();
 
         $.ajax({
