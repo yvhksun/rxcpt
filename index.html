@@ -2764,7 +2764,7 @@
                 <a href='#sous' id="footer_anjian"><img src="img/footerimg/icon-search.png" style="height:43px; width:53px;"></a>
                 <a href='#jjzq' id="footer_jiaoliu"><img src="img/footerimg/icon-chat.png" style="height:43px; width:53px;"></a>
                 <a href='#jfshop' id="footer_jfshop"><img src="img/footerimg/icon-shop.png" style="height:43px; width:53px"></a>
-                <a href='#yhzx' onclick="dltz_wd()" id="footer_yhzx"><img src="img/footerimg/icon-user.png" style="height:43px; width:53px;"></a>
+                <a href='#yhzx'  id="footer_yhzx"><img src="img/footerimg/icon-user.png" style="height:43px; width:53px;"></a>
                 <script>
                     //function dltz_wd() {
                     //    var id = window.localStorage["id"];
@@ -3443,6 +3443,7 @@
                         break;
 
                     case '-2': $.ui.showToast("今天已经点过赞");
+                        fnRefreshLocalStorage();
                         setTimeout($.ui.hideToast, 1500);
                         break;//
 
