@@ -203,8 +203,9 @@
             padding: 3px;
             height: 55px;
         }
+
         #afui > #navbar {
-            border:none;
+            border: none;
         }
         /*----------------------个人资料详情---------------------**/
         #afui input[type=text] {
@@ -253,7 +254,7 @@
             }
 
         .dotModule_new {
-            display:none;
+            display: none;
             padding: 0 5px;
             height: 11px;
             line-height: 6px;
@@ -560,10 +561,10 @@
                         $("#companypro").attr("gsqc", $("#jifengxiangqing").attr("GSQC"));
                         $.ui.loadContent("#companypro");
                     })
-                    function fnGotoJiFenXianQing(actid) {//构造函数 
-                       
+                    function fnGotoJiFenXianQing(actid) {//构造函数
+
                         $("#jifengxiangqing").attr("actid", actid);
-                      
+
                         $.ui.loadContent("#jifengxiangqing");
                     }
 
@@ -577,7 +578,7 @@
                 <div class="scroll">
                     <div class="slide_02" id="slide_02">
 
-                       
+
                         <div class="mod_01"><a href="#"><img src="img/scroll_img/banner1.jpg"></a></div>
                         <div class="mod_01"><a href="#"><img src="img/scroll_img/banner2.jpg"></a></div>
                         <div class="mod_01"><a href="#"><img src="img/scroll_img/banner3.jpg"></a></div>
@@ -636,14 +637,14 @@
                 </div>
 
                 <script>
-                    function fnUnLoadZhuYe(){
-                        $("#footer_zhuye").css( "background-image" , "url('img/footerimg/icon-home.png')");
-                    } 
-                    function fnLoadZhuYe(){
+                    function fnUnLoadZhuYe() {
+                        $("#footer_zhuye").css("background-image", "url('img/footerimg/icon-home.png')");
+                    }
+                    function fnLoadZhuYe() {
                         $("#footer_zhuye").css("background-image", "url('img/footerimg/icon-home-2.png')")
                     }
 
-                   
+
                     function dengl() {
                         var id = window.localStorage["id"];
                         if (id == null) {
@@ -682,7 +683,7 @@
             </div>
             <!---------------------------------------主页-------------------------------------------->
             <!---------------------------------------搜索-------------------------------------------->
-            <div id="sous" title="安检专区" class="panel" data-header="head" data-footer="custom_footer"  data-tab="footer_anjian" data-load="fnLoadSous" data-unload="fnUnLoadSous">
+            <div id="sous" title="安检专区" class="panel" data-header="head" data-footer="custom_footer" data-tab="footer_anjian" data-load="fnLoadSous" data-unload="fnUnLoadSous">
                 <div class="row" style="margin-top:20px;padding:0 20px;">
                     <input id="quickSearch" type="text" name="search" style="width:75%; border:2px solid #a9deec;font-size:20px;font-family:'Microsoft YaHei';border-radius:10px;height:45px;" placeholder="快速安检" />
                     <div id="gosearch2" style="float:right;border-radius:5px;margin-top:0px;margin-right:15px; background-color:#f7cd6a;width:13%;height:40px;background-image:url(img/check/i-search.png);background-repeat:no-repeat;background-size:25px;background-position:center "></div>
@@ -702,8 +703,8 @@
 
 
                     function fnLoadSous() {
-                       
-                        $("#footer_anjian").css( "background-image" , "url('img/footerimg/icon-search-2.png')");
+
+                        $("#footer_anjian").css("background-image", "url('img/footerimg/icon-search-2.png')");
                     }
                     function fnUnLoadSous() {
                         $("#footer_anjian").css("background-image", "url('img/footerimg/icon-search.png')");
@@ -743,7 +744,7 @@
                     <div style="float:right; margin-top:130px; margin-right:5%;"><a><img style="width: 15px; height: 15px;" src="img/jfzy/user_right.png" /></a></div>
                 </div>
                 <div id="sign"> <img src="img/jfzy/user_sign.png" /></div>
-                <div style="width:100%;  padding:20px 0;"><a href="#bqzl" class="jifen">补全资料就送50积分!现在就去</a></div>
+                <div id="sjfhide" style="width:100%; padding:20px 0;"><a href="#bqzl" class="jifen">补全资料就送50积分!现在就去</a></div>
                 <a class="aup" href="#hymrrw">
                     <img width="30" style="margin-left:30px;" class="aimg" src="img/jfzy/user_task.png" />
                     <div class="aspan" style="margin-left:80px;">每日任务</div>
@@ -809,8 +810,12 @@
 
 
                 <script>
+
+
+
                     function funUnLoadYhzx() {
                         $("#footer_yhzx").css("background-image", "url('img/footerimg/icon-user.png')")
+
                     }
                 </script>
             </div>
@@ -1003,6 +1008,7 @@
                 </div>
                 <script>
                     function grzll() {
+
                         var sex = "";
                         if (window.localStorage["gender"] == "1") {
                             sex = "男";
@@ -1512,8 +1518,8 @@
             <div title="交流专区" class="panel" data-load="fnShowjiaoliu" data-unload="fnUnloadJiaoLiu" id="jjzq" data-header="hjjzq" data-footer="custom_footer" data-tab="footer_jiaoliu" style=" width:100%;">
                 <div style="height:auto;width:100%;margin:10px 0px ">
                     <!--<img src="img/jlzq/jlss.jpg" style="height:32px;width:260px;margin:10px 0 0 6%;" />
-            <img src="img/jlzq/twjlimg.jpg" style="height:65px;width:60px;margin-left:10px;margin-bottom :-13px;"/>
-            <input type="text"  placeholder="搜索" style=" width:200px;height:29px;margin-left:8%;margin-top :-30px;border:none;" />-->
+                    <img src="img/jlzq/twjlimg.jpg" style="height:65px;width:60px;margin-left:10px;margin-bottom :-13px;"/>
+                    <input type="text"  placeholder="搜索" style=" width:200px;height:29px;margin-left:8%;margin-top :-30px;border:none;" />-->
                     <div style="float:left;width:70%;margin:10px 10px 10px 5%;position:relative;">
                         <input type="text" id="mySearch" placeholder="搜索" style="border:red 1px solid;width:100%; height:40px; border-radius:25px;background-image:url(img/jlzq/search.png);background-position-x:right;background-size:contain;background-repeat:no-repeat;" />
 
@@ -1599,10 +1605,10 @@
             <div title="快速提问" data-load="gslb" class="panel" id="kstw" data-header="hkstw" data-footer="none" style=" width:100%;background-color:#f0f0f0">
                 <img src="img/jlzq/xzgs.jpg" style="height:50px;width:90%;margin:20px 5%; ">
                 <input type="hidden" value="" id="hidesid" />
-                <div id="twipt"onclick="selshow()" placeholder="请选择提问公司" style="width:70%; position:absolute;color:#c7c7c7;height:20px;margin-top:-65px;margin-left:40px;height:30px;background-color:#fff;line-height:30px;"></div> 
-                    <div id="gslby" style="position:absolute;display:none; background-color:white ;width:86%;margin-top :-30px;margin-left:7%;padding-left:20px;">
+                <div id="twipt" onclick="selshow()" placeholder="请选择提问公司" style="width:70%; position:absolute;color:#c7c7c7;height:20px;margin-top:-65px;margin-left:40px;height:30px;background-color:#fff;line-height:30px;"></div>
+                <div id="gslby" style="position:absolute;display:none; background-color:white ;width:86%;margin-top :-30px;margin-left:7%;padding-left:20px;">
 
-                    </div>
+                </div>
                 <textarea placeholder="请输入提问内容" id="kstwnr" style="color:#adadad; height:200px;width:86%;margin-left:7%;border:none;margin-top:7%"></textarea>
                 <div onclick="kstwtj()" id="kstwtj" style="width:86%;padding-top:3%;padding-bottom:3%; height:40px;margin-left:7%;margin-top:7%;background-color:#c7c7c7;display:inline-table;">
                     <span style="margin:2% 40%;height:20px;width:20%; color:white;font-size:18px;display:inline-table">提 &nbsp;&nbsp;交</span>
@@ -1615,7 +1621,7 @@
                     function select1(sid, gsqc) {
                         $("#gslby").css("display", "none")
                         $("#hidesid").attr("value", sid)
-                        $("#twipt").text( gsqc)
+                        $("#twipt").text(gsqc)
                     }
                     function gslb() {
                         $("#gslby").css("display", "none")
@@ -1663,7 +1669,7 @@
                             toast("请输入内容", 1000);
                         }
                         else if (gsname == "") {
-                            
+
                             toast("请选择提问公司", 1000);
                         }
                         else {
@@ -2019,9 +2025,7 @@
                                 <div id="backToPrductAtCompany" style=" float:right;color:#e0b987; position:relative;right:0px;margin-top:-20px;margin-bottom:10px;">返回目录</div>
                                 <div style=" clear:both"></div>
                                 <div style="border-top:dotted 1px #c0c0c0;">
-                                    <table id="showProductDetails" style="text-align:left; border-spacing :0px 10px;   line-height:30px;">
-
-                                    </table>
+                                    <table id="showProductDetails" style="text-align:left; border-spacing :0px 10px;   line-height:30px;"></table>
 
                                     <div onclick="fnAppendMoreInfoAtCompany()" style="width:70px;padding:5px;border-radius:3px;border:#c7c7c7 1px solid;color:#a9ebe6;margin:10px;float:right;">了解跟多</div>
                                     <div style=" clear:both"></div>
@@ -2098,7 +2102,7 @@
                                 showWhoAtTheId("mainAtCompanyPro"); break;
                         }
 
-                        
+
 
                         //******************* show 公司详情(company details)begin *******************//
                         $.ajax({
@@ -2319,7 +2323,7 @@
                                 item += "<tr class=\"itWhileHide\"style='display:none'><td>融资方介绍:</td><td>" + data.rzfjs + "</td></tr>"
                                 item += "<tr class=\"itWhileHide\"style='display:none'><td>担保方介绍:</td><td>" + data.dbfjs + "</td></tr>"
                                 $("#showProductDetails").append(item);
-                                },
+                            },
                         })
                         showWhoAtTheId("productDetails");
                         //----------问题提交------------------//
@@ -2636,9 +2640,9 @@
                     <input id="bqdz" placeholder="" style="border:none;height:50px;width:100%; font-size:20px;padding-left:20px;" />
                 </div>
                 <script>
-    function savebq() {
-       
-    }
+                    function savebq() {
+
+                    }
                 </script>
             </div>
             <!-------------------------------------补全资料------------------------------------------>
@@ -3621,7 +3625,7 @@
 
 
     function fnShowShopInfo() {///////// 积分商城商品详情
-        
+
         var actid = $("#jifengxiangqing").attr("actid");
         $.jsonP({
             url: "http://120.24.220.249/api/apitest/getActByActid?actid=" + actid,
@@ -3730,24 +3734,29 @@
     })//// 商城购买物品实现
 
     function showUserinfo() {
+        fnRefreshLocalStorage();
         $("#footer_yhzx").css("background-image", "url('img/footerimg/icon-user-2.png')");
         $("#myTel").text(window.localStorage["tel"])//显示的手机号码
         $("#myMoney").text(window.localStorage["money"] + "元");
         $("#myJF").text(window.localStorage["score"] + "积分");
+        
+        if (window.localStorage["ziliao"] == "1") {
+            $("#sjfhide").css("display", "none");
+        }
 
         //判断登录 跳转 我的 页面
         var id = window.localStorage["id"];
 
 
-          if ( id== null||id==""||id=="null") {
+        if (id == null || id == "" || id == "null") {
 
-           $.ui.loadContent("#login");
-           }
-            else {
+            $.ui.loadContent("#login");
+        }
+        else {
 
-                $.ui.loadContent("#yhzx");
-           }
-        
+            $.ui.loadContent("#yhzx");
+        }
+
     }// 加载本地信息到页面
     $("#Tuichu_btn1").click(function () {
 
