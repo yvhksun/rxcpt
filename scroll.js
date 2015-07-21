@@ -4,7 +4,7 @@ function ScrollPic(scrollContId,arrLeftId,arrRightId,dotListId,listType){
   this.scrollContId = scrollContId; //内容容器ID
   this.arrLeftId = arrLeftId; //左箭头ID
   this.arrRightId = arrRightId; //右箭头ID
-  this.dotListId = dotListId; //点列表ID
+  //this.dotListId = dotListId; //点列表ID
   this.listType = listType; //列表类型
 
   this.dotClassName   = "dotItem";//点className
@@ -111,35 +111,35 @@ ScrollPic.prototype = {
     var pages = Math.ceil(this.lDiv01[this.upright?'offsetHeight':'offsetWidth'] / this.frameWidth),i,tempObj;
     this.pageLength = pages;
     //dot
-    if(this.dotListId){
-      this.dotListObj = this.$(this.dotListId);
-      this.dotListObj.innerHTML = "";
-      if(this.dotListObj){
+    //if(this.dotListId){
+    //  this.dotListObj = this.$(this.dotListId);
+    //  this.dotListObj.innerHTML = "";
+    //  if(this.dotListObj){
         
-        for(i=0;i<pages;i++){
-          tempObj = document.createElement("span");
-          this.dotListObj.appendChild(tempObj);
-          this.dotObjArr.push(tempObj);
+    //    for(i=0;i<pages;i++){
+    //      tempObj = document.createElement("span");
+    //      this.dotListObj.appendChild(tempObj);
+    //      this.dotObjArr.push(tempObj);
           
-          if(i==this.pageIndex){
-            tempObj.className = this.dotOnClassName;
-          }else{
-            tempObj.className = this.dotClassName;
-          };
-          if(this.listType == 'number'){
-            tempObj.innerHTML = i+1;
-          }else if(typeof (this.listType) =='string' ){
-            tempObj.innerHTML = this.listType;
-          }else {
-            tempObj.innerHTML='';
-          };
-          tempObj.title = "第" + (i+1) + "页";
-          tempObj.num = i;
-          tempObj[this.listEvent] = function(){thisTemp.pageTo(this.num)};
-        };
-      };
-    };
-    this.scDiv[this.upright?'scrollTop':'scrollLeft'] = 0;
+    //      if(i==this.pageIndex){
+    //        tempObj.className = this.dotOnClassName;
+    //      }else{
+    //        tempObj.className = this.dotClassName;
+    //      };
+    //      if(this.listType == 'number'){
+    //        tempObj.innerHTML = i+1;
+    //      }else if(typeof (this.listType) =='string' ){
+    //        tempObj.innerHTML = this.listType;
+    //      }else {
+    //        tempObj.innerHTML='';
+    //      };
+    //      tempObj.title = "第" + (i+1) + "页";
+    //      tempObj.num = i;
+    //      tempObj[this.listEvent] = function(){thisTemp.pageTo(this.num)};
+    //    };
+    //  };
+    //};
+    //this.scDiv[this.upright?'scrollTop':'scrollLeft'] = 0;
     //autoPlay
     if(this.autoPlay){this.play()};
     
