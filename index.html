@@ -821,12 +821,12 @@
             </div>
             <!-------------------------------------用户中心------------------------------------------>
             <!------------------------------------礼品券详细----------------------------------------->
-            <div id="lpqxx" class="panel" data-footer="none" data-tab="footer_zhuye" style=" background-color:#f0f0f0;" data-load="fnShowLpInfo">
+            <div id="lpqxx" class="panel" data-footer="none" data-tab="footer_zhuye" style=" background-color:#f0f0f0;" data-load="fnShowLpInfo" data-header="hlpqxx_header">
                 <div class="lpqbg">
                     <div class="lpqkg">
                         <span id="lpAndHdTitle">超能陆战队-大白公仔</span><span id="isAvailable" style="float:right; color:#58cc35;">可使用</span>
                     </div>
-                    <img id="showImges" src="img/shopdetail/111_03.png" style="height:30%; width:100%;" />
+                    <img id="showImges" src="img/shopdetail/111_03.png" style="height:200px; width:100%;" />
                     <div class="lpqkg">
                         <div style="margin-bottom:20px;">
                             <span style="margin-bottom:5%;">积分</span><span style="float:right;margin-bottom:5%;">活动公司</span>
@@ -845,6 +845,12 @@
                         <div style="width: 70%; margin-left: 15%; color: #8f8f8f" id="isEffective"></div>
                     </div>
                 </div>
+                <header id="hlpqxx_header">
+                    <a href="#lpjuan" class="biaotizuo">
+                        <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
+                    </a>
+                    <h1></h1>
+                </header>
             </div>
             <!------------------------------------礼品券详细----------------------------------------->
             <!------------------------------------提问记录------------------------------------------->
@@ -3103,41 +3109,43 @@
 
         $.ui.showMask("登录中");//加载中
 
-        //获取对话框内容
-        var name = $("#loginname").val();
-        var password = $("#loginpwd").val();
+        setTimeout(function () {
+            //获取对话框内容
+            var name = $("#loginname").val();
+            var password = $("#loginpwd").val();
 
-        $.ajax({
-            url: "http://120.24.220.249/api/apitest/login",
-            type: "GET",
-            data: { 'tel': name, 'pwd': password },
-            dataType: "jsonp",
-            jsonp: "callback",
-            success: function (date) {
+            $.ajax({
+                url: "http://120.24.220.249/api/apitest/login",
+                type: "GET",
+                data: { 'tel': name, 'pwd': password },
+                dataType: "jsonp",
+                jsonp: "callback",
+                success: function (date) {
 
-                if (date == null) {
-                    alert("账号或密码错误");
-                    $.ui.hideMask();
+                    if (date == null) {
+                        alert("账号或密码错误");
+                        $.ui.hideMask();
 
-                } else {
-                    window.localStorage.clear();
-                    $.each(date, function (key, value) {
+                    } else {
+                        window.localStorage.clear();
+                        $.each(date, function (key, value) {
 
-                        window.localStorage.setItem(key, value);
-                    });//html5数据库
+                            window.localStorage.setItem(key, value);
+                        });//html5数据库
 
-                    $.ui.hideMask();
-                    alert("融信城欢迎您");
-
-                    $.ui.loadContent("#yhzx");//停止加载
+                        $.ui.hideMask();
+                       // alert("融信城欢迎您");
+                        toast("融信城欢迎您", 1000);
+                        $.ui.loadContent("#yhzx");//停止加载
+                    }
+                },
+                error: function (date) {
+                    $.ui.hideMask(); //数据加载完毕需要清除掉载入动画
+                    alert('账号或密码不能为空');
                 }
-            },
-            error: function (date) {
-                $.ui.hideMask(); //数据加载完毕需要清除掉载入动画
-                alert('账号或密码不能为空');
-            }
-        })
+            })
 
+        }, 500);
 
 
     }// End login
