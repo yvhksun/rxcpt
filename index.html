@@ -1980,7 +1980,7 @@
                                 </div>
                                 <div id="solveNow" style="display:none">
                                     <textarea id="problemAtCompanyPro" cols="20" rows="4" style="width:100%;border-radius:5px;border:#05c9fa 1px solid;" placeholder="请问贵公司有什么产品?"></textarea>
-                                    <div style="width:100%;height:40px;background:#35d728;color:#fff;letter-spacing:10px;border-radius:5px;line-height:40px;margin-top:20px;">提&nbsp;&nbsp;&nbsp;&nbsp;交</div>
+                                    <div onclick="fnQuestion()" style="width:100%;height:40px;background:#35d728;color:#fff;letter-spacing:10px;border-radius:5px;line-height:40px;margin-top:20px;">提&nbsp;&nbsp;&nbsp;&nbsp;交</div>
                                     <div style="width:100%;height:40px;background:#faa54b;color:#fff;letter-spacing:10px;border-radius:5px;line-height:40px;margin-top:20px;">公司解答</div>
                                 </div>
                             </div>
@@ -2005,12 +2005,11 @@
 
                                     <div onclick="fnAppendMoreInfoAtCompany()" style="width:70px;padding:5px;border-radius:3px;border:#c7c7c7 1px solid;color:#a9ebe6;margin:10px;float:right;">了解跟多</div>
                                     <div style=" clear:both"></div>
-                                    <div style="width:100%;padding:15px;background:#3cc73c;border-radius:3px;color:#fff;">预&nbsp;&nbsp;&nbsp;约</div>
+                                    <div  onclick="fnMakeAnAppointment()" style="width:100%;padding:15px;background:#3cc73c;border-radius:3px;color:#fff;">预&nbsp;&nbsp;&nbsp;约</div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
                 <script>
                     //showNum:显示导航条第几项 gsqc:公司全称
@@ -2304,61 +2303,7 @@
                         })
                         showWhoAtTheId("productDetails");
                         //----------问题提交------------------//
-                        function fnQuestion() {
-                            var content = $("#problemAtCompanyPro").val();
-                            var gsqc = $("#companypro").attr("gsqc");
-                            var id = localStorage["id"];
-                            if (id == null) {
-                                id = "";
-                            }
-
-                            $.ajax({
-                                url: "http://www.shrxc.com/api/apitest/question",
-                                data: { "sid": sid, "question": content, "id": id },
-                                dataType: "jsonp",
-                                type: "GET",
-                                jsonp: "callback",
-                                success: function (data) {
-                                    alert(data)
-                                    if (data == 1) {
-                                        $("#solveAfter").show();
-                                        $("#solveNow").hide();
-                                    }
-                                    else if (data == -2) {
-                                        toast("公司不存在", 1000);
-                                    }
-                                    else {
-                                        $("#afui").popup({
-                                            title: "登录",
-                                            message: "手机号码:<input id='telText' type='text' class='af-ui-forms' /><br/ >密码:<input id='pwdText' class='af-ui-forms' type='text' style='webkit-text-security:disc'/>",
-                                            cancelText: "取消",
-                                            cancelCallback: function () { },
-
-                                            doneText: "登录",
-                                            doneCallback: function () {
-                                                var tel = $("#telText").val();
-                                                var pwd = $("#pwdText").val();
-                                                $.ajax({
-                                                    data: { "tel": tel, 'pwd': pwd },
-                                                    url: "http://www.shrxc.com/api/apitest/login",
-                                                    dataType: "jsonp",
-                                                    type: "GET",
-                                                    jsonp: "callback",
-                                                    success: function (data) {
-                                                        $.each(data, function (key, val) {
-                                                            localStorage.setItem(key, val);
-                                                        })
-                                                        fnQuestion();
-                                                    }
-                                                })
-                                            },
-                                            cancelOnly: false
-                                        });
-                                    }
-                                }
-                            })
-                        };
-
+                      
 
 
 
@@ -2366,9 +2311,171 @@
                     }
                     //******************* show 产品详情(product) end *******************//
 
+                    //-------------提交问题-------------------//
+                    function fnQuestion() {
+                        var content = $("#problemAtCompanyPro").val();
+                        var gsqc = $("#companypro").attr("gsqc");
+                        var id = localStorage["id"];
+                        if (id == null) {
+                            id = "";
+                        }
+
+                        $.ajax({
+                            url: "http://www.shrxc.com/api/apitest/question",
+                            data: { "sid": sid, "question": content, "id": id },
+                            dataType: "jsonp",
+                            type: "GET",
+                            jsonp: "callback",
+                            success: function (data) {
+                              
+                                if (data == 1) {
+                                    $("#solveAfter").show();
+                                    $("#solveNow").hide();
+                                }
+                                else if (data == -2) {
+                                    toast("公司不存在", 1000);
+                                }
+                                else {
+                                    $("#afui").popup({
+                                        title: "登录",
+                                        message: "手机号码:<input id='telText' type='text' class='af-ui-forms' /><br/ >密码:<input id='pwdText' class='af-ui-forms' type='text' style='webkit-text-security:disc'/>",
+                                        cancelText: "取消",
+                                        cancelCallback: function () { },
+
+                                        doneText: "登录",
+                                        doneCallback: function () {
+                                            var tel = $("#telText").val();
+                                            var pwd = $("#pwdText").val();
+                                            if (tel == "" || pwd == "")
+                                            {
+                                                toast("账号或密码不能为空", 1000);
+                                                fnQuestion();
+                                            }
+                                         
+                                            $.ajax({
+                                                data: { "tel": tel, 'pwd': pwd },
+                                                url: "http://www.shrxc.com/api/apitest/login",
+                                                dataType: "jsonp",
+                                                type: "GET",
+                                                jsonp: "callback",
+                                                success: function (data) {
+                                                 
+                                                    if (data != null)
+                                                    {
+                                                        $.each(data, function (key, val) {
+                                                            localStorage.setItem(key, val);
+                                                        })
+                                                        fnQuestion();
+                                                    }
+                                                        
+                                                    else
+                                                        toast("登录失败,请重新登录",1000)
+                                                }
+                                            })
+                                        },
+                                        cancelOnly: false
+                                    });
+                                }
+                            }
+                        })
+                    };
+                    //-------------提交问题-------------------//
+
+
                     function fnAppendMoreInfoAtCompany() {
                         $(".itWhileHide").show();
                     }
+
+                    function fnMakeAnAppointment() {
+                        id = localStorage["id"];
+                        name=localStorage["username"];
+                        if (id == null)
+                            id = '';
+                        $("#afui").popup({
+                            title: "预约产品",
+                            message: "姓名:<input id='yuyueName' type='text' placehoder='"+name+"' id='yuyuetel' class='af-ui-forms'/><br />联系电话:<input type='tel' id='yuyuetel' class='af-ui-forms'/><br /> 预约金额:<input id='yuyuenum' type='number' style='width:80%; margin-right:10px;'  />万元 <br /> 备注:<input id='yuyuebeizhu' type='text'  class='af-ui-forms' />",
+                            cancelText: "取消",
+                            cancelCallback: function () { },
+                            doneText: "提交",
+                            doneCallback: function () {
+                                var tel = $("#yuyuetel").val();
+                                var num = $("#yuyuenum").val();
+                                var biezhu = $("#yuyuebeizhu").val();
+                                var username = $("#yuyueName").val();
+                                var remark=$("#yuyuebeizhu").val();
+                                if(tel=="")
+                                {
+                                    toast("电话不能为空", 1000);
+                                    
+                                } else if(username == '' && name == '')
+                                {
+                                    toast("姓名不能为空", 1000);
+                                }
+                                else if(num=="")
+                                {
+                                    toast("金额不能为空", 1000);
+                                }
+                                else {
+                                    name = name == '' ? username : name;
+                                    $.ajax({
+                                        data: { 'id': id, "tel": tel, 'money': num, 'remark': remark, 'username': name },
+                                        url: "http://www.shrxc.com/api/apitest/yy",
+                                        type: "GET",
+                                        dataType: "jsonp",
+                                        jsonp: "callback",
+                                        success: function (data) {
+                                            if(data==-1)
+                                            {
+                                                $("#afui").popup({
+                                                    title: "登录",
+                                                    message: "手机号码:<input id='telText' type='text' class='af-ui-forms' /><br/ >密码:<input id='pwdText' class='af-ui-forms' type='text' style='webkit-text-security:disc'/>",
+                                                    cancelText: "取消",
+                                                    cancelCallback: function () { },
+
+                                                    doneText: "登录",
+                                                    doneCallback: function () {
+                                                        var tel = $("#telText").val();
+                                                        var pwd = $("#pwdText").val();
+                                                        if (tel == "" || pwd == "") {
+                                                            toast("账号或密码不能为空", 1000);
+                                                            fnQuestion();
+                                                        }
+
+                                                        $.ajax({
+                                                            data: { "tel": tel, 'pwd': pwd },
+                                                            url: "http://www.shrxc.com/api/apitest/login",
+                                                            dataType: "jsonp",
+                                                            type: "GET",
+                                                            jsonp: "callback",
+                                                            success: function (data) {
+
+                                                                if (data != null) {
+                                                                    $.each(data, function (key, val) {
+                                                                        localStorage.setItem(key, val);
+                                                                    })
+                                                                    fnQuestion();
+                                                                }
+
+                                                                else
+                                                                    toast("登录失败,请重新登录", 1000)
+                                                            }
+                                                        })
+                                                    },
+                                                    cancelOnly: false
+                                                });
+                                            }
+                                            else {
+                                                toast("预约成功 ,请静候佳音", 1000);
+                                            }
+                                        }
+                                    })
+                                }
+
+                            }
+                        })
+                    }
+
+
 
                 </script>
                 <style>
