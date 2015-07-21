@@ -4,7 +4,9 @@ function ScrollPic(scrollContId,arrLeftId,arrRightId,dotListId,listType){
   this.scrollContId = scrollContId; //内容容器ID
   this.arrLeftId = arrLeftId; //左箭头ID
   this.arrRightId = arrRightId; //右箭头ID
+
   this.dotListId = dotListId; //点列表ID
+
   this.listType = listType; //列表类型
 
   this.dotClassName   = "dotItem";//点className
@@ -110,7 +112,7 @@ ScrollPic.prototype = {
     
     var pages = Math.ceil(this.lDiv01[this.upright?'offsetHeight':'offsetWidth'] / this.frameWidth),i,tempObj;
     this.pageLength = pages;
-    //dot
+
     if(this.dotListId){
       this.dotListObj = this.$(this.dotListId);
       this.dotListObj.innerHTML = "";
@@ -140,6 +142,7 @@ ScrollPic.prototype = {
       };
     };
     this.scDiv[this.upright?'scrollTop':'scrollLeft'] = 0;
+
     //autoPlay
     if(this.autoPlay){this.play()};
     
