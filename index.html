@@ -785,7 +785,7 @@
                         <img class="aright" src="img/jfzy/user_right.png" />
                     </a>
                     <div class="link"></div>
-                    <a class="a1" href="#lpjuan" id="btnHuodongQuan">
+                    <a class="a1" href="#hdjuan" id="btnHuodongQuan">
                         <img class="aimg" src="img/jfzy/user_jifen.png" />
                         <div class="aspan">活动券</div>
                         <img class="aright" src="img/jfzy/user_right.png" />
@@ -1436,10 +1436,30 @@
             </div>
             <!--------------------------------------next注册----------------------------------------->
             <!-------------------------------------礼品劵------------------------------------------>
-            <div class="panel" id="lpjuan" data-footer="custom_footer" data-load="fnShowTickedbyHuoDong" data-tab="footer_jfshop" style=" width:100%; background-color:#f0f0f0;">
+            <div class="panel" id="lpjuan" data-header="lpq_heaader" data-footer="custom_footer" data-load="fnShowTickedbyLiPin" data-tab="footer_jfshop" style=" width:100%; background-color:#f0f0f0;">
                 <div id="showLiPingQuan"></div>
+
+                <header id="lpq_heaader">
+                    <a href="#yhzx" class="biaotizuo">
+                        <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
+                    </a>
+                    <h1>礼品券</h1>
+                </header>
             </div>
             <!-------------------------------------礼品劵------------------------------------------>
+            <!-------------------------------------活动券------------------------------------------>
+            <div class="panel" id="hdjuan" data-header="hdq_heaader" data-footer="custom_footer" data-load="fnShowTickedbyHuoDong" data-tab="footer_jfshop" style=" width:100%; background-color:#f0f0f0;">
+              
+
+                <header id="hdq_heaader">
+                    <a href="#yhzx" class="biaotizuo">
+                        <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
+                    </a>
+                    <h1>活动券</h1>
+                </header>
+                <div id="showHuoDongQuan"></div>
+            </div>
+            <!-------------------------------------活动券------------------------------------------>
             <!-------------------------------------预约记录------------------------------------------>
             <div title="预约记录" class="panel" id="yyjl" data-header="hyyjl" data-footer="none" data-tab="footer_jfshop" data-load="yyjl" style=" width:100%; background-color:#f0f0f0;selected=" true"">
 
@@ -3856,7 +3876,7 @@
 
     $("#sign").click(qianDao);//点击立刻签到按钮
 
-    function fnGetTickedByType(types)//显示活动或礼品券列表
+    function fnGetTickedByType(types,sssid)//显示活动或礼品券列表
     {
         $("#showLiPingQuan").text("")
         id = window.localStorage["id"];
@@ -3867,8 +3887,9 @@
             dataType: "jsonp",
             jsonp: "callback",
             success: function (data) {
-
+               
                 $.each(data, function (key, value) {
+                   
                     var imgsrc = types == "lp" ? (parseInt(value.state) == 0 ? "url(./img/lpjuan/notUse_lp.png)" : "url(./img/lpjuan/useed_lp.png)") : (parseInt(value.state) == 0 ? "url(./img/lpjuan/notUes_hd.png)" : "url(./img/lpjuan/notUes_hd.png)");
 
                     var item = "<div onclick='fnClickShow(this)' imgsrc='" + value.activity.imgsrc + "' coid='" + value.coid + "' score='" + value.score + "' gsjc='" + value.seller.gsjc + "'  state='" + value.state + "' titles='" + value.activity.title + "'theDate='有效日期:" + (value.activity.begintime).substring(0, 10) + "日~" + (value.endtime).substring(0, 10) + "日' style='margin-top:5px;padding:2% 4%;border:1px solid #ccc;background-image:" + imgsrc + "; background-position:right top;background-repeat:no-repeat;background-color:#FFF;width:100%'>"//code
@@ -3882,7 +3903,8 @@
                         + " <div style='clear:both'></div>"
                         + "</div>";
 
-                    $("#showLiPingQuan").append(item);
+                    $('#' + sssid).append(item);  //var myTitle = LipinOrHuodong == "lp" ? "礼品券" : "活动券";
+                  
                 })
 
             },
@@ -3931,13 +3953,21 @@
 
 
 
-    function fnShowTickedbyHuoDong() {////显示礼品券领取记录
-        var myTitle = LipinOrHuodong == "lp" ? "礼品券" : "活动券";
-
-        $("#lpjuan").attr("data-title", myTitle);
-        fnGetTickedByType(LipinOrHuodong);
+    function fnShowTickedbyHuoDong() {////显示活动券领取记录
+        //var myTitle = LipinOrHuodong == "lp" ? "礼品券" : "活动券";
+        var sid = "showHuoDongQuan";
+        //$("#lpjuan").attr("data-title", myTitle);
+        fnGetTickedByType("hd",sid);
+       
+        // $("#lpjuan").attr("data-title", myTitle);
+       
     }
-
+    function fnShowTickedbyLiPin() {////显示礼品券领取记录
+        //var myTitle = LipinOrHuodong == "lp" ? "礼品券" : "活动券";
+        var sid = "showLiPingQuan";
+       // $("#lpjuan").attr("data-title", myTitle);
+        fnGetTickedByType("lp",sid);
+    }
 
     //***************修改密码*******************
     function changePasssword() {
