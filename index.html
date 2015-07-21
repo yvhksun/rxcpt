@@ -1276,7 +1276,13 @@
 
             </div>
             <!---------------------------------会员中心个人资料修改密码------------------------------>
-            <!---------------------------------会员中心我的积分-------------------------------------->
+            <!---------------------------------会员中心我的积分--------------------- <footer id="custom_footer">
+                <a href='#zhuye' id="footer_zhuye"><img src="img/footerimg/icon-home-2.png" style="height:43px; width:53px;"></a>
+                <a href='#sous' id="footer_anjian"><img src="img/footerimg/icon-search.png" style="height:43px; width:53px;"></a>
+                <a href='#jjzq' id="footer_jiaoliu"><img src="img/footerimg/icon-chat.png" style="height:43px; width:53px;"></a>
+                <a href='#jfshop' id="footer_jfshop"><img src="img/footerimg/icon-shop.png" style="height:43px; width:53px"></a>
+                <a href='#yhzx' onclick="dltz_wd()" id="footer_yhzx"><img src="img/footerimg/icon-user.png" style="height:43px; width:53px;"></a>
+                <script>----------------->
             <div class="panel" id="hyzx_wdjf" data-header="wdjf" data-footer="none" style="background-color:#f0f0f0;" data-load="wdjfShuZi">
                 <div style="width:100%; background-color:#f0f0f0; font-family:'微软雅黑';">
 
@@ -1287,7 +1293,16 @@
                     <div style="margin-left:40%;"><span id="wdjf_shuzi" style="display:inline-block; color:#fe2e23;font-size:30px; text-align:center; margin-top:25px;">666</span><span style="color:#c20e00;font-size:14px;">分</span></div>
                     <div></div>
                 </div>
-                <a href="#jfshop"><input style="margin-left:20%;margin-top:70px; width:60%;" type="image" src="img/myJF/JF_annniu.png" /></a>
+                <a id="tz_jfsc" href=""><input style="margin-left:20%;margin-top:70px; width:60%;" type="image" src="img/myJF/JF_annniu.png" /></a>
+                <script>
+                    $("#tz_jfsc").click(function () {
+                        $.ui.loadContent("#jfshop");
+
+                        $("#footChangeImg_1").attr("src", "img/footerimg/icon-user.png");
+                       
+                        $("#footChangeImg_2").attr("src", "img/footerimg/icon-shop-2.png");
+                    })
+                </script>
             </div>
             <!---------------------------------会员中心我的积分-------------------------------------->
             <!---------------------------------会员中心安检记录-------------------------------------->
@@ -2827,8 +2842,8 @@
                 <a href='#zhuye' id="footer_zhuye"><img src="img/footerimg/icon-home-2.png" style="height:43px; width:53px;"></a>
                 <a href='#sous' id="footer_anjian"><img src="img/footerimg/icon-search.png" style="height:43px; width:53px;"></a>
                 <a href='#jjzq' id="footer_jiaoliu"><img src="img/footerimg/icon-chat.png" style="height:43px; width:53px;"></a>
-                <a href='#jfshop' id="footer_jfshop"><img src="img/footerimg/icon-shop.png" style="height:43px; width:53px"></a>
-                <a href='#yhzx' onclick="dltz_wd()" id="footer_yhzx"><img src="img/footerimg/icon-user.png" style="height:43px; width:53px;"></a>
+                <a href='#jfshop' id="footer_jfshop"><img id="footChangeImg_2" src="img/footerimg/icon-shop.png" style="height:43px; width:53px"></a>
+                <a href='#yhzx' onclick="dltz_wd()" id="footer_yhzx"><img id="footChangeImg_1" src="img/footerimg/icon-user.png" style="height:43px; width:53px;"></a>
                 <script>
                     //function dltz_wd() {
                     //    var id = window.localStorage["id"];
