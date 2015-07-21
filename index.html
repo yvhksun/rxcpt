@@ -285,7 +285,7 @@
                     <div onclick="jifgd()" style="width:100%;padding-top:10px;">
                         <div id="del_tianjia" style="height:30px;line-height:30px ;width:50%;text-align:center; margin:0 auto;border-radius:15px;border:solid 1px #dbdbdb ">加载更多</div>
                     </div>
-                    
+
                 </div>
                 <script>
                     var addpag = 2
@@ -451,7 +451,7 @@
                         <a href="#" style="text-decoration:none;color:#4d4d4d;"><img src="img/shopdetail/333_09.png" style="position:relative;top:5px;" /> 提问</a>
                     </div>
                     <div id="xiangqingdianzhan" style="border-bottom:1px solid #999999;border-top:1px solid #999999;width:20%;height:58px;line-height:58px;background-color:#ffffff;text-align:center;float:left;cursor:pointer;">
-                        <a  style="text-decoration:none;color:#4d4d4d;"><img src="img/shopdetail/444_12.png" style="position:relative;top:2px;" /> 点赞</a>
+                        <a style="text-decoration:none;color:#4d4d4d;"><img src="img/shopdetail/444_12.png" style="position:relative;top:2px;" /> 点赞</a>
                     </div>
                     <div id="qiyexiangqing" style="width:30%;height:58px;line-height:58px;background-color:#b6ff00;text-align:center;float:left;background-color:#18c6f3;cursor:pointer;color:#ffffff;"><a href="#" style="text-decoration:none;color:#ffffff;">企业详情</a></div>
                     <div id="buyButton" style="width:30%;height:58px;line-height:58px;background-color:#b6ff00;text-align:center;float:left;background-color:#e31e1e;cursor:pointer;"><a href="#" style="text-decoration:none;color:#ffffff;">立即兑换</a></div>
@@ -459,7 +459,7 @@
                 </div>
 
                 <script>
-                  
+
                     $("#qiyexiangqing").click(function () {
                         $("#companypro").attr("gsqc", $("#jifengxiangqing").attr("GSQC"));
                         $.ui.loadContent("#companypro");
@@ -1364,7 +1364,7 @@
                 <script>
                     function jiaolss() {
                         $("#jladd").html("");
-                        
+
                         var iptext = $("#mySearch").val()
                         jiaoliu(1, iptext)
 
@@ -1394,7 +1394,7 @@
 
                                     var item = $(
 
-                                        " <div onclick='fnGotoCompanyPro(1,\""+value.gsqc+"\")' gsqc='" + value.gsqc + "' style='width:33.33%;height:130px;float:left;padding:15px 15px;border:solid 1px #dbdbdb'>" +
+                                        " <div onclick='fnGotoCompanyPro(1,\"" + value.gsqc + "\")' gsqc='" + value.gsqc + "' style='width:33.33%;height:130px;float:left;padding:15px 15px;border:solid 1px #dbdbdb'>" +
 
                                             "<img src='http://120.24.220.249" + value.logo + "' class='jltbl'style='height:73%;width:100%'/>" +
                                             "<span style='text-align:center;width:100%;display:inline-table;margin-top:10px;'>" + value.gsjc + "</span>" +
@@ -1516,7 +1516,6 @@
             </div>
 
             <!-------------------------------------快速提问------------------------------------------>
-            
             <!-------------------------------------融信城&安检查询------------------------------------------>
             <div class="panel" id="AnJianChaXun" data-header="rxc_ajcx" data-footer="none" style="background-color:#fff;font-family:'微软雅黑';" data-load="fnShowAllInformation">
 
@@ -1759,7 +1758,7 @@
             <!-------------------------------------//搜索结果------------------------------------------>
             <!------------------------------------- 公司简介------------------------------------------>
 
-            <div id="companypro" class="panel " style="background:#f0f0f0" data-load="fnShowWhatNow" shownow="1" gsqc="" data-footer="none">
+            <div id="companypro" class="panel " style="background:#f0f0f0" data-load="fnShowCompanypro" shownow="1" gsqc="" data-footer="none">
                 <header>
                     <a href="#jjzq" class="biaotizuo">
                         <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
@@ -1791,32 +1790,15 @@
 
                             <div id="solveAtCompanyPro">
                                 <div id="solveAfter">
-                                    <div style="border:#05c9fa 1px solid;padding:20px;border-radius:5px;text-align:left">
-                                        <p>问：那票据类的理财安不安全？</p>
-                                        <p style="border-bottom:#adadad 1px solid;padding-bottom:10px;">
-                                            答：票据类理财分为很多种的，我们公司做的
-                                            是和银行合作的承兑汇票，最后是由银行无条
-                                            件兑付的，所以是十分安全的一种理财产品。
-                                        </p>
-
-                                        <p>问：如果要买的话一般买多久的比较安全？</p>
-
-                                        <p>
-                                            答：亲，如果比较产品安全度的话只有从产品
-                                            的风控措施和还款来源来看的，与投资产品的
-                                            时间长短无关！说到产品收益的话一般来说是
-                                            时间越久收益越丰厚！对于我们公司的这款零
-                                            风险产品肯定是时间越长收益越丰厚的！谢谢
-                                            亲的关注！希望亲能在投资我们公司产品的同
-                                            时体验到安全的理财产品给您带来的收益享受！
-                                        </p>
+                                    <div id="idShowQuestionHere" style="border:#05c9fa 1px solid;padding:20px;border-radius:5px;text-align:left">
+                                   <!--code-->
                                     </div>
                                     <div id="btnSovleAfter" style="width:100%;height:40px;background:#ff6b6b;color:#fff;letter-spacing:10px;border-radius:5px;line-height:40px;margin-top:10px;margin-bottom:10px;">去提问</div>
                                 </div>
                                 <div id="solveNow" style="display:none">
                                     <textarea id="problemAtCompanyPro" cols="20" rows="4" style="width:100%;border-radius:5px;border:#05c9fa 1px solid;" placeholder="请问贵公司有什么产品?"></textarea>
-                                    <div style="width:100%;height:40px;background:#35d728;color:#fff;letter-spacing:10px;border-radius:5px;line-height:40px;margin-top:20px;">提&nbsp;&nbsp;&nbsp;&nbsp;交</div>
-                                    <div style="width:100%;height:40px;background:#faa54b;color:#fff;letter-spacing:10px;border-radius:5px;line-height:40px;margin-top:20px;">公司解答</div>
+                                    <div id="idSubAtCompanyPro" style="width:100%;height:40px;background:#35d728;color:#fff;letter-spacing:10px;border-radius:5px;line-height:40px;margin-top:20px;">提&nbsp;&nbsp;&nbsp;&nbsp;交</div>
+                                    <div id="idAnswerAtCompanyPro" style="width:100%;height:40px;background:#faa54b;color:#fff;letter-spacing:10px;border-radius:5px;line-height:40px;margin-top:20px;">公司解答</div>
                                 </div>
                             </div>
 
@@ -1825,7 +1807,9 @@
                             </div>
 
                             <div id="prductAtCompany">
+                                
                                 <p style="color:#c89022;">产品目录</p>
+                               
                                 <!--产品目录添加在此-->
                             </div>
 
@@ -1835,86 +1819,7 @@
                                 <div style=" clear:both"></div>
                                 <div style="border-top:dotted 1px #c0c0c0;">
                                     <table id="showProductDetails" style="text-align:left; border-spacing :0px 10px;   line-height:30px;">
-                                        <tr>
-                                            <td>产品名称：</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>产品期限：</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>发行日期：</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>付息方式：</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>募集进度：</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>认购金额：</td>
-                                            <td>年化收益：</td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>还款来源：</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>风控措施：</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>抵押率：</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>产品类型：</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr class="itWhileHide">
-                                            <td>发行规模：</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr class="itWhileHide">
-                                            <td>发行地区：</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr class="itWhileHide">
-                                            <td>募集期限：</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr class="itWhileHide">
-                                            <td>资金投向：</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr class="itWhileHide">
-                                            <td>募集账户：</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr class="itWhileHide">
-                                            <td>融资方介绍：</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr class="itWhileHide">
-                                            <td>担保方介绍：</td>
-                                            <td></td>
-                                        </tr>
+                                        
                                     </table>
 
                                     <div onclick="fnAppendMoreInfoAtCompany()" style="width:70px;padding:5px;border-radius:3px;border:#c7c7c7 1px solid;color:#a9ebe6;margin:10px;float:right;">了解跟多</div>
@@ -1927,73 +1832,24 @@
 
                 </div>
                 <script>
-
-                    function fnGotoCompanyPro(showNum,gsqc)
+                    /////  showNum 导航显示第几页   gsqc 公司全称-->作为查询数据的唯一识标
+                    function fnGotoCompanyPro(showNum, gsqc)   //构造函数-->页面间传递值并跳转到本页
                     {
-                        alert(1)
                         $("#companypro").attr("shownow", showNum);
                         $("#companypro").attr("gsqc", gsqc);
                         $.ui.loadContent("#companypro");
-                    }
+                    };
+                    var sid = '';
+                    function fnShowCompanypro() {  //  向本页面填充数据
 
-
-
-                    //*************************导航切换*****************//
-                    $("#onClickCompanyPro").click(function () {
-                        lightAtTheID("onClickCompanyPro");
-                        showWhoAtTheId("mainAtCompanyPro");
-                    })
-                    $("#onClickSolve").click(function () {
-                        lightAtTheID("onClickSolve");
-                        showWhoAtTheId("solveAtCompanyPro");
-                    })
-                    $("#onClickActivity").click(function () {
-                        lightAtTheID("onClickActivity");
-                        showWhoAtTheId("activityAtCompanyPro");
-                    })
-                    $("#onClickProduct").click(function () {
-                        lightAtTheID("onClickProduct");
-                        showWhoAtTheId("prductAtCompany");
-                    })
-
-                    function lightAtTheID(id)///
-                    {
-                        $("#" + id).addClass("showNowCss");
-                        $("#" + id).parent().children().not($("#" + id)).removeClass("showNowCss");
-                    }
-
-                    function showWhoAtTheId(id) {
-
-                        $("#" + id).removeClass("showNowAtCompany");
-                        $("#" + id).parent().children().not($("#" + id)).addClass("showNowAtCompany");
-                    }
-                    //*************************导航切换 end  *****************//
-
-                    $("#btnSovleAfter").click(function () { //提问按钮
-                        $("#solveAfter").hide();
-                        $("#solveNow").show();
-                    })
-
-                    $("#backToPrductAtCompany").click(function () {
-                        showWhoAtTheId("prductAtCompany");
-                    })
-                    function fnShowWhatNow() {  // panel  companypro 的构造函数
-
+                        //---------------提取必要的数据------------------------//
                         var gsqc = $("#companypro").attr("gsqc")
                         var showNow = $("#companypro").attr("showNow");
-                        switch (showNow) {
-                            case "1": lightAtTheID("onClickCompanyPro");
-                                showWhoAtTheId("mainAtCompanyPro"); break;
-                            case "2": lightAtTheID("onClickSolve");
-                                showWhoAtTheId("solveAtCompanyPro"); break;
-                            case "3": lightAtTheID("onClickActivity");
-                                showWhoAtTheId("activityAtCompanyPro"); break;
-                            case "4": lightAtTheID("onClickProduct");
-                                showWhoAtTheId("prductAtCompany"); break;
-                            default: lightAtTheID("onClickCompanyPro");
-                                showWhoAtTheId("mainAtCompanyPro"); break;
-                        }
-                   
+                        //---------------提取必要的数据------------------------//
+
+                        fnInialPageAtCompanyPro(1);
+                      
+                       
                         //******************* show 公司详情(company details)begin *******************//
                         $.ajax({
                             url: "http://www.shrxc.com/api/apitest/getsellerbygsqc",
@@ -2005,13 +1861,22 @@
                                 $("#logAtCompany").attr("src", "http://www.shrxc.com" + data.logo);
                                 $("#titleAtCompany").text(data.gsjc);
                                 $("#mainAtCompanyPro").html(data.jj);
+                                sid = data.sid;
+
                             },
                             error: function () { }
                         })
 
                         //******************* show 公司详情(company details)end *******************//
-                        //******************* show 活动(activity )begin *******************//
 
+                        fnChangeNavAtCompany()//绑定导航条切换事件
+
+                        //-------------------------------------  显示问答内容------------------
+                        $("#idShowQuestionHere").html("");
+                        fnShowQuestionAtCompanyPro(1, gsqc);
+                        //-------------------------------------  显示问答内容------------------
+
+                        //******************* show 活动(activity )begin *******************//
                         $("#activityAtCompanyPro").html("")
                         $.ajax({
                             url: "http://www.shrxc.com/api/apitest/getactbygsqc",
@@ -2051,6 +1916,7 @@
                             jsonp: "callback",
                             success: function (data) {
                                 $.each(data, function (key, value) {
+
                                     var item = '<div onclick="fnGotoDetailsAtCompany(this)"  pid="' + value.pid + '" style="width:100%;height:40px;background:#93e6e0;position:relative;text-align:left; margin-top:25px"> '
                                     + '<span class="productList">产品名称：' + value.pname + '</span>'
                                     + ' </div>';
@@ -2064,6 +1930,98 @@
                         //******************* show 产品(product) end *******************//
                     }
 
+                    //**************填充问答页内容**************//
+                    function fnShowQuestionAtCompanyPro(page, gsqc) { ///填充问答内容
+                        $.ajax({
+                            url: "http://www.shrxc.com/api/apitest/getquestionbygsqc",
+                            data: { "gsqc": gsqc, "page": page },
+                            data: { "gsqc": gsqc },
+                            dataType: "jsonp",
+                            type: "GET",
+                            jsonp: "callback",
+                            success: function (data) {
+                                var item = "";
+                                $.each(data, function (key, value) {
+                                    item += "<p>问:" + value.questioncon + "</p><p style=\"border-bottom:#adadad 1px solid;padding-bottom:10px;\">答:" + value.answer + "</p>"
+                                })
+                                $("#idShowQuestionHere").append(item);
+                            },
+                            error: function () { }
+                        })
+                    }
+
+                    //*************************导航切换*****************//
+                    function fnChangeNavAtCompany() {
+
+                        $("#onClickCompanyPro").click(function () {
+                            lightAtTheID("onClickCompanyPro");
+                            showWhoAtTheId("mainAtCompanyPro");
+                        })
+                        $("#onClickSolve").click(function () {
+                            lightAtTheID("onClickSolve");
+                            showWhoAtTheId("solveAtCompanyPro");
+                        })
+                        $("#onClickActivity").click(function () {
+                            lightAtTheID("onClickActivity");
+                            showWhoAtTheId("activityAtCompanyPro");
+                        })
+                        $("#onClickProduct").click(function () {
+                            lightAtTheID("onClickProduct");
+                            showWhoAtTheId("prductAtCompany");
+                        })
+
+                    }
+
+                    //========初始化显示页面
+                    function fnInialPageAtCompanyPro(page) {
+                        switch (page) {
+                            case "1": lightAtTheID("onClickCompanyPro");
+                                showWhoAtTheId("mainAtCompanyPro"); break;
+                            case "2": lightAtTheID("onClickSolve");
+                                showWhoAtTheId("solveAtCompanyPro"); break;
+                            case "3": lightAtTheID("onClickActivity");
+                                showWhoAtTheId("activityAtCompanyPro"); break;
+                            case "4": lightAtTheID("onClickProduct");
+                                showWhoAtTheId("prductAtCompany"); break;
+                            default: lightAtTheID("onClickCompanyPro");
+                                showWhoAtTheId("mainAtCompanyPro"); break;
+                        };
+
+                        $("#solveAfter").show();
+                        $("#solveNow").hide();
+                     
+                    }
+
+
+                    function lightAtTheID(id)///
+                    {
+                        $("#" + id).addClass("showNowCss");
+                        $("#" + id).parent().children().not($("#" + id)).removeClass("showNowCss");
+                    }
+
+                    function showWhoAtTheId(id) {
+
+                        $("#" + id).removeClass("showNowAtCompany");
+                        $("#" + id).parent().children().not($("#" + id)).addClass("showNowAtCompany");
+                    }
+                    //*************************导航切换 end  *****************//
+
+                    $("#btnSovleAfter").click(function () { //提问按钮
+                        $("#solveAfter").hide();
+                        $("#solveNow").show();
+                    })
+
+                    $("#backToPrductAtCompany").click(function () {
+                        showWhoAtTheId("prductAtCompany");
+                    })
+
+                    $("#idSubAtCompanyPro").click(function () {
+                        //code
+                    })
+                    $("#idAnswerAtCompanyPro").click(function () {
+                        $("#solveAfter").show();
+                        $("#solveNow").hide();
+                    })
 
                     //******************* show 产品详情(product) begin *******************//
                     function fnGotoDetailsAtCompany(thisEv) {
@@ -2077,35 +2035,98 @@
                             type: "GET",
                             jsonp: "callback",
                             success: function (data) {
-                                $("#showProductDetails").find("td").eq(1).text(data.pname);
-                                $("#showProductDetails").find("td").eq(3).text(data.time + "月");
-                                $("#showProductDetails").find("td").eq(5).text(data.csrq);
-                                $("#showProductDetails").find("td").eq(7).text(data.fxfs);
-                                $("#showProductDetails").find("td").eq(9).text(data.progress + '%')
-                                $("#showProductDetails").find("td").eq(11).text()
-                                $("#showProductDetails").find("td").eq(13).text()
-                                $("#showProductDetails").find("td").eq(15).text(data.hkly)
-                                $("#showProductDetails").find("td").eq(17).text(data.fxkz)
-                                $("#showProductDetails").find("td").eq(19).text(data.dyl)
-                                $("#showProductDetails").find("td").eq(21).text(data.lx)
-                                $("#showProductDetails").find("td").eq(23).text(data.fxgm)
-                                $("#showProductDetails").find("td").eq(25).text(data.szdq)
-                                $("#showProductDetails").find("td").eq(27).text(data.mjqx)
-                                $("#showProductDetails").find("td").eq(29).text(data.zjtx)
-                                $("#showProductDetails").find("td").eq(31).text(data.mjzh)
-                                $("#showProductDetails").find("td").eq(33).text(data.rzfjs)
-                                $("#showProductDetails").find("td").eq(35).text(data.dbfjs)
+                           
+                                var item = "";
+                                item += "<tr><td>产品名称:</td><td>" + data.pname + "</td></tr>"
+                                item += "<tr><td>产品期限:</td><td>" + data.time + "月" + "</td></tr>"
+                                item += "<tr><td>发行日期:</td><td>" + data.csrq + "</td></tr>"
+                                item += "<tr><td>付息方式:</td><td>" + data.fxfs + "</td></tr>"
+                                item += "<tr><td>募集进度:</td><td>" + data.progress + '%' + "</td></tr>"
+                                item += "<tr><td>认购金额</td><td style='text-indent:25px;color: #ffb59f;'>年化收益:</td></tr>"
+                                $.each(data.benefits, function (key, value) {
+                                    if (value.minmoney != "")
+                                    {
+                                        item += "<tr><td>" + value.minmoney + "~" + value.maxmoney
+                                        + "</td><td><div style='width:100px;height:14px;border-radius:7px;border:1px solid #c0c0c0;margin-left:10px;'><div style='width:" +
+                                        parseFloat(value.yearreturn) * 3+"%" + ";border-radius:6px;;background:#ff5f7c;font-size:12px;line-height:12px;text-indent:25px;'>" + value.yearreturn + "</div></div></td></tr>"
+                                    }
+                                    
+                                })
+                                item += "<tr><td>还款来源:</td><td>" + data.hkly + "</td></tr>"
+                                item += "<tr><td>风控措施:</td><td>" + data.fxkz + "</td></tr>"
+                                item += "<tr><td>抵押率:</td><td>" + data.dyl + "</td></tr>"
+                                item += "<tr><td>产品类型:</td><td>" + data.lx + "</td></tr>"
+                                item += "<tr class=\"itWhileHide\"style='display:none'><td>发行规模:</td><td>" + data.fxgm + "</td></tr>"
+                                item += "<tr class=\"itWhileHide\"style='display:none'><td>发行地区:</td><td>" + data.szdq + "</td></tr>"
+                                item += "<tr class=\"itWhileHide\"style='display:none'><td>募集期限:</td><td>" + data.mjqx + "</td></tr>"
+                                item += "<tr class=\"itWhileHide\"style='display:none'><td>资金投向:</td><td>" + data.zjtx + "</td></tr>"
+                                item += "<tr class=\"itWhileHide\"style='display:none'><td>募集账户:</td><td>" + data.mjzh + "</td></tr>"
+                                item += "<tr class=\"itWhileHide\"style='display:none'><td>融资方介绍:</td><td>" + data.rzfjs + "</td></tr>"
+                                item += "<tr class=\"itWhileHide\"style='display:none'><td>担保方介绍:</td><td>" + data.dbfjs + "</td></tr>"
+                                $("#showProductDetails").append(item);
                             }
                         })
                         showWhoAtTheId("productDetails");
-                        $(".itWhileHide").addClass("showNowAtCompany");
+                      
 
                     }
                     //******************* show 产品详情(product) end *******************//
 
                     function fnAppendMoreInfoAtCompany() {
-                        $(".itWhileHide").removeClass("showNowAtCompany");
+                       
+                        $(".itWhileHide").show();
                     }
+                        
+                    //----------问题提交------------------//
+                    $("#idSubAtCompanyPro").click(function () {
+                        var content=$("#problemAtCompanyPro").val();
+                        var gsqc = $("#companypro").attr("gsqc");
+                        var id = localStorage["id"];
+                        if (id == null)
+                        {
+                            $("#afui").popup({
+                                title: "登录",
+                                message: "手机号码:<input id='telText' type='text' class='af-ui-forms' /><br/ >密码:<input id='pwdText' class='af-ui-forms' type='text' style='webkit-text-security:disc'/>",
+                                cancelText: "取消",
+                                cancelCallback: function () { },
+                              
+                                doneText: "登录",
+                                doneCallback: function () {
+                                    alert($("#telText").val())
+                                    alert($("#pwdText").val())
+                                },
+                                cancelOnly: false
+                            })
+                        }
+
+                        $.ajax({
+                            url: "http://www.shrxc.com/api/apitest/question",
+                            data: { "sid": sid, "question": content, "id": id },
+                            dataType: "jsonp",
+                            type: "GET",
+                            jsonp: "callback",
+                            success: function (data) {
+                                alert(data)
+                                if(data==1)
+                                {
+                                    $("#solveAfter").show();
+                                    $("#solveNow").hide();
+                                }
+                                else if(data==-2)
+                                {
+                                    toast("公司不存在", 1000);
+                                }
+                                else {
+                                    
+                                }
+                            }
+                        })
+                    })
+
+
+
+
+
 
                 </script>
                 <style>
@@ -2115,6 +2136,9 @@
                         position: absolute;
                         right: 60px;
                         -webkit-transform: rotate(180deg);
+                    }
+                    #idShowQuestionHere> *:last-child{
+                        border-bottom:red;
                     }
 
                     .productList {
@@ -2129,7 +2153,6 @@
                         color: #ffb59f;
                         text-align: right;
                         height: 30px;
-                     
                         margin-top: 10px;
                     }
 
@@ -2182,7 +2205,7 @@
 
                     $("#txtYiJian").keyup(function () {
 
-                        yjfk_tj(); 
+                        yjfk_tj();
                     })
                     function yjfk_tj() {
 
@@ -2797,8 +2820,8 @@
         var item = thisEv.parentNode.parentNode.id;
         id = 1;
         $("#con").html("");
-        
-       
+
+
 
         if (item == "btnShowLeft" && thisEv.innerHTML != "全&nbsp;&nbsp;部")
             fnShowShop(id, "", thisEv.innerHTML);
@@ -2824,7 +2847,7 @@
 
         $.ajax({
             url: "http://www.shrxc.com/api/apitest/act",
-            data: { "num": num, "type": types, "area": area  },
+            data: { "num": num, "type": types, "area": area },
             type: "GET",
             dataType: "jsonp",
             jsonp: "callback",
@@ -3174,7 +3197,7 @@
             $.ui.loadContent("#login");
         }
         var actid = $("#jifengxiangqing").attr("actid");
-        
+
         var num = $("#count").text();
 
         $.ajax({
