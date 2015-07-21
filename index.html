@@ -2,10 +2,6 @@
 <!--HTML5 doctype-->
 <html>
 <head>
-
-
-
-
     <script>
         (function () {
             if ("-ms-user-select" in document.documentElement.style && navigator.userAgent.match(/IEMobile\/10\.0/)) {
@@ -207,6 +203,9 @@
             padding: 3px;
             height: 55px;
         }
+        #afui > #navbar {
+            border:none;
+        }
         /*----------------------个人资料详情---------------------**/
         #afui input[type=text] {
             margin-bottom: 0px;
@@ -296,20 +295,26 @@
             <div class="panel" id="jfshop" data-header="mainH" data-footer="custom_footer" data-tab="footer_jfshop" data-load="showShangPin">
                 <div class="scroll">
                     <div class="slide_01" id="slide_01">
+<<<<<<< HEAD
                         <div class="mod_01"><a href="#"><img src="img/scroll_img/banner1.jpg" alt=""></a></div>
                         <div class="mod_01"><a href="#"><img src="img/scroll_img/banner2.jpg" alt=""></a></div>
                         <div class="mod_01"><a href="#"><img src="img/scroll_img/banner3.jpg" alt=""></a></div>
                         <div class="mod_01"><a href="#"><img src="img/scroll_img/banner4.jpg" alt=""></a></div>
                         <div class="mod_01"><a href="#"><img src="1mg/scroll_img/banner5.jpg" alt=""></a></div>
 
+=======
+                        <div class="mod_01"><a href="#"><img src="img/scroll_img/1.jpg" alt=""></a></div>
+                        <div class="mod_01"><a href="#"><img src="img/scroll_img/2.jpg" alt=""></a></div>
+                        <div class="mod_01"><a href="#"><img src="img/scroll_img/3.jpg" alt=""></a></div>
+                        <div class="mod_01"><a href="#"><img src="img/scroll_img/4.jpg" alt=""></a></div>
+                        <div class="mod_01"><a href="#"><img src="1mg/scroll_img/5.jpg" alt=""></a></div>
+>>>>>>> origin/master
                     </div>
                     <div class="dotModule_new">
                         <div id="slide_01_dot" ></div>
                     </div>
                 </div>
                 <div id="main">
-
-
                     <div id="parBtn">
                         <div id="btn">
                             <div id="btnLeft" class="olidSty">
@@ -460,13 +465,26 @@
             </div>
             <!-------------------------------------积分商城------------------------------------------>
             <!----------------------------------积分商城详情页--------------------------------------->
-            <div class="panel" id="jifengxiangqing" data-footer="none" data-load="fnShowShopInfo">
+            <div class="panel" id="jifengxiangqing" data-footer="jfscxx" data-load="fnShowShopInfo">
                 <header>
                     <a href="#jfshop">
                         <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
                     </a>
                     <h1>详情</h1>
                 </header>
+                <footer id="jfscxx" style="padding:0px;border-top:none;">
+                    <div onclick="fnGotoCompanyPro(2, $('#jifengxiangqing').attr('GSQC'))" style="border-top:1px solid #999999;border-right:1px solid #999999;width:20%;height:55px;line-height:55px;background-color:#ffffff;text-align:center;float:left;cursor:pointer;">
+                        <a href="#" style="text-decoration:none;color:#4d4d4d;font-size:16px;"><img src="img/shopdetail/333_09.png" style="position:relative;top:2px;width:15px;" /> 提问</a>
+                    </div>
+
+                    <div id="xiangqingdianzhan" style="border-top:1px solid #999999;width:20%;height:55px;line-height:55px;background-color:#ffffff;text-align:center;float:left;cursor:pointer;">
+                        <a style="text-decoration:none;color:#4d4d4d;font-size:16px;"><img src="img/shopdetail/444_12.png" style="position:relative;top:2px;width:15px;" /> 点赞</a>
+
+                    </div>
+                    <div id="qiyexiangqing" style="width:30%;height:55px;line-height:55px;background-color:#b6ff00;text-align:center;float:left;background-color:#18c6f3;cursor:pointer;color:#ffffff;"><a href="#" style="text-decoration:none;color:#ffffff;font-size:16px;">企业详情</a></div>
+                    <div id="buyButton" style="width:30%;height:55px;line-height:55px;background-color:#b6ff00;text-align:center;float:left;background-color:#e31e1e;cursor:pointer;"><a href="#" style="text-decoration:none;color:#ffffff;font-size:16px;">立即兑换</a></div>
+                    <div style="clear:both"></div>
+                </footer>
                 <div style="width:100%;font-family:'微软雅黑'">
 
                     <div style="width:90.6%;margin:0 auto;">
@@ -538,21 +556,6 @@
                         <div id="ZhuYi_sx" style="display:none;">注意事项</div>
                         <div style="height:100px;width:100%;"></div>
                     </div>
-                </div>
-
-
-                <div style="position:fixed; bottom:0px;; width:100%;">
-                    <div onclick="fnGotoCompanyPro(2, $('#jifengxiangqing').attr('GSQC'))" style="border-top:1px solid #999999;border-right:1px solid #999999;width:20%;height:48px;line-height:48px;background-color:#ffffff;text-align:center;float:left;cursor:pointer;">
-                        <a href="#" style="text-decoration:none;color:#4d4d4d;font-size:16px;"><img src="img/shopdetail/333_09.png" style="position:relative;top:2px;width:15px;" /> 提问</a>
-                    </div>
-
-                    <div id="xiangqingdianzhan" style="border-top:1px solid #999999;width:20%;height:48px;line-height:48px;background-color:#ffffff;text-align:center;float:left;cursor:pointer;">
-                        <a  style="text-decoration:none;color:#4d4d4d;font-size:16px;"><img src="img/shopdetail/444_12.png" style="position:relative;top:2px;width:15px;" /> 点赞</a>
-
-                    </div>
-                    <div id="qiyexiangqing" style="width:30%;height:48px;line-height:48px;background-color:#b6ff00;text-align:center;float:left;background-color:#18c6f3;cursor:pointer;color:#ffffff;"><a href="#" style="text-decoration:none;color:#ffffff;font-size:16px;">企业详情</a></div>
-                    <div id="buyButton" style="width:30%;height:48px;line-height:48px;background-color:#b6ff00;text-align:center;float:left;background-color:#e31e1e;cursor:pointer;"><a href="#" style="text-decoration:none;color:#ffffff;font-size:16px;">立即兑换</a></div>
-                    <div style="clear:both"></div>
                 </div>
 
                 <script>
@@ -912,7 +915,6 @@
             <!---------------------------------会员中心积分记录-------------------------------------->
             <div id="hyjfjl" title="积分记录" class="panel" data-header="hhyjfjl" data-load="jfjl" data-footer="none" data-tab="footer_zhuye">
                 <div>
-
                     <div id="jifadd"></div>
                 </div>
                 <script>
@@ -2342,7 +2344,6 @@
 
                             }
                         })
-
                     }
                 </script>
             </div>
@@ -2372,11 +2373,7 @@
        
     }
                 </script>
-
-
             </div>
-
-
             <!-------------------------------------补全资料------------------------------------------>
             <!-------------------------------------------------------------------------使用手册--------------------------------------------------------------->
             <style type="text/css">
@@ -2765,7 +2762,7 @@
                 <a href='#sous' id="footer_anjian"><img src="img/footerimg/icon-search.png" style="height:43px; width:53px;"></a>
                 <a href='#jjzq' id="footer_jiaoliu"><img src="img/footerimg/icon-chat.png" style="height:43px; width:53px;"></a>
                 <a href='#jfshop' id="footer_jfshop"><img src="img/footerimg/icon-shop.png" style="height:43px; width:53px"></a>
-                <a href='#yhzx' onclick="dltz_wd()" id="footer_yhzx"><img src="img/footerimg/icon-user.png" style="height:43px; width:53px;"></a>
+                <a href='#yhzx'  id="footer_yhzx"><img src="img/footerimg/icon-user.png" style="height:43px; width:53px;"></a>
                 <script>
                     //function dltz_wd() {
                     //    var id = window.localStorage["id"];
@@ -3444,6 +3441,7 @@
                         break;
 
                     case '-2': $.ui.showToast("今天已经点过赞");
+                        fnRefreshLocalStorage();
                         setTimeout($.ui.hideToast, 1500);
                         break;//
 
