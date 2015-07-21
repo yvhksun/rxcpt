@@ -2000,86 +2000,7 @@
                                 <div style=" clear:both"></div>
                                 <div style="border-top:dotted 1px #c0c0c0;">
                                     <table id="showProductDetails" style="text-align:left; border-spacing :0px 10px;   line-height:30px;">
-                                        <tr>
-                                            <td>产品名称：</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>产品期限：</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>发行日期：</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>付息方式：</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>募集进度：</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>认购金额：</td>
-                                            <td>年化收益：</td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>还款来源：</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>风控措施：</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>抵押率：</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td>产品类型：</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr class="itWhileHide">
-                                            <td>发行规模：</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr class="itWhileHide">
-                                            <td>发行地区：</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr class="itWhileHide">
-                                            <td>募集期限：</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr class="itWhileHide">
-                                            <td>资金投向：</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr class="itWhileHide">
-                                            <td>募集账户：</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr class="itWhileHide">
-                                            <td>融资方介绍：</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr class="itWhileHide">
-                                            <td>担保方介绍：</td>
-                                            <td></td>
-                                        </tr>
+
                                     </table>
 
                                     <div onclick="fnAppendMoreInfoAtCompany()" style="width:70px;padding:5px;border-radius:3px;border:#c7c7c7 1px solid;color:#a9ebe6;margin:10px;float:right;">了解跟多</div>
@@ -2101,7 +2022,7 @@
                     }
 
 
-
+                    var sid = '';
                     //*************************导航切换*****************//
                     $("#onClickCompanyPro").click(function () {
                         lightAtTheID("onClickCompanyPro");
@@ -2158,6 +2079,8 @@
                                 showWhoAtTheId("mainAtCompanyPro"); break;
                         }
 
+                        
+
                         //******************* show 公司详情(company details)begin *******************//
                         $.ajax({
                             url: "http://www.shrxc.com/api/apitest/getsellerbygsqc",
@@ -2169,11 +2092,22 @@
                                 $("#logAtCompany").attr("src", "http://www.shrxc.com" + data.logo);
                                 $("#titleAtCompany").text(data.gsjc);
                                 $("#mainAtCompanyPro").html(data.jj);
+                                sid = data.sid;
                             },
                             error: function () { }
                         })
 
                         //******************* show 公司详情(company details)end *******************//
+
+                        fnChangeNavAtCompany()//绑定导航条切换事件
+
+                        //-------------------------------------  显示问答内容------------------
+                        $("#idShowQuestionHere").html("");
+                        fnShowQuestionAtCompanyPro(1, gsqc);
+                        //-------------------------------------  显示问答内容------------------
+
+                        fnInialPageAtCompanyPro(1)
+
                         //******************* show 活动(activity )begin *******************//
 
                         $("#activityAtCompanyPro").html("")
@@ -2330,6 +2264,8 @@
                         var id = thisEv.getAttribute("pid");
 
 
+
+
                         $.ajax({
                             url: "http://www.shrxc.com/api/apitest/getprobyid",
                             data: { "pid": id },
@@ -2337,34 +2273,101 @@
                             type: "GET",
                             jsonp: "callback",
                             success: function (data) {
-                                $("#showProductDetails").find("td").eq(1).text(data.pname);
-                                $("#showProductDetails").find("td").eq(3).text(data.time + "月");
-                                $("#showProductDetails").find("td").eq(5).text(data.csrq);
-                                $("#showProductDetails").find("td").eq(7).text(data.fxfs);
-                                $("#showProductDetails").find("td").eq(9).text(data.progress + '%')
-                                $("#showProductDetails").find("td").eq(11).text()
-                                $("#showProductDetails").find("td").eq(13).text()
-                                $("#showProductDetails").find("td").eq(15).text(data.hkly)
-                                $("#showProductDetails").find("td").eq(17).text(data.fxkz)
-                                $("#showProductDetails").find("td").eq(19).text(data.dyl)
-                                $("#showProductDetails").find("td").eq(21).text(data.lx)
-                                $("#showProductDetails").find("td").eq(23).text(data.fxgm)
-                                $("#showProductDetails").find("td").eq(25).text(data.szdq)
-                                $("#showProductDetails").find("td").eq(27).text(data.mjqx)
-                                $("#showProductDetails").find("td").eq(29).text(data.zjtx)
-                                $("#showProductDetails").find("td").eq(31).text(data.mjzh)
-                                $("#showProductDetails").find("td").eq(33).text(data.rzfjs)
-                                $("#showProductDetails").find("td").eq(35).text(data.dbfjs)
-                            }
+                                var item = "";
+                                item += "<tr><td>产品名称:</td><td>" + data.pname + "</td></tr>"
+                                item += "<tr><td>产品期限:</td><td>" + data.time + "月" + "</td></tr>"
+                                item += "<tr><td>发行日期:</td><td>" + data.csrq + "</td></tr>"
+                                item += "<tr><td>付息方式:</td><td>" + data.fxfs + "</td></tr>"
+                                item += "<tr><td>募集进度:</td><td>" + data.progress + '%' + "</td></tr>"
+                                item += "<tr><td>认购金额</td><td style='text-indent:25px;color: #ffb59f;'>年化收益:</td></tr>"
+                                $.each(data.benefits, function (key, value) {
+                                    if (value.minmoney != "") {
+                                        item += "<tr><td>" + value.minmoney + "~" + value.maxmoney
+                                        + "</td><td><div style='width:100px;height:14px;border-radius:7px;border:1px solid #c0c0c0;margin-left:10px;'><div style='width:" +
+                                        parseFloat(value.yearreturn) * 3 + "%" + ";border-radius:6px;;background:#ff5f7c;font-size:12px;line-height:12px;text-indent:25px;'>" + value.yearreturn + "</div></div></td></tr>"
+                                    }
+
+                                })
+                                item += "<tr><td>还款来源:</td><td>" + data.hkly + "</td></tr>"
+                                item += "<tr><td>风控措施:</td><td>" + data.fxkz + "</td></tr>"
+                                item += "<tr><td>抵押率:</td><td>" + data.dyl + "</td></tr>"
+                                item += "<tr><td>产品类型:</td><td>" + data.lx + "</td></tr>"
+                                item += "<tr class=\"itWhileHide\"style='display:none'><td>发行规模:</td><td>" + data.fxgm + "</td></tr>"
+                                item += "<tr class=\"itWhileHide\"style='display:none'><td>发行地区:</td><td>" + data.szdq + "</td></tr>"
+                                item += "<tr class=\"itWhileHide\"style='display:none'><td>募集期限:</td><td>" + data.mjqx + "</td></tr>"
+                                item += "<tr class=\"itWhileHide\"style='display:none'><td>资金投向:</td><td>" + data.zjtx + "</td></tr>"
+                                item += "<tr class=\"itWhileHide\"style='display:none'><td>募集账户:</td><td>" + data.mjzh + "</td></tr>"
+                                item += "<tr class=\"itWhileHide\"style='display:none'><td>融资方介绍:</td><td>" + data.rzfjs + "</td></tr>"
+                                item += "<tr class=\"itWhileHide\"style='display:none'><td>担保方介绍:</td><td>" + data.dbfjs + "</td></tr>"
+                                $("#showProductDetails").append(item);
+                                },
                         })
                         showWhoAtTheId("productDetails");
-                        $(".itWhileHide").addClass("showNowAtCompany");
+                        //----------问题提交------------------//
+                        function fnQuestion() {
+                            var content = $("#problemAtCompanyPro").val();
+                            var gsqc = $("#companypro").attr("gsqc");
+                            var id = localStorage["id"];
+                            if (id == null) {
+                                id = "";
+                            }
+
+                            $.ajax({
+                                url: "http://www.shrxc.com/api/apitest/question",
+                                data: { "sid": sid, "question": content, "id": id },
+                                dataType: "jsonp",
+                                type: "GET",
+                                jsonp: "callback",
+                                success: function (data) {
+                                    alert(data)
+                                    if (data == 1) {
+                                        $("#solveAfter").show();
+                                        $("#solveNow").hide();
+                                    }
+                                    else if (data == -2) {
+                                        toast("公司不存在", 1000);
+                                    }
+                                    else {
+                                        $("#afui").popup({
+                                            title: "登录",
+                                            message: "手机号码:<input id='telText' type='text' class='af-ui-forms' /><br/ >密码:<input id='pwdText' class='af-ui-forms' type='text' style='webkit-text-security:disc'/>",
+                                            cancelText: "取消",
+                                            cancelCallback: function () { },
+
+                                            doneText: "登录",
+                                            doneCallback: function () {
+                                                var tel = $("#telText").val();
+                                                var pwd = $("#pwdText").val();
+                                                $.ajax({
+                                                    data: { "tel": tel, 'pwd': pwd },
+                                                    url: "http://www.shrxc.com/api/apitest/login",
+                                                    dataType: "jsonp",
+                                                    type: "GET",
+                                                    jsonp: "callback",
+                                                    success: function (data) {
+                                                        $.each(data, function (key, val) {
+                                                            localStorage.setItem(key, val);
+                                                        })
+                                                        fnQuestion();
+                                                    }
+                                                })
+                                            },
+                                            cancelOnly: false
+                                        });
+                                    }
+                                }
+                            })
+                        };
+
+
+
+
 
                     }
                     //******************* show 产品详情(product) end *******************//
 
                     function fnAppendMoreInfoAtCompany() {
-                        $(".itWhileHide").removeClass("showNowAtCompany");
+                        $(".itWhileHide").show();
                     }
 
                 </script>
