@@ -1590,17 +1590,31 @@
             <!-------------------------------------快速提问------------------------------------------>
             <div title="快速提问" data-load="gslb" class="panel" id="kstw" data-header="hkstw" data-footer="none" style=" width:100%;background-color:#f0f0f0">
                 <img src="img/jlzq/xzgs.jpg" style="height:50px;width:90%;margin:20px 5%">
-                <select id="gslby" style="position:absolute; width:75%;height:40px;margin-left:8%;margin-top:-65px; border:none;color:#b3b3b3">
-                    <option value="">请选择提问公司</option>
-                </select>
+                <input type="hidden" value="" id="hidesid" />
+                <input id="twipt" value="" onclick="selshow()" placeholder="请选择提问公司" style="width:70%;color:#c7c7c7; position:absolute;margin-top:-60px;margin-left:30px;border:none;height:20px;padding-left:15px;" />
+                <div id="gslby" style="position:absolute;display:none; background-color:white;width:86%;margin-top :-30px;margin-left:7%;padding-left:20px;">
+
+                </div>
                 <textarea placeholder="请输入提问内容" id="kstwnr" style="color:#adadad; height:200px;width:86%;margin-left:7%;border:none;margin-top:7%"></textarea>
                 <div onclick="kstwtj()" id="kstwtj" style="width:86%;padding-top:3%;padding-bottom:3%; height:40px;margin-left:7%;margin-top:7%;background-color:#c7c7c7;display:inline-table;">
-                    <span style="margin:2% 40%;height:20px;width:10% color:white;font-size:18px;display:inline-table">提 &nbsp;&nbsp;交</span>
+                    <span style="margin:2% 40%;height:20px;width:20%; color:white;font-size:18px;display:inline-table">提 &nbsp;&nbsp;交</span>
                 </div>
                 <script>
+                    function selshow() {
+                        $("#gslby").css("display", "block")
+                    }
+
+                    function select1(sid, gsqc) {
+                        $("#gslby").css("display", "none")
+                        $("#hidesid").attr("value", sid)
+                        $("#twipt").attr("value", gsqc)
+                    }
                     function gslb() {
+                        $("#gslby").css("display", "none")
+                        $("#twipt").attr("value", "请选择提问公司")
                         $("#gslby").val("")
                         $("#kstwnr").val("")
+
                         $.ajax({
                             url: "http://120.24.220.249/api/apitest/getAllSellerListForQuestion",
                             type: "GET",
@@ -1609,7 +1623,7 @@
                             success: function (data) {
                                 $.each(data, function (k, value) {
                                     var item = $(
-                                       "<option value='" + value.sid + "'>" + value.gsqc + "</option>"
+                                       "<div onclick=\"select1('" + value.sid + "','" + value.gsqc + "')\">" + value.gsqc + "</div>"
                                     )
                                     $("#gslby").append(item)
                                 })
@@ -1631,7 +1645,8 @@
                     function kstwtj(sid, question, id) {
                         var id = window.localStorage["id"];
                         var qt = $("#kstwnr").val();
-                        var gsname = $("#gslby").val();
+                        var gsname = $("#hidesid").val();
+
                         if (id == null) {
                             toast("请重新登录", 1000);
                             $.ui.loadContent("#login");
@@ -1641,6 +1656,7 @@
                             toast("请输入内容", 1000);
                         }
                         else if (gsname == "") {
+                            
                             toast("请选择提问公司", 1000);
                         }
                         else {
@@ -1654,8 +1670,8 @@
                                     if (data == 1) {
 
                                         toast("提问成功", 1000);
-                                        $("#gslby").val("")
                                         $("#kstwnr").val("")
+                                        $("#twipt").attr("value", "请选择提问公司")
                                     }
                                     else if (data == -1) {
                                         toast("请重新登录", 1000);
