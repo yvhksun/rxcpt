@@ -308,7 +308,7 @@
     <div id="afui" class="android light ">
         <div id="content">
             <!-------------------------------------积分商城------------------------------------------>
-            <div class="panel" id="jfshop" data-header="mainH" data-footer="custom_footer" data-tab="footer_jfshop" data-load="showShangPin">
+            <div class="panel" id="jfshop" data-header="mainH" data-footer="custom_footer" data-tab="footer_jfshop" data-load="showShangPin" data-unload="fnUnloadjfshop">
                 <div class="scroll">
 
                     <div class="slide_01" id="slide_01">
@@ -385,6 +385,11 @@
 
                 </div>
                 <script>
+
+                    function fnUnloadjfshop() {
+                        $("#footer_jfshop").css("background-image", "url('img/footerimg/icon-shop.png')");
+                    }
+
                     var addpag = 2
                     function jifgd() {
                         if (shopFilter == "lp" || shopFilter == 'hd') {
@@ -476,7 +481,7 @@
             </div>
             <!-------------------------------------积分商城------------------------------------------>
             <!----------------------------------积分商城详情页--------------------------------------->
-            <div class="panel" id="jifengxiangqing" data-footer="jfscxx" data-load="fnShowShopInfo">
+            <div class="panel" id="jifengxiangqing" data-footer="jfscxx" data-load="fnShowShopInfo" data-tab>
                 <header>
                     <a href="#jfshop">
                         <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
@@ -588,21 +593,23 @@
                         $("#companypro").attr("gsqc", $("#jifengxiangqing").attr("GSQC"));
                         $.ui.loadContent("#companypro");
                     })
-                    function fnGotoJiFenXianQing(actid) {//构造函数
-                        $("#qiyexiangqing").attr("actid", actid);
-                        $.ui.loadContent("#qiyexiangqing");
+                    function fnGotoJiFenXianQing(actid) {//构造函数 
+                       
+                        $("#jifengxiangqing").attr("actid", actid);
+                      
+                        $.ui.loadContent("#jifengxiangqing");
                     }
 
                 </script>
             </div>
             <!----------------------------------积分商城详情页--------------------------------------->
             <!---------------------------------------主页-------------------------------------------->
-            <div id="zhuye" title="主页" class="panel" data-header="hzhuye" data-footer="custom_footer" data-tab="footer_zhuye" selected="true" style="background-color:#f0f0f0">
+            <div id="zhuye" title="主页" class="panel" data-header="hzhuye" data-footer="custom_footer" data-tab="footer_zhuye" selected="true" style="background-color:#f0f0f0" data-load="fnLoadZhuYe" data-unload="fnUnLoadZhuYe">
                 <!--<div style="height:180px;width:100%;"><img style="height:180px;width:100%;" src="img/index/zhuyegg.jpg" /></div>-->
 
                 <div class="scroll">
                     <div class="slide_02" id="slide_02">
-
+                       
                         <div class="mod_02"><a href="#"><img src="img/scroll_img/banner1.jpg"></a></div>
                         <div class="mod_02"><a href="#"><img src="img/scroll_img/banner2.jpg"></a></div>
                         <div class="mod_02"><a href="#"><img src="img/scroll_img/banner3.jpg"></a></div>
@@ -661,6 +668,14 @@
                 </div>
 
                 <script>
+                    function fnUnLoadZhuYe(){
+                        $("#footer_zhuye").css( "background-image" , "url('img/footerimg/icon-home.png')");
+                    } 
+                    function fnLoadZhuYe(){
+                        $("#footer_zhuye").css("background-image", "url('img/footerimg/icon-home-2.png')")
+                    }
+
+                   
                     function dengl() {
                         var id = window.localStorage["id"];
                         if (id == null) {
@@ -699,7 +714,7 @@
             </div>
             <!---------------------------------------主页-------------------------------------------->
             <!---------------------------------------搜索-------------------------------------------->
-            <div id="sous" title="安检专区" class="panel" data-header="head" data-footer="custom_footer" data-tab="footer_zhuye">
+            <div id="sous" title="安检专区" class="panel" data-header="head" data-footer="custom_footer"  data-tab="footer_anjian" data-load="fnLoadSous" data-unload="fnUnLoadSous">
                 <div class="row" style="margin-top:20px;padding:0 20px;">
                     <input id="quickSearch" type="text" name="search" style="width:75%; border:2px solid #a9deec;font-size:20px;font-family:'Microsoft YaHei';border-radius:10px;height:45px;" placeholder="快速安检" />
                     <div id="gosearch2" style="float:right;border-radius:5px;margin-top:0px;margin-right:15px; background-color:#f7cd6a;width:13%;height:40px;background-image:url(img/check/i-search.png);background-repeat:no-repeat;background-size:25px;background-position:center "></div>
@@ -716,6 +731,16 @@
                     <a onclick="hotsearch('鼎洋资产')" class="rm_btn">鼎洋资产</a>
                 </div>
                 <script>
+
+
+                    function fnLoadSous() {
+                       
+                        $("#footer_anjian").css( "background-image" , "url('img/footerimg/icon-search-2.png')");
+                    }
+                    function fnUnLoadSous() {
+                        $("#footer_anjian").css("background-image", "url('img/footerimg/icon-search.png')");
+                    }
+
 
                     function hotsearch(keyword) {
                         $.ui.loadContent("#SearchAnjianshenqi");
@@ -739,7 +764,7 @@
             </div>
             <!---------------------------------------搜索-------------------------------------------->
             <!-------------------------------------用户中心------------------------------------------>
-            <div id="yhzx" title="用户中心" class="panel y-scroll" data-header="hyhzx" data-footer="custom_footer" data-load="showUserinfo" data-tab="footer_yhzx" style="background-color:#f0f0f0;">
+            <div id="yhzx" title="用户中心" class="panel y-scroll" data-header="hyhzx" data-footer="custom_footer" data-load="showUserinfo" data-unload="funUnLoadYhzx" data-tab="footer_yhzx" style="background-color:#f0f0f0;">
                 <div id="username">
                     <span><img src="img/jfzy/bg_user.jpg" style="height:200px; width:100%; position:absolute;"></span>
                     <div style=" width:250px; z-index:11; position:absolute; top:50px; left:15%;">
@@ -813,6 +838,13 @@
                     </a>-->
                 </div>
                 <div style="height:50px;"></div>
+
+
+                <script>
+                    function funUnLoadYhzx() {
+                        $("#footer_yhzx").css("background-image", "url('img/footerimg/icon-user.png')")
+                    }
+                </script>
             </div>
             <!-------------------------------------用户中心------------------------------------------>
             <!------------------------------------礼品券详细----------------------------------------->
@@ -1354,7 +1386,7 @@
             </div>
             <!---------------------------------会员中心安检记录-------------------------------------->
             <!------------------------------------会员中心QQ----------------------------------------->
-            <div id="hyqq" data-load="grqq" title="QQ" class="panel" data-header="hhyqq" style="background-color:#f0f0f0;" data-footer="none" data-tab="footer_zhuye">
+            <div id="hyqq" data-load="grqq" title="QQ" class="panel" data-header="hhyqq" style="background-color:#f0f0f0;" data-footer="none" data-tab="footer_yhzx">
                 <div class="aup" style="border-top: solid 1px #dbdbdb; border-bottom: solid 1px #dbdbdb; margin-top: 20px; ">
                     <input id="zlqq" placeholder="" style="border:none;height:50px;width:100%; font-size:20px;padding-left:20px;" />
                 </div>
@@ -1504,11 +1536,11 @@
             </div>
             <!-------------------------------------预约记录------------------------------------------>
             <!-------------------------------------交流专区------------------------------------------>
-            <div title="交流专区" class="panel" data-load="fnShowjiaoliu" id="jjzq" data-header="hjjzq" data-footer="custom_footer" data-tab="footer_jfshop" style=" width:100%;">
+            <div title="交流专区" class="panel" data-load="fnShowjiaoliu" data-unload="fnUnloadJiaoLiu" id="jjzq" data-header="hjjzq" data-footer="custom_footer" data-tab="footer_jiaoliu" style=" width:100%;">
                 <div style="height:auto;width:100%;margin:10px 0px ">
                     <!--<img src="img/jlzq/jlss.jpg" style="height:32px;width:260px;margin:10px 0 0 6%;" />
-                    <img src="img/jlzq/twjlimg.jpg" style="height:65px;width:60px;margin-left:10px;margin-bottom :-13px;"/>
-                    <input type="text"  placeholder="搜索" style=" width:200px;height:29px;margin-left:8%;margin-top :-30px;border:none;" />-->
+            <img src="img/jlzq/twjlimg.jpg" style="height:65px;width:60px;margin-left:10px;margin-bottom :-13px;"/>
+            <input type="text"  placeholder="搜索" style=" width:200px;height:29px;margin-left:8%;margin-top :-30px;border:none;" />-->
                     <div style="float:left;width:70%;margin:10px 10px 10px 5%;position:relative;">
                         <input type="text" id="mySearch" placeholder="搜索" style="border:red 1px solid;width:100%; height:40px; border-radius:25px;background-image:url(img/jlzq/search.png); background-position-x:right;background-size:contain;background-repeat:no-repeat;" />
 
@@ -1535,11 +1567,14 @@
                     }
 
                     function fnShowjiaoliu() {
+                        $("#footer_jiaoliu").css("background-image", "url('img/footerimg/icon-chat-2.png')");
                         $("#jladd").html("");
                         $("#jlgd").show()
                         jiaoliu(1, "");
                     }
-
+                    function fnUnloadJiaoLiu() {
+                        $("#footer_jiaoliu").css("background-image", "url('img/footerimg/icon-chat.png')");
+                    }
                     var myPage = 2;
                     function jiaoliu(pagex, serch) {
 
@@ -2071,7 +2106,7 @@
                                     imgsrc = value.type == "lp" ? "url(img/anjianbaogao/ajhd5.png)" : "url(img/anjianbaogao/ajhd6.png)";
                                     colors = value.type == "lp" ? "#c393e6" : "#ff8a8a";
                                     isLP = value.type == "lp" ? "礼品券" : "活动券";
-                                    var item = ' <div style="float:left; width:30%;margin-left:2.5%;margin-top:25px;border:' + colors + ' solid 1px;border-bottom:none;">'
+                                    var item = ' <div onclick=\'fnGotoJiFenXianQing("' + value.actid + '") \' style="float:left; width:30%;margin-left:2.5%;margin-top:25px;border:' + colors + ' solid 1px;border-bottom:none;">'
                                     + '<div style="width:100%;height:50px;">' + value.title + '</div>'
                                     + ' <div style="width:100%;height:25px;text-align:center; background:' + imgsrc + ' no-repeat;background-size: 100% 100%">' + isLP + '</div>'
                                     + '</div>'
@@ -2168,8 +2203,8 @@
                                 showWhoAtTheId("mainAtCompanyPro"); break;
                         };
 
-                        $("#solveAfter").show();
-                        $("#solveNow").hide();
+                        $("#solveNow").show();
+                        $("#solveAfter").hide();
 
                     }
 
@@ -2199,6 +2234,7 @@
                     $("#idSubAtCompanyPro").click(function () {
                         //code
                     })
+
                     $("#idAnswerAtCompanyPro").click(function () {
                         $("#solveAfter").show();
                         $("#solveNow").hide();
@@ -2849,121 +2885,14 @@
             </header><!-----------------------------------预警名单------------->
             <!--------------------------------------- 头--------------------------------------------->
             <!--------------------------------------- 尾--------------------------------------------->
-            <footer id="custom_footer">
-                <a href='#zhuye' id="footer_zhuye"><img src="img/footerimg/icon-home-2.png" style="height:43px; width:53px;"></a>
-                <a href='#sous' id="footer_anjian"><img src="img/footerimg/icon-search.png" style="height:43px; width:53px;"></a>
-                <a href='#jjzq' id="footer_jiaoliu"><img src="img/footerimg/icon-chat.png" style="height:43px; width:53px;"></a>
-                <a href='#jfshop' id="footer_jfshop"><img id="footChangeImg_2" src="img/footerimg/icon-shop.png" style="height:43px; width:53px"></a>
-                <a href='#yhzx' onclick="dltz_wd()" id="footer_yhzx"><img id="footChangeImg_1" src="img/footerimg/icon-user.png" style="height:43px; width:53px;"></a>
-                <script>
-                    //function dltz_wd() {
-                    //    var id = window.localStorage["id"];
-
-
-
-                    //    if ( id== null||id==""||id=="null") {
-
-                    //        $.ui.loadContent("#login");
-                    //    }
-                    //    else {
-
-                    //        $.ui.loadContent("#yhzx");
-                    //    }
-                    //}
-
-
-                    var hideall = function () {
-                        $("#footer_zhuye").find("img").attr("src", "img/footerimg/icon-home.png")
-                        $("#footer_anjian").find("img").attr("src", "img/footerimg/icon-search.png")
-                        $("#footer_jiaoliu").find("img").attr("src", "img/footerimg/icon-chat.png")
-                        $("#footer_jfshop").find("img").attr("src", "img/footerimg/icon-shop.png")
-                        $("#footer_yhzx").find("img").attr("src", "img/footerimg/icon-user.png")
-                    }
-
-
-
-
-                    $("#footer_zhuye").click(function () {
-                        hideall();
-                        $("#footer_zhuye").find("img").attr("src", "img/footerimg/icon-home-2.png")
-                    })
-
-                    $("#footer_anjian").click(function () {
-                        hideall();
-                        $("#footer_anjian").find("img").attr("src", "img/footerimg/icon-search-2.png")
-                    })
-                    $("#footer_jiaoliu").click(function () {
-                        hideall();
-                        $("#footer_jiaoliu").find("img").attr("src", "img/footerimg/icon-chat-2.png")
-                    })
-                    $("#footer_jfshop").click(function () {
-                        hideall();
-                        $("#footer_jfshop").find("img").attr("src", "img/footerimg/icon-shop-2.png")
-                    })
-                    $("#footer_yhzx").click(function () {
-                        hideall();
-                        $("#footer_yhzx").find("img").attr("src", "img/footerimg/icon-user-2.png")
-                    })
-
-
-                    var hideall = function () {
-                        $("#footer_zhuye").find("img").attr("src", "img/footerimg/icon-home.png")
-                        $("#footer_anjian").find("img").attr("src", "img/footerimg/icon-search.png")
-                        $("#footer_jiaoliu").find("img").attr("src", "img/footerimg/icon-chat.png")
-                        $("#footer_jfshop").find("img").attr("src", "img/footerimg/icon-shop.png")
-                        $("#footer_yhzx").find("img").attr("src", "img/footerimg/icon-user.png")
-                    }
-
-
-                    $("#footer_anjian").click(function () {
-                        hideall();
-                        $("#footer_anjian").find("img").attr("src", "img/footerimg/icon-search-2.png")
-                    })
-                    $("#footer_jiaoliu").click(function () {
-                        hideall();
-                        $("#footer_jiaoliu").find("img").attr("src", "img/footerimg/icon-chat-2.png")
-                    })
-                    $("#footer_jfshop").click(function () {
-                        hideall();
-                        $("#footer_jfshop").find("img").attr("src", "img/footerimg/icon-shop-2.png")
-                    })
-                    $("#footer_yhzx").click(function () {
-                        hideall();
-                        $("#footer_yhzx").find("img").attr("src", "img/footerimg/icon-user-2.png")
-                    })
-
-
-                    var hideall = function () {
-                        $("#footer_zhuye").find("img").attr("src", "img/footerimg/icon-home.png")
-                        $("#footer_anjian").find("img").attr("src", "img/footerimg/icon-search.png")
-                        $("#footer_jiaoliu").find("img").attr("src", "img/footerimg/icon-chat.png")
-                        $("#footer_jfshop").find("img").attr("src", "img/footerimg/icon-shop.png")
-                        $("#footer_yhzx").find("img").attr("src", "img/footerimg/icon-user.png")
-                    }
-
-                    $("#footer_zhuye").click(function () {
-                        hideall();
-                        $("#footer_zhuye").find("img").attr("src", "img/footerimg/icon-home-2.png")
-                    })
-
-                    $("#footer_anjian").click(function () {
-                        hideall();
-                        $("#footer_anjian").find("img").attr("src", "img/footerimg/icon-search-2.png")
-                    })
-                    $("#footer_jiaoliu").click(function () {
-                        hideall();
-                        $("#footer_jiaoliu").find("img").attr("src", "img/footerimg/icon-chat-2.png")
-                    })
-                    $("#footer_jfshop").click(function () {
-                        hideall();
-                        $("#footer_jfshop").find("img").attr("src", "img/footerimg/icon-shop-2.png")
-                    })
-                    $("#footer_yhzx").click(function () {
-                        hideall();
-                        $("#footer_yhzx").find("img").attr("src", "img/footerimg/icon-user-2.png")
-                    })
-
-                </script>
+            <footer id="custom_footer" style="width:100%">
+                <a href='#zhuye' id="footer_zhuye" style="float:left;display:block; background:url(img/footerimg/icon-home.png);height:43px; width:53px; background-size: 53px 43px;background-repeat:no-repeat;background-position-x:50%;"></a>
+                <a href='#sous' id="footer_anjian" style="float:left;display:block; background:url(img/footerimg/icon-search.png);height:43px; width:53px;background-size: 53px 43px;background-repeat:no-repeat;background-position-x:50%;"></a>
+                <a href='#jjzq' id="footer_jiaoliu" style="float:left;display:block; background:url(img/footerimg/icon-chat.png);height:43px; width:53px; background-size: 53px 43px;background-repeat:no-repeat;background-position-x:50%;"></a>
+                <a href='#jfshop' id="footer_jfshop" style="float:left;display:block; background:url(img/footerimg/icon-shop.png);height:43px; width:53px; background-size: 53px 43px;background-repeat:no-repeat;background-position-x:50%;"></a>
+                <a href='#yhzx' id="footer_yhzx" style="float:left;display:block; background:url(img/footerimg/icon-user.png);height:43px; width:53px; background-size: 53px 43px;background-repeat:no-repeat;background-position-x:50%;"></a>
+                <div style="clear:both"></div>
+        
             </footer>
             <!--------------------------------------- 尾--------------------------------------------->
         </div>
@@ -3233,6 +3162,7 @@
         $("#del_tianjia").show();
         page = 2;
         fnShowShop(1);
+        $("#footer_jfshop").css("background-image", "url('img/footerimg/icon-shop-2.png')");
 
         $("#jfTou_shuzi").text(window.localStorage["score"]);
     } ///////////////////////////////////////////////////////end展示商品
@@ -3552,7 +3482,7 @@
 
 
     function fnShowShopInfo() {///////// 积分商城商品详情
-
+        
         var actid = $("#jifengxiangqing").attr("actid");
         $.jsonP({
             url: "http://120.24.220.249/api/apitest/getActByActid?actid=" + actid,
@@ -3661,6 +3591,7 @@
     })//// 商城购买物品实现
 
     function showUserinfo() {
+        $("#footer_yhzx").css("background-image", "url('img/footerimg/icon-user-2.png')");
         $("#myTel").text(window.localStorage["tel"])//显示的手机号码
         $("#myMoney").text(window.localStorage["money"] + "元");
         $("#myJF").text(window.localStorage["score"] + "积分");
