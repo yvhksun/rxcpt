@@ -1357,10 +1357,7 @@
 
                 <a id=" backbutton" style="float:left;">
                 </a>
-                <a href="#zhuce" style="float:right; color:#fff;background-color:#63e0ff ;margin:10px 10px 0px 0px">立即注册</a>
-
-
-
+                <a href="#zhuce" style="float:right; color:#fff;background-color:#63e0ff ;margin:25px 10px 0px 0px">立即注册</a>
                 <div><img src="img/login/login_log.png" style="width:30%; margin:70px 35% 20px " /></div>
                 <div style="width:90%; height:100px;background-image:url(img/login/longin_input_black.png); background-repeat:no-repeat;background-size:100% 100%;margin:5%;">
                     <style>
@@ -2756,7 +2753,7 @@
                 <a href='#sous' id="footer_anjian"><img src="img/footerimg/icon-search.png" style="height:43px; width:53px;"></a>
                 <a href='#jjzq' id="footer_jiaoliu"><img src="img/footerimg/icon-chat.png" style="height:43px; width:53px;"></a>
                 <a href='#jfshop' id="footer_jfshop"><img src="img/footerimg/icon-shop.png" style="height:43px; width:53px"></a>
-                <a href='#yhzx'  id="footer_yhzx"><img src="img/footerimg/icon-user.png" style="height:43px; width:53px;"></a>
+                <a href='#yhzx' onclick="dltz_wd()" id="footer_yhzx"><img src="img/footerimg/icon-user.png" style="height:43px; width:53px;"></a>
                 <script>
                     //function dltz_wd() {
                     //    var id = window.localStorage["id"];
@@ -3435,7 +3432,6 @@
                         break;
 
                     case '-2': $.ui.showToast("今天已经点过赞");
-                        fnRefreshLocalStorage();
                         setTimeout($.ui.hideToast, 1500);
                         break;//
 
