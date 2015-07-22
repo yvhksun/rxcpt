@@ -203,10 +203,15 @@
             padding: 3px;
             height: 55px;
         }
-
+    #afui > #header {
+        padding-top:15px;
+        height: 55px;
+    }
+    
         #afui > #navbar {
-            border: none;
+        padding:0px;
         }
+
         /*----------------------个人资料详情---------------------**/
         #afui input[type=text] {
             margin-bottom: 0px;
@@ -235,8 +240,6 @@
         }
 
         .scroll {
-            width: 480px;
-            height: 181px;
             margin: 0 auto 0 auto;
             position: relative;
             overflow: hidden;
@@ -244,13 +247,11 @@
 
         .mod_01 {
             float: left;
-            width: 480px;
         }
 
             .mod_01 img {
                 display: block;
-                width: 480px;
-                height: 181px;
+                width: 100%;
             }
 
         .dotModule_new {
@@ -286,7 +287,15 @@
             }
     </style>
 
-
+    <script>
+    $(function(){
+      var winwidth=$(window).width();
+      $(".mod_01").css("width",winwidth);
+      $(".scroll").css("width",winwidth);
+      $(".slide_01").css("width",winwidth);
+      })
+      
+    </script>
 
 </head>
 <body>
@@ -309,7 +318,7 @@
                 <div id="main">
                     <div id="parBtn">
                         <div id="btn">
-                            <div id="btnLeft" class="olidSty">
+                            <div id="btnLeft" class="olidSty" style="border-right:none">
                                 <img style="width:auto;height:30px; position:relative; top:10px;" src="img/jfsc_images/icon_jfscgreen.png" />
                                 地区分类
                                 <img style="width:20px;height:15px;" src="img/jfsc_images/icon_btnupgreen.png" />
@@ -393,8 +402,8 @@
                         slide_01.dotOnClassName = "selected";
                         slide_01.arrLeftId = "sl_left"; //左箭头ID
                         slide_01.arrRightId = "sl_right";//右箭头ID
-                        slide_01.frameWidth = 480;
-                        slide_01.pageWidth = 480;
+                        slide_01.frameWidth = $(window).width();
+                        slide_01.pageWidth = $(window).width();
                         slide_01.upright = false;
                         slide_01.speed = 10;
                         slide_01.space = 30;
@@ -470,11 +479,11 @@
                     <h1>详情</h1>
                 </header>
                 <footer id="jfscxx" style="padding:0px;border-top:none;">
-                    <div onclick="fnGotoCompanyPro(2, $('#jifengxiangqing').attr('GSQC'))" style="border-top:1px solid #999999;border-right:1px solid #999999;width:20%;height:55px;line-height:55px;background-color:#ffffff;text-align:center;float:left;cursor:pointer;">
+                    <div onclick="fnGotoCompanyPro(2, $('#jifengxiangqing').attr('GSQC'))" style="border-right:1px solid #18c6f3;width:20%;height:55px;line-height:55px;background-color:#ffffff;text-align:center;float:left;cursor:pointer;">
                         <a href="#" style="text-decoration:none;color:#4d4d4d;font-size:16px;"><img src="img/shopdetail/333_09.png" style="position:relative;top:2px;width:15px;" /> 提问</a>
                     </div>
 
-                    <div id="xiangqingdianzhan" style="border-top:1px solid #999999;width:20%;height:55px;line-height:55px;background-color:#ffffff;text-align:center;float:left;cursor:pointer;">
+                    <div id="xiangqingdianzhan" style="width:20%;height:55px;line-height:55px;background-color:#ffffff;text-align:center;float:left;cursor:pointer;">
                         <a style="text-decoration:none;color:#4d4d4d;font-size:16px;"><img src="img/shopdetail/444_12.png" style="position:relative;top:2px;width:15px;" /> 点赞</a>
 
                     </div>
@@ -591,7 +600,7 @@
                     </div>
                 </div>
 
-                <div class="row" style="margin-top:20px;padding:0 20px;">
+                <div class="row" style="margin-top:15px;padding:0 20px;">
                     <!--<form method="get" action="/mobile/checklist">
                         <img src="img/index/writeimg.png" style="height:20px;width:20px;position:absolute;margin-top:15px;margin-left:15px;">
                         <img src="img/index/sous.png" style="position:absolute;margin-top:10px; margin-left:90%; height:25px;width:25px;">
@@ -609,7 +618,7 @@
 
 
                 </div>
-                <div style="background-color:white;margin-top:25px;padding:30px 0">
+                <div style="background-color:white;margin-top:15px;padding:20px 0">
                     <div style="width:35%;margin-left:40%;font-size:20px;">热门服务</div>
                     <div class="row text-center" style="margin-top:20px;">
                         <a href="#jbjs_panel">
@@ -671,8 +680,8 @@
                         slide_01.dotOnClassName = "selected";
                         slide_01.arrLeftId = "sl_left"; //左箭头ID
                         slide_01.arrRightId = "sl_right";//右箭头ID
-                        slide_01.frameWidth = 480;
-                        slide_01.pageWidth = 480;
+                        slide_01.frameWidth = $(window).width();
+                        slide_01.pageWidth = $(window).width();
                         slide_01.upright = false;
                         slide_01.speed = 10;
                         slide_01.space = 30;
@@ -1527,7 +1536,7 @@
                     <img src="img/jlzq/twjlimg.jpg" style="height:65px;width:60px;margin-left:10px;margin-bottom :-13px;"/>
                     <input type="text"  placeholder="搜索" style=" width:200px;height:29px;margin-left:8%;margin-top :-30px;border:none;" />-->
                     <div style="float:left;width:70%;margin:10px 10px 10px 5%;position:relative;">
-                        <input type="text" id="mySearch" placeholder="搜索" style="border:red 1px solid;width:100%; height:40px; border-radius:25px;background-image:url(img/jlzq/search.png);background-position-x:right;background-size:contain;background-repeat:no-repeat;" />
+                        <input type="text" id="mySearch" placeholder="搜索" style="border:#fe538d 1px solid;width:100%; height:40px; border-radius:25px;background-image:url(img/jlzq/search.png);background-position-x:right;background-size:contain;background-repeat:no-repeat;" />
 
                         <span onclick="jiaolss()" style="position:absolute;right:0px; height:80px;width:40px;display:inline-block;margin:-40px 0px 0px -40px;">&nbsp;</span>
                     </div>
@@ -1611,8 +1620,8 @@
             <div title="快速提问" data-load="gslb" class="panel" id="kstw" data-header="hkstw" data-footer="none" style=" width:100%;background-color:#f0f0f0">
                 <img src="img/jlzq/xzgs.jpg" style="height:50px;width:90%;margin:20px 5%; ">
                 <input type="hidden" value="" id="hidesid" />
-                <div id="twipt" onclick="selshow()" placeholder="请选择提问公司" style="width:70%; position:absolute;color:#c7c7c7;height:20px;margin-top:-65px;margin-left:40px;height:30px;background-color:#fff;line-height:30px;"></div>
-                <div id="gslby" style="position:absolute;display:none; background-color:white ;width:86%;margin-top :-30px;margin-left:7%;padding-left:20px;">
+                <div id="twipt" onclick="selshow()" placeholder="请选择提问公司" style="width:70%; position:absolute;color:#c7c7c7;height:20px;margin-top:-65px;margin-left:35px;height:30px;background-color:#fff;line-height:30px;"></div>
+                <div id="gslby" style="position:absolute;z-index:100; display:none; background-color:white ;width:86%;margin-top :-30px;margin-left:7%;padding-left:20px;">
 
                 </div>
                 <textarea placeholder="请输入提问内容" id="kstwnr" style="color:#adadad; height:200px;width:86%;margin-left:7%;border:none;margin-top:7%"></textarea>
