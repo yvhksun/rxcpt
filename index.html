@@ -381,17 +381,8 @@
 
                     var addpag = 2
                     function jifgd() {
-                        if (shopFilter == "lp" || shopFilter == 'hd') {
-                            fnShowShop(page, shopFilter, '');
-                            page++;
-                        }
-
-                        else if (shopFilter != "") {
-                            fnShowShop(page, '', shopFilter)
-
-                            page++;
-                        }
-
+                            fnShowShop(addpag,shopType, shopArea)
+                            addpag++;
                     }
                     //轮播图
                     if (document.getElementById("slide_01")) {
@@ -1608,7 +1599,7 @@
 
                                     var item = $(
 
-                                        " <div onclick='fnGotoCompanyPro(1,\"" + value.gsqc + "\")' gsqc='" + value.gsqc + "' style='width:33.33%;height:130px;float:left;padding:15px 15px;border:solid 1px #dbdbdb'>" +
+                                        " <div onclick='clickToGotoCompanyAtJiaoLiu(\""+value.state+"\",\"" + value.gsqc + "\")' gsqc='" + value.gsqc + "' style='width:33.33%;height:130px;float:left;padding:15px 15px;border:solid 1px #dbdbdb'>" +
 
                                             "<img src='http://120.24.220.249" + value.logo + "' class='jltbl'style='height:73%;width:100%'/>" +
                                             "<span style='text-align:center;width:100%;display:inline-table;margin-top:10px;'>" + value.gsjc + "</span>" +
@@ -1623,8 +1614,15 @@
                         })
                     }
 
-
-
+                    function clickToGotoCompanyAtJiaoLiu(vtype, gsqc) {
+                        if (vtype == "-2")
+                        {
+                            toast("这个公司没有注册,不能阅读详情", 1000);
+                        }
+                        else
+                        fnGotoCompanyPro(1,gsqc)
+                    }
+                    
 
                     function jiaoliutianjia() {
                         jiaoliu(myPage, "");
@@ -3329,17 +3327,17 @@
     function showShangPin() { ///////////////////////////////////////////////////////展示商品
         $("#con").html("");
         $("#del_tianjia").show();
-        page = 2;
         fnShowShop(1);
         $("#footer_jfshop").css("background-image", "url('img/footerimg/icon-shop-2.png')");
 
         $("#jfTou_shuzi").text(window.localStorage["score"]);
     } ///////////////////////////////////////////////////////end展示商品
 
-
+    var shopType = '';
+    var shopArea = '';
 
     function fnSearchToShop(thisEv) {
-        page = 2;
+     
         hidelistRight();
         hidelistLeft();
         var item = thisEv.parentNode.parentNode.id;
@@ -3348,12 +3346,22 @@
 
 
 
-        if (item == "btnShowLeft" && thisEv.innerHTML != "全&nbsp;&nbsp;部")
-            fnShowShop(id, "", thisEv.innerHTML);
-        else if (item == "btnShowRight" && thisEv.innerHTML != "全&nbsp;&nbsp;部")
-            fnShowShop(id, thisEv.innerHTML, "");
-        else
-            fnShowShop(id);
+        if (item == "btnShowLeft")
+        {
+            if (thisEv.innerHTML == "全&nbsp;&nbsp;部")
+                shopArea="";
+            else
+                shopArea=thisEv.innerHTML;
+        }
+        else if (item == "btnShowRight")
+        {
+            if( thisEv.innerHTML == "全&nbsp;&nbsp;部")
+                shopType="";
+            else
+                shopType=thisEv.innerHTML;
+        }
+    
+        fnShowShop(id, shopType, shopArea);
     }
 
 
