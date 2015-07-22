@@ -920,7 +920,7 @@
                             <img class="mrjf-img2" src="img/jfzy/user_right.png" />
                         </div>
                     </a>
-                    <a class="a1">
+                    <a class="a1" href="#sous">
                         <img class="mrjf-img " src="img/mrqd/icon_safe.png" />
                         <div class="mrjf-text" style=" border:none">
                             <span class="mrjf-span">首次安检+5积分</span>
@@ -1402,7 +1402,7 @@
                 </a>
                 <a href="#zhuce" style="float:right; color:#fff;background-color:#63e0ff ;margin:25px 10px 0px 0px">立即注册</a>
 
-                <div><img src="img/login/login_log.png" style="width:30%; margin:70px 35% 20px " /></div>
+                <div><img src="img/login/login_log.png" style="width:30%; margin:70px 35% 20px " id="logoimg" /></div>
                 <div style="width:90%; height:100px;background-image:url(img/login/longin_input_black.png); background-repeat:no-repeat;background-size:100% 100%;margin:5%;">
                     <style>
                         #login input:focus {
@@ -1414,6 +1414,23 @@
                 </div>
                 <a style=" border:none;background:#fa8282;line-height:35px;height:50px; border-radius:5px; margin:5%;font-size:20px;color:#fff" class="button block " onclick="fnLogin()">登&nbsp;&nbsp;&nbsp;录</a>
                 <a href="" style="color:#fff;position:absolute;bottom:50px;display:block; text-align:center;width:100%;">忘记密码?</a>
+
+
+
+                <script>
+
+                    $("#loginname, #loginpwd").focus(function () {
+                        $("#login").addClass("onplus");
+                    })
+                    $("#loginname, #loginpwd").blur(function () {
+                        $("#login").removeClass("onplus");
+                    })
+                </script>
+                <style>
+                    .onplus{
+                        margin-top:-40%;
+                    }
+                </style>
             </div>
             <!--------------------------------------登录框------------------------------------------->
             <!--------------------------------------注册--------------------------------------------->
@@ -1461,7 +1478,7 @@
             <!-------------------------------------礼品劵------------------------------------------>
             <!-------------------------------------活动券------------------------------------------>
             <div class="panel" id="hdjuan" data-header="hdq_heaader" data-footer="custom_footer" data-load="fnShowTickedbyHuoDong" data-tab="footer_jfshop" style=" width:100%; background-color:#f0f0f0;">
-              
+
 
                 <header id="hdq_heaader">
                     <a href="#yhzx" class="biaotizuo">
@@ -1853,7 +1870,7 @@
                             jsonp: "callback",
                             success: function (data) {
                                 $.each(data, function (key, value) {
-                                    var item = ' <div style="margin-top:20px;width:100%;height:87px;line-height:87px;background-color:#fad58c;font-size:14px;">'
+                                    var item = ' <div onclick="fnGotoCompanyPro(\'5\',\'' + gsqc + '\',\'' + value.pid + '\')" style="margin-top:20px;width:100%;height:87px;line-height:87px;background-color:#fad58c;font-size:14px;">'
                                     + '<span style="display:inline-block;color:#c69026;padding-left:40px;">' + value.pname + '</span>'
                                     + '<img style="width:14px;float:right;position:relative;top:35px;right:5px;" src="img/anjianbaogao/jiantou_lv.png" /></div>';
 
@@ -1956,7 +1973,7 @@
             </div>
             <!-------------------------------------//搜索结果------------------------------------------>
             <!------------------------------------- 公司简介------------------------------------------>
-            <div id="companypro" class="panel " style="background:#f0f0f0" data-load="fnShowWhatNow" shownow="1" gsqc="" data-footer="none">
+            <div id="companypro" class="panel " style="background:#f0f0f0;padding-bottom:20px;" data-load="fnShowWhatNow" shownow="1" pid="" gsqc="" data-footer="none">
                 <header>
                     <a href="#jjzq" class="biaotizuo">
                         <span style="display:block;margin-bottom:-40px; width:60px;height:44px;background-image:url(img/jfsc_images/fanhui.png); "></span>
@@ -1965,17 +1982,17 @@
                 </header>
                 <div>
                     <div style="width:25%;margin-left:37.5% ;margin-top:40px;">
-                        <img id="logAtCompany" style="width:100% " src="img/conpanyPro/company_log_03.png" />
-                        <div id="titleAtCompany" style="width:100%;line-height:30px;height:80px;letter-spacing:10px;text-align:center ;">
+                        <img id="logAtCompany" style="width:100%;" src="img/conpanyPro/company_log_03.png" />
+                        <div id="titleAtCompany" style="width:100%;line-height:30px;height:80px;letter-spacing:5px;text-align:center;">
                             融信城
                         </div>
                     </div>
 
                     <div style=" text-align:center;width:100%;">
-                        <div id="onClickCompanyPro" style="float:left;width:25%;-webkit-transform: rotate(-10deg);margin-top:10px;">公司简介</div>
+                        <div id="onClickCompanyPro" style="float:left;width:25%;-webkit-transform: rotate(-10deg);padding-top:10px;">公司简介</div>
                         <div id="onClickSolve" style="float:left;width:25%;-webkit-transform: rotate(-4deg);">提问解答</div>
                         <div id="onClickActivity" style="float:left;width:25%;-webkit-transform: rotate(4deg);">活动专栏</div>
-                        <div id="onClickProduct" style="float:left;width:25%;-webkit-transform: rotate(10deg);margin-top:10px;">产品系列</div>
+                        <div id="onClickProduct" style="float:left;width:25%;-webkit-transform: rotate(10deg);padding-top:10px;">产品系列</div>
                         <div style="clear:both"></div>
                         <div style="width:100%;background-image:url(img/conpanyPro/gsjj_ch_02.png);background-repeat:no-repeat;background-position:top;background-size:contain">
                             <img style="height:80px;width:10px;margin-top:5px;" src="img/conpanyPro/gsjj_sz_03.png" />
@@ -2035,7 +2052,7 @@
 
                                     <div onclick="fnAppendMoreInfoAtCompany()" style="width:70px;padding:5px;border-radius:3px;border:#c7c7c7 1px solid;color:#a9ebe6;margin:10px;float:right;">了解跟多</div>
                                     <div style=" clear:both"></div>
-                                    <div  onclick="fnMakeAnAppointment()" style="width:100%;padding:15px;background:#3cc73c;border-radius:3px;color:#fff;">预&nbsp;&nbsp;&nbsp;约</div>
+                                    <div onclick="fnMakeAnAppointment()" style="width:100%;padding:15px;background:#3cc73c;border-radius:3px;color:#fff;">预&nbsp;&nbsp;&nbsp;约</div>
                                 </div>
                             </div>
                         </div>
@@ -2043,10 +2060,11 @@
                 </div>
                 <script>
                     //showNum:显示导航条第几项 gsqc:公司全称
-                    function fnGotoCompanyPro(showNum, gsqc) {
-
+                    function fnGotoCompanyPro(showNum, gsqc, pid) {
+                       
                         $("#companypro").attr("shownow", showNum);
                         $("#companypro").attr("gsqc", gsqc);
+                        $("#companypro").attr("pid", pid);
                         $.ui.loadContent("#companypro");
                     }
 
@@ -2054,18 +2072,22 @@
                     var sid = '';
                     //*************************导航切换*****************//
                     $("#onClickCompanyPro").click(function () {
+                        $.ui.scrollToTop("companypro");
                         lightAtTheID("onClickCompanyPro");
                         showWhoAtTheId("mainAtCompanyPro");
                     })
                     $("#onClickSolve").click(function () {
+                        $.ui.scrollToTop("companypro");
                         lightAtTheID("onClickSolve");
                         showWhoAtTheId("solveAtCompanyPro");
                     })
                     $("#onClickActivity").click(function () {
+                        $.ui.scrollToTop("companypro");
                         lightAtTheID("onClickActivity");
                         showWhoAtTheId("activityAtCompanyPro");
                     })
                     $("#onClickProduct").click(function () {
+                        $.ui.scrollToTop("companypro");
                         lightAtTheID("onClickProduct");
                         showWhoAtTheId("prductAtCompany");
                     })
@@ -2095,21 +2117,6 @@
 
                         var gsqc = $("#companypro").attr("gsqc")
                         var showNow = $("#companypro").attr("showNow");
-                        switch (showNow) {
-                            case "1": lightAtTheID("onClickCompanyPro");
-                                showWhoAtTheId("mainAtCompanyPro"); break;
-                            case "2": lightAtTheID("onClickSolve");
-                                showWhoAtTheId("solveAtCompanyPro"); break;
-                            case "3": lightAtTheID("onClickActivity");
-                                showWhoAtTheId("activityAtCompanyPro"); break;
-                            case "4": lightAtTheID("onClickProduct");
-                                showWhoAtTheId("prductAtCompany"); break;
-                            default: lightAtTheID("onClickCompanyPro");
-                                showWhoAtTheId("mainAtCompanyPro"); break;
-                        }
-
-
-
                         //******************* show 公司详情(company details)begin *******************//
                         $.ajax({
                             url: "http://www.shrxc.com/api/apitest/getsellerbygsqc",
@@ -2135,7 +2142,7 @@
                         fnShowQuestionAtCompanyPro(1, gsqc);
                         //-------------------------------------  显示问答内容------------------
 
-                        fnInialPageAtCompanyPro(1)
+                        fnInialPageAtCompanyPro(showNow)
 
                         //******************* show 活动(activity )begin *******************//
 
@@ -2178,7 +2185,7 @@
                             jsonp: "callback",
                             success: function (data) {
                                 $.each(data, function (key, value) {
-                                    var item = '<div onclick="fnGotoDetailsAtCompany(this)"  pid="' + value.pid + '" style="width:100%;height:40px;background:#93e6e0;position:relative;text-align:left; margin-top:25px"> '
+                                    var item = '<div onclick="fnGotoDetailsAtCompany(\'' + value.pid + '\')" style="width:100%;height:40px;background:#93e6e0;position:relative;text-align:left; margin-top:25px"> '
                                     + '<span class="productList">产品名称：' + value.pname + '</span>'
                                     + ' </div>';
 
@@ -2248,6 +2255,10 @@
                                 showWhoAtTheId("prductAtCompany"); break;
                             default: lightAtTheID("onClickCompanyPro");
                                 showWhoAtTheId("mainAtCompanyPro"); break;
+                            case "5": lightAtTheID("onClickProduct");
+                                fnGotoDetailsAtCompany($("#companypro").attr("pid"));
+                                alert($("#companypro").attr("pid"));
+                                break;
                         };
 
                         $("#solveNow").show();
@@ -2289,11 +2300,7 @@
 
 
                     //******************* show 产品详情(product) begin *******************//
-                    function fnGotoDetailsAtCompany(thisEv) {
-                        var id = thisEv.getAttribute("pid");
-
-
-
+                    function fnGotoDetailsAtCompany(id) {
 
                         $.ajax({
                             url: "http://www.shrxc.com/api/apitest/getprobyid",
@@ -2333,7 +2340,7 @@
                         })
                         showWhoAtTheId("productDetails");
                         //----------问题提交------------------//
-                      
+
 
 
 
@@ -2349,6 +2356,10 @@
                         if (id == null) {
                             id = "";
                         }
+                        if (content == "") {
+                            toast("请输入提问内容", 1000);
+                            return;
+                        }
 
                         $.ajax({
                             url: "http://www.shrxc.com/api/apitest/question",
@@ -2357,7 +2368,7 @@
                             type: "GET",
                             jsonp: "callback",
                             success: function (data) {
-                              
+
                                 if (data == 1) {
                                     $("#solveAfter").show();
                                     $("#solveNow").hide();
@@ -2376,12 +2387,11 @@
                                         doneCallback: function () {
                                             var tel = $("#telText").val();
                                             var pwd = $("#pwdText").val();
-                                            if (tel == "" || pwd == "")
-                                            {
+                                            if (tel == "" || pwd == "") {
                                                 toast("账号或密码不能为空", 1000);
                                                 fnQuestion();
                                             }
-                                         
+
                                             $.ajax({
                                                 data: { "tel": tel, 'pwd': pwd },
                                                 url: "http://www.shrxc.com/api/apitest/login",
@@ -2389,17 +2399,16 @@
                                                 type: "GET",
                                                 jsonp: "callback",
                                                 success: function (data) {
-                                                 
-                                                    if (data != null)
-                                                    {
+
+                                                    if (data != null) {
                                                         $.each(data, function (key, val) {
                                                             localStorage.setItem(key, val);
                                                         })
                                                         fnQuestion();
                                                     }
-                                                        
+
                                                     else
-                                                        toast("登录失败,请重新登录",1000)
+                                                        toast("登录失败,请重新登录", 1000)
                                                 }
                                             })
                                         },
@@ -2418,12 +2427,12 @@
 
                     function fnMakeAnAppointment() {
                         id = localStorage["id"];
-                        name=localStorage["username"];
+                        name = localStorage["username"];
                         if (id == null)
                             id = '';
                         $("#afui").popup({
                             title: "预约产品",
-                            message: "姓名:<input id='yuyueName' type='text' placehoder='"+name+"' id='yuyuetel' class='af-ui-forms'/><br />联系电话:<input type='tel' id='yuyuetel' class='af-ui-forms'/><br /> 预约金额:<input id='yuyuenum' type='number' style='width:80%; margin-right:10px;'  />万元 <br /> 备注:<input id='yuyuebeizhu' type='text'  class='af-ui-forms' />",
+                            message: "姓名:<input id='yuyueName' type='text' placehoder='" + name + "' id='yuyuetel' class='af-ui-forms'/><br />联系电话:<input type='tel' id='yuyuetel' class='af-ui-forms'/><br /> 预约金额:<input id='yuyuenum' type='number' style='width:80%; margin-right:10px;'  />万元 <br /> 备注:<input id='yuyuebeizhu' type='text'  class='af-ui-forms' />",
                             cancelText: "取消",
                             cancelCallback: function () { },
                             doneText: "提交",
@@ -2432,17 +2441,14 @@
                                 var num = $("#yuyuenum").val();
                                 var biezhu = $("#yuyuebeizhu").val();
                                 var username = $("#yuyueName").val();
-                                var remark=$("#yuyuebeizhu").val();
-                                if(tel=="")
-                                {
+                                var remark = $("#yuyuebeizhu").val();
+                                if (tel == "") {
                                     toast("电话不能为空", 1000);
-                                    
-                                } else if(username == '' && name == '')
-                                {
+
+                                } else if (username == '' && name == '') {
                                     toast("姓名不能为空", 1000);
                                 }
-                                else if(num=="")
-                                {
+                                else if (num == "") {
                                     toast("金额不能为空", 1000);
                                 }
                                 else {
@@ -2454,8 +2460,7 @@
                                         dataType: "jsonp",
                                         jsonp: "callback",
                                         success: function (data) {
-                                            if(data==-1)
-                                            {
+                                            if (data == -1) {
                                                 $("#afui").popup({
                                                     title: "登录",
                                                     message: "手机号码:<input id='telText' type='text' class='af-ui-forms' /><br/ >密码:<input id='pwdText' class='af-ui-forms' type='text' style='webkit-text-security:disc'/>",
@@ -2553,7 +2558,7 @@
                     }
                 </style>
             </div>
-
+            <!------------------------------------- 公司简介------------------------------------------>
             <!-------------------------------------意见反馈------------------------------------------>
             <div class="panel" id="yjfk" style="background-color:#f0f0f0" data-header="YJFK_H" data-footer="none" data-load="YJFK_start">
 
@@ -2624,7 +2629,6 @@
                     }
                 </script>
             </div>
-
             <!-------------------------------------意见反馈------------------------------------------>
             <!-------------------------------------补全资料------------------------------------------>
             <div id="bqzl" data-load="grqq" title="QQ" class="panel" data-header="hbqzl" style="background-color:#f0f0f0;" data-footer="none" data-tab="footer_zhuye">
@@ -3034,13 +3038,12 @@
             </header><!-----------------------------------预警名单------------->
             <!--------------------------------------- 头--------------------------------------------->
             <!--------------------------------------- 尾--------------------------------------------->
-
             <footer id="custom_footer" style="width:100%">
-                <a href='#zhuye' id="footer_zhuye" style="float:left;display:block; background:url(img/footerimg/icon-home.png);height:43px; width:53px; background-size: 53px 43px;background-repeat:no-repeat;background-position-x:50%;"></a>
-                <a href='#sous' id="footer_anjian" style="float:left;display:block; background:url(img/footerimg/icon-search.png);height:43px; width:53px;background-size: 53px 43px;background-repeat:no-repeat;background-position-x:50%;"></a>
-                <a href='#jjzq' id="footer_jiaoliu" style="float:left;display:block; background:url(img/footerimg/icon-chat.png);height:43px; width:53px; background-size: 53px 43px;background-repeat:no-repeat;background-position-x:50%;"></a>
-                <a href='#jfshop' id="footer_jfshop" style="float:left;display:block; background:url(img/footerimg/icon-shop.png);height:43px; width:53px; background-size: 53px 43px;background-repeat:no-repeat;background-position-x:50%;"></a>
-                <a href='#yhzx' id="footer_yhzx" style="float:left;display:block; background:url(img/footerimg/icon-user.png);height:43px; width:53px; background-size: 53px 43px;background-repeat:no-repeat;background-position-x:50%;"></a>
+                <a href='#zhuye' id="footer_zhuye" style="float:left;display:block; background:url(img/footerimg/icon-home.png);height:53px; width:20%; background-size: 50px 40px;background-repeat:no-repeat;background-position-x:50%;"></a>
+                <a href='#sous' id="footer_anjian" style="float:left;display:block; background:url(img/footerimg/icon-search.png);height:53px; width:20%;background-size:  50px 40px;background-repeat:no-repeat;background-position-x:50%;"></a>
+                <a href='#jjzq' id="footer_jiaoliu" style="float:left;display:block; background:url(img/footerimg/icon-chat.png);height:53px; width:20%; background-size: 50px 40px;background-repeat:no-repeat;background-position-x:50%;"></a>
+                <a href='#jfshop' id="footer_jfshop" style="float:left;display:block; background:url(img/footerimg/icon-shop.png);height:53px; width:20%; background-size:  50px 40px;background-repeat:no-repeat;background-position-x:50%;"></a>
+                <a href='#yhzx' id="footer_yhzx" style="float:left;display:block; background:url(img/footerimg/icon-user.png);height:53px; width:20%; background-size:  50px 40px;background-repeat:no-repeat;background-position-x:50%;"></a>
                 <div style="clear:both"></div>
             </footer>
             <!--------------------------------------- 尾--------------------------------------------->
@@ -3105,7 +3108,7 @@
 
 
     function fnLogin() {//登录
-        $("input").blur();
+
 
         $.ui.showMask("登录中");//加载中
 
@@ -3134,8 +3137,9 @@
                         });//html5数据库
 
                         $.ui.hideMask();
-                       // alert("融信城欢迎您");
+                        // alert("融信城欢迎您");
                         toast("融信城欢迎您", 1000);
+                        $.ui.loadContent("#login");//停止加载
                         $.ui.loadContent("#yhzx");//停止加载
                     }
                 },
@@ -3145,7 +3149,7 @@
                 }
             })
 
-        }, 500);
+        }, 0);
 
 
     }// End login
@@ -3299,7 +3303,7 @@
     }///////////////////////注册end
 
     function onKeyboardHide() {
-
+        $("#loginname, #loginpwd").blur();
     }
 
     function onKeyboardShow() {
@@ -3748,7 +3752,7 @@
         $("#myTel").text(window.localStorage["tel"])//显示的手机号码
         $("#myMoney").text(window.localStorage["money"] + "元");
         $("#myJF").text(window.localStorage["score"] + "积分");
-        
+
         if (window.localStorage["ziliao"] == "1") {
             $("#sjfhide").css("display", "none");
         }
@@ -3894,7 +3898,7 @@
 
     $("#sign").click(qianDao);//点击立刻签到按钮
 
-    function fnGetTickedByType(types,sssid)//显示活动或礼品券列表
+    function fnGetTickedByType(types, sssid)//显示活动或礼品券列表
     {
         $("#showLiPingQuan").text("")
         id = window.localStorage["id"];
@@ -3905,9 +3909,9 @@
             dataType: "jsonp",
             jsonp: "callback",
             success: function (data) {
-               
+
                 $.each(data, function (key, value) {
-                   
+
                     var imgsrc = types == "lp" ? (parseInt(value.state) == 0 ? "url(./img/lpjuan/notUse_lp.png)" : "url(./img/lpjuan/useed_lp.png)") : (parseInt(value.state) == 0 ? "url(./img/lpjuan/notUes_hd.png)" : "url(./img/lpjuan/notUes_hd.png)");
 
                     var item = "<div onclick='fnClickShow(this)' imgsrc='" + value.activity.imgsrc + "' coid='" + value.coid + "' score='" + value.score + "' gsjc='" + value.seller.gsjc + "'  state='" + value.state + "' titles='" + value.activity.title + "'theDate='有效日期:" + (value.activity.begintime).substring(0, 10) + "日~" + (value.endtime).substring(0, 10) + "日' style='margin-top:5px;padding:2% 4%;border:1px solid #ccc;background-image:" + imgsrc + "; background-position:right top;background-repeat:no-repeat;background-color:#FFF;width:100%'>"//code
@@ -3922,7 +3926,7 @@
                         + "</div>";
 
                     $('#' + sssid).append(item);  //var myTitle = LipinOrHuodong == "lp" ? "礼品券" : "活动券";
-                  
+
                 })
 
             },
@@ -3975,16 +3979,16 @@
         //var myTitle = LipinOrHuodong == "lp" ? "礼品券" : "活动券";
         var sid = "showHuoDongQuan";
         //$("#lpjuan").attr("data-title", myTitle);
-        fnGetTickedByType("hd",sid);
-       
+        fnGetTickedByType("hd", sid);
+
         // $("#lpjuan").attr("data-title", myTitle);
-       
+
     }
     function fnShowTickedbyLiPin() {////显示礼品券领取记录
         //var myTitle = LipinOrHuodong == "lp" ? "礼品券" : "活动券";
         var sid = "showLiPingQuan";
-       // $("#lpjuan").attr("data-title", myTitle);
-        fnGetTickedByType("lp",sid);
+        // $("#lpjuan").attr("data-title", myTitle);
+        fnGetTickedByType("lp", sid);
     }
 
     //***************修改密码*******************
