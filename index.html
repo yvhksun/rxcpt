@@ -284,6 +284,8 @@
             #slide_01_dot .selected {
                 background: #66ff33;
             }
+
+         
     </style>
 
     <script>
@@ -369,7 +371,7 @@
 
                     </div>
                     <div onclick="jifgd()" style="width:100%;padding-top:10px;padding-bottom:10px;">
-                        <div id="del_tianjia" style="height:30px;line-height:30px ;width:50%;text-align:center; margin:0 auto;border-radius:15px;border:solid 1px #dbdbdb ">加载更多</div>
+                        <div id="del_tianjia" style="height:30px;line-height:30px ;width:50%;text-align:center; margin:0 auto 20px auto;border-radius:15px;border:solid 1px #dbdbdb ">加载更多</div>
                     </div>
 
                 </div>
@@ -1561,7 +1563,7 @@
                 </div>
                 <div id="jladd"></div>
                 <div onclick="jiaoliutianjia()" style="width:100%;padding-top:10px;padding-bottom:5px;height:60px;">
-                    <div id="jlgd" style="height:30px;line-height:30px ;width:50%;text-align:center; margin:0 auto;border-radius:15px;border:solid 1px #dbdbdb ">加载更多</div>
+                    <div id="jlgd" style="height:30px;line-height:30px ;width:50%;text-align:center; margin:0 auto 20px auto;border-radius:15px;border:solid 1px #dbdbdb ">加载更多</div>
                 </div>
                 <script>
                     function jiaolss() {
@@ -1617,7 +1619,7 @@
                     function clickToGotoCompanyAtJiaoLiu(vtype, gsqc) {
                         if (vtype == "-2")
                         {
-                            toast("这个公司没有注册,不能阅读详情", 1000);
+                            toast("这个公司没有认证,不能阅读详情", 1000);
                         }
                         else
                         fnGotoCompanyPro(1,gsqc)
