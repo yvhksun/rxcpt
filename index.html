@@ -302,6 +302,117 @@
 <body>
     <div id="afui" class="android light ">
         <div id="content">
+            <!--=======================================百姓爆料===============================================--->
+            <div id="panelOfThePeopleExpose" class="panel" style="padding:10px 17px 10px 30px;background:#a8e6ff; " data-footer="none">
+
+                <div style="background-position:top right;background-repeat:no-repeat;background-image:url('img/PoepleExpose/foldssaw.png');width:100%;padding-right:13px;">
+                    <div style="width:100%; background:#fff;">
+                        <div style="width:100%;padding:0px 20px;height:40px;line-height:40px;border-bottom:solid 1px #d9d9d9;font-size:14px;"><div style="float:left;color:#00b2e0;"><img style="height:14px;width:auto" src="img\PoepleExpose/tocsin.png" />139*******5521</div><div style="float:right;color:#ebebeb;">10分钟前</div><div style="clear:both;"></div></div>
+                        <div style="height:80px;padding:0px 20px;width:100%;color:#ff4c76;font-size:14px;line-height:20px;">某某公司在工商局已经有异常信息(测试消息)</div>
+                    </div>
+                </div>
+                <div style="padding-right:13px;margin-top:20px;"><div onclick="fnShowExposeContent()" style="width:100%;height:50px;background:#44d633;color:#fff;font-size:16px;line-height:50px;text-align:center;border-radius:7px;">我要爆料</div></div>
+
+                <script>
+                    var myShadow = $.create("div", {
+                        id: "myShadow",
+                        html: ""
+                    }).css({
+                        width: "100%",
+                        height: $(window).height(),
+                        "background-color": "#000",
+                        opacity: "0.3",
+                        position: "fixed",
+                        display: "none",
+                        "z-index": "998"
+                    })
+                    document.body.appendChild(myShadow.get(0));
+
+
+                    var myExpose = $.create("div", {
+                        id: "myExpose",
+                        html: "<div id='exposeTitle'><div id='exposeCancel' class='icon close' onclick='clickCancelArExpose()'></div >编辑我要爆料的内容<div id='exposeDone' class='icon check' onclick='clickDoneAtExpose()'></div><div style='clear:both;'></div></div><textarea id='exposeContent'></textarea>"
+                    }).css({
+                        width: "90%",
+                        height: "300px",
+                        position: "fixed",
+                        display: "none",
+                        top: "30%",
+                        left: "5%",
+                        "z-index": "999"
+                    })
+                    document.body.appendChild(myExpose.get(0));
+
+                    function fnShowExposeContent() {
+                        $("#myShadow").show();
+                        $("#myExpose").show();
+                    }
+
+                    function clickDoneAtExpose() {
+                        var item = $("#exposeContent").val();
+                        alert(item)
+                    }
+                    function clickCancelArExpose() {
+                        $("#myShadow").hide();
+                        $("#myExpose").hide();
+                    }
+
+
+                </script>
+                <style>
+                    #exposeTitle {
+                        line-height: 50px;
+                        text-align: center;
+                        background: #f6f6f6;
+                        border-bottom: 1px solid #c7c7c7;
+                        padding: 0px 15px;
+                        width: 100%;
+                        height: 50px;
+                        font-size: 16px;
+                    }
+
+                    #exposeCancel, #exposeDone {
+                        margin-top: 15px;
+                        border: 2px solid #2edbbf;
+                        border-radius: 13px;
+                        width: 26px;
+                        height: 26px;
+                        text-align: center;
+                        font-size: 14px;
+                        line-height: 26px;
+                        color: #2edbbf;
+                    }
+
+                    #exposeCancel {
+                        float: left;
+                    }
+
+                    #exposeDone {
+                        float: right;
+                    }
+
+                    #exposeTitle > *.icon:before {
+                        left: 0px;
+                        top: 0px;
+                    }
+
+                    #exposeContent {
+                        border: none;
+                        margin: 0px;
+                        padding: 0px;
+                        width: 100%;
+                        height: 100px;
+                        outline: 0px;
+                    }
+                </style>
+
+            </div>
+
+
+
+
+
+            <!--=======================================百姓爆料===============================================--->
             <!---------------------------------------公司简介-------------------------------------------->
             <div id="aboutCompantry" class="panel" data-footer="none" style="background-color:#fff;">
 
@@ -719,7 +830,7 @@
                         <a href="#yjm_d">
                             <span style="width:32%;display:inline-table; padding-left:10%; padding-right:10%;"><img class="img" src="img/index/icon-favorite.png" /></span>
                         </a>
-                        <a >
+                        <a href="#panelOfThePeopleExpose">
                             <span style="width:32%;display:inline-table; padding-right:20%;"><img class="img" src="img/index/icon-about.png" /></span>
                         </a>
                     </div>
