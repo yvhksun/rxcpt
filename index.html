@@ -2312,7 +2312,7 @@
 
                     //******************* show 产品详情(product) begin *******************//
                     function fnGotoDetailsAtCompany(id) {
-
+                        $("#showProductDetails").html("");
                         $.ajax({
                             url: "http://www.shrxc.com/api/apitest/getprobyid",
                             data: { "pid": id },
