@@ -1656,9 +1656,9 @@
                 <!-------------------------------------交流专区------------------------------------------>
                 <!-------------------------------------快速提问------------------------------------------>
                 <div title="快速提问" data-load="gslb" class="panel" id="kstw" data-header="hkstw" data-footer="none" style=" width:100%;background-color:#f0f0f0">
-                    <img src="img/jlzq/xzgs.jpg" style="height:50px;width:90%;margin:20px 5%; ">
+                    <img src="img/jlzq/xzgs1.jpg" style="height:50px;width:90%;margin:20px 5%; ">
                     <input type="hidden" value="" id="hidesid" />
-                    <div id="twipt" onclick="selshow()" placeholder="请选择提问公司" style="width:70%; position:absolute;color:#c7c7c7;height:20px;margin-top:-65px;margin-left:35px;height:30px;background-color:#fff;line-height:30px;"></div>
+                    <div id="twipt" onclick="selshow()" placeholder="请选择提问公司" style="width:80%; position:absolute;color:#c7c7c7;height:20px;margin-top:-65px;margin-left:30px; height:30px;line-height:30px;"></div>
                     <div id="gslby" style="position:absolute;z-index:100; display:none; background-color:white ;width:86%;margin-top :-30px;margin-left:7%;padding-left:20px;">
 
                     </div>
@@ -1668,7 +1668,18 @@
                     </div>
                     <script>
                         function selshow() {
-                            $("#gslby").css("display", "block")
+                            $("#gslby").toggle();
+                            //if ($("#gslby").css("display")=="none") {
+                            //    alert("1")
+                            //    $("#gslby").css("display", "block");
+                            //    return
+                            //}
+                            //if ($("#gslby").css("display")== "block") {
+                            //    alert("2")
+                            //    $("#gslby").css("display", "none");
+                               
+                            //    return
+                            //}
                         }
 
                         function select1(sid, gsqc) {
