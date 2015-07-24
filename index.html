@@ -89,6 +89,7 @@
     <script type="text/javascript" charset="utf-8" src="./ui/transitions/flip.js"></script>
     <script type="text/javascript" charset="utf-8" src="./ui/transitions/pop.js"></script>
     <script type="text/javascript" charset="utf-8" src="./ui/transitions/slide.js"></script>
+    <script type="text/javascript" charset="utf-8" src="./ui/transitions/slideRight.js"></script>
     <script type="text/javascript" charset="utf-8" src="./ui/transitions/slideDown.js"></script>
     <script type="text/javascript" charset="utf-8" src="./ui/transitions/slideUp.js"></script>
     <script type="text/javascript" charset="utf-8" src="./plugins/af.slidemenu.js"></script>
@@ -466,7 +467,7 @@
             <!----------------------------------积分商城详情页--------------------------------------->
             <div class="panel" id="jifengxiangqing" data-footer="jfscxx" data-load="fnShowShopInfo" data-tab>
                 <header>
-                    <a href="#jfshop">
+                    <a data-transition="slideRight" href="#jfshop">
                         <span style="margin-left:5px; display:block;margin-bottom:-40px; width:60px;height:44px;background-color:red;background-image:url(img/jfsc_images/fanhui.png); "></span>
                     </a>
                     <h1>详情</h1>
@@ -853,7 +854,7 @@
                     </div>
                 </div>
                 <header id="hlpqxx_header">
-                    <a href="#lpjuan" class="biaotizuo">
+                    <a data-transition="slideRight" href="#lpjuan" class="biaotizuo">
                         <span style="margin-left:5px; display:block;margin-bottom:-40px; width:60px;height:44px;background-color:red;background-image:url(img/jfsc_images/fanhui.png); "></span>
                     </a>
                     <h1></h1>
@@ -1476,7 +1477,7 @@
                 <div id="showLiPingQuan"></div>
 
                 <header id="lpq_heaader">
-                    <a href="#yhzx" class="biaotizuo">
+                    <a data-transition="slideRight" href="#yhzx" class="biaotizuo">
                         <span style="margin-left:5px; display:block;margin-bottom:-40px; width:60px;height:44px;background-color:red;background-image:url(img/jfsc_images/fanhui.png); "></span>
                     </a>
                     <h1>礼品券</h1>
@@ -1488,7 +1489,7 @@
 
 
                 <header id="hdq_heaader">
-                    <a href="#yhzx" class="biaotizuo">
+                    <a data-transition="slideRight" href="#yhzx" class="biaotizuo">
                         <span style="margin-left:5px; display:block;margin-bottom:-40px; width:60px;height:44px;background-color:red;background-image:url(img/jfsc_images/fanhui.png); "></span>
                     </a>
                     <h1>活动券</h1>
@@ -1900,7 +1901,7 @@
             <!-------------------------------------搜索结果------------------------------------------>
             <div data-title="安检专区" class="panel" id="SearchAnjianshenqi" style="background-color:#f0f0f0" data-footer="custom_footer">
                 <header>
-                    <a class="button" id="backButton"></a>
+                    <a data-transition="slideRight" class="button" id="backButton"></a>
                     <h1>安检专区</h1>
                 </header>
                 <div style="width:92%;margin:10px 4%">
@@ -1984,7 +1985,7 @@
             <!------------------------------------- 公司简介------------------------------------------>
             <div id="companypro" class="panel " style="background:#f0f0f0;padding-bottom:20px;" data-load="fnShowWhatNow" shownow="1" pid="" gsqc="" data-footer="none">
                 <header>
-                    <a href="#jjzq" class="biaotizuo">
+                    <a data-transition="slideRight" href="#jjzq" class="biaotizuo">
                         <span style="margin-left:5px; display:block;margin-bottom:-40px; width:60px;height:44px;background-color:red;background-image:url(img/jfsc_images/fanhui.png); "></span>
                     </a>
                     <h1>公司详情</h1>
@@ -2857,7 +2858,7 @@
             <!---------------------------------------使用手册--------------------------------------------------------------->
             <header id="headejajjh">
                 <div class="top_header" style="height: 43px;">
-                    <a href="#zhuye" class="biaotizuo">
+                    <a data-transition="slideRight" href="#zhuye" class="biaotizuo">
                         <span style="margin-left:5px; display:block;margin-bottom:-40px; width:60px;height:44px;background-color:red;background-image:url(img/jfsc_images/fanhui.png); "></span>
                     </a>
                     <h1>使用手册</h1>
@@ -2865,7 +2866,7 @@
             </header><!-----------------使用手册  基本介绍  安检查询---安检查询---交流互动-------会员中心----------------->
             <!-------------------------------------- 头---------------------------------------------->
             <header id="YJFK_H">
-                <a href="#zhuye" class="biaotizuo">
+                <a data-transition="slideRight" href="#zhuye" class="biaotizuo">
                     <span style="margin-left:5px; display:block;margin-bottom:-40px; width:60px;height:44px;background-color:red;background-image:url(img/jfsc_images/fanhui.png); "></span>
                 </a>
 
@@ -2873,59 +2874,59 @@
 
             </header><!---------------------------------意见反馈--------->
             <header id="rxc_ajcx">
-                <a class="button" id="backButton"></a>
+                <a data-transition="slideRight" class="button" id="backButton"></a>
                 <h1>融信城&安检查询</h1>
             </header><!-----------------------------------融信城&安检查询------------->
             <header id="mainH">
                 <h1>积分商城</h1>
-                <a href='#' style=" float:right;padding:10px 5px 0px 0px; color:#fff; border:none; text-decoration:none;">
+                <a data-transition="slideRight" href='#' style=" float:right;padding:10px 5px 0px 0px; color:#fff; border:none; text-decoration:none;">
                     <span id="jfTou_shuzi" style="font-size:18px;"></span><img style="margin-left:5px;width:15px;height:15px;" src="img/jfsc_images/jf666.png" />
                 </a>
             </header><!-----------------------------------积分商城------------->
             <header id="l_p_q">
-                <a href="#yhzx" class="biaotizuo">
+                <a data-transition="slideRight" href="#yhzx" class="biaotizuo">
                     <span style="margin-left:5px; display:block;margin-bottom:-40px; width:60px;height:44px;background-color:red;background-image:url(img/jfsc_images/fanhui.png); "></span>
                     <h1>礼品劵</h1>
                 </a>
                 <a href='#' style="float:right;padding:10px 5px 0px 0px; color:#fff; border:none; text-decoration:none;"></a>
             </header><!-------------------------------------礼品劵-------------->
             <header id="jf_xq">
-                <a href="#jfshop" class="biaotizuo">
+                <a data-transition="slideRight" href="#jfshop" class="biaotizuo">
                     <span style="margin-left:5px; display:block;margin-bottom:-40px; width:60px;height:44px;background-color:red;background-image:url(img/jfsc_images/fanhui.png); "></span>
                 </a>
                 <h1>详情</h1>
             </header> <!----------------------------------积分商城详细--------->
             <header id="head">
-                <a style="float:left;" onclick='' class='menuButton'></a>
+                <a data-transition="slideRight" style="float:left;" onclick='' class='menuButton'></a>
                 <h1>融信城安检神器</h1>
             </header><!------------------------------------项目名称------------->
             <header id="hhyaj">
-                <a href="#yhzx" class="biaotizuo" style="background-color:#b6ff00;">
+                <a data-transition="slideRight" href="#yhzx" class="biaotizuo" style="background-color:#b6ff00;">
                     <span style="margin-left:5px; display:block;margin-bottom:-40px; width:60px;height:44px;background-color:red;background-image:url(img/jfsc_images/fanhui.png); "></span>
                 </a>
                 <h1>安检记录</h1>
             </header><!-----------------------------------安检记录------------->
             <header id="hhyqq" class="biaotizuo">
-                <a href="#hyzx_grzl" style="float:left; margin:4% 0 0 15px;  color:white; font-size:14px;">取消</a>
+                <a data-transition="slideRight" href="#hyzx_grzl" style="float:left; margin:4% 0 0 15px;  color:white; font-size:14px;">取消</a>
                 <h1>QQ</h1>
                 <a onclick="saveqq()" style="float:right; margin:4% 15px 0 0;  color:white; font-size:14px;">保存</a>
             </header><!-----------------------------------QQ------------------->
 
             <header id="hbqzl" class="biaotizuo">
-                <a href="#hyzx" style="float:left; margin:4% 0 0 15px;  color:white; font-size:14px;">取消</a>
+                <a data-transition="slideRight" href="#hyzx" style="float:left; margin:4% 0 0 15px;  color:white; font-size:14px;">取消</a>
                 <h1>补全资料</h1>
                 <a onclick="savebq()" style="float:right; margin:4% 15px 0 0;  color:white; font-size:14px;">保存</a>
             </header><!--------------------------补全资料------------------------>
 
             <header id="hhymrrw">
-                <a href="#yhzx" class="biaotizuo">
+                <a data-transition="slideRight" href="#yhzx" class="biaotizuo">
                     <span style="margin-left:5px; display:block;margin-bottom:-40px; width:60px;height:44px;background-color:red;background-image:url(img/jfsc_images/fanhui.png); "></span>
                 </a>
                 <h1>每日任务</h1>
                 <a href="#hyjfjl" style="float: right; margin: 4% 15px 0 0; color: white; font-size: 15px; ">积分记录</a>
             </header><!---------------------------------每日任务------------->
             <header id="meiriqiandao">
-                <a href="#hymrrw" style="margin-left:10px; display:block;">
+                <a data-transition="slideRight" href="#hymrrw" style="margin-left:10px; display:block;">
                     <span style="margin-left:5px; display:block;margin-bottom:-40px; width:60px;height:44px;background-color:red;background-image:url(img/jfsc_images/fanhui.png); "></span>
                 </a>
                 <h1>签到送积分</h1>
@@ -2935,80 +2936,80 @@
                     <h1>积分记录</h1>
             </header><!---------------------------------积分记录------------->
             <header id="grzl">
-                <a href="#yhzx" class="biaotizuo">
+                <a data-transition="slideRight" href="#yhzx" class="biaotizuo">
                     <span style="margin-left:5px; display:block;margin-bottom:-40px; width:60px;height:44px;background-color:red;background-image:url(img/jfsc_images/fanhui.png); "></span>
                 </a>
                 <h1>个人资料</h1>
             </header><!------------------------------------个人资料------------->
             <header id="wdjf">
-                <a href="#yhzx" class="biaotizuo">
+                <a data-transition="slideRight" href="#yhzx" class="biaotizuo">
                     <span style="margin-left:5px; display:block;margin-bottom:-40px; width:60px;height:44px;background-color:red;background-image:url(img/jfsc_images/fanhui.png); "></span>
                 </a>
                 <h1>我的积分</h1>
-                <a href='#hyjfjl' style="float:right;padding:10px 5px 0px 0px; color:#fff; border:none; text-decoration:none;margin-right:5px;margin-top:5px;">积分记录</a>
+                <a data-transition="slideRight" href='#hyjfjl' style="float:right;padding:10px 5px 0px 0px; color:#fff; border:none; text-decoration:none;margin-right:5px;margin-top:5px;">积分记录</a>
             </header><!------------------------------------我的积分------------->
             <header id="dizi">
-                <a href="#hyzx_grzl" style="float:left; margin:12px 0 0 20px;  color:white; font-size:14px;">取消</a>
+                <a data-transition="slideRight" href="#hyzx_grzl" style="float:left; margin:12px 0 0 20px;  color:white; font-size:14px;">取消</a>
                 <h1>地址</h1>
                 <a href='#' onclick="savesdz()" style="float:right;padding:12px 5px 0px 0px; color:#fff; border:none; text-decoration:none;">保存</a>
             </header><!------------------------------------个人资料_地址-------->
             <header id="shenfenzheng">
-                <a href="#hyzx_grzl" style="float:left; margin:12px 0 0 20px;  color:white; font-size:14px;">取消</a>
+                <a data-transition="slideRight" href="#hyzx_grzl" style="float:left; margin:12px 0 0 20px;  color:white; font-size:14px;">取消</a>
                 <h1>身份证号码</h1>
                 <a href='#' onclick="savesfz()" style="float:right;padding:12px 5px 0px 0px; color:#fff; border:none; text-decoration:none;">保存</a>
             </header><!----------------------------个人资料_身份证号码-->
             <header id="xingbie">
-                <a href="#hyzx_grzl" style="float:left; margin:12px 0 0 20px;  color:white; font-size:14px;">取消</a>
+                <a data-transition="slideRight" href="#hyzx_grzl" style="float:left; margin:12px 0 0 20px;  color:white; font-size:14px;">取消</a>
                 <h1>性别</h1>
                 <a href='#' onclick="savesex()" style="float:right;padding:12px 5px 0px 0px; color:#fff; border:none; text-decoration:none;">保存</a>
             </header><!---------------------------------个人资料_性别-------->
             <header id="xingming">
-                <a href="#hyzx_grzl" style="float:left; margin:12px 0 0 20px;  color:white; font-size:14px;">取消</a>
+                <a data-transition="slideRight" href="#hyzx_grzl" style="float:left; margin:12px 0 0 20px;  color:white; font-size:14px;">取消</a>
                 <h1>姓名</h1>
                 <a onclick="savename()" style="float:right;padding:12px 5px 0px 0px; color:#fff; border:none; text-decoration:none;">保存</a>
             </header><!--------------------------------个人资料_姓名-------->
             <header id="youxiang">
-                <a href="#hyzx_grzl" style="float:left; margin:12px 0 0 20px;  color:white; font-size:14px;">取消</a>
+                <a data-transition="slideRight" href="#hyzx_grzl" style="float:left; margin:12px 0 0 20px;  color:white; font-size:14px;">取消</a>
                 <h1>邮箱</h1>
                 <a onclick="saveem()" style="float:right;padding:12px 5px 0px 0px; color:#fff; border:none; text-decoration:none;">保存</a>
             </header><!--------------------------------个人资料_邮箱-------->
             <header id="xiugaimima">
-                <a href="#hyzx_grzl" style="float:left; margin:12px 0 0 20px;  color:white; font-size:14px;">取消</a>
+                <a data-transition="slideRight" href="#hyzx_grzl" style="float:left; margin:12px 0 0 20px;  color:white; font-size:14px;">取消</a>
                 <h1>修改密码</h1>
 
             </header><!------------------------------个人资料_修改密码---->
             <header id="htwjl">
-                <a href="#yhzx" class="biaotizuo">
+                <a data-transition="slideRight" href="#yhzx" class="biaotizuo">
                     <span style="margin-left:5px; display:block;margin-bottom:-40px; width:60px;height:44px;background-color:red;background-image:url(img/jfsc_images/fanhui.png); "></span>
                 </a>
                 <h1>提问记录</h1>
             </header><!-----------------------------------提问记录------------->
             <header id="hzhuce1">
-                <a href="#login" class="biaotizuo">
+                <a data-transition="slideRight" href="#login" class="biaotizuo">
                     <span style="margin-left:5px; display:block;margin-bottom:-40px; width:60px;height:44px;background-color:red;background-image:url(img/jfsc_images/fanhui.png); "></span>
                 </a>
                 <h1>注册</h1>
             </header><!----------------------------------注册----------------->
             <header id="hzhuce">
-                <a href="#zhuce" class="biaotizuo">
+                <a data-transition="slideRight" href="#zhuce" class="biaotizuo">
                     <span style="margin-left:5px; display:block;margin-bottom:-40px; width:60px;height:44px;background-color:red;background-image:url(img/jfsc_images/fanhui.png); "></span>
                 </a>
                 <h1>注册</h1>
             </header><!----------------------------------next注册----------------->
             <header id="hlpqxx">
-                <a href="#lpjuan" class="biaotizuo">
+                <a data-transition="slideRight" href="#lpjuan" class="biaotizuo">
                     <span style="margin-left:5px; display:block;margin-bottom:-40px; width:60px;height:44px;background-color:red;background-image:url(img/jfsc_images/fanhui.png); "></span>
                 </a>
                 <h1>礼品券</h1>
             </header><!----------------------------------礼品券详细--------------->
             <header id="hjfjlxq">
-                <a href="#hyjfjl" class="biaotizuo">
+                <a data-transition="slideRight" href="#hyjfjl" class="biaotizuo">
                     <span style="margin-left:5px; display:block;margin-bottom:-40px; width:60px;height:44px;background-color:red;background-image:url(img/jfsc_images/fanhui.png); "></span>
                 </a>
                 <h1>积分记录</h1>
             </header><!---------------------------------积分记录详情--------->
             <header id="hyyjl">
-                <a href="#yhzx" class="biaotizuo">
+                <a data-transition="slideRight" href="#yhzx" class="biaotizuo">
                     <span style="margin-left:5px; display:block;margin-bottom:-40px; width:60px;height:44px;background-color:red;background-image:url(img/jfsc_images/fanhui.png); "></span>
                 </a>
                 <h1>预约记录</h1>
@@ -3018,27 +3019,27 @@
                 <h1>交流专区</h1>
             </header><!---------------------------------交流专区--------->
             <header id="hkstw">
-                <a href="#jjzq">
+                <a data-transition="slideRight" href="#jjzq">
                     <span style="margin-left:5px; display:block;margin-bottom:-40px; width:60px;height:44px;background-color:red;background-image:url(img/jfsc_images/fanhui.png); "></span>
                 </a>
                 <h1>快速提问</h1>
 
             </header><!---------------------------------快速提问--------->
             <header id="hzhuye">
-                <a onclick="dengl()" style="float:left; margin:12px 0 0 20px;  color:white; font-size:14px;">登录</a>
+                <a data-transition="slideRight" onclick="dengl()" style="float:left; margin:12px 0 0 20px;  color:white; font-size:14px;">登录</a>
                 <h1>首页</h1>
             </header><!---------------------------------首页--------->
             <header id="hyhzx">
                 <h1>我的</h1>
             </header><!---------------------------------我的--------->
             <header id="hjqtw">
-                <a href="#kstw" class="biaotizuo">
+                <a data-transition="slideRight" href="#kstw" class="biaotizuo">
                     <span style="margin-left:5px; display:block;margin-bottom:-40px; width:60px;height:44px;background-color:red;background-image:url(img/jfsc_images/fanhui.png); "></span>
                 </a>
                 <h1>近期提问</h1>
             </header><!---------------------------------近期提问--------->
             <header id="yjmd">
-                <a href="#zhuye">
+                <a data-transition="slideRight" href="#zhuye">
                     <span style="margin-left:5px; display:block;margin-bottom:-40px; width:60px;height:44px;background-color:red;background-image:url(img/jfsc_images/fanhui.png); "></span>
                 </a>
                 <h1>预警名单</h1>
@@ -3049,11 +3050,11 @@
 
             <!--------------------------------------- 尾--------------------------------------------->
             <footer id="custom_footer" style="width:100%">
-                <a data-transition="slideUp" href='#zhuye' id="footer_zhuye" style="float:left;display:block; background:url(img/footerimg/icon-home.png);height:53px; width:20%; background-size: 50px 40px;background-repeat:no-repeat;background-position:50%;"></a>
-                <a data-transition="slideUp" href='#sous' id="footer_anjian" style="float:left;display:block; background:url(img/footerimg/icon-search.png);height:53px; width:20%;background-size:  50px 40px;background-repeat:no-repeat;background-position:50%;"></a>
-                <a data-transition="slideUp" href='#jjzq' id="footer_jiaoliu" style="float:left;display:block; background:url(img/footerimg/icon-chat.png);height:53px; width:20%; background-size: 50px 40px;background-repeat:no-repeat;background-position:50%;"></a>
-                <a data-transition="slideUp" href='#jfshop' id="footer_jfshop" style="float:left;display:block; background:url(img/footerimg/icon-shop.png);height:53px; width:20%; background-size:  50px 40px;background-repeat:no-repeat;background-position:50%;"></a>
-                <a data-transition="slideUp" href='#yhzx' id="footer_yhzx" style="float:left;display:block; background:url(img/footerimg/icon-user.png);height:53px; width:20%; background-size:  50px 40px;background-repeat:no-repeat;background-position:50%;"></a>
+                <a data-transition="fade" href='#zhuye' id="footer_zhuye" style="float:left;display:block; background:url(img/footerimg/icon-home.png);height:53px; width:20%; background-size: 50px 40px;background-repeat:no-repeat;background-position:50%;"></a>
+                <a data-transition="fade" href='#sous' id="footer_anjian" style="float:left;display:block; background:url(img/footerimg/icon-search.png);height:53px; width:20%;background-size:  50px 40px;background-repeat:no-repeat;background-position:50%;"></a>
+                <a data-transition="fade" href='#jjzq' id="footer_jiaoliu" style="float:left;display:block; background:url(img/footerimg/icon-chat.png);height:53px; width:20%; background-size: 50px 40px;background-repeat:no-repeat;background-position:50%;"></a>
+                <a data-transition="fade" href='#jfshop' id="footer_jfshop" style="float:left;display:block; background:url(img/footerimg/icon-shop.png);height:53px; width:20%; background-size:  50px 40px;background-repeat:no-repeat;background-position:50%;"></a>
+                <a data-transition="fade" href='#yhzx' id="footer_yhzx" style="float:left;display:block; background:url(img/footerimg/icon-user.png);height:53px; width:20%; background-size:  50px 40px;background-repeat:no-repeat;background-position:50%;"></a>
 
                 <div style="clear:both"></div>
             </footer>
