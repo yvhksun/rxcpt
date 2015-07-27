@@ -3359,6 +3359,11 @@
             //获取对话框内容
             var name = $("#loginname").val();
             var password = $("#loginpwd").val();
+            if (name == "" || password == "")
+            {
+                toast("账号或密码不能为空");
+                return;
+            }
 
             $.ajax({
                 url: "http://120.24.220.249/api/apitest/login",
@@ -3383,12 +3388,12 @@
                         // alert("融信城欢迎您");
                         toast("融信城欢迎您", 1000);
                         $.ui.loadContent("#login");//停止加载
-                        $.ui.loadContent("#yhzx");//停止加载
+                  
                     }
                 },
                 error: function (date) {
                     $.ui.hideMask(); //数据加载完毕需要清除掉载入动画
-                    toast('账号或密码不能为空', 1000);
+                    toast('网络断开连接', 1000);
                 }
             })
 
