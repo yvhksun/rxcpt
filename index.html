@@ -1763,7 +1763,8 @@
                     </a>
                     <div style="clear:both;"></div>
                 </div>
-                <div id="jladd"></div>
+                <div id="jladd" style="margin-left:1.5px;"></div>
+                 
                 <div onclick="jiaoliutianjia()" style="width:100%;padding-top:10px;padding-bottom:20px;">
                     <div id="jlgd" style="height:30px;line-height:30px ;width:50%;text-align:center; margin:0 auto 0px auto;border-radius:15px;border:solid 1px #dbdbdb ">加载更多</div>
                 </div>
@@ -1803,9 +1804,10 @@
 
                                     var item = $(
 
-                                        " <div onclick='clickToGotoCompanyAtJiaoLiu(\"" + value.state + "\",\"" + value.gsqc + "\")' gsqc='" + value.gsqc + "' style='width:33.33%;height:130px;float:left;padding:15px 15px;border:solid 1px #dbdbdb'>" +
-
-                                            "<img src='http://120.24.220.249" + value.logo + "' class='jltbl'style='height:73%;width:100%'/>" +
+                                        " <div onclick='clickToGotoCompanyAtJiaoLiu(\"" + value.state + "\",\"" + value.gsqc + "\")' gsqc='" + value.gsqc + "' style='width:33.33%;height:130px;float:left;padding:15px 15px;border:solid 1px #91ccea;margin-top:-1px;margin-right:-1px;'>" +
+                                        "<span style='border-radius:50px;border:solid 2px #00d5fe;height:73%;width:100%;display:inline-table'>" +
+                                            "<img src='http://120.24.220.249" + value.logo + "' class='jltbl'style='height:73%;width:100%;margin-top:9px;margin-left:-1px;'/>" +
+                                        "</span>"+
                                             "<span style='text-align:center;width:100%;display:inline-table;margin-top:10px;'>" + value.gsjc + "</span>" +
                                         " </div>")
                                     $("#jladd").append(item)
