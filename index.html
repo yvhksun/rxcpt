@@ -304,12 +304,7 @@
             <!--=======================================百姓爆料===============================================--->
             <div id="panelOfThePeopleExpose" class="panel" style="background:#a8e6ff; " data-header="BXBL_H" data-footer="none" data-load="readBxbl_list">
                 <div style="padding:10px 17px 10px 30px;">
-                    <div style="background-position:top right;background-repeat:no-repeat;background-image:url('img/PoepleExpose/foldssaw.png');width:100%;padding-right:13px;">
-                        <div id="bxbl_list" style="width:100%; background:#fff;">
-                            <div style="width:100%;padding:0px 20px;height:40px;line-height:40px;border-bottom:solid 1px #d9d9d9;font-size:14px;"><div style="float:left;color:#00b2e0;"><img style="height:14px;width:auto" src="img\PoepleExpose/tocsin.png" />139*******5521</div><div style="float:right;color:#ebebeb;">10分钟前</div><div style="clear:both;"></div></div>
-                            <div style="height:80px;padding:0px 20px;width:100%;color:#ff4c76;font-size:14px;line-height:40px;">某某公司在工商局已经有异常信息(测试消息)</div>
-                        </div>
-                    </div>
+                    <div id="bxbl_list"></div>
 
                     <div style="padding-right:13px;margin-top:20px;"><div onclick="fnShowExposeContent()" style="width:100%;height:50px;background:#44d633;color:#fff;font-size:16px;line-height:50px;text-align:center;border-radius:7px;">我要爆料</div></div>
 
@@ -317,9 +312,9 @@
                         <div style="position:fixed;top:0px;background:black;left:0;  height:10000px;width:100%; filter:alpha(opacity=50);-moz-opacity:0.5;-khtml-opacity: 0.5;opacity: 0.5;  ">&nbsp</div>
                         <div style="position:fixed;width:90%;height:200px;top:100px;left:5%">
                             <div style="width:100%;background-color:#f6f6f6;padding:15px 15px;border-bottom:1px solid #c7c7c7;">
-                                <img onclick="canceldiv()" src="img/baixin/quxiao.png" style="float:left;width:10%" />
-                                <span style="height:20px;line-height:20px;width:80%;text-align:center; display:inline-table;">编辑我要爆料的内容</span>
-                                <img onclick="TJ_bxbl()" src="img/baixin/queren.png" style="float:right;width:10%" />
+                                <img onclick="canceldiv()" src="img/baixin/quxiao.png" style="width:30px;position:absolute;top:12px" />
+                                <div style="height:20px;line-height:20px;width:100%;text-align:center; display:inline-table;">编辑我要爆料的内容</div>
+                                <img onclick="TJ_bxbl()" src="img/baixin/queren.png" style="width:30px;position:absolute;left:85%;top:12px" />
                             </div>
                             <textarea id="txtCon_bxbl" style="height:150px;border:none"></textarea>
                         </div>
@@ -356,10 +351,10 @@
 
                                     var item = $(
 
-                                         " <div style='background-position:top right;background-repeat:no-repeat;background-image:url('img/PoepleExpose/foldssaw.png');width:100%;padding-right:13px;'>" +
+                                         " <div style='background-position:top right;background-repeat:no-repeat;background-image:url(\"img/PoepleExpose/foldssaw.png\");width:100%;padding-right:13px;'>" +
                             "<div style='width:100%; background:#fff;'>" +
-                                "<div style='width:100%;padding:0px 20px;height:40px;line-height:40px;border-bottom:solid 1px #d9d9d9;font-size:14px;'><div style='float:left;color:#00b2e0;'><img style='height:14px;width:auto' src='img\PoepleExpose/tocsin.png' />" + value.tel + "</div><div style='float:right;color:#ebebeb;'>" + value.createtime + "</div><div style='clear:both;'></div></div>" +
-                                "<div style='height:80px;padding:0px 20px;width:100%;color:#ff4c76;font-size:14px;line-height:40px;'>" + value.con + "</div>" +
+                                "<div style='width:100%;padding:0px 20px;height:40px;line-height:40px;border-bottom:solid 1px #d9d9d9;font-size:12px;'>" + "<div style='float:left;color:#00b2e0;'>" + "<img style=\"height:14px;width:auto\" src=\"img/PoepleExpose/tocsin.png\" />" + value.tel + "</div><div style='float:right;color:#ebebeb;'>" + value.createtime + "</div><div style='clear:both;'></div></div>" +
+                                "<div style='height:160px;padding:0px 20px;width:100%;color:#ff4c76;font-size:14px;line-height:40px;word-break:break-all;'>" + value.con + "</div>" +
                             "</div>" +
                         "</div>")
 
@@ -2867,7 +2862,7 @@
                             },
                             error: function (date) {
 
-                                    toast("网络连接失败 请重试", 1000);
+                                toast("网络连接失败 请重试", 1000);
 
                             }
                         })
