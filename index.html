@@ -2135,7 +2135,7 @@
 
                 <script>
                     function fnSearch(search) {
-                        $.ui.showMask(" ");
+                        $.ui.showMask("加载中");
                         $("#searchShowHere").text("");
                         $("#inertText").val(search);
 
@@ -3564,6 +3564,7 @@
 
 
     function showShangPin() { ///////////////////////////////////////////////////////展示商品
+     
         $("#con").html("");
         $("#del_tianjia").show();
         fnShowShop(1);
@@ -3605,6 +3606,7 @@
     var shopFilter = "";
 
     function fnShowShop(num, types, area) {
+        $.ui.showMask("加载中");
         switch (types) {
 
             case "礼品券": types = "lp"; break;
@@ -3622,7 +3624,7 @@
             dataType: "jsonp",
             jsonp: "callback",
             success: function (data) {
-
+                $.ui.hideMask();
                 if (data.length < 10) {
                     $("#del_tianjia").hide();
                 }
@@ -3648,6 +3650,7 @@
 
             },
             error: function () {
+                $.ui.hideMask();
                 toast("网络断开连接", 3000);
             }
         })
