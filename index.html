@@ -336,6 +336,7 @@
 
                     }
                     function readBxbl_list() {
+                       
                         $("#bxbl_list").html("");
                         var id = window.localStorage["id"];
                         if (id == "") {
@@ -3300,6 +3301,7 @@
 
 </html>
 <script>
+
     $("#btnLeft").click(showlist);
     $("#btnright").click(showListRight);
     $("#title").text("积分商城")
@@ -3339,6 +3341,32 @@
 
     /// 监听设备成功回调函数
     function onDeviceReady() {
+        var appVersion = 1.0;
+
+        $.ajax({            
+            url: "http://shrxc.com/api/apitest/",
+            data: {},
+            type: "GET",
+            dataType: "jsonp",
+            jsonp: "callback",
+            success: function (data) {
+                if (true) {
+                    $("#afui").popup({
+                        title: "有新的版本需要更新",
+                        // message: "<div style='height:40px;line-height:40px;width:100%;'>是否更新</div>",
+                        cancelText: "取消",
+                        cancelCallback: function () { },
+                        doneText: "确认更新",
+                        doneCallback: function () {
+
+                        },
+                        cancelOnly: false
+                    });
+                }
+            },
+            error:function(){}
+            })
+
         //监听键盘
         document.addEventListener("hidekeyboard", onKeyboardHide, false);
 
