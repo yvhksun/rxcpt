@@ -2847,7 +2847,10 @@
 
                     }
                     function YJ_submitContent() {
-
+                        if ($("#txtYiJian").val() == "") {
+                            toast("反馈内容不能为空", 1000);
+                            return;
+                        }
                         $.ajax({
                             url: "http://120.24.220.249/api/apitest/feedback",
                             type: "GET",
@@ -2864,12 +2867,7 @@
                             },
                             error: function (date) {
 
-                                if ($("#txtYiJian").val() == "") {
-                                    toast("反馈内容不能为空", 1000);
-                                }
-                                else {
                                     toast("网络连接失败 请重试", 1000);
-                                }
 
                             }
                         })
