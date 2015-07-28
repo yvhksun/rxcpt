@@ -302,10 +302,10 @@
     <div id="afui" class="android light ">
         <div id="content">
             <!--=======================================百姓爆料===============================================--->
-            <div id="panelOfThePeopleExpose" class="panel" style="background:#a8e6ff; " data-footer="none">
+            <div id="panelOfThePeopleExpose" class="panel" style="background:#a8e6ff; " data-header="BXBL_H" data-footer="none" data-load="readBxbl_list">
                 <div style="padding:10px 17px 10px 30px;">
                     <div style="background-position:top right;background-repeat:no-repeat;background-image:url('img/PoepleExpose/foldssaw.png');width:100%;padding-right:13px;">
-                        <div style="width:100%; background:#fff;">
+                        <div id="bxbl_list" style="width:100%; background:#fff;">
                             <div style="width:100%;padding:0px 20px;height:40px;line-height:40px;border-bottom:solid 1px #d9d9d9;font-size:14px;"><div style="float:left;color:#00b2e0;"><img style="height:14px;width:auto" src="img\PoepleExpose/tocsin.png" />139*******5521</div><div style="float:right;color:#ebebeb;">10分钟前</div><div style="clear:both;"></div></div>
                             <div style="height:80px;padding:0px 20px;width:100%;color:#ff4c76;font-size:14px;line-height:40px;">某某公司在工商局已经有异常信息(测试消息)</div>
                         </div>
@@ -319,12 +319,17 @@
                             <div style="width:100%;background-color:#f6f6f6;padding:15px 15px;border-bottom:1px solid #c7c7c7;">
                                 <img onclick="canceldiv()" src="img/baixin/quxiao.png" style="float:left;width:10%" />
                                 <span style="height:20px;line-height:20px;width:80%;text-align:center; display:inline-table;">编辑我要爆料的内容</span>
-                                <img src="img/baixin/queren.png" style="float:right;width:10%" />
+                                <img onclick="TJ_bxbl()" src="img/baixin/queren.png" style="float:right;width:10%" />
                             </div>
-                            <textarea style="height:150px;border:none"></textarea>
+                            <textarea id="txtCon_bxbl" style="height:150px;border:none"></textarea>
                         </div>
                     </div>
-
+                    <header id="BXBL_H">
+                        <a href="#zhuye" class="biaotizuo">
+                            <span style="margin-left:5px; display:block;margin-bottom:-40px; width:60px;height:44px;background-color:red;background-image:url(img/jfsc_images/fanhui.png); "></span>
+                        </a>
+                        <h1>百姓爆料</h1>
+                    </header>
                 </div>
 
                 <script>
@@ -335,7 +340,72 @@
                         $("#bjbl").css("display", "none");
 
                     }
+                    function readBxbl_list() {
+                        $("#bxbl_list").html("");
+                        var id = window.localStorage["id"];
+                        if (id == "") {
+                            $.ui.loadContent("#login");
+                        }
+                        $.ajax({
+                            url: "http://120.24.220.249/api/apitest/getBaoliaoList",
+                            type: "GET",
+                            dataType: "jsonp",
+                            jsonp: "callback",
+                            success: function (data) {
+                                $.each(data, function (k, value) {
 
+                                    var item = $(
+
+                                         " <div style='background-position:top right;background-repeat:no-repeat;background-image:url('img/PoepleExpose/foldssaw.png');width:100%;padding-right:13px;'>" +
+                            "<div style='width:100%; background:#fff;'>" +
+                                "<div style='width:100%;padding:0px 20px;height:40px;line-height:40px;border-bottom:solid 1px #d9d9d9;font-size:14px;'><div style='float:left;color:#00b2e0;'><img style='height:14px;width:auto' src='img\PoepleExpose/tocsin.png' />" + value.tel + "</div><div style='float:right;color:#ebebeb;'>" + value.createtime + "</div><div style='clear:both;'></div></div>" +
+                                "<div style='height:80px;padding:0px 20px;width:100%;color:#ff4c76;font-size:14px;line-height:40px;'>" + value.con + "</div>" +
+                            "</div>" +
+                        "</div>")
+
+
+                                    $("#bxbl_list").append(item);
+
+                                })
+                            },
+                            error: function () {
+                                toast("网络连接失败", 1000);
+                            }
+                        })
+                    }
+
+                    function TJ_bxbl() {
+                        var id = window.localStorage["id"];
+                        if (id == "") {
+                            $.ui.loadContent("#login");
+                        }
+                        if ($("#txtCon_bxbl").val() == "" || $("#txtCon_bxbl").val() == null) {
+
+                            toast("内容不能为空", 1000);
+                            return;
+                        }
+
+                        $.ajax({
+
+                            type: "GET",
+                            dataType: "jsonp",
+                            jsonp: "callback",
+                            url: "http://www.shrxc.com/api/apitest/addBaoliao",
+                            data: { 'id': id, 'con': $("#txtCon_bxbl").val() },
+
+                            success: function (data) {
+                                if (data == 1) {
+                                    toast("提交成功", 1000);
+                                    $("#txtCon_bxbl").val("");
+                                }
+
+                            },
+                            error: function () {
+
+                                alert("网络连接失败");
+                            }
+                        });
+                    }
                 </script>
             </div>
 
