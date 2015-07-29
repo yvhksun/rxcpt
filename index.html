@@ -1994,14 +1994,14 @@
                             <li id="idDongShi2" class="LiSize" style="padding:10px 5px 15px 5px;"><p style="  font-size:14px;width:60%; margin:0 auto;text-align:left;">董事：</p></li>
                             <li id="idDongShi3" class="LiSize" style="padding:10px 5px 15px 5px;"><p style=" font-size:14px; width:60%; margin:0 auto;text-align:left;">董事：</p></li>
                         </ul>
-
+                       
                         <!-----------------------------------------------------------------联络信息- --------------------------------------------------------------------------------->
                         <ul id="LLXX_show" class="list" style="display:none;list-style-type:none;text-align:center; padding:0 10px;margin:0px;">
-                            <li id="idWebSite" style="border-top:none;padding:15px 10px 20px 10px;"><p style=" width:40%; margin:0 auto;text-align:left;">官网：www.peer-capital.net</p></li>
-                            <li id="idEmail" style="padding:15px 10px 20px 10px;"><p style=" width:40%; margin:0 auto;text-align:left;">邮箱：peercapital@126.com</p></li>
-                            <li id="idIcp" style="padding:15px 10px 20px 10px;"><p style=" width:40%; margin:0 auto;text-align:left;">备案：沪ICP备14013136号-1</p></li>
-                            <li id="idTel" style="padding:15px 10px 20px 10px;"><p style=" width:40%; margin:0 auto;text-align:left;">电话：400-820-9908</p></li>
-                            <li id="idAddress" style="padding:15px 10px 20px 10px;"><p style=" width:40%; margin:0 auto;text-align:left;">地址：上海市静安区南京西路1717号会德丰广场10层</p></li>
+                            <li  style="border-top:none;padding:15px 10px 20px 10px;"><p style=" width:40%; margin:0 auto;text-align:left;" id="idWebSite">官网：www.peer-capital.net</p></li>
+                            <li style="padding:15px 10px 20px 10px;"><p style=" width:40%; margin:0 auto;text-align:left;" id="idEmail">邮箱：peercapital@126.com</p></li>
+                            <li style="padding:15px 10px 20px 10px;"><p style=" width:40%; margin:0 auto;text-align:left;" id="idIcp">备案：沪ICP备14013136号-1</p></li>
+                            <li  style="padding:15px 10px 20px 10px;"><p style=" width:40%; margin:0 auto;text-align:left; " id="idTel">电话：400-820-9908</p></li>
+                            <li style="padding:15px 10px 20px 10px;"><p style=" width:40%; margin:0 auto;text-align:left;" id="idAddress">地址：上海市静安区南京西路1717号会德丰广场10层</p></li>
                         </ul>
                         <!-----------------------------------------------------------------预警信息---------------------------------------------------------------------------------->
                         <div id="YJXX_show" style="display:none;padding:20px 40px 0px 40px;width:100%;">
@@ -2012,7 +2012,7 @@
                             <div id="idJyyc" style="text-align:center;background-color:#c1f3ff;margin-top:10px;color:#ff0000;padding:10px 20px 10px 20px;"><p>通过登记的住所或者经营场所无 法联系的（2015-06-28）</p></div>
 
                             <div style="text-align:center;background-color:#c1f3ff;padding:10px 0;margin-top:20px;">官网异常</div>
-                            <div style="text-align:center;background-color:#c1f3ff;margin-top:10px;color:#666666;padding:10px 20px 10px 20px;"><p>无信息...</p></div>
+                            <div style="text-align:center;background-color:#c1f3ff;margin-top:10px;color:#666666;padding:10px 20px 10px 20px;"><p>无不良信息</p></div>
 
                         </div>
                         <!-----------------------------------------------------------------活动信息---------------------------------------------------------------------------------->
@@ -2060,10 +2060,16 @@
                                     $("#idDongShi3").text("董事:" + data.ds3);
                                     $("#idXzcf").text(data.xzcf);
                                     $("#idJyyc").text(data.jyyc);
+                                    $("#idWebSite").text(data.website);
+                                    $("#idEmail").text(data.email);
+                                    $("#idIcp").text(data.icp);
+                                    $("#idTel").text(data.tel);
+                                    $("#idAddress").text(data.address);
+                                         
                                     if (data.xzcf == "无信息")
-                                        $("#idXzcf").css("color", "#000");
+                                        $("#idXzcf").css("color", "#666666");
                                     if (data.jyyc == "无信息")
-                                        $("#idJyyc").css("color", "#000");
+                                        $("#idJyyc").css("color", "#666666");
 
                                 }
                                 else {
@@ -2073,6 +2079,10 @@
                             },
                             error: function () { }
                         })
+
+
+
+
                         $("#HDXX_show").html("")
                         $.ajax({
                             url: "http://www.shrxc.com/api/apitest/getactbygsqc",
