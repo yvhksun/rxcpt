@@ -293,6 +293,10 @@
             $(".mod_01").css("width", winwidth);
             $(".scroll").css("width", winwidth);
             $(".slide_01").css("width", winwidth);
+            if (window.localStorage["first"] == null) {
+                localStorage.setItem("first", "1");
+                window.location.href = 'start.html';
+            }
         })
 
     </script>
@@ -780,7 +784,7 @@
             </div>
             <!----------------------------------积分商城详情页--------------------------------------->
             <!---------------------------------------主页-------------------------------------------->
-            <div id="zhuye" title="主页" class="panel" data-header="hzhuye" data-footer="custom_footer" data-tab="footer_zhuye" selected="true" style="background-color:#f0f0f0" data-load="fnLoadZhuYe" data-unload="fnUnLoadZhuYe">
+            <div id="zhuye" title="主页" class="panel" data-header="hzhuye" data-footer="custom_footer" data-tab="footer_zhuye" selected="true" style="background-color:#f0f0f0" data-load="fnUnLoadZhuYe" data-unload="panduandiyici">
                 <!--<div style="height:180px;width:100%;"><img style="height:180px;width:100%;" src="img/index/zhuyegg.jpg" /></div>-->
 
                 <div class="scroll">
@@ -801,10 +805,10 @@
 
                 <div class="row" style="margin-top:15px;padding:0 20px;">
                     <!--<form method="get" action="/mobile/checklist">
-                        <img src="img/index/writeimg.png" style="height:20px;width:20px;position:absolute;margin-top:15px;margin-left:15px;">
-                        <img src="img/index/sous.png" style="position:absolute;margin-top:10px; margin-left:90%; height:25px;width:25px;">
-                        <input type="text" style="padding-left:40px;background-color:#fcfcfc; border:2px solid #99e9ff; font-size:20px;font-family:'Microsoft YaHei';border-radius:10px;height:46px;" placeholder="快速安检" />
-                    </form>-->
+                <img src="img/index/writeimg.png" style="height:20px;width:20px;position:absolute;margin-top:15px;margin-left:15px;">
+                <img src="img/index/sous.png" style="position:absolute;margin-top:10px; margin-left:90%; height:25px;width:25px;">
+                <input type="text" style="padding-left:40px;background-color:#fcfcfc; border:2px solid #99e9ff; font-size:20px;font-family:'Microsoft YaHei';border-radius:10px;height:46px;" placeholder="快速安检" />
+            </form>-->
 
                     <div style="width:100%;height:45px; border:2px solid #99e9ff; border-radius:10px;background:#fff;">
                         <img src="img/index/writeimg.png" style="height:20px;width:20px;margin-top:5px;margin-left:15px;position:relative;top:5px;">
@@ -847,6 +851,9 @@
                 </div>
 
                 <script>
+
+
+
                     function fnUnLoadZhuYe() {
                         $("#footer_zhuye").css("background-image", "url('img/footerimg/icon-home.png')");
                     }
@@ -891,6 +898,7 @@
                     }
                 </script>
             </div>
+
             <!---------------------------------------主页-------------------------------------------->
             <!---------------------------------------搜索-------------------------------------------->
             <div id="sous" title="安检专区" class="panel" data-footer="custom_footer" data-tab="footer_anjian" data-load="fnLoadSous" data-unload="fnUnLoadSous">
@@ -4065,6 +4073,7 @@
     $("#Tuichu_btn1").click(function () {
 
         window.localStorage.clear();
+        localStorage.setItem("first", "1");
         // $.ui.loadContent("#login");
         navigator.app.exitApp();
 
