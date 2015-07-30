@@ -1077,10 +1077,20 @@
 
 
                     $("#quickSearchBtnMain").click(function () {
+                        if ($("#idMainInsert").val().length >= 2) {
 
-                        $("#inertText").val($("#idMainInsert").val());
-                        $.ui.loadContent("#SearchAnjianshenqi");
-                        fnSearch($("#idMainInsert").val())
+                            //$("#inertText").val($("#idMainInsert").val());
+                            //$.ui.loadContent("#SearchAnjianshenqi");
+                            //fnSearch($("#idMainInsert").val())
+
+
+                            $("#inertText").val($("#idMainInsert").val());
+                            $.ui.loadContent("#SearchAnjianshenqi");
+                            fnSearch($("#idMainInsert").val())
+                        }
+                        else {
+                            toast("至少输入两个关键字", 1000);
+                        }
                     })
 
                     if (document.getElementById("slide_02")) {
