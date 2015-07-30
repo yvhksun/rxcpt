@@ -340,7 +340,7 @@
 
                     }
                     function readBxbl_list() {
-                      
+
                         $("#bxbl_list").html("");
                         var id = window.localStorage["id"];
                         if (id == "") {
@@ -369,7 +369,7 @@
 
 
                                     $("#bxbl_list").append(item);
-                                   
+
                                 })
                             },
                             error: function () {
@@ -805,10 +805,10 @@
 
                 <div class="row" style="margin-top:15px;padding:0 20px;">
                     <!--<form method="get" action="/mobile/checklist">
-                <img src="img/index/writeimg.png" style="height:20px;width:20px;position:absolute;margin-top:15px;margin-left:15px;">
-                <img src="img/index/sous.png" style="position:absolute;margin-top:10px; margin-left:90%; height:25px;width:25px;">
-                <input type="text" style="padding-left:40px;background-color:#fcfcfc; border:2px solid #99e9ff; font-size:20px;font-family:'Microsoft YaHei';border-radius:10px;height:46px;" placeholder="快速安检" />
-            </form>-->
+                        <img src="img/index/writeimg.png" style="height:20px;width:20px;position:absolute;margin-top:15px;margin-left:15px;">
+                        <img src="img/index/sous.png" style="position:absolute;margin-top:10px; margin-left:90%; height:25px;width:25px;">
+                        <input type="text" style="padding-left:40px;background-color:#fcfcfc; border:2px solid #99e9ff; font-size:20px;font-family:'Microsoft YaHei';border-radius:10px;height:46px;" placeholder="快速安检" />
+                    </form>-->
 
                     <div style="width:100%;height:45px; border:2px solid #99e9ff; border-radius:10px;background:#fff;">
                         <img src="img/index/writeimg.png" style="height:20px;width:20px;margin-top:5px;margin-left:15px;position:relative;top:5px;">
@@ -875,10 +875,17 @@
 
 
                     $("#quickSearchBtnMain").click(function () {
+                        if ($("#idMainInsert").val().length >= 2) {
 
-                        $("#inertText").val($("#idMainInsert").val());
-                        $.ui.loadContent("#SearchAnjianshenqi");
-                        fnSearch($("#idMainInsert").val())
+                   
+
+                            $("#inertText").val($("#idMainInsert").val());
+                            $.ui.loadContent("#SearchAnjianshenqi");
+                            fnSearch($("#idMainInsert").val())
+                        }
+                        else {
+                            toast("至少输入两个关键字", 1000);
+                        }
                     })
 
                     if (document.getElementById("slide_02")) {
@@ -1772,7 +1779,7 @@
                     <div style="clear:both;"></div>
                 </div>
                 <div id="jladd" style="margin-left:1.5px;"></div>
-                 
+
                 <div onclick="jiaoliutianjia()" style="width:100%;padding-top:10px;padding-bottom:20px;">
                     <div id="jlgd" style="height:30px;line-height:30px ;width:50%;text-align:center; margin:0 auto 0px auto;border-radius:15px;border:solid 1px #dbdbdb ">加载更多</div>
                 </div>
@@ -1815,7 +1822,7 @@
                                         " <div onclick='clickToGotoCompanyAtJiaoLiu(\"" + value.state + "\",\"" + value.gsqc + "\")' gsqc='" + value.gsqc + "' style='width:33.33%;height:130px;float:left;padding:15px 15px;border:solid 1px #91ccea;margin-top:-1px;margin-right:-1px;'>" +
                                         "<span style='border-radius:50px;border:solid 2px #00d5fe;height:73%;width:100%;display:inline-table'>" +
                                             "<img src='http://120.24.220.249" + value.logo + "' class='jltbl'style='height:73%;width:100%;margin-top:9px;margin-left:-1px;'/>" +
-                                        "</span>"+
+                                        "</span>" +
                                             "<span style='text-align:center;width:100%;display:inline-table;margin-top:10px;'>" + value.gsjc + "</span>" +
                                         " </div>")
                                     $("#jladd").append(item)
@@ -1994,13 +2001,13 @@
                             <li id="idDongShi2" class="LiSize" style="padding:10px 5px 15px 5px;"><p style="  font-size:14px;width:60%; margin:0 auto;text-align:left;">董事：</p></li>
                             <li id="idDongShi3" class="LiSize" style="padding:10px 5px 15px 5px;"><p style=" font-size:14px; width:60%; margin:0 auto;text-align:left;">董事：</p></li>
                         </ul>
-                       
+
                         <!-----------------------------------------------------------------联络信息- --------------------------------------------------------------------------------->
                         <ul id="LLXX_show" class="list" style="display:none;list-style-type:none;text-align:center; padding:0 10px;margin:0px;">
-                            <li  style="border-top:none;padding:15px 10px 20px 10px;"><p style=" width:40%; margin:0 auto;text-align:left;" id="idWebSite">官网：www.peer-capital.net</p></li>
+                            <li style="border-top:none;padding:15px 10px 20px 10px;"><p style=" width:40%; margin:0 auto;text-align:left;" id="idWebSite">官网：www.peer-capital.net</p></li>
                             <li style="padding:15px 10px 20px 10px;"><p style=" width:40%; margin:0 auto;text-align:left;" id="idEmail">邮箱：peercapital@126.com</p></li>
                             <li style="padding:15px 10px 20px 10px;"><p style=" width:40%; margin:0 auto;text-align:left;" id="idIcp">备案：沪ICP备14013136号-1</p></li>
-                            <li  style="padding:15px 10px 20px 10px;"><p style=" width:40%; margin:0 auto;text-align:left; " id="idTel">电话：400-820-9908</p></li>
+                            <li style="padding:15px 10px 20px 10px;"><p style=" width:40%; margin:0 auto;text-align:left; " id="idTel">电话：400-820-9908</p></li>
                             <li style="padding:15px 10px 20px 10px;"><p style=" width:40%; margin:0 auto;text-align:left;" id="idAddress">地址：上海市静安区南京西路1717号会德丰广场10层</p></li>
                         </ul>
                         <!-----------------------------------------------------------------预警信息---------------------------------------------------------------------------------->
@@ -2065,7 +2072,7 @@
                                     $("#idIcp").text(data.icp);
                                     $("#idTel").text(data.tel);
                                     $("#idAddress").text(data.address);
-                                         
+
                                     if (data.xzcf == "无信息")
                                         $("#idXzcf").css("color", "#666666");
                                     if (data.jyyc == "无信息")
@@ -3360,7 +3367,7 @@
     function onDeviceReady() {
         var appVersion = 1.0;
 
-        $.ajax({            
+        $.ajax({
             url: "http://shrxc.com/api/apitest/",
             data: {},
             type: "GET",
@@ -3381,8 +3388,8 @@
                     });
                 }
             },
-            error:function(){}
-            })
+            error: function () { }
+        })
 
         //监听键盘
         document.addEventListener("hidekeyboard", onKeyboardHide, false);
@@ -3609,7 +3616,7 @@
 
 
     function showShangPin() { ///////////////////////////////////////////////////////展示商品
-     
+
         $("#con").html("");
         $("#del_tianjia").show();
         fnShowShop(1);
