@@ -2670,14 +2670,22 @@
                             type: "GET",
                             jsonp: "callback",
                             success: function (data) {
-                                $.each(data, function (key, value) {
-                                    var item = '<div onclick="fnGotoDetailsAtCompany(\'' + value.pid + '\')" style="width:100%;height:40px;background:#93e6e0;position:relative;text-align:left; margin-top:25px"> '
-                                    + '<span class="productList">产品名称：' + value.pname + '</span>'
-                                    + ' </div>';
+                                var item="";
+                                if (data == "")
+                                    item = "<h5>无信息<h5>"
+                                else
+                                    $.each(data, function (key, value) {
 
+                                        var name = value.pname;
+                                        var heights = (name.length / 18 + 1) * 20 + 10;
 
-                                    $("#prductAtCompany").append(item);
-                                })
+                                        item += '<div  onclick="fnGotoDetailsAtCompany(\'' + value.pid + '\')" style="width:100%;height:' + heights + 'px;background:#93e6e0;position:relative;text-align:left; margin-top:25px;padding:10px 0px 10px 10px;"> '
+                                            + '<div style="width:90%">'
+                                         + '<span style="line-height:20px">产品名称：' + value.pname + '</span>'
+                                         +'</div>'
+                                         + ' </div>';
+                                          })
+                                $("#prductAtCompany").append(item);
                             },
                             error: function () { }
                         })
@@ -3025,11 +3033,6 @@
                         -webkit-transform: rotate(180deg);
                     }
 
-                    .productList {
-                        text-align: left;
-                        line-height: 40px;
-                        margin-left: 10px;
-                    }
 
                     #companypro table tr > td:first-child {
                         vertical-align: top;
@@ -3043,6 +3046,7 @@
 
                     .productList:after {
                         position: absolute;
+                        top:13px;
                         font-size: 24px;
                         right: 10px;
                         color: #fff;
