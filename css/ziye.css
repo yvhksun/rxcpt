@@ -141,16 +141,20 @@
 }
 
 .twspan3 {
+    width:10%;
     font-size: 20px;
     margin-left: 18px;
     margin-right: 10px;
+
 }
 
 .twspan4 {
-  
+
+    width:80%;
     margin-right: 10px;
     margin-top: 15px;
     color: #00b2e0;
+
 }
 
 /* --------------提问记录 ----------------*/

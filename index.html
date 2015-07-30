@@ -889,9 +889,9 @@
                         <div style="width:100%;margin:0 auto;">
                             <div style="float:left;color:#ff8746;font-weight:bold;padding-top:10px;padding-left:-30px;"><span id="pro_price" price="0">50</span>积分</div>
                             <div style="float:right; position:relative; top:5px;">
-                                <div style="float:left;padding-top:7px;padding-right:7px;">兑换数量</div><div style="float:left;width:30px;height:30px;border:1px solid #b3b3b3;text-align:center;line-height:30px;font-size:25px;cursor:pointer;"><span id="del" style=" position:relative; top:-3px;">-</span></div>
+                                <div style="float:left;padding-top:7px;padding-right:7px;">兑换数量</div><div style="float:left;width:30px;height:30px;border:1px solid #b3b3b3;text-align:center;line-height:30px;font-size:25px;cursor:pointer;" id="del"><span style="display:block; position:relative; top:-3px;">-</span></div>
                                 <div style="float:left;width:30px;height:30px;border-top:1px solid #b3b3b3;border-bottom:1px solid #999999;text-align:center;line-height:30px;font-size:20px; "><span id="count" style=" position:relative; top:-3px;">1</span></div>
-                                <div style="float:left;width:30px;height:30px;border:1px solid #b3b3b3;text-align:center;line-height:30px;font-size:25px;cursor:pointer;"><span id="add" style=" position:relative; top:-3px;">+</span></div>
+                                <div style="float:left;width:30px;height:30px;border:1px solid #b3b3b3;text-align:center;line-height:30px;font-size:25px;cursor:pointer;" id="add"><span style="display:block; position:relative; top:-3px;">+</span></div>
                                 <div style="clear:both"></div>
                             </div>
                             <div style="clear:both"></div>
@@ -1052,6 +1052,13 @@
 
 
                     function fnUnLoadZhuYe() {
+                        if (window.localStorage["id"] != "") {
+                            $("#denglu_title").css("display", "none");
+                        }
+                        if (window.localStorage["id"] == "" || window.localStorage["id"] == null) {
+                            $("#denglu_title").css("display", "block");
+                        }
+
                         $("#footer_zhuye").css("background-image", "url('img/footerimg/icon-home.png')");
                     }
                     function fnLoadZhuYe() {
@@ -1109,52 +1116,65 @@
                 <header>
                     <h1>安检专区</h1>
                 </header>
-                <div class="row" style="margin-top:20px;padding:0 20px;">
+                <!--<div class="row" style="margin-top:20px;padding:0 20px;">
                     <input id="quickSearch" type="text" name="search" style="width:75%; border:2px solid #a9deec;font-size:20px;font-family:'Microsoft YaHei';border-radius:10px;height:45px;" placeholder="快速安检" />
                     <div id="gosearch2" style="float:right;border-radius:5px;margin-top:0px;margin-right:15px; background-color:#f7cd6a;width:13%;height:40px;background-image:url(img/check/i-search.png);background-repeat:no-repeat;background-size:25px;background-position:center "></div>
 
+                </div>-->
+                <div style="width:92%;margin:10px 4%">
+                            <div style="width:85%;height:40px;float:left;border-radius:10px;border:1px solid #a9deec;color: #a9deec;text-indent:10px;line-height:35px;background:#fff"  class="icon pencil">
+                                <input id="quickSearch" typ="text" placeholder="快速安检" name="search" style="height:38px;width:85%;margin:0px;border:0px;font-size:14px;" />
+                            </div>
+                            <div id="gosearch2" style="float:left;border-radius:5px;margin-left:2%; background-color:#f7cd6a;width:13%;height:40px;background-image:url(img/check/i-search.png);background-repeat:no-repeat;background-size:25px;background-position:center "></div>
+                            <div style="clear:both"></div>
+                        </div>
+
+               <div style="border-top:1px solid #ccc;width:100%;margin-top:20px" ></div>
+
+                    
+
+
+                    <div style="padding:0 20px;">
+                        <a href="#" class="rm_btn" style="color:#ec866a;">热门安检</a>
+                    </div>
+                    <div style="padding: 0 20px 20px 20px; ">
+                        <a onclick="hotsearch('晋田金融')" class="rm_btn">晋田金融</a>
+                        <a onclick="hotsearch('雷拓金融')" class="rm_btn">雷拓金融</a>
+                        <a onclick="hotsearch('中晋资产')" class="rm_btn">中晋资产</a>
+                        <a onclick="hotsearch('鼎洋资产')" class="rm_btn">鼎洋资产</a>
+                    </div>
+                    <script>
+
+
+                        function fnLoadSous() {
+
+                            $("#footer_anjian").css("background-image", "url('img/footerimg/icon-search-2.png')");
+                        }
+                        function fnUnLoadSous() {
+                            $("#footer_anjian").css("background-image", "url('img/footerimg/icon-search.png')");
+                        }
+
+
+                        function hotsearch(keyword) {
+                            $.ui.loadContent("#SearchAnjianshenqi");
+                            fnSearch(keyword);
+                        }
+
+                        $("#gosearch2").click(function () {
+                            var inertText = $("#quickSearch").val();
+                            $.ui.loadContent("#SearchAnjianshenqi");
+                            fnSearch(inertText);
+                        });
+
+                        //有问题 TODO
+                        //$("#quickSearchBtn").click(function () {
+
+                        //    $("#inertText").val($("#quickSearch").val());
+                        //    $.ui.loadContent("#SearchAnjianshenqi");
+                        //    fnSearch($("#inertText").val())
+                        //})
+                    </script>
                 </div>
-                <div style="padding:0 20px;">
-                    <a href="#" class="rm_btn" style="color:#ec866a;">热门安检</a>
-                </div>
-                <div style="padding: 0 20px 20px 20px; ">
-                    <a onclick="hotsearch('晋田金融')" class="rm_btn">晋田金融</a>
-                    <a onclick="hotsearch('雷拓金融')" class="rm_btn">雷拓金融</a>
-                    <a onclick="hotsearch('中晋资产')" class="rm_btn">中晋资产</a>
-                    <a onclick="hotsearch('鼎洋资产')" class="rm_btn">鼎洋资产</a>
-                </div>
-                <script>
-
-
-                    function fnLoadSous() {
-
-                        $("#footer_anjian").css("background-image", "url('img/footerimg/icon-search-2.png')");
-                    }
-                    function fnUnLoadSous() {
-                        $("#footer_anjian").css("background-image", "url('img/footerimg/icon-search.png')");
-                    }
-
-
-                    function hotsearch(keyword) {
-                        $.ui.loadContent("#SearchAnjianshenqi");
-                        fnSearch(keyword);
-                    }
-
-                    $("#gosearch2").click(function () {
-                        var inertText = $("#quickSearch").val();
-                        $.ui.loadContent("#SearchAnjianshenqi");
-                        fnSearch(inertText);
-                    });
-
-                    //有问题 TODO
-                    //$("#quickSearchBtn").click(function () {
-
-                    //    $("#inertText").val($("#quickSearch").val());
-                    //    $.ui.loadContent("#SearchAnjianshenqi");
-                    //    fnSearch($("#inertText").val())
-                    //})
-                </script>
-            </div>
             <!---------------------------------------搜索-------------------------------------------->
             <!-------------------------------------用户中心------------------------------------------>
             <div id="yhzx" title="用户中心" class="panel y-scroll" data-header="hyhzx" data-footer="custom_footer" data-load="showUserinfo" data-unload="funUnLoadYhzx" data-tab="footer_yhzx" style="background-color:#f0f0f0;">
@@ -1293,18 +1313,20 @@
                             success: function (data) {
                                 $.each(data, function (k, value) {
                                     var answer = "企业尚未回答,请耐心等待.....";
+   
                                     if (value.answer != "") {
-                                        answer = value.answer;
+                                        answer = value.answer;                                        
                                     }
+
                                     var item = $(
-                                    "<div class='twkg'>" +
-                                   " <img src='img/footerimg/icon-chat-22.png' class='twimg' />" +
-                                   " <span class='twspan1' id='wtgs'>" + value.seller.gsjc + "</span>" +
+                                    "<div class='twkg'style='position:relative;;'>" +
+                                   " <img src='img/footerimg/icon-chat-22.png' class='twimg' style='width:16px;position:relative;top:-4px;' />" +
+                                   " <span class='twspan1' id='wtgs' style='font-size:16px;margin-top:5px;'>" + value.seller.gsjc + "</span>" +
                                    "<span class='twspan2'id='twtime'>" + value.qtime.substring(0, 10) + "</span>" +
                                    "<div style='margin-top:15px;margin-bottom:15px; border-top:solid 1px #c2c2c2;'></div>" +
-                                   "<span class='twspan3'>问:</span><span  id='twnr'style='display:inline-table;width:80%;line-height:30px;'>" + value.questioncon + "</span>" +
+                                   "<div style='width:100%;height:40px;margin-top:20px;'><span class='twspan3' style='font-size:16px;'>问:</span><span  id='twnr'style='display:inline-table;line-height:30px;height:60px;font-size:12px;word-break:break-all;position:absolute;top:75px;;left:18%;'>" + value.questioncon + "</span></div>" +
                                    "<div></div>" +
-                                    "<span class='twspan3'>答:</span><span class='twspan4'style='display:inline-table;width:80%' id='twhd'>" + answer + "</span>" +
+                                    "<div style='width:100%;height:120px;margin-top:20px;'><span class='twspan3'style='font-size:16px;'>答:</span><span class='twspan4'style='display:inline-table;font-size:12px;word-break:break-all;line-height:20px;height:130px;position:absolute;bottom:4px;left:18%' id='twhd'>" + answer + "</span></div>" +
                                 "</div>"
                                         )
                                     $("#twadd").append(item);
@@ -1855,7 +1877,7 @@
                 </script>
                 <style>
                     .onplus {
-                        margin-top: -40%;
+                        margin-top: -20%;
                     }
                 </style>
             </div>
@@ -3487,7 +3509,7 @@
 
             </header><!---------------------------------快速提问--------->
             <header id="hzhuye">
-                <a onclick="dengl()" style="float:left; margin:12px 0 0 20px;  color:white; font-size:14px;">登录</a>
+                <a id="denglu_title" onclick="dengl()" style="float:left; margin:12px 0 0 20px;  color:white; font-size:14px;">登录</a>
                 <h1>首页</h1>
             </header><!---------------------------------首页--------->
             <header id="hyhzx">
@@ -3806,14 +3828,7 @@
 
     }///////////////////////注册end
 
-    function onKeyboardHide() {
-        $("#loginname, #loginpwd").blur();
-    }
-
-    function onKeyboardShow() {
-
-    }
-
+   
 
 
 
@@ -4349,12 +4364,15 @@
     //---------------------------------------------------------------------------------------------------------------
     var keyboardval = 0;
     function onKeyboardHide() {//当键盘隐藏时，对data-footer显示
+      
+        $("#loginname, #loginpwd").blur();
         if (keyboardval != 0) {
             $.query("#navbar").css("display", "block");
             keyboardval = 0;
         }
     }//当键盘隐藏时，对data-footer显示
     function onKeyboardShow() {//当键盘显示时，对data-footer显示
+      
         if ($.query("#navbar").css("display") != "none") {
             keyboardval = 1;
             $.query("#navbar").css("display", "none");
