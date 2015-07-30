@@ -1113,7 +1113,7 @@
 
             <!---------------------------------------主页-------------------------------------------->
             <!---------------------------------------搜索-------------------------------------------->
-            <div id="sous" title="安检专区" class="panel" data-footer="custom_footer" data-tab="footer_anjian" data-load="fnLoadSous" data-unload="fnUnLoadSous">
+            <div id="sous" title="安检专区" class="panel" data-footer="custom_footer" data-tab="footer_anjian" data-load="fnLoadSous" data-unload="fnUnLoadSous" style="background-color:#f0f0f0">
                 <header>
                     <h1>安检专区</h1>
                 </header>
@@ -2370,7 +2370,7 @@
             </div>
             <!-------------------------------------融信城&安检查询------------------------------------------>
             <!-------------------------------------搜索结果------------------------------------------>
-            <div data-title="安检专区" class="panel" id="SearchAnjianshenqi" style="background-color:#f0f0f0" data-footer="custom_footer">
+            <div data-title="安检专区" class="panel" id="SearchAnjianshenqi" style="background-color:#f0f0f0" data-footer="custom_footer" data-load="fnLoadSearchAnjianshenqi">
                 <header>
                     <a class="button" id="backButton"></a>
                     <h1>安检专区</h1>
@@ -2386,11 +2386,26 @@
 
 
                 </div>
-
+                <div onclick="ssgdsj()" id="ssg" style="height:30px;line-height:30px ;width:50%;text-align:center; margin:10px auto 5px auto;border-radius:15px;border:solid 1px #dbdbdb ">加载更多</div>
+                <div>&nbsp;</div>
                 <script>
-                    function fnSearch(search) {
-                        $.ui.showMask("加载中");
+                    function fnLoadSearchAnjianshenqi() {
+                        SearchAnjianshenqipage = 2;
                         $("#searchShowHere").text("");
+                        $("#searchShowHere").append("<div  style=\"width:100%;margin-top:20px;font-size:15px;display:inline-table;text-align:center\">无数据</div>");
+                        $("#ssg").hide();
+
+                    }
+                    var SearchAnjianshenqipage = 2;
+                    function ssgdsj() {
+                        var inertText = $("#inertText").val();
+                        fnSearch(inertText, SearchAnjianshenqipage);
+                        SearchAnjianshenqipage++;
+                    }
+
+                    function fnSearch(search, page) {
+                        $.ui.showMask("加载中");
+                      
                         $("#inertText").val(search);
 
 
@@ -2405,7 +2420,7 @@
                             id = "";
                         $.ajax({
                             url: "http://www.shrxc.com/api/apitest/searchreport",
-                            data: { "search": search, "id": id },
+                            data: { "search": search, "id": id, "page": page },
 
                             dataType: "jsonp",
                             jsonp: "callback",
@@ -2413,35 +2428,49 @@
                             success: function (data) {
 
                                 $.ui.hideMask();
-                                var i = 0;
-                                $.each(data, function (key, value) {
+                                var item = "";
+                                var howmuchSearch = 0;
 
-                                    if (i > 9) {
-                                        return;
-                                    }
-                                    i++;
-                                    var item = "<div onclick='fnShowAnJianInfo(this)' gsqc=" + value.gsqc + " style=\"height:60px;line-height:30px;padding-left:10px; border:1px solid #dbdbdb;margin:10px 10px 0px 10px;background-color:#fff\" >"
-                                    + "<div style=\"float:left\">"
-                                    + "<div>" + value.gsqc + "</div>"
-                                    + "<div>简称: " + value.gsjc + "</div>"
-                                     + "</div>"
-                                     + " <div style=\"float:right;\"><img style=\"height:50%;margin-top:35%;margin-right:10px;\" src=\"./img/check/next_03.png\" /></div>"
-                                     + "</div>";
-
-                                    $("#searchShowHere").append(item);
-                                })
-                                $("#searchShowHere").append("<div style='clear:both;'></div>");
+                                if (data == "")
+                                {
+                                   
+                                    item = " <div  style=\"width:100%;margin-top:20px;font-size:15px;display:inline-table;text-align:center\">无数据</div>";
+                                    $("#ssg").hide();
+                                }
+                                   
+                                else
+                                {
+                                    $.each(data, function (key, value) {
+                                        
+                                        item += "<div onclick='fnShowAnJianInfo(this)' gsqc=" + value.gsqc + " style=\"height:60px;line-height:30px;padding-left:10px; border:1px solid #dbdbdb;margin:10px 10px 0px 10px;background-color:#fff\" >"
+                                          + "<div style=\"float:left\">"
+                                          + "<div>" + value.gsqc + "</div>"
+                                          + "<div>简称: " + value.gsjc + "</div>"
+                                           + "</div>"
+                                           + " <div style=\"float:right;\"><img style=\"height:50%;margin-top:35%;margin-right:10px;\" src=\"./img/check/next_03.png\" /></div>"
+                                           + "</div>";
+                                        howmuchSearch++;
+                                    })
+                                }
+                               
+                                if (howmuchSearch !=9)
+                                    $("#ssg").hide();
+                                else
+                                    $("#ssg").show();
+                              
+                                $("#searchShowHere").append(item);
+                              
                             },
                             error: function () {
-                                $.ui.hideMask();
+                               // $.ui.hideMask();
                             }
                         })
                     }
 
                     $("#checkHereToSearch").click(function () {
-
+                        $("#searchShowHere").text("")
                         var inertText = $("#inertText").val();
-                        fnSearch(inertText);
+                        fnSearch(inertText, 1);
                     });
 
 
