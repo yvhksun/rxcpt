@@ -474,7 +474,7 @@
                         <div class="bg4"></div>
                         <div class="bg5">
                             <div class="ljty">
-                                <a onclick="pd()"><img src="images/ljty.png" /></a>
+                                <a onclick="pd()"><img style="width:120px;height:35px;" src="images/ljty.png" /></a>
                             </div>
                         </div>
                     </div>
@@ -979,7 +979,7 @@
             </div>
             <!----------------------------------积分商城详情页--------------------------------------->
             <!---------------------------------------主页-------------------------------------------->
-            <div id="zhuye" title="主页" class="panel" data-header="hzhuye" data-footer="custom_footer" data-tab="footer_zhuye" style="background-color:#f0f0f0" data-load="fnUnLoadZhuYe" data-unload="panduandiyici">
+            <div id="zhuye" title="主页" class="panel" data-header="hzhuye" data-footer="custom_footer" data-tab="footer_zhuye" style="background-color:#f0f0f0" data-load="fnLoadZhuYe" data-unload="fnUnLoadZhuYe">
                 <!--<div style="height:180px;width:100%;"><img style="height:180px;width:100%;" src="img/index/zhuyegg.jpg" /></div>-->
 
                 <div class="scroll">
@@ -1000,10 +1000,10 @@
 
                 <div class="row" style="margin-top:15px;padding:0 20px;">
                     <!--<form method="get" action="/mobile/checklist">
-                        <img src="img/index/writeimg.png" style="height:20px;width:20px;position:absolute;margin-top:15px;margin-left:15px;">
-                        <img src="img/index/sous.png" style="position:absolute;margin-top:10px; margin-left:90%; height:25px;width:25px;">
-                        <input type="text" style="padding-left:40px;background-color:#fcfcfc; border:2px solid #99e9ff; font-size:20px;font-family:'Microsoft YaHei';border-radius:10px;height:46px;" placeholder="快速安检" />
-                    </form>-->
+                <img src="img/index/writeimg.png" style="height:20px;width:20px;position:absolute;margin-top:15px;margin-left:15px;">
+                <img src="img/index/sous.png" style="position:absolute;margin-top:10px; margin-left:90%; height:25px;width:25px;">
+                <input type="text" style="padding-left:40px;background-color:#fcfcfc; border:2px solid #99e9ff; font-size:20px;font-family:'Microsoft YaHei';border-radius:10px;height:46px;" placeholder="快速安检" />
+            </form>-->
 
                     <div style="width:100%;height:45px; border:2px solid #99e9ff; border-radius:10px;background:#fff;">
                         <img src="img/index/writeimg.png" style="height:20px;width:20px;margin-top:5px;margin-left:15px;position:relative;top:5px;">
@@ -1050,16 +1050,21 @@
 
 
                     function fnUnLoadZhuYe() {
-                        if (window.localStorage["id"] != "") {
-                            $("#denglu_title").css("display", "none");
-                        }
-                        if (window.localStorage["id"] == "" || window.localStorage["id"] == null) {
-                            $("#denglu_title").css("display", "block");
-                        }
 
                         $("#footer_zhuye").css("background-image", "url('img/footerimg/icon-home.png')");
+
+
                     }
                     function fnLoadZhuYe() {
+                        if (window.localStorage["id"] == "" || window.localStorage["id"] == null) {
+                            $("#denglu_title").css("display", "block");
+                            
+                           
+                        }
+                        else {
+                            $("#denglu_title").css("display", "none");
+                          
+                        }
                         $("#footer_zhuye").css("background-image", "url('img/footerimg/icon-home-2.png')")
                     }
 
@@ -1110,6 +1115,8 @@
                     }
                 </script>
             </div>
+
+
 
             <!---------------------------------------主页-------------------------------------------->
             <!---------------------------------------搜索-------------------------------------------->
@@ -1872,18 +1879,18 @@
 
                 <script>
 
-                    //$("#loginname, #loginpwd").focus(function () {
-                    //    $("#login").addClass("onplus");
-                    //})
-                    //$("#loginname, #loginpwd").blur(function () {
-                    //    $("#login").removeClass("onplus");
-                    //})
+                    $("#loginname, #loginpwd").focus(function () {
+                        $("#login").addClass("onplus");
+                    })
+                    $("#loginname, #loginpwd").blur(function () {
+                        $("#login").removeClass("onplus");
+                    })
 
                   
                 </script>
-                <style>
+                <style> 
                     .onplus {
-                        margin-top: -20%;
+                        margin-top: -30%;
                     }
                 </style>
             </div>
@@ -2045,14 +2052,16 @@
                                     $("#jlgd").hide()
                                 }
                                 $.each(data, function (k, value) {
-
+                                    var myheight = $(window).width() / 3.0;
+                                    var radiu = myheight / 2.0;
+                                    var mycolor = value.state == -2 ? "#e0e0e0" : "#00d5fe";
                                     var item = $(
-
-                                        " <div onclick='clickToGotoCompanyAtJiaoLiu(\"" + value.state + "\",\"" + value.gsqc + "\")' gsqc='" + value.gsqc + "' style='width:33.33%;height:130px;float:left;padding:15px 15px;border:solid 1px #91ccea;margin-top:-1px;margin-right:-1px;'>" +
-                                        "<span style='border-radius:50px;border:solid 2px #00d5fe;height:73%;width:100%;display:inline-table'>" +
-                                            "<img src='http://120.24.220.249" + value.logo + "' class='jltbl'style='height:73%;width:100%;margin-top:9px;margin-left:-1px;'/>" +
-                                        "</span>" +
-                                            "<span style='text-align:center;width:100%;display:inline-table;margin-top:10px;'>" + value.gsjc + "</span>" +
+                                        
+                                        " <div onclick='clickToGotoCompanyAtJiaoLiu(\"" + value.state + "\",\"" + value.gsqc + "\")' gsqc='" + value.gsqc + "' style='width:" + myheight + "px;height:" + myheight + "px;float:left;padding:3% 5%;border:solid 1px #91ccea;margin-top:-1px;margin-right:-1px;'>" +
+                                        "<div style='border-radius:" + radiu + "px;border:solid 2px " + mycolor + ";height:85%;width:100%;padding:15%;'>" +
+                                            "<img src='http://120.24.220.249" + value.logo + "' class='jltbl'style='height:100%;width:100%;'/>" +
+                                        "</div>" +
+                                            "<span style='text-align:center;width:100%;display:inline-table;margin-top:5px;'>" + value.gsjc + "</span>" +
                                         " </div>")
                                     $("#jladd").append(item)
 
@@ -3656,7 +3665,7 @@
             //    $.query("#navbar").css("display", "none");
             //}
         }//当键盘显示时，对data-footer显示
-        alert("end")
+       
     }
 
 
