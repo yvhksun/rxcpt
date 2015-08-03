@@ -2054,11 +2054,11 @@
                                 $.each(data, function (k, value) {
                                     var myheight = $(window).width() / 3.0;
                                     var radiu = myheight / 2.0;
-                                    var mycolor = value.state == -2 ? "#e0e0e0" : "#00d5fe";
+                                    var mycolorClass = value.state == -2 ? "bianhui" : "";
                                     var item = $(
                                         
                                         " <div onclick='clickToGotoCompanyAtJiaoLiu(\"" + value.state + "\",\"" + value.gsqc + "\")' gsqc='" + value.gsqc + "' style='width:" + myheight + "px;height:" + myheight + "px;float:left;padding:3% 5%;border:solid 1px #91ccea;margin-top:-1px;margin-right:-1px;'>" +
-                                        "<div style='border-radius:" + radiu + "px;border:solid 2px " + mycolor + ";height:85%;width:100%;padding:15%;'>" +
+                                        "<div class='" + mycolorClass + "' style='border-radius:" + radiu + "px;border:solid 2px #00d5fe;height:85%;width:100%;padding:15%;'>" +
                                             "<img src='http://120.24.220.249" + value.logo + "' class='jltbl'style='height:100%;width:100%;'/>" +
                                         "</div>" +
                                             "<span style='text-align:center;width:100%;display:inline-table;margin-top:5px;'>" + value.gsjc + "</span>" +
@@ -2089,6 +2089,13 @@
                     }
 
                 </script>
+                <style>
+                    .bianhui{
+                        filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
+                        -webkit-filter: grayscale(100%);
+                    }
+                    
+                </style>
 
             </div>
 
